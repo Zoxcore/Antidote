@@ -1,1 +1,400 @@
 
+
+/* Login button */
+"log_in" = "Accedi";
+/* Login screen text */
+"login_or_label" = "o";
+/* Login screen text */
+"create_account" = "Crea un account";
+/* Login screen text */
+"import_profile" = "Importa un profilo";
+/* Password field */
+"password" = "Password";
+/* Login screen text */
+"create_profile" = "Crea un profilo";
+/* Login screen text */
+"create_account_username_placeholder" = "Nome utente";
+/* Login screen text */
+"create_account_profile_hint" = "ad esempio, Principale, iPhone";
+/* Login screen text */
+"set_password_title" = "Imposta una password";
+/* Login screen text */
+"set_password_hint" = "La password è necessaria per proteggere i tuoi dati. Tienila al sicuro – una volta persa non può essere ripristinata.";
+/* Login button */
+"create_account_next_button" = "Successivo";
+/* Login button */
+"create_account_go_button" = "Vai";
+/* Default status message */
+"default_user_status_message" = "Toxando su Antidote";
+
+/* PIN screen text */
+"pin_enter_to_unlock" = "Inserisci il tuo codice per sbloccare";
+/* PIN screen text */
+"pin_set" = "Imposta PIN";
+/* PIN screen text */
+"pin_confirm" = "Conferma PIN";
+/* PIN screen error */
+"pin_incorrect" = "PIN errato";
+/* PIN screen screen */
+"pin_touch_id_enabled" = "Abilita Touch ID";
+/* PIN screen screen */
+"pin_description" = "Impedisci l'accesso non autorizzato ad Antidote con un PIN.";
+/* PIN screen screen */
+"pin_touch_id_description" = "Usa la tua impronta digitale come alternativa all'inserimento del PIN.";
+/* PIN screen screen */
+"pin_lock_timeout" = "Tempo prima del blocco";
+/* PIN screen screen */
+"pin_lock_immediately" = "Immediatamente";
+/* PIN screen screen */
+"pin_lock_1_minute" = "1 minuto";
+/* PIN screen screen */
+"pin_lock_5_minutes" = "5 minuti";
+
+/* Label shown when connecting to Tox network */
+"connecting_label" = "Connessione in corso…";
+
+/* Tab name and screen name */
+"contacts_title" = "Contatti";
+/* Tab name and screen name */
+"chats_title" = "Discussioni";
+/* Tab name and screen name */
+"settings_title" = "Impostazioni";
+/* Tab name and screen name */
+"profile_title" = "Profilo";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "Nessun contatto";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "Aggiungi un contatto\no\n";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "condividi il tuo ID Tox";
+/* Contact request section title */
+"contact_requests_section" = "Richieste di contatto";
+/* Contact request button */
+"contact_request_accept" = "Accetta";
+/* Contact request confirmation */
+"contact_request_delete_title" = "Eliminare la richiesta di contatto?";
+/* Text shown when contact was deleted */
+"contact_deleted" = "Contatto eliminato";
+
+/* Add contat screen name */
+"add_contact_title" = "Aggiungi un contatto";
+/* Add contat button */
+"add_contact_send" = "Invia";
+/* Add contat placeholder text */
+"add_contact_tox_id_placeholder" = "Inserisci il ID Tox";
+/* Add contat placeholder text */
+"add_contact_or_label" = "o";
+/* Add contat button */
+"add_contact_use_qr" = "Usa il codice QR";
+/* Add contat default text sended to contact */
+"add_contact_default_message_text" = "Ciao! Potresti aggiungermi alla tua lista di contatti?";
+/* Contact request button */
+"contact_request_decline" = "Declino";
+/* Profile button */
+"logout_button" = "Esci";
+
+/* QR code screen button */
+"qr_close_button" = "Chiudi";
+
+/* Chat screen placeholder */
+"chat_no_chats" = "Nessuna discussione";
+/* Chats screen message text */
+"chat_outgoing_file" = "File in uscita:";
+/* Chats screen message text */
+"chat_incoming_file" = "File in arrivo:";
+/* Chats screen message text */
+"chat_call_finished" = "Chiamata finita";
+/* Chat button */
+"chat_send_button" = "Invia";
+/* Chat notification toast */
+"chat_new_messages" = "↓ Nuovi messaggi";
+/* Chat call information */
+"chat_call_message" = "Chiamata, ";
+/* Chat call information */
+"chat_missed_call_message" = "Chiamata persa";
+/* Item present in the menu on long press on message */
+"chat_more_menu_item" = "Più";
+
+/* Status message */
+"status_offline" = "Fuori linea";
+/* Status message */
+"status_online" = "In linea";
+/* Status message */
+"status_away" = "Assente";
+/* Status message */
+"status_busy" = "Occupato/a";
+
+/* Notification text */
+"notification_new_message" = "Nuovo messaggio";
+/* Notification text */
+"notification_incoming_contact_request" = "Richiesta di contatto in arrivo";
+/* Notification text */
+"notification_is_calling" = "sta chiamando";
+/* Notification text */
+"notification_incoming_file" = "File in arrivo";
+/* Settings menu / screen name */
+"settings_faq" = "Domande frequenti";
+/* Settings menu / screen name */
+"settings_advanced_settings" = "Impostazioni avanzate";
+
+/* Settings menu / screen name */
+"settings_about" = "Informazioni";
+/* About screen menu */
+"settings_antidote_version" = "Versione di Antidote";
+/* About screen menu */
+"settings_antidote_build" = "Build di Antidote";
+/* About screen menu */
+"settings_toxcore_version" = "Versione di Toxcore";
+/* About screen menu */
+"settings_acknowledgements" = "Ringraziamenti";
+/* Settings screen menu */
+"settings_autodownload_images" = "Scarica automaticamente le immagini";
+/* Settings screen menu */
+"settings_autodownload_images_description" = "Scarica automaticamente le immagini in arrivo.";
+/* Settings screen menu */
+"settings_notifications_message_preview" = "Anteprima della notifica";
+/* Settings screen menu */
+"settings_notifications_description" = "Quando l'applicazione va nello sfondo, riceverai ancora le notifiche fino a 10 minuti.";
+/* Settings screen menu */
+"settings_udp_enabled" = "Abilita UDP";
+/* Settings screen menu */
+"settings_restore_default" = "Ripristina le impostazioni predefinite";
+/* Settings screen autodownload images option */
+"settings_never" = "Mai";
+/* Settings screen autodownload images option */
+"settings_using_wifi" = "Usando il Wi-Fi";
+/* Settings screen autodownload images option */
+"settings_always" = "Sempre";
+
+/* Profile settings menu */
+"change_password" = "Cambia la password";
+/* Profile settings menu */
+"delete_password" = "Elimina la password";
+/* Profile settings menu */
+"old_password" = "Vecchia password";
+/* Change password text */
+"new_password" = "Nuova password";
+/* Change password text */
+"repeat_password" = "Ripeti la password";
+/* Change password button */
+"change_password_done" = "Finito";
+/* Change password error */
+"password_is_empty_error" = "La password non deve essere vuota";
+/* Change password error */
+"wrong_old_password" = "Password sbagliata";
+/* Change password error */
+"passwords_do_not_match" = "Le password non corrispondono";
+/* Error while converting avatar image */
+"change_avatar_error_convert_image" = "Impossibile convertire l'immagine";
+
+/* Alert text when sending file to contacts */
+"file_send_to_contact" = "Invia al contatto";
+
+/* Profile menu item */
+"export_profile" = "Esporta il profilo";
+/* Profile menu item */
+"delete_profile" = "Elimina il profilo";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_2" = "Sei sicuro/a?";
+/* Delete profile confirmation */
+"delete_profile_confirmation_message" = "Questa operazione non può essere annullata";
+
+/* Call screen text */
+"call_incoming" = "Chiamata in arrivo";
+/* File message text */
+"chat_waiting" = "In attesa…";
+
+/* Deleting chat confirmation */
+"delete_chat_title" = "Eliminare questa discussione e la cronologia dei messaggi?";
+/* Deleting contat confirmation */
+"delete_contact_title" = "Eliminare questo contatto?\nLa storia della tua discussione andrà persa.";
+/* Deleting contat request confirmation */
+"delete_contact_request_title" = "Eliminare questa richiesta di contatto?";
+/* Deleting single message in chat */
+"delete_single_message" = "Elimina il messaggio";
+/* Deleting multiple messages in chat. */
+"delete_multiple_messages" = "Elimina i messaggi";
+/* Delete button */
+"alert_cancel" = "Annulla";
+
+/* Error while creating new profile */
+"login_enter_username_and_profile" = "Inserisci sia il nome utente che il nome del profilo.";
+/* Error while creating new profile */
+"login_profile_already_exists" = "Il profilo con il nome dato esiste già";
+
+/* General error title */
+"error_title" = "Errore";
+/* Error */
+"error_internal_message" = "Errore interno";
+/* Error */
+"error_import_not_exist_message" = "Il file non esiste.";
+/* Error */
+"error_decrypt_title" = "Impossibile decifrare il file di salvataggio tox";
+/* Error */
+"error_decrypt_empty_data_message" = "Alcuni dati di ingresso erano vuoti.";
+/* Error */
+"error_decrypt_bad_format_message" = "Il file ha un cattivo formato o è corrotto.";
+/* Error */
+"error_decrypt_wrong_password_message" = "La password è sbagliata o il file è corrotto.";
+/* Error */
+"error_general_unknown_message" = "Si è verificato un errore sconosciuto.";
+/* Error */
+"error_general_no_memory_message" = "Non c'è abbastanza memoria.";
+/* Error */
+"error_general_bind_port_message" = "Non è riuscito a collegarsi a una porta.";
+/* Error */
+"error_general_bad_format_message" = "Il file ha un cattivo formato o è corrotto.";
+/* Error */
+"error_proxy_title" = "Errore proxy";
+/* Error */
+"error_proxy_invalid_address_message" = "L'indirizzo del proxy ha un formato non valido.";
+/* Error */
+"error_contact_request_already_sent" = "La richiesta di contatto è già stata inviata";
+/* Error */
+"error_contact_request_bad_checksum" = "Cattivo checksum, si prega di controllare l'ID Tox inserito";
+/* Error */
+"error_contact_request_new_nospam" = "Valore nospam errato, controlla l'ID Tox inserito";
+
+/* Call error */
+"call_error_already_in_call" = "Già in una chiamata";
+/* Call error */
+"call_error_contact_is_offline" = "Il contatto è fuori linea";
+/* Call error */
+"call_error_no_active_call" = "Non c'è nessuna chiamata attiva";
+
+/* Error while using color theme */
+"theme_error_cannot_open" = "Impossibile aprire il tema, formato sbagliato";
+
+/* Tab chats badge ending */
+"accessibility_chats_ending" = "discussioni non lette";
+/* Avatar button label in settings */
+"accessibility_avatar_button_label" = "Avatar";
+/* Avatar button hint in settings */
+"accessibility_avatar_button_hint" = "Imposta o rimuove l'avatar.";
+/* Chat button label in contact screen */
+"accessibility_chat_button_label" = "Discussione";
+/* Chat button hint in contact screen */
+"accessibility_chat_button_hint" = "Apre la finestra di dialogo della discussione.";
+/* Call button label in contact screen */
+"accessibility_call_button_label" = "Chiamata audio";
+/* Video button label in contact screen */
+"accessibility_video_button_label" = "Videochiamata";
+/* Tap to copy hint */
+"accessibility_show_copy_hint" = "Mostra il menù di copia.";
+/* Tap to edit value hint */
+"accessibility_edit_value_hint" = "Modifica il valore.";
+/* Incoming message label */
+"accessibility_incoming_message_label" = "Messaggio";
+/* Outgoing message label */
+"accessibility_outgoing_message_label" = "Il tuo messaggio";
+/* Login screen text */
+"import_to_antidote" = "Importa in Antidote";
+/* Login screen text */
+"create_account_username_title" = "Come ti vedranno i contatti?";
+/* PIN screen error */
+"pin_do_not_match" = "Il PIN non corrisponde. Provi di nuovo";
+/* PIN screen message shown on log out */
+"pin_logout_message" = "Troppi tentativi falliti. Sei stato/a disconnesso/a.";
+/* Screen name */
+"contact_request" = "Richiesta di contatto";
+/* Share Tox ID text */
+"copy" = "Copia";
+/* Call screen text */
+"call_reaching" = "In attesa…";
+/* Add contat placeholder text */
+"add_contact_default_message_title" = "Messaggio";
+/* Login screen text */
+"create_account_profile_title" = "Come chiamare questo profilo?";
+/* PIN screen screen */
+"pin_enabled" = "Abilita il PIN";
+/* PIN screen screen */
+"pin_lock_2_minutes" = "2 minuti";
+
+/* User name text */
+"name" = "Nome";
+/* User nickname text */
+"nickname" = "Soprannome";
+
+/* Source of photo to take */
+"photo_from_camera" = "Fotocamera";
+/* File message text */
+"chat_paused" = "In pausa";
+/* Deleting all messages in chat. */
+"delete_all_messages" = "Elimina tutto";
+/* Error */
+"error_too_many_files" = "Troppi trasferimenti di file attivi";
+/* Error */
+"error_wrong_password_title" = "Password sbagliata";
+/* Error */
+"error_wrong_password_message" = "La password contiene simboli sbagliati.";
+/* Error */
+"error_import_not_exist_title" = "Impossibile importare un file di salvataggio tossico";
+/* Error */
+"error_proxy_invalid_port_message" = "La porta proxy non è valida.";
+/* Error */
+"error_proxy_host_not_resolved_message" = "L'host proxy non può essere risolto.";
+/* Error */
+"error_contact_request_own_key" = "Non posso aggiungermi alla lista dei contatti";
+/* Video button hint in contact screen */
+"accessibility_video_button_hint" = "Fa una videochiamata.";
+/* Login screen text */
+"create_account_profile_placeholder" = "Nome del profilo";
+/* PIN screen error details */
+"pin_failed_attempts" = "Tentativi falliti: %@";
+/* PIN screen screen */
+"pin_lock_30_seconds" = "30 secondi";
+/* Contact last seen status */
+"contact_last_seen" = "Ultimo accesso: %@";
+
+/* Share Tox ID text */
+"show_qr_code" = "Mostra il codice QR";
+/* Add contat error */
+"add_contact_wrong_qr" = "Codice QR sbagliato. Dovrebbe contenere l'ID Tox";
+/* User status message text */
+"status_message" = "Messaggio di stato";
+/* User status text */
+"status_title" = "Stato";
+/* User Tox ID text */
+"my_tox_id" = "Il mio ID Tox";
+/* User public key text */
+"public_key" = "Chiave pubblica";
+/* Share Tox ID text */
+"show_qr" = "Mostra il codice QR";
+/* Profile menu item / screen name */
+"profile_details" = "Dettagli del profilo";
+/* Chats screen message text */
+"chat_unanwered_call" = "Chiamata senza risposta";
+/* Settings screen autodownload images option */
+"settings_wifi" = "Wi-Fi";
+/* Source of photo to take */
+"photo_from_photo_library" = "Fototeca";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_1" = "Elimina questo profilo?";
+/* Call screen text */
+"call_ended" = "Chiamata terminata";
+
+/* File message text */
+"chat_file_cancelled" = "Annullato";
+/* Delete button */
+"alert_delete" = "Elimina";
+/* General error button */
+"error_ok_button" = "OK";
+/* General error button */
+"error_retry_button" = "Riprova";
+/* Error */
+"error_contact_not_connected" = "Il contatto non è in linea";
+/* Error */
+"error_general_profile_encrypted_message" = "Il profilo è crittografato.";
+
+/* Error */
+"error_name_too_long" = "Il nome è troppo lungo.";
+/* Error */
+"error_status_message_too_long" = "Il messaggio di stato è troppo lungo";
+
+/* Error */
+"error_contact_request_too_long" = "Il messaggio è troppo lungo";
+/* Error */
+"error_contact_request_no_message" = "Nessun messaggio specificato";
+/* Call button hint in contact screen */
+"accessibility_call_button_hint" = "Fa una chiamata audio.";
