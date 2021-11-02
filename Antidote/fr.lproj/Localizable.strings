@@ -55,7 +55,7 @@
 /* PIN screen error */
 "pin_do_not_match" = "Les codes PIN ne correspondent pas. Réessayez";
 /* PIN screen error */
-"pin_incorrect" = "Code PIN incorrect";
+"pin_incorrect" = "PIN incorrect";
 /* PIN screen error details */
 "pin_failed_attempts" = "Tentatives échouées : %@";
 /* PIN screen message shown on log out */
@@ -180,13 +180,13 @@
 "chat_more_menu_item" = "Plus";
 
 /* Status message */
-"status_offline" = "Déconnecté";
+"status_offline" = "Hors ligne";
 /* Status message */
-"status_online" = "Connecté";
+"status_online" = "En ligne";
 /* Status message */
-"status_away" = "Absent";
+"status_away" = "Absent(e)";
 /* Status message */
-"status_busy" = "Occupé";
+"status_busy" = "Occupé(e)";
 
 /* Notification text */
 "notification_new_message" = "Nouveau message";
@@ -198,7 +198,7 @@
 "notification_incoming_file" = "Fichier entrant";
 
 /* Settings menu / screen name */
-"settings_about" = "A propos";
+"settings_about" = "À propos";
 /* Settings menu / screen name */
 "settings_faq" = "FAQ";
 /* Settings menu / screen name */
@@ -216,7 +216,7 @@
 /* Settings screen menu */
 "settings_autodownload_images_description" = "Télécharger automatiquement les images entrantes.";
 /* Settings screen menu */
-"settings_notifications_message_preview" = "Aperçu des Notifications";
+"settings_notifications_message_preview" = "Aperçu des notifications";
 /* Settings screen menu */
 "settings_notifications_description" = "Lorsque l'application sera en arrière-plan, vous recevrez encore des notifications pendant 10 minutes.";
 /* Settings screen menu */
@@ -254,7 +254,7 @@
 /* Source of photo to take */
 "photo_from_camera" = "Appareil photo";
 /* Source of photo to take */
-"photo_from_photo_library" = "La Photothèque";
+"photo_from_photo_library" = "Photothèque";
 /* Error while converting avatar image */
 "change_avatar_error_convert_image" = "Impossible de convertir l'image";
 
@@ -268,7 +268,7 @@
 /* Delete profile confirmation */
 "delete_profile_confirmation_title_1" = "Vous voulez bien supprimer ce profil ?";
 /* Delete profile confirmation */
-"delete_profile_confirmation_title_2" = "Vous êtes certain ?";
+"delete_profile_confirmation_title_2" = "Confirmez-vous ?";
 /* Delete profile confirmation */
 "delete_profile_confirmation_message" = "Cette opération ne peut pas être annulée";
 
@@ -343,7 +343,7 @@
 /* Error */
 "error_general_bind_port_message" = "Impossible de se lier à un port.";
 /* Error */
-"error_general_profile_encrypted_message" = "Le profil est crypté.";
+"error_general_profile_encrypted_message" = "Le profil est chiffré.";
 /* Error */
 "error_general_bad_format_message" = "Le fichier a un mauvais format ou est corrompu.";
 /* Error */
@@ -390,7 +390,7 @@
 /* Avatar button hint in settings */
 "accessibility_avatar_button_hint" = "Définit ou supprime l'avatar.";
 /* Chat button label in contact screen */
-"accessibility_chat_button_label" = "Chat";
+"accessibility_chat_button_label" = "Discussion";
 /* Chat button hint in contact screen */
 "accessibility_chat_button_hint" = "Ouvre la boîte de dialogue.";
 /* Call button label in contact screen */
