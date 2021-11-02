@@ -149,7 +149,7 @@
 /* Profile menu item / screen name */
 "profile_details" = "Profil Details";
 /* Profile button */
-"logout_button" = "Logout";
+"logout_button" = "Abmelden";
 
 /* QR code screen button */
 "qr_close_button" = "Schließen";
@@ -377,7 +377,7 @@
 "call_error_no_active_call" = "Es gibt keinen aktiven Anruf";
 
 /* Error while using color theme */
-"theme_error_cannot_open" = "Kann Theme nicht öffnen, falsches Format";
+"theme_error_cannot_open" = "Kann Farbschema nicht öffnen, falsches Format";
 
 /* Tab chats badge ending */
 "accessibility_chats_ending" = "ungelesene Chats";
