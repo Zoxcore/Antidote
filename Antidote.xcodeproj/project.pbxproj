@@ -1483,7 +1483,7 @@
 						TestTargetID = 1164762E19794D3300DB20B8;
 					};
 					1164762E19794D3300DB20B8 = {
-						DevelopmentTeam = NHVF8NSG3J;
+						DevelopmentTeam = Y46L589C5C;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2631,15 +2631,16 @@
 				CODE_SIGN_ENTITLEMENTS = Antidote/Antidote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 30;
-				DEVELOPMENT_TEAM = NHVF8NSG3J;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = Y46L589C5C;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Antidote/Antidote-Prefix.pch";
 				GCC_WARN_SIGN_COMPARE = YES;
 				INFOPLIST_FILE = "Antidote/Antidote-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zoxcore.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2663,15 +2664,16 @@
 				CODE_SIGN_ENTITLEMENTS = Antidote/Antidote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 30;
-				DEVELOPMENT_TEAM = NHVF8NSG3J;
+				CURRENT_PROJECT_VERSION = 32;
+				DEVELOPMENT_TEAM = Y46L589C5C;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Antidote/Antidote-Prefix.pch";
 				GCC_WARN_SIGN_COMPARE = YES;
 				INFOPLIST_FILE = "Antidote/Antidote-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zoxcore.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

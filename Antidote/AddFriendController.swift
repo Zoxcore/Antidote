@@ -95,7 +95,7 @@ extension AddFriendController {
         let messageView = UITextView()
         messageView.text = cachedMessage
         let placeholderstring = NSAttributedString.init(string: String(localized: "add_contact_default_message_text"))
-        messageView.attributedPlaceholder = placeholderstring
+        //messageView.attributedPlaceholder = placeholderstring
         messageView.font = UIFont.systemFont(ofSize: 17.0)
         messageView.layer.cornerRadius = 5.0
         messageView.layer.masksToBounds = true
@@ -170,7 +170,7 @@ private extension AddFriendController {
     func createViews() {
         textView = UITextView()
         let placeholderstring = NSAttributedString.init(string: String(localized: "add_contact_tox_id_placeholder"))
-        textView.attributedPlaceholder = (placeholderstring)
+        //textView.attributedPlaceholder = (placeholderstring)
         textView.delegate = self
         textView.isScrollEnabled = false
         textView.font = UIFont.systemFont(ofSize: 17)
