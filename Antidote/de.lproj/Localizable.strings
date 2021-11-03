@@ -10,13 +10,13 @@
 /* Login screen text */
 "login_or_label" = "oder";
 /* Login screen text */
-"create_account" = "Account erstellen";
+"create_account" = "Konto erstellen";
 /* Login screen text */
-"import_profile" = "Profil importieren ";
+"import_profile" = "Profil importieren";
 /* Password field */
-"password" = "Passwort ";
+"password" = "Passwort";
 /* Login button */
-"log_in" = "Login";
+"log_in" = "Anmelden";
 /* Login screen text */
 "create_profile" = "Profil erstellen";
 /* Login screen text */
@@ -34,7 +34,7 @@
 /* Login screen text */
 "set_password_title" = "Passwort setzen";
 /* Login screen text */
-"set_password_hint" = "Ein Passwort wird benötigt, um deine Daten zu schützen. Bewahre es gut auf - es kann nicht wiederhergestellt werden wenn es verloren gegangen ist!";
+"set_password_hint" = "Ein Passwort wird benötigt, um deine Daten zu schützen. Bewahre es gut auf – es kann nicht wiederhergestellt werden wenn es verloren gegangen ist.";
 /* Login button */
 "create_account_next_button" = "Weiter";
 /* Login button */
@@ -169,7 +169,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ Neue Nachrichten";
 /* Chat call information */
-"chat_call_message" = "Anruf,";
+"chat_call_message" = "Anruf, ";
 /* Chat call information */
 "chat_missed_call_message" = "Verpasster Anruf";
 /* Item present in the menu on long press on message */
@@ -202,9 +202,9 @@
 /* About screen menu */
 "settings_antidote_version" = "Antidote Version";
 /* About screen menu */
-"settings_antidote_build" = "Antidote Build";
+"settings_antidote_build" = "Antidote-Build";
 /* About screen menu */
-"settings_toxcore_version" = "Toxcore Version";
+"settings_toxcore_version" = "Toxcore-Version";
 /* About screen menu */
 "settings_acknowledgements" = "Danksagungen";
 /* Settings screen menu */
@@ -333,7 +333,7 @@
 /* Error */
 "error_decrypt_wrong_password_message" = "Passwort ist falsch oder Datei ist beschädigt.";
 /* Error */
-"error_general_unknown_message" = "Unbekannter Fehler";
+"error_general_unknown_message" = "Unbekannter Fehler.";
 /* Error */
 "error_general_no_memory_message" = "Nicht genügend Arbeitsspeicher.";
 /* Error */

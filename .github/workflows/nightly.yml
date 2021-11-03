@@ -38,6 +38,11 @@ jobs:
             xcodebuild -list -workspace Antidote.xcworkspace
             xcodebuild -list -project Antidote.xcodeproj
 
+    - name: xcode list destinations
+      run:  |
+            env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination "name=NoSuchName" -destination-timeout 1 || echo 'NO ERR'
+            xcrun xctrace list devices || echo 'NOERR'
+
     - name: xcode compile
       run:  |
             echo "iPhone 11 Simulator"

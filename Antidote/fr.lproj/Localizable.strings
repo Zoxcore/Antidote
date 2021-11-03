@@ -34,7 +34,7 @@
 /* Login screen text */
 "create_account_profile_placeholder" = "Nom du profil";
 /* Login screen text */
-"create_account_profile_hint" = "par exemple, Home, iPhone";
+"create_account_profile_hint" = "par exemple, Principal, iPhone";
 /* Login screen text */
 "set_password_title" = "Définir un mot de passe";
 /* Login screen text */
@@ -369,9 +369,9 @@
 /* Error */
 "error_contact_request_already_sent" = "L'invitation a déjà été envoyée";
 /* Error */
-"error_contact_request_bad_checksum" = "Mauvais checksum, veuillez vous assurer d'avoir saisi la bonne identité Tox.";
+"error_contact_request_bad_checksum" = "Mauvaise somme de contrôle, veuillez vérifier l'identité Tox saisie";
 /* Error */
-"error_contact_request_new_nospam" = "Mauvais nospam, veuillez vous assurer d'avoir saisi la bonne identité Tox.";
+"error_contact_request_new_nospam" = "Mauvais nospam, veuillez vous assurer d'avoir saisi la bonne identité Tox";
 
 /* Call error */
 "call_error_already_in_call" = "Déjà participant à un appel";
@@ -384,28 +384,28 @@
 "theme_error_cannot_open" = "Impossible d'ouvrir le thème, mauvais format";
 
 /* Tab chats badge ending */
-"accessibility_chats_ending" = "unread chats";
+"accessibility_chats_ending" = "discussions non lues";
 /* Avatar button label in settings */
 "accessibility_avatar_button_label" = "Avatar";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "Sets or removes avatar.";
+"accessibility_avatar_button_hint" = "Définit ou supprime l'avatar.";
 /* Chat button label in contact screen */
 "accessibility_chat_button_label" = "Chat";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "Opens chat dialog.";
+"accessibility_chat_button_hint" = "Ouvre la boîte de dialogue.";
 /* Call button label in contact screen */
-"accessibility_call_button_label" = "Audio call";
+"accessibility_call_button_label" = "Appel audio";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Makes audio call.";
+"accessibility_call_button_hint" = "Effectue un appel audio.";
 /* Video button label in contact screen */
-"accessibility_video_button_label" = "Video call";
+"accessibility_video_button_label" = "Appel vidéo";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "Makes video call.";
+"accessibility_video_button_hint" = "Effectue un appel vidéo.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "Shows copy menu.";
+"accessibility_show_copy_hint" = "Affiche le menu de copie.";
 /* Tap to edit value hint */
-"accessibility_edit_value_hint" = "Edits value.";
+"accessibility_edit_value_hint" = "Modifie la valeur.";
 /* Incoming message label */
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
-"accessibility_outgoing_message_label" = "Your message";
+"accessibility_outgoing_message_label" = "Votre message";
