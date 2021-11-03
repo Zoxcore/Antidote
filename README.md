@@ -19,6 +19,9 @@ See [FAQ](FAQ/en.md).
 Use Weblate:
 https://hosted.weblate.org/engage/antidote/
 
+## Get in touch
+* <a href="https://matrix.to/#/#antidote:libera.chat">Join discussion on Matrix</a><br>
+
 ## Usage
 
 #### Manual Installation
