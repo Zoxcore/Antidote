@@ -354,10 +354,10 @@
 /* Error */
 "error_name_too_long" = "Name ist zu lang.";
 /* Error */
-"error_status_message_too_long" = "Status Nachricht ist zu lang.";
+"error_status_message_too_long" = "Status Nachricht ist zu lang";
 
 /* Error */
-"error_contact_request_too_long" = "Nachricht ist zu lang.";
+"error_contact_request_too_long" = "Nachricht ist zu lang";
 /* Error */
 "error_contact_request_no_message" = "Keine Nachricht angegeben";
 /* Error */
@@ -384,23 +384,23 @@
 /* Avatar button label in settings */
 "accessibility_avatar_button_label" = "Avatar";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "Avatar hinzufügen oder löschen";
+"accessibility_avatar_button_hint" = "Avatar hinzufügen oder löschen.";
 /* Chat button label in contact screen */
 "accessibility_chat_button_label" = "Chat";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "Öffnet Chat";
+"accessibility_chat_button_hint" = "Öffnet Chat.";
 /* Call button label in contact screen */
 "accessibility_call_button_label" = "Sprachanruf";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Startet Sprachanruf";
+"accessibility_call_button_hint" = "Startet Sprachanruf.";
 /* Video button label in contact screen */
 "accessibility_video_button_label" = "Videoanruf";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "Startet Videoanruf";
+"accessibility_video_button_hint" = "Startet Videoanruf.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "Zeigt Kopiermenü";
+"accessibility_show_copy_hint" = "Zeigt Kopiermenü.";
 /* Tap to edit value hint */
-"accessibility_edit_value_hint" = "Wert bearbeiten";
+"accessibility_edit_value_hint" = "Bearbeitet den Wert.";
 /* Incoming message label */
 "accessibility_incoming_message_label" = "Nachricht";
 /* Outgoing message label */
