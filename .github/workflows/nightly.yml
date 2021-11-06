@@ -46,8 +46,8 @@ jobs:
     - name: xcode compile
       run:  |
             echo "iPhone 11 Simulator"
-            env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination "name=NoSuchName" -destination-timeout 1 2>&1 | grep 'platform:iOS Simulator,' | grep 'name:iPhone 11 ' | tail -1 | sed -e 's#.* id:##'|sed -e 's#, OS:.*$##'
-            env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination 'platform=iOS Simulator,id=FC41B203-8F38-458B-9F64-23ADB1A969B4'
+            id=$(env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination "name=NoSuchName" -destination-timeout 1 2>&1 | grep 'platform:iOS Simulator,' | grep 'name:iPhone 11 }' | tail -1 | sed -e 's#.* id:##'|sed -e 's#, OS:.*$##')
+            env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination "platform=iOS Simulator,id=$id"
 
     - name: check compile output
       run:  |
