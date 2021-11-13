@@ -129,7 +129,12 @@ private extension FriendCardController {
         statusMessageModel.userInteractionEnabled = false
 
         publicKeyModel.title = String(localized: "public_key")
-        publicKeyModel.value = friend.publicKey
+        let pushtoken = friend.pushToken ?? ""
+        if (pushtoken.count > 0) {
+            publicKeyModel.value = friend.publicKey + "\n\n" + pushtoken
+        } else {
+            publicKeyModel.value = friend.publicKey
+        }
         publicKeyModel.userInteractionEnabled = false
     }
 }
