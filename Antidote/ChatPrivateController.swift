@@ -5,7 +5,6 @@
 import UIKit
 import SnapKit
 import MobileCoreServices
-import Photos
 
 private struct Constants {
     static let MessagesPortionSize = 50
@@ -60,11 +59,18 @@ class ChatPrivateController: KeyboardNotificationController {
 
     fileprivate var titleView: ChatPrivateTitleView!
     fileprivate var tableView: UITableView?
+    fileprivate var typingHeaderView: ChatTypingHeaderView!
+    fileprivate var fauxOfflineHeaderView: ChatFauxOfflineHeaderView!
     fileprivate var newMessagesView: UIView!
     fileprivate var chatInputView: ChatInputView!
     fileprivate var editMessagesToolbar: UIToolbar!
 
+    fileprivate var chatInputViewManager: ChatInputViewManager!
+
     fileprivate var tableViewTapGestureRecognizer: UITapGestureRecognizer!
+
+    fileprivate var tableViewToChatInputConstraint: Constraint!
+    fileprivate var typingViewToChatInputConstraint: Constraint!
 
     fileprivate var newMessageViewTopConstraint: Constraint?
     fileprivate var chatInputViewBottomConstraint: Constraint?
@@ -131,6 +137,7 @@ class ChatPrivateController: KeyboardNotificationController {
         loadViewWithBackgroundColor(theme.colorForType(.NormalBackground))
 
         createTableView()
+        createTableHeaderViews()
         createNewMessagesView()
         createInputView()
         createEditMessageToolbar()
@@ -545,44 +552,6 @@ extension ChatPrivateController: ChatMovableDateCellDelegate {
     }
 }
 
-extension ChatPrivateController: ChatInputViewDelegate {
-    func chatInputViewCameraButtonPressed(_ view: ChatInputView, cameraView: UIView) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.popoverPresentationController?.sourceView = cameraView
-        alert.popoverPresentationController?.sourceRect = CGRect(x: cameraView.frame.size.width / 2, y: cameraView.frame.size.height / 2, width: 1.0, height: 1.0)
-
-        func addAction(title: String, sourceType: UIImagePickerControllerSourceType) {
-            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-                alert.addAction(UIAlertAction(title: title, style: .default) { [unowned self] _ -> Void in
-                    let controller = UIImagePickerController()
-                    controller.delegate = self
-                    controller.sourceType = sourceType
-                    controller.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
-                    controller.videoQuality = .typeHigh
-                    self.present(controller, animated: true, completion: nil)
-                })
-            }
-        }
-
-        addAction(title: String(localized: "photo_from_camera"), sourceType: .camera)
-        addAction(title: String(localized: "photo_from_photo_library"), sourceType: .photoLibrary)
-        alert.addAction(UIAlertAction(title: String(localized: "alert_cancel"), style: .cancel, handler: nil))
-
-        present(alert, animated: true, completion: nil)
-    }
-
-    func chatInputViewSendButtonPressed(_ view: ChatInputView) {
-        submanagerChats.sendMessage(to: chat, text: view.text, type: .normal, successBlock: nil, failureBlock: nil)
-
-        view.text = ""
-        submanagerObjects.change(chat, enteredText: "")
-    }
-
-    func chatInputViewTextDidChange(_ view: ChatInputView) {
-        submanagerObjects.change(chat, enteredText: view.text)
-    }
-}
-
 extension ChatPrivateController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let panGR = gestureRecognizer as? UIPanGestureRecognizer else {
@@ -594,34 +563,6 @@ extension ChatPrivateController: UIGestureRecognizerDelegate {
         return fabsf(Float(translation.x)) > fabsf(Float(translation.y))
     }
 }
-
-extension ChatPrivateController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        dismiss(animated: true, completion: nil)
-
-        guard let type = info[UIImagePickerControllerMediaType] as? String else {
-            return
-        }
-
-        let typeImage = kUTTypeImage as String
-        let typeMovie = kUTTypeMovie as String
-
-        switch type {
-            case typeImage:
-                sendImage(imagePickerInfo: info)
-            case typeMovie:
-                sendMovie(imagePickerInfo: info)
-            default:
-                return
-        }
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ChatPrivateController: UINavigationControllerDelegate {}
 
 private extension ChatPrivateController {
     func createNavigationViews() {
@@ -663,6 +604,16 @@ private extension ChatPrivateController {
         tableView.addGestureRecognizer(panGR)
     }
 
+    func createTableHeaderViews() {
+        typingHeaderView = ChatTypingHeaderView(theme: theme)
+        typingHeaderView.transform = tableView!.transform
+        view.addSubview(typingHeaderView)
+
+        fauxOfflineHeaderView = ChatFauxOfflineHeaderView(theme: theme)
+        fauxOfflineHeaderView.transform = tableView!.transform
+        view.addSubview(fauxOfflineHeaderView)
+    }
+
     func createNewMessagesView() {
         newMessagesView = UIView()
         newMessagesView.backgroundColor = theme.colorForType(.ConnectingBackground)
@@ -696,9 +647,14 @@ private extension ChatPrivateController {
 
     func createInputView() {
         chatInputView = ChatInputView(theme: theme)
-        chatInputView.text = chat.enteredText ?? ""
-        chatInputView.delegate = self
         view.addSubview(chatInputView)
+
+        chatInputViewManager = ChatInputViewManager(inputView: chatInputView,
+                                                    chat: chat,
+                                                    submanagerChats: submanagerChats,
+                                                    submanagerFiles: submanagerFiles,
+                                                    submanagerObjects: submanagerObjects,
+                                                    presentingViewController: self)
     }
 
     func createEditMessageToolbar() {
@@ -714,7 +670,17 @@ private extension ChatPrivateController {
     func installConstraints() {
         tableView!.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view)
+
+            tableViewToChatInputConstraint = $0.bottom.equalTo(chatInputView.snp.top).constraint
         }
+
+        typingHeaderView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view)
+            $0.top.equalTo(tableView!.snp.bottom)
+            typingViewToChatInputConstraint = $0.bottom.equalTo(chatInputView.snp.top).constraint
+        }
+
+        typingViewToChatInputConstraint.deactivate()
 
         newMessagesView.snp.makeConstraints {
             $0.centerX.equalTo(tableView!)
@@ -723,7 +689,6 @@ private extension ChatPrivateController {
 
         chatInputView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view)
-            $0.top.equalTo(tableView!.snp.bottom)
             $0.top.greaterThanOrEqualTo(view).offset(Constants.InputViewTopOffset)
             chatInputViewBottomConstraint = $0.bottom.equalTo(view).constraint
         }
@@ -749,6 +714,8 @@ private extension ChatPrivateController {
 
                     self.visibleMessages = self.visibleMessages + insertions.count - deletions.count
                     tableView.endUpdates()
+
+                    self.updateTableHeaderView()
 
                     if insertions.contains(0) {
                         self.handleNewMessage()
@@ -822,7 +789,7 @@ private extension ChatPrivateController {
             titleView.userStatus = UserStatus(connectionStatus: .none, userStatus: .none)
             audioButton.isEnabled = false
             videoButton.isEnabled = false
-            chatInputView.buttonsEnabled = false
+            chatInputView.cameraButtonEnabled = false
             return
         }
 
@@ -848,11 +815,63 @@ private extension ChatPrivateController {
 
                     self.audioButton.isEnabled = isConnected
                     self.videoButton.isEnabled = isConnected
-                    self.chatInputView.buttonsEnabled = isConnected
+                    self.chatInputView.cameraButtonEnabled = isConnected
+
+                    self.updateTableHeaderView()
                 case .error(let error):
                     fatalError("\(error)")
             }
         }
+    }
+
+    func updateTableHeaderView() {
+        guard let tableView = tableView else {
+            return
+        }
+
+        guard let friend = friend else {
+            // tableView.tableHeaderView = nil
+            return
+        }
+        
+        UIView.animate(withDuration: Constants.NewMessageViewAnimationDuration, animations: {
+        if friend.isConnected {
+            if friend.isTyping {
+                self.tableViewToChatInputConstraint.deactivate()
+                self.typingViewToChatInputConstraint.activate()
+                self.typingHeaderView.isHidden = false
+                self.typingHeaderView.startAnimation()
+            }
+            else {
+                self.tableViewToChatInputConstraint.activate()
+                self.typingViewToChatInputConstraint.deactivate()
+                self.typingHeaderView.isHidden = true
+                self.typingHeaderView.stopAnimation()
+            }
+
+            self.view.layoutIfNeeded()
+        }
+        else {
+            // let predicate = NSPredicate(format: "messageText.isDelivered == NO AND senderUniqueIdentifier == nil")
+            // let hasUnsendMessages = self.messages.objects(with: predicate).count > 0
+        
+            // tableView.tableHeaderView = hasUnsendMessages ? self.fauxOfflineHeaderView : nil
+        }
+        })
+
+        updateTableHeaderViewLayout()
+    }
+
+    func updateTableHeaderViewLayout() {
+        guard let headerView = tableView?.tableHeaderView else {
+            return
+        }
+        
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        headerView.frame.size.height = height
+        tableView?.tableHeaderView = headerView
     }
 
     func updateInputViewMaxHeight() {
@@ -1055,31 +1074,6 @@ private extension ChatPrivateController {
         }
     }
 
-    func fileNameFromImageInfo(_ info: [String: Any]) -> String? {
-        guard let url = info[UIImagePickerControllerReferenceURL] as? URL else {
-            return nil
-        }
-
-        let fetchResult = PHAsset.fetchAssets(withALAssetURLs: [url], options: nil)
-
-        guard let asset = fetchResult.firstObject else {
-            return nil
-        }
-
-        if #available(iOS 9.0, *) {
-            if let resource = PHAssetResource.assetResources(for: asset).first {
-                return resource.originalFilename
-            }
-        } else {
-            // Fallback on earlier versions
-            if let name = asset.value(forKey: "filename") as? String {
-                return name
-            }
-        }
-
-        return nil
-    }
-
     func toggleTableViewEditing(_ editing: Bool, animated: Bool) {
         tableView?.setEditing(editing, animated: animated)
 
@@ -1132,35 +1126,5 @@ private extension ChatPrivateController {
         alert.addAction(UIAlertAction(title: String(localized: "alert_cancel"), style: .cancel, handler: nil))
 
         present(alert, animated: true, completion: nil)
-    }
-
-    func sendImage(imagePickerInfo: [String : Any]) {
-        guard let image = imagePickerInfo[UIImagePickerControllerOriginalImage] as? UIImage else {
-            return
-        }
-        guard let data = UIImageJPEGRepresentation(image, 0.9) else {
-            return
-        }
-
-        var fileName: String? = fileNameFromImageInfo(imagePickerInfo)
-
-        if fileName == nil {
-            let dateString = DateFormatter(type: .dateAndTime).string(from: Date())
-            fileName = "Photo \(dateString).jpg".replacingOccurrences(of: "/", with: "-")
-        }
-
-        submanagerFiles.send(data, withFileName: fileName!, to: chat) { (error: Error) in
-            handleErrorWithType(.sendFileToFriend, error: error as NSError)
-        }
-    }
-
-    func sendMovie(imagePickerInfo: [String : Any]) {
-        guard let url = imagePickerInfo[UIImagePickerControllerMediaURL] as? URL else {
-            return
-        }
-
-        submanagerFiles.sendFile(atPath: url.path, moveToUploads: true, to: chat) { (error: Error) in
-            handleErrorWithType(.sendFileToFriend, error: error as NSError)
-        }
     }
 }
