@@ -91,8 +91,8 @@ private extension ChatTypingHeaderView {
         for i in 0..<3 {
             let color = (i == animationStep) ? colorSelected : colorNormal
             mutable.append(NSMutableAttributedString(string: "•",
-                                                     attributes: [NSFontAttributeName : font,
-                                                                  NSForegroundColorAttributeName: color]))
+                                                     attributes: [NSAttributedStringKey.font : font,
+                                                                  NSAttributedStringKey.foregroundColor: color]))
         }
 
         label.attributedText = mutable

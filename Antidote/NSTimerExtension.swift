@@ -13,13 +13,14 @@ private class ClosureWrapper<T> {
 }
 
 extension Timer {
-    static func scheduledTimer(timeInterval interval: TimeInterval, closure: (Timer) -> Void, repeats: Bool) -> Timer {
+    static func scheduledTimer(timeInterval interval: TimeInterval,closure:@escaping(Timer) -> Void, repeats: Bool) -> Timer {
+        // TODO: check if escaping is actually correct here
         let userInfo = ClosureWrapper(closure: closure)
 
         return scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.executeBlock(_:)), userInfo: userInfo, repeats: repeats)
     }
 
-    static func executeBlock(_ timer: Timer) {
+    @objc static func executeBlock(_ timer: Timer) {
         guard let wrapper = timer.userInfo as? ClosureWrapper<(Timer) -> Void> else {
             return
         }

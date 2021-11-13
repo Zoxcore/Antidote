@@ -27,8 +27,8 @@ class ChatBottomStatusViewManager {
     }
 
     deinit {
-        friendToken?.stop()
-        undeliveredMessagesToken?.stop()
+        friendToken?.invalidate()
+        undeliveredMessagesToken?.invalidate()
     }
 }
 
