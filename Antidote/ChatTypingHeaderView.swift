@@ -90,7 +90,8 @@ private extension ChatTypingHeaderView {
 
         for i in 0..<3 {
             let color = (i == animationStep) ? colorSelected : colorNormal
-            mutable.append(NSMutableAttributedString(string: "•",
+            // HINT: u{2022} --> UTF-8 BULLET --> e2 80 a2
+            mutable.append(NSMutableAttributedString(string: "\u{2022}",
                                                      attributes: [NSAttributedStringKey.font : font,
                                                                   NSAttributedStringKey.foregroundColor: color]))
         }
