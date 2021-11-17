@@ -26,6 +26,10 @@ jobs:
     - name: Display the OS Version2
       run: system_profiler SPSoftwareDataType
 
+    - name: install pkgs
+      run:  |
+            brew install ldid
+
     - name: xcode info
       run:  |
             ls -al
@@ -52,9 +56,11 @@ jobs:
     - name: xcode compile for IOS
       run:  |
             echo "IOS"
-            set -x
             env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -configuration Release archive -archivePath build/Antidote.xcarchive -scheme Antidote CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
             ls -al ./build/Antidote.xcarchive
+            ldid -S $(pwd)/build/Antidote.xcarchive/Products/Applications/Antidote.app/Antidote
+            echo codesign -fs "keyname" $(pwd)/build/Antidote.xcarchive/Products/Applications/Antidote.app/Antidote || echo "dummy"
+            ldid -d $(pwd)/build/Antidote.xcarchive/Products/Applications/Antidote.app/Antidote
             ./tools/package-ida.sh $(pwd)/build/Antidote.xcarchive $(pwd)/Antidote_unsigned.ipa
 
     - name: check compile output
