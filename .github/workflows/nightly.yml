@@ -69,7 +69,6 @@ jobs:
       with:
         name: ipa
         path: |
-          /Users/runner/work/Antidote/Antidote/build/Antidote.xcarchive
           /Users/runner/work/Antidote/Antidote/Antidote_unsigned.ipa
 
 
