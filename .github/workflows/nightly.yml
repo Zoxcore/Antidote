@@ -69,7 +69,7 @@ jobs:
       with:
         name: ipa
         path: |
-          $(pwd)/build/Antidote.xcarchive
-          $(pwd)/Antidote_unsigned.ipa
+          /Users/runner/work/Antidote/Antidote/build/Antidote.xcarchive
+          /Users/runner/work/Antidote/Antidote/Antidote_unsigned.ipa
 
 
