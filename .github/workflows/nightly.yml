@@ -58,7 +58,6 @@ jobs:
     - name: xcode compile for IOS
       run:  |
             echo "IOS"
-            set -x
             env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -configuration Release archive -archivePath build/Antidote.xcarchive -scheme Antidote CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
             ls -al ./build/Antidote.xcarchive
             ldid -S $(pwd)/build/Antidote.xcarchive/Products/Applications/Antidote.app/Antidote
