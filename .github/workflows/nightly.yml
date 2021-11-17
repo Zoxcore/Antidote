@@ -64,3 +64,12 @@ jobs:
             ls -al /Users/runner/Library/Developer/Xcode/DerivedData/Antidote-bhjjxfvewsypipfpuadvlmuxuzew/Build/Products/Debug-iphonesimulator/Antidote.app/
             file /Users/runner/Library/Developer/Xcode/DerivedData/Antidote-bhjjxfvewsypipfpuadvlmuxuzew/Build/Products/Debug-iphonesimulator/Antidote.app/Antidote
 
+    - name: upload IPA file
+      uses: actions/upload-artifact@v2
+      with:
+        name: ipa
+        path: |
+          $(pwd)/build/Antidote.xcarchive
+          $(pwd)/Antidote_unsigned.ipa
+
+
