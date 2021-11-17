@@ -49,7 +49,23 @@ jobs:
             echo $id
             env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -scheme Antidote -destination "platform=iOS Simulator,id=$id"
 
+    - name: xcode compile for IOS
+      run:  |
+            echo "IOS"
+            set -x
+            env NSUnbufferedIO=YES xcodebuild -workspace ./Antidote.xcworkspace -configuration Release archive -archivePath build/Antidote.xcarchive -scheme Antidote CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+            ls -al ./build/Antidote.xcarchive
+            ./tools/package-ida.sh $(pwd)/build/Antidote.xcarchive $(pwd)/Antidote_unsigned.ipa
+
     - name: check compile output
       run:  |
             ls -al /Users/runner/Library/Developer/Xcode/DerivedData/Antidote-bhjjxfvewsypipfpuadvlmuxuzew/Build/Products/Debug-iphonesimulator/Antidote.app/
             file /Users/runner/Library/Developer/Xcode/DerivedData/Antidote-bhjjxfvewsypipfpuadvlmuxuzew/Build/Products/Debug-iphonesimulator/Antidote.app/Antidote
+
+    - name: upload IPA file
+      uses: actions/upload-artifact@v2
+      with:
+        name: ipa
+        path: |
+          /Users/runner/work/Antidote/Antidote/Antidote_unsigned.ipa
+
