@@ -16,12 +16,7 @@ class ChatOutgoingTextCell: ChatBaseTextCell {
 
         bubbleNormalBackground = theme.colorForType(.ChatOutgoingBubble)
         if !textModel.delivered {
-            var components = bubbleNormalBackground!.components()
-            components.alpha = max(components.alpha - 0.3, 0.0)
-            bubbleNormalBackground = UIColor(red: components.red,
-                                             green: components.green,
-                                             blue: components.blue,
-                                             alpha: components.alpha)
+            bubbleNormalBackground = theme.colorForType(.ChatOutgoingUnreadBubble)
         }
 
         bubbleView.textColor = theme.colorForType(.ConnectingText)

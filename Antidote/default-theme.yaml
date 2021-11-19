@@ -18,6 +18,7 @@ colors:
   yellow: DECF4E
   red: E94F42
   palered: C56258
+  rust: B7410E
 
 values:
   login-background: white
@@ -54,6 +55,7 @@ values:
   chat-input-background: lightgrayblue
   chat-incoming-bubble: lightgrayblue
   chat-outgoing-bubble: purple
+  chat-outgoing-unread-bubble: rust
   tab-badge-background: palered
   tab-badge-text: white
   tab-item-active: simpleblue
