@@ -35,6 +35,7 @@ class FriendListCell: BaseCell {
         avatarView.imageView.image = friendModel.avatar
         avatarView.userStatusView.theme = theme
         avatarView.userStatusView.userStatus = friendModel.status
+        avatarView.userStatusView.connectionStatus = friendModel.connectionstatus
         avatarView.userStatusView.isHidden = friendModel.hideStatus
 
         topLabel.text = friendModel.topText

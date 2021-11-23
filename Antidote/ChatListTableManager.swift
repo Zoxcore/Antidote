@@ -94,6 +94,7 @@ extension ChatListTableManager: UITableViewDataSource {
         }
 
         model.status = UserStatus(connectionStatus: connectionStatus, userStatus: userStatus)
+        model.connectionstatus = ConnectionStatus(connectionStatus: connectionStatus)
         model.isUnread = chat.hasUnreadMessages()
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatListCell.staticReuseIdentifier) as! ChatListCell

@@ -567,6 +567,7 @@
 		9CEE6B501C528AAA00A1ECB5 /* SettingsAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE6B4E1C528AAA00A1ECB5 /* SettingsAboutController.swift */; };
 		9CEE6B521C528AB600A1ECB5 /* SettingsAdvancedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */; };
 		9CEE6B531C528AB600A1ECB5 /* SettingsAdvancedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */; };
+		AFA023F4274C069100FBFCC0 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */; };
 		D4F896D05F7EAA7C321A2AA8 /* libPods-Antidote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E57B3AE56E352BBAA0487 /* libPods-Antidote.a */; };
 /* End PBXBuildFile section */
 
@@ -920,6 +921,7 @@
 		9CEE6B451C5289E200A1ECB5 /* SettingsMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMainController.swift; sourceTree = "<group>"; };
 		9CEE6B4E1C528AAA00A1ECB5 /* SettingsAboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
 		9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAdvancedController.swift; sourceTree = "<group>"; };
+		AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		B3C17AF8CE3B4AD1B68F2B5B /* Pods-Antidote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antidote.release.xcconfig"; path = "Pods/Target Support Files/Pods-Antidote/Pods-Antidote.release.xcconfig"; sourceTree = "<group>"; };
 		CEC32120B965BE40E0029DB1 /* Pods-AntidoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteTests/Pods-AntidoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1294,6 +1296,7 @@
 			isa = PBXGroup;
 			children = (
 				11B253A31C4EA8040068F47C /* InterfaceIdiom.swift */,
+				AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */,
 				11CFCD0A1C2745230046BD94 /* UserStatus.swift */,
 			);
 			name = Enums;
@@ -2100,6 +2103,7 @@
 				11770D6A1CBC120C00D34D6E /* FriendSelectController.swift in Sources */,
 				1193AB421C1E2075006AA9E5 /* QRViewerController.swift in Sources */,
 				9CEE6B521C528AB600A1ECB5 /* SettingsAdvancedController.swift in Sources */,
+				AFA023F4274C069100FBFCC0 /* ConnectionStatus.swift in Sources */,
 				116634E01C7B8D770072C980 /* StaticTableInfoCell.swift in Sources */,
 				119AD1BE1BDED261000C5CB8 /* TextViewController.swift in Sources */,
 				1156A47B1C0F6178005AC8C6 /* StaticTableButtonCellModel.swift in Sources */,

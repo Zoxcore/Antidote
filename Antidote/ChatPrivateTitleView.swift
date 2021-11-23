@@ -34,6 +34,17 @@ class ChatPrivateTitleView: UIView {
         }
     }
 
+    var connectionStatus: ConnectionStatus {
+        get {
+            return statusView.connectionStatus
+        }
+        set {
+            statusView.connectionStatus = newValue
+
+            updateFrame()
+        }
+    }
+
     fileprivate var nameLabel: UILabel!
     fileprivate var statusView: UserStatusView!
     fileprivate var statusLabel: UILabel!

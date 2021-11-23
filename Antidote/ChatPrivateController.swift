@@ -787,6 +787,7 @@ private extension ChatPrivateController {
         guard let friend = self.friend else {
             titleView.name = String(localized: "contact_deleted")
             titleView.userStatus = UserStatus(connectionStatus: .none, userStatus: .none)
+            titleView.connectionStatus = ConnectionStatus(connectionStatus: .none)
             audioButton.isEnabled = false
             videoButton.isEnabled = false
             chatInputView.cameraButtonEnabled = false
@@ -795,6 +796,7 @@ private extension ChatPrivateController {
 
         titleView.name = friend.nickname
         titleView.userStatus = UserStatus(connectionStatus: friend.connectionStatus, userStatus: friend.status)
+        titleView.connectionStatus = ConnectionStatus(connectionStatus: friend.connectionStatus)
 
         let predicate = NSPredicate(format: "uniqueIdentifier == %@", friend.uniqueIdentifier)
         let results = submanagerObjects.friends(predicate: predicate)
@@ -810,6 +812,7 @@ private extension ChatPrivateController {
                 case .update:
                     self.titleView.name = friend.nickname
                     self.titleView.userStatus = UserStatus(connectionStatus: friend.connectionStatus, userStatus: friend.status)
+                    self.titleView.connectionStatus = ConnectionStatus(connectionStatus: friend.connectionStatus)
 
                     let isConnected = friend.isConnected
 

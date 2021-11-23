@@ -30,6 +30,12 @@ class UserStatusView: StaticBackgroundView {
         }
     }
 
+    var connectionStatus: ConnectionStatus = .none {
+        didSet {
+            userStatusWasUpdated()
+        }
+    }
+
     init() {
         super.init(frame: CGRect.zero)
 
@@ -67,6 +73,10 @@ private extension UserStatusView {
 
     func userStatusWasUpdated() {
         if let theme = theme {
+
+        // TODO: show userstatus aswell as connectionstatus
+        //       for now rather show connectionstatus
+/*
             switch userStatus {
                 case .offline:
                     roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
@@ -76,6 +86,17 @@ private extension UserStatusView {
                     roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
                 case .busy:
                     roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
+            }
+*/
+            switch connectionStatus {
+                case .tcp:
+                    roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                case .udp:
+                    roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                case .none:
+                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                default:
+                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
             }
 
             let background = showExternalCircle ? theme.colorForType(.StatusBackground) : .clear

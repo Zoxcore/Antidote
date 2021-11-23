@@ -22,6 +22,12 @@ class TabBarProfileItem: TabBarAbstractItem {
         }
     }
 
+    var connectionStatus: ConnectionStatus = .none {
+        didSet {
+            imageViewWithStatus.userStatusView.connectionStatus = connectionStatus
+        }
+    }
+
     var userImage: UIImage? {
         didSet {
             if let image = userImage {

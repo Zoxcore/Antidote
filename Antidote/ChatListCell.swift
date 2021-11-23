@@ -40,6 +40,7 @@ class ChatListCell: BaseCell {
         avatarView.imageView.image = chatModel.avatar
         avatarView.userStatusView.theme = theme
         avatarView.userStatusView.userStatus = chatModel.status
+        avatarView.userStatusView.connectionStatus = chatModel.connectionstatus
 
         nicknameLabel.text = chatModel.nickname
         nicknameLabel.textColor = theme.colorForType(.NormalText)

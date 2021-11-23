@@ -12,6 +12,7 @@ class StaticTableDefaultCellModel: StaticTableSelectableCellModel {
     }
 
     var userStatus: UserStatus?
+    var connectionStatus: ConnectionStatus?
 
     var title: String?
     var value: String?

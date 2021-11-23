@@ -105,6 +105,7 @@ class FriendListDataSource: NSObject {
                 model.topText = friend.nickname
 
                 model.status = UserStatus(connectionStatus: friend.connectionStatus, userStatus: friend.status)
+                model.connectionstatus = ConnectionStatus(connectionStatus: friend.connectionStatus)
 
                 model.accessibilityLabel = friend.nickname
                 model.accessibilityValue = model.status.toString()

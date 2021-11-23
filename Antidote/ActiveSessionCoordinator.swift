@@ -549,10 +549,12 @@ private extension ActiveSessionCoordinator {
 
     func updateUserStatusView() {
         let status = UserStatus(connectionStatus: toxManager.user.connectionStatus, userStatus: toxManager.user.userStatus)
+        let connectionstatus = ConnectionStatus(connectionStatus: toxManager.user.connectionStatus)
 
         switch InterfaceIdiom.current() {
             case .iPhone:
                 iPhone.profileTabBarItem.userStatus = status
+                iPhone.profileTabBarItem.connectionStatus = connectionstatus
             case .iPad:
                 iPad.primaryController.userStatus = status
         }
