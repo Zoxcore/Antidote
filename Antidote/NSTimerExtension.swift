@@ -4,26 +4,27 @@
 
 import Foundation
 
-private class BlockWrapper<T> {
-    let block: T
+private class ClosureWrapper<T> {
+    let closure: T
 
-    init(block: T) {
-        self.block = block
+    init(closure: T) {
+        self.closure = closure
     }
 }
 
 extension Timer {
-    static func scheduledTimerWithTimeInterval(_ interval: TimeInterval, block: @escaping (Timer) -> Void, repeats: Bool) -> Timer {
-        let userInfo = BlockWrapper(block: block)
+    static func scheduledTimer(timeInterval interval: TimeInterval,closure:@escaping(Timer) -> Void, repeats: Bool) -> Timer {
+        // TODO: check if escaping is actually correct here
+        let userInfo = ClosureWrapper(closure: closure)
 
         return scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.executeBlock(_:)), userInfo: userInfo, repeats: repeats)
     }
 
     @objc static func executeBlock(_ timer: Timer) {
-        guard let wrapper = timer.userInfo as? BlockWrapper<(Timer) -> Void> else {
+        guard let wrapper = timer.userInfo as? ClosureWrapper<(Timer) -> Void> else {
             return
         }
 
-        wrapper.block(timer)
+        wrapper.closure(timer)
     }
 }

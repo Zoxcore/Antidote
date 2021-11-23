@@ -51,6 +51,7 @@ class Theme {
         case ChatIncomingBubble = "chat-incoming-bubble"
         case ChatOutgoingBubble = "chat-outgoing-bubble"
         case ChatOutgoingUnreadBubble = "chat-outgoing-unread-bubble"
+        case ChatInformationText = "chat-information-text"
         case TabBadgeBackground = "tab-badge-background"
         case TabBadgeText = "tab-badge-text"
         case TabItemActive = "tab-item-active"
@@ -107,6 +108,7 @@ class Theme {
             ChatIncomingBubble,
             ChatOutgoingBubble,
             ChatOutgoingUnreadBubble,
+            ChatInformationText,
             TabBadgeBackground,
             TabBadgeText,
             TabItemActive,

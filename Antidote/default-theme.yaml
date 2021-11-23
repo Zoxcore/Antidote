@@ -56,6 +56,7 @@ values:
   chat-incoming-bubble: lightgrayblue
   chat-outgoing-bubble: purple
   chat-outgoing-unread-bubble: rust
+  chat-information-text: darkgray2
   tab-badge-background: palered
   tab-badge-text: white
   tab-item-active: simpleblue
