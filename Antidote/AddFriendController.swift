@@ -118,7 +118,7 @@ extension AddFriendController {
         alert.addAction(SDCAlertAction(title: String(localized: "add_contact_send"), style: .recommended) { [unowned self] action in
             self.cachedMessage = messageView.text
 
-            let message = messageView.text.isEmpty ? messageView.placeholder : messageView.text
+            let message = messageView.text.isEmpty ? "Antidote is Tox" : messageView.text
 
             do {
                 try self.submanagerFriends.sendFriendRequest(toAddress: self.textView.text, message: message)
