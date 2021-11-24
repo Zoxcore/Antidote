@@ -709,7 +709,7 @@ private extension ChatPrivateController {
                 case .update(_, let deletions, let insertions, let modifications):
 
                     // TODO: this is a very bad workaround. when more than 1 message is incoming
-                    //       thos would crash.
+                    //       those would crash.
                     /*
                     tableView.beginUpdates()
                     self.updateTableViewWithDeletions(deletions)
