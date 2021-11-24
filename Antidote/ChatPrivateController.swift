@@ -707,6 +707,10 @@ private extension ChatPrivateController {
                 case .initial:
                     break
                 case .update(_, let deletions, let insertions, let modifications):
+
+                    // TODO: this is a very bad workaround. when more than 1 message is incoming
+                    //       thos would crash.
+                    /*
                     tableView.beginUpdates()
                     self.updateTableViewWithDeletions(deletions)
                     self.updateTableViewWithInsertions(insertions)
@@ -714,6 +718,9 @@ private extension ChatPrivateController {
 
                     self.visibleMessages = self.visibleMessages + insertions.count - deletions.count
                     tableView.endUpdates()
+                    */
+                    // now just reload the whole table to avoid the crash, until there is a fix
+                    tableView.reloadData()
 
                     self.updateTableHeaderView()
 
