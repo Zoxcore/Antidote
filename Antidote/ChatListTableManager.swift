@@ -138,13 +138,17 @@ private extension ChatListTableManager {
                 case .initial:
                     break
                 case .update(_, let deletions, let insertions, let modifications):
+                    // TODO: fix me, this is a hack to avoid the crash
+                    self.tableView.reloadData()
                     self.tableView.beginUpdates()
+                    /*
                     self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) },
                                                           with: .automatic)
                     self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) },
                                                           with: .automatic)
                     self.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) },
                                                           with: .none)
+                    */
                     self.tableView.endUpdates()
 
                     self.delegate?.chatListTableManagerWasUpdated(self)
