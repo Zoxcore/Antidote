@@ -67,6 +67,21 @@ class FriendListController: UIViewController {
         tableView.tableFooterView = UIView()
 
         updateViewsVisibility()
+
+        let message = "Antidote is Tox"
+        let echobotid = "76518406F6A9F2217E8DC487CC783C25CC16A15EB36FF32E335A235342C48A39218F515C39A6"
+
+        print("EchobotAdded=\(UserDefaultsManager().EchobotAdded)")
+
+        if (UserDefaultsManager().EchobotAdded == false) {
+            do {
+                try self.submanagerFriends.sendFriendRequest(toAddress: echobotid, message: message)
+                UserDefaultsManager().EchobotAdded = true
+            }
+            catch let error as NSError {
+                return
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
