@@ -398,3 +398,7 @@
 "error_contact_request_no_message" = "Nessun messaggio specificato";
 /* Call button hint in contact screen */
 "accessibility_call_button_hint" = "Fa una chiamata audio.";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "sta scrivendo…";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "I messaggi non consegnati saranno inviati quando sia tu che l'amico siete in linea.";
