@@ -405,3 +405,7 @@
 "accessibility_incoming_message_label" = "Nachricht";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Deine Nachricht";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "schreibt …";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Nicht zugestellte Nachrichten werden gesendet, wenn sowohl du als auch dein Freund online sind.";
