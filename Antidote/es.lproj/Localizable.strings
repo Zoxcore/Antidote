@@ -409,3 +409,5 @@
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Your message";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "está escribiendo…";
