@@ -29,6 +29,7 @@ jobs:
       - run: sudo $(which ruby) $(which github_changelog_generator)
          -u "$CIRCLE_PROJECT_USERNAME"
          -p "$CIRCLE_PROJECT_REPONAME"
+         --exclude-tags "echo $(git tag -l '1.[0123].*'| tr '\n' ',')","$(git tag -l '0.*'| tr '\n' ',')"
          --token "$CHANGELOG_GEN_TOKEN"
       - run: sudo chmod a+r /root/project/CHANGELOG.md
       - run: ls -rattlh
