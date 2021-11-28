@@ -14,6 +14,7 @@ def common_pods
     pod "toxcore", :git => 'https://github.com/Zoxcore/toxcore.git', :commit => 'a50682e795e48769de577a501b7e1b16ba1d5b82'
     pod 'SnapKit'
     pod 'Yaml'
+    pod 'Firebase/Messaging'
 end
 
 target :Antidote do

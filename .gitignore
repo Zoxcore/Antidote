@@ -1,4 +1,5 @@
 # Xcode
+Antidote/GoogleService-Info.plist
 build/*
 *.pbxuser
 !default.pbxuser
