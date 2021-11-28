@@ -568,6 +568,7 @@
 		9CEE6B521C528AB600A1ECB5 /* SettingsAdvancedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */; };
 		9CEE6B531C528AB600A1ECB5 /* SettingsAdvancedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */; };
 		AFA023F4274C069100FBFCC0 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */; };
+		AFA024022753CC9000FBFCC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFA024012753CC9000FBFCC0 /* GoogleService-Info.plist */; };
 		D4F896D05F7EAA7C321A2AA8 /* libPods-Antidote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E57B3AE56E352BBAA0487 /* libPods-Antidote.a */; };
 /* End PBXBuildFile section */
 
@@ -922,6 +923,7 @@
 		9CEE6B4E1C528AAA00A1ECB5 /* SettingsAboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAboutController.swift; sourceTree = "<group>"; };
 		9CEE6B511C528AB600A1ECB5 /* SettingsAdvancedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAdvancedController.swift; sourceTree = "<group>"; };
 		AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
+		AFA024012753CC9000FBFCC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3C17AF8CE3B4AD1B68F2B5B /* Pods-Antidote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antidote.release.xcconfig"; path = "Pods/Target Support Files/Pods-Antidote/Pods-Antidote.release.xcconfig"; sourceTree = "<group>"; };
 		CEC32120B965BE40E0029DB1 /* Pods-AntidoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteTests/Pods-AntidoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1203,6 +1205,7 @@
 		11771E341CA5C6D100EC259E /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				AFA024012753CC9000FBFCC0 /* GoogleService-Info.plist */,
 				11771E351CA5C6E900EC259E /* Reach.swift */,
 			);
 			name = Other;
@@ -1663,6 +1666,7 @@
 				11B253531C4AD9CF0068F47C /* isotoxin_Ringtone.aac in Resources */,
 				9C7475BE1BC698110098B1A4 /* Localizable.strings in Resources */,
 				9CEA6A1F1D957EFC0045F000 /* antidote-acknowledgements.html in Resources */,
+				AFA024022753CC9000FBFCC0 /* GoogleService-Info.plist in Resources */,
 				1173F0721BC5D9DA00B88B7B /* default-theme.yaml in Resources */,
 				116634CF1C70E46C0072C980 /* Launch Screen.storyboard in Resources */,
 				1131D6C51CA9D8BC00B4531C /* import-profile.html in Resources */,
