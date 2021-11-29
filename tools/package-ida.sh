@@ -36,16 +36,16 @@ cp -Rp ./*.app "${build_dir}/Payload"
 popd > /dev/null
 
 # Check for and copy swift libraries
-if [ -d "${xcarchive}/SwiftSupport" ]; then
-	echo "Adding Swift support dylibs"
-	cp -Rp "${xcarchive}/SwiftSupport" "${build_dir}/"
-fi
+#if [ -d "${xcarchive}/SwiftSupport" ]; then
+#	echo "Adding Swift support dylibs"
+#	cp -Rp "${xcarchive}/SwiftSupport" "${build_dir}/"
+#fi
 
 # Check for and copy WatchKit file
-if [ -d "${xcarchive}/WatchKitSupport" ]; then
-	echo "Adding WatchKit support file"
-	cp -Rp "${xcarchive}/WatchKitSupport" "${build_dir}/"
-fi
+#if [ -d "${xcarchive}/WatchKitSupport" ]; then
+#	echo "Adding WatchKit support file"
+#	cp -Rp "${xcarchive}/WatchKitSupport" "${build_dir}/"
+#fi
 
 echo "Zipping"
 pushd "${build_dir}" > /dev/null
