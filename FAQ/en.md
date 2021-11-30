@@ -36,16 +36,14 @@ Multidevice support is being [developed](https://github.com/GrayHatter/toxcore/t
 
 ## Why don't I receive push notifications in background?
 
-Antidote works in background only for 10 minutes, after that it will be suspended by iOS. Unfortunately, now there is no way to extend this time.
+Antidote works in the background for only 10 minutes, after that it will be suspended by iOS. Unfortunately, there is currently no way to extend this time.
 
-However, we plan to support push notification in the future. Please stay tuned!
+However, we plan to support push notifications in the future. Please stay tuned!
 
 
-## Can I send message to offline contacts?
+## Can I send messages to offline contacts?
 
-No, we don't support offline messaging yet.
-
-As Antidote is a peer-to-peer application, both users should be online to send and receive messages. However, offline messaging will be available on Antidote once [Tox](https://tox.chat) starts supporting it.
+Offline messaging is now supported since version 1.4.2
 
 
 ## How to enable PIN and Touch ID?
@@ -61,7 +59,7 @@ To do so:
 
 ## More Questions?
 
-open an Issue in this Github repository https://github.com/Zoxcore/Antidote/issues
+Open an Issue in this Github repository https://github.com/Zoxcore/Antidote/issues
 
 
 ## Translations
