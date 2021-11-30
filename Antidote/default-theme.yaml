@@ -8,6 +8,7 @@ colors:
   gray: CCCCCC
   lightgraypink: EFEFF4
   darkgray: AAAAAA
+  color_offline_status: D43F3F
   darkgray2: 8C8C8C
   lightgrayblue: EDF3F5
   simpleblue: 2E76D3
@@ -45,7 +46,7 @@ values:
   rounded-button-text: white
   rounded-positive-button-background: simpleblue
   rounded-negative-button-background: gray
-  offline-status: darkgray
+  offline-status: color_offline_status
   online-status: green_bright
   away-status: yellow
   busy-status: palered
