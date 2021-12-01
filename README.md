@@ -24,6 +24,10 @@ https://hosted.weblate.org/engage/antidote/
 
 ## Usage
 
+#### Install from the App Store
+* <a href="https://apps.apple.com/us/app/antidote-tox-client/id1592895292">Antidote - Tox Client</a><br>
+
+
 #### Manual Installation
 
 Clone repo, install pods and open `Antidote.xcworkspace` file with Xcode 12+.
