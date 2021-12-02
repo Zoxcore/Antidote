@@ -3,7 +3,7 @@
 * [How do I import my profile to Antidote?](#how-do-i-import-my-profile-to-antidote)
 * [How do I export my profile from Antidote?](#how-do-i-export-my-profile-from-antidote)
 * [How to synchronize Tox ID between multiple devices?](#how-to-synchronize-tox-id-between-multiple-devices)
-* [Why don't I receive push notifications in background?](#why-dont-i-receive-push-notifications-in-the-background)
+* [Why don't I receive push notifications in the background?](#why-dont-i-receive-push-notifications-in-the-background)
 * [Can I send message to offline contacts?](#can-i-send-messages-to-offline-contacts)
 * [How to enable PIN and Touch ID?](#how-to-enable-pin-and-touch-id)
 * [Does Antidote connect to any third party servers?](#does-antidote-connect-to-any-third-party-servers)
@@ -60,7 +60,7 @@ To do so:
 
 ## Does Antidote connect to any third party servers?
 
-Antidote(exlcuding toxcore) will use the Google Firebase service and a third party server to deliver push notifications to other tox mobile users when they are offline. This is a workaround for iOS preventing the app from running in the background which is a requirement for tox to remain connected.
+Antidote(exlcuding toxcore) uses the Google Firebase service and a third party server to deliver push notifications to other tox mobile users when they are offline. This is a workaround for iOS preventing the app from running in the background which is a requirement for tox to remain connected.
 
 
 ## More Questions?
