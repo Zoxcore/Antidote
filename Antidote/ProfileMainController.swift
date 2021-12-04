@@ -23,7 +23,7 @@ class ProfileMainController: StaticTableController {
     fileprivate let avatarModel = StaticTableAvatarCellModel()
     fileprivate let userNameModel = StaticTableDefaultCellModel()
     fileprivate let statusMessageModel = StaticTableDefaultCellModel()
-    fileprivate let userStatusModel = StaticTableDefaultCellModel()
+    // fileprivate let userStatusModel = StaticTableDefaultCellModel()
     fileprivate let toxIdModel = StaticTableDefaultCellModel()
     fileprivate let profileDetailsModel = StaticTableDefaultCellModel()
     fileprivate let logoutModel = StaticTableButtonCellModel()
@@ -41,9 +41,9 @@ class ProfileMainController: StaticTableController {
                 userNameModel,
                 statusMessageModel,
             ],
-            [
-                userStatusModel,
-            ],
+            //[
+            //    userStatusModel,
+            //],
             [
                 toxIdModel,
             ],
@@ -140,10 +140,10 @@ private extension ProfileMainController {
         // Hardcoding any connected status to show only online/away/busy statuses here.
         let userStatus = UserStatus(connectionStatus: OCTToxConnectionStatus.TCP, userStatus: submanagerUser.userStatus)
 
-        userStatusModel.userStatus = userStatus
-        userStatusModel.value = userStatus.toString()
-        userStatusModel.rightImageType = .arrow
-        userStatusModel.didSelectHandler = changeUserStatus
+        // userStatusModel.userStatus = userStatus
+        // userStatusModel.value = userStatus.toString()
+        // userStatusModel.rightImageType = .arrow
+        // userStatusModel.didSelectHandler = changeUserStatus
 
         statusMessageModel.title = String(localized: "status_message")
         statusMessageModel.value = submanagerUser.userStatusMessage()

@@ -286,7 +286,7 @@ private extension LoginCoordinator {
         loginWithProfile(profileName, password: password, configurationClosure: {
             if let name = username {
                 _ = try? $0.user.setUserName(name)
-                _ = try? $0.user.setUserStatusMessage(String(localized: "default_user_status_message"))
+                _ = try? $0.user.setUserStatusMessage("Antidote is Tox")
             }
         }, errorClosure: { error in
             handleErrorWithType(.createOCTManager, error: error)
