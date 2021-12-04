@@ -120,6 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Print full message.
     print(userInfo)
 
+    // HINT: we have 30 seconds here. use 25 of those 30 seconds to be on the safe side
+    do {sleep(25)}
     completionHandler(UIBackgroundFetchResult.newData)
   }
 
