@@ -60,7 +60,7 @@ To do so:
 
 ## Does Antidote connect to any third party servers?
 
-Antidote(exlcuding toxcore) uses the Google Firebase service and a third party server to deliver push notifications to other tox mobile users when they are offline. This is a workaround for iOS preventing the app from running in the background which is a requirement for tox to remain connected.
+Antidote(exlcuding toxcore) uses the Google Firebase service and a third party server to deliver push notifications to other tox mobile users when they are offline. This makes it possible for Mobile devices to go into sleep mode and save battery and network bandwidth when there is no activity. Rest assured that the push notification does not contain any data, the request that comes from Antidote includes only the FCM token of your contact(s). No ToxID, name or message data is transfered in the process.
 
 
 ## More Questions?
