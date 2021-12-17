@@ -10,7 +10,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: ubuntu:bionic
+      - image: cimg/ruby:2.7.1-node
 
     steps:
       - run: pwd; ls -al; id -a
