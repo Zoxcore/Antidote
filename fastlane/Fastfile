@@ -1,0 +1,24 @@
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+  end
+
+  desc "Release app to the App Store"
+  lane :release do
+    appstore(
+        force: false,
+        skip_binary_upload: true,
+        skip_screenshots: true,
+        submit_for_review: true,
+        automatic_release: true
+    )
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+end
