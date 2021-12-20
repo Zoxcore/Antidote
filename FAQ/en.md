@@ -3,7 +3,7 @@
 * [How do I import my profile to Antidote?](#how-do-i-import-my-profile-to-antidote)
 * [How do I export my profile from Antidote?](#how-do-i-export-my-profile-from-antidote)
 * [How to synchronize Tox ID between multiple devices?](#how-to-synchronize-tox-id-between-multiple-devices)
-* [Why don't I receive push notifications in the background?](#why-dont-i-receive-push-notifications-in-the-background)
+* [How do I receive push notifications in the background?](#how-do-i-receive-push-notifications-in-the-background)
 * [Can I send message to offline contacts?](#can-i-send-messages-to-offline-contacts)
 * [How to enable PIN and Touch ID?](#how-to-enable-pin-and-touch-id)
 * [Does Antidote connect to any third party servers?](#does-antidote-connect-to-any-third-party-servers)
@@ -33,13 +33,14 @@ To export your profile from Antidote, do the following:
 ## How to synchronize Tox ID between multiple devices?
 
 Multidevice support is being [developed](https://github.com/GrayHatter/toxcore/tree/multi-device) and is not yet complete. For now you can export your .tox profile from one device and import it to another using the guides above.
+But we do NOT recommend that you use the same Tox ID on more than 1 device.
 
 
-## Why don't I receive push notifications in the background?
+## How do I receive push notifications in the background?
 
-Antidote works in the background for only 10 minutes, after that it will be suspended by iOS. Unfortunately, there is currently no way to extend this time.
-
-However, we plan to support push notifications in the future. Please stay tuned!
+Antidote works in the background for only about 30 seconds, after that it will be suspended by iOS. Unfortunately, there is currently no way to extend this time.
+Antidote does support push notifications. This is in a beta state, and not fully working in all situations yet.
+Push Notifications are only supported currently by TRIfA (Android), Antidote (iOS) and a beta version of qTox (with Push Notification patch applied).
 
 
 ## Can I send messages to offline contacts?
