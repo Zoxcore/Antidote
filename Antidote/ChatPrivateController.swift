@@ -203,7 +203,14 @@ class ChatPrivateController: KeyboardNotificationController {
             return
         }
 
+        // TODO: this moves the input view a bit more to the top, because the home button "line" is in the way otherwise
+        //       please fix me properly in the future
         constraint.update(offset: 0.0)
+        if #available(iOS 11.0, *) {
+            let keyWindow = UIApplication.shared.keyWindow
+            let b = keyWindow?.safeAreaInsets.bottom
+            constraint.update(offset: -(b ?? 20))
+        }
 
         if disableNextInputViewAnimation {
             disableNextInputViewAnimation = false
@@ -691,6 +698,13 @@ private extension ChatPrivateController {
             $0.leading.trailing.equalTo(view)
             $0.top.greaterThanOrEqualTo(view).offset(Constants.InputViewTopOffset)
             chatInputViewBottomConstraint = $0.bottom.equalTo(view).constraint
+            // TODO: this moves the input view a bit more to the top, because the home button "line" is in the way otherwise
+            //       please fix me properly in the future
+            if #available(iOS 11.0, *) {
+                let keyWindow = UIApplication.shared.keyWindow
+                let b = keyWindow?.safeAreaInsets.bottom
+                chatInputViewBottomConstraint?.update(offset: -(b ?? 20))
+            }
         }
 
         editMessagesToolbar.snp.makeConstraints {
