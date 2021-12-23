@@ -58,6 +58,9 @@ class ChatListCell: BaseCell {
         } else {
             arrowImageView.backgroundColor = .clear
         }
+
+        // HINT: make the arrow image view a nice circle shape
+        arrowImageView.layer.cornerRadius = arrowImageView.frame.height / 2
     }
 
     override func createViews() {
