@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Your message";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "está a digitar...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Mensagens não entregues serão enviadas quando você e o amigo estiverem online.";
