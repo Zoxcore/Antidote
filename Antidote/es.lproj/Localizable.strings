@@ -411,3 +411,5 @@
 "accessibility_outgoing_message_label" = "Your message";
 /* Message shown on chat list when contact is typing */
 "chat_is_typing_text" = "está escribiendo…";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Los mensajes no entregados se enviarán cuando tu y tu amigo estéis conectados.";
