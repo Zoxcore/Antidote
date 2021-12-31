@@ -120,8 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Print full message.
     print(userInfo)
 
-    // HINT: we have 30 seconds here. use 20 of those 30 seconds to be on the safe side
-    DispatchQueue.main.asyncAfter(deadline: .now() + 20) { [weak self] in
+    // HINT: we have 30 seconds here. use 27 of those 30 seconds to be on the safe side
+    DispatchQueue.main.asyncAfter(deadline: .now() + 27) { [weak self] in
         completionHandler(UIBackgroundFetchResult.newData)
     }
   }
