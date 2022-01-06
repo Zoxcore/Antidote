@@ -1,1 +1,157 @@
 
+
+/* Login screen text */
+"login_or_label" = "ou";
+/* Login screen text */
+"create_account_profile_placeholder" = "Nome de perfil";
+/* Login screen text */
+"set_password_hint" = "Uma senha é necessária para proteger seus dados. Mantenha-a segura - uma vez perdida, ela não pode ser restaurada.";
+/* PIN screen screen */
+"pin_enabled" = "Ativar PIN";
+/* PIN screen message shown on log out */
+"pin_logout_message" = "Muitas tentativas falhas. Você foi desconectado.";
+/* Contact request button */
+"contact_request_decline" = "Recusar";
+/* Add contat placeholder text */
+"add_contact_default_message_title" = "Mensagem";
+/* Login button */
+"log_in" = "Entrar";
+/* Login screen text */
+"create_profile" = "Criar perfil";
+/* Login screen text */
+"create_account_username_title" = "Como os contatos irão te ver?";
+/* Login screen text */
+"create_account_username_placeholder" = "Nome de usuário";
+/* Login screen text */
+"create_account_profile_title" = "Como chamar este perfil?";
+/* Login screen text */
+"set_password_title" = "Definir Senha";
+/* Login button */
+"create_account_next_button" = "Próximo";
+/* Default status message */
+"default_user_status_message" = "Toxing no Antidote";
+
+/* PIN screen text */
+"pin_enter_to_unlock" = "Entre seu PIN para desbloquear";
+/* PIN screen text */
+"pin_set" = "Definir PIN";
+/* PIN screen text */
+"pin_confirm" = "Confirmar PIN";
+/* PIN screen error */
+"pin_do_not_match" = "PINs não conferem. Tente novamente.";
+/* PIN screen error */
+"pin_incorrect" = "PIN incorreto";
+/* PIN screen screen */
+"pin_touch_id_enabled" = "Ativar Touch ID";
+/* PIN screen screen */
+"pin_description" = "Prevenir acesso não-autorizado ao Antidote com um PIN.";
+/* PIN screen screen */
+"pin_lock_timeout" = "Tempo de bloqueio";
+/* PIN screen screen */
+"pin_lock_2_minutes" = "2 minutos";
+/* PIN screen screen */
+"pin_lock_5_minutes" = "5 minutos";
+
+/* Label shown when connecting to Tox network */
+"connecting_label" = "Conectando...";
+
+/* Tab name and screen name */
+"contacts_title" = "Contatos";
+/* Tab name and screen name */
+"chats_title" = "Conversas";
+/* Tab name and screen name */
+"settings_title" = "Configurações";
+/* Tab name and screen name */
+"profile_title" = "Perfil";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "Sem contatos";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "Adicionar um contato\nou\n";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "compartilhar seu ID do Tox";
+/* Contact request section title */
+"contact_requests_section" = "Solicitações de contato";
+/* Contact request button */
+"contact_request_accept" = "Aceitar";
+
+/* Share Tox ID text */
+"show_qr_code" = "Exibir código QR";
+/* Share Tox ID text */
+"copy" = "Copiar";
+
+/* Add contat screen name */
+"add_contact_title" = "Adicionar contato";
+/* Add contat placeholder text */
+"add_contact_or_label" = "ou";
+/* Add contat button */
+"add_contact_use_qr" = "Usar código QR";
+/* Add contat error */
+"add_contact_wrong_qr" = "Código QR inválido. Ele deve conter um ID do Tox.";
+/* User Tox ID text */
+"my_tox_id" = "Meu ID do Tox";
+/* User public key text */
+"public_key" = "Chave Pública";
+/* Profile menu item / screen name */
+"profile_details" = "Detalhes do perfil";
+/* Profile button */
+"logout_button" = "Sair";
+
+/* QR code screen button */
+"qr_close_button" = "Fechar";
+
+/* Chat screen placeholder */
+"chat_no_chats" = "Sem conversas";
+/* Chats screen message text */
+"chat_outgoing_file" = "Arquivo de saída:";
+/* Chats screen message text */
+"chat_incoming_file" = "Arquivo de entrada:";
+/* Login screen text */
+"create_account" = "Criar Conta";
+/* Login screen text */
+"import_profile" = "Importar Perfil";
+/* PIN screen error details */
+"pin_failed_attempts" = "Tentativas erradas: %@";
+/* Password field */
+"password" = "Senha";
+/* Login screen text */
+"import_to_antidote" = "Importar para o Antidote";
+/* Login screen text */
+"create_account_profile_hint" = "ex. Home, iPhone";
+/* Login button */
+"create_account_go_button" = "Ir";
+/* PIN screen screen */
+"pin_lock_30_seconds" = "30 segundos";
+/* PIN screen screen */
+"pin_lock_1_minute" = "1 minuto";
+/* Contact last seen status */
+"contact_last_seen" = "Visto por último: %@";
+/* PIN screen screen */
+"pin_touch_id_description" = "Usar sua impressão digital como uma alternativa ao PIN.";
+/* PIN screen screen */
+"pin_lock_immediately" = "Imediatamente";
+/* Screen name */
+"contact_request" = "Solicitações de contato";
+/* Contact request confirmation */
+"contact_request_delete_title" = "Deletar solicitação de contato?";
+/* Add contat placeholder text */
+"add_contact_tox_id_placeholder" = "Entrar ID do Tox";
+/* Text shown when contact was deleted */
+"contact_deleted" = "Contato deletado";
+/* Add contat button */
+"add_contact_send" = "Enviar";
+/* Add contat default text sended to contact */
+"add_contact_default_message_text" = "Olá! Poderia por favor me adicionar à sua lista de contatos?";
+/* User nickname text */
+"nickname" = "Apelido";
+/* User status message text */
+"status_message" = "Mensagem de status";
+/* User status text */
+"status_title" = "Status";
+
+/* User name text */
+"name" = "Nome";
+/* Chats screen message text */
+"chat_call_finished" = "Chamada finalizada";
+/* Share Tox ID text */
+"show_qr" = "Exibir QR";
