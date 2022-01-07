@@ -155,3 +155,211 @@
 "chat_call_finished" = "Chamada finalizada";
 /* Share Tox ID text */
 "show_qr" = "Exibir QR";
+/* Chats screen message text */
+"chat_unanwered_call" = "Chamada não atendida";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Mensagens não entregues serão enviadas quando você e seu contato estiverem online.";
+
+/* Status message */
+"status_offline" = "Desconectado";
+/* Status message */
+"status_online" = "Online";
+/* Status message */
+"status_away" = "Ausente";
+/* Status message */
+"status_busy" = "Ocupado";
+
+/* Notification text */
+"notification_new_message" = "Nova mensagem";
+/* Error */
+"error_internal_message" = "Erro interno";
+/* Error */
+"error_general_bind_port_message" = "Impossível vincular a uma porta.";
+/* Error */
+"error_proxy_invalid_port_message" = "Porta de proxy inválida.";
+/* Error */
+"error_proxy_host_not_resolved_message" = "Host de proxy não pode ser resolvido.";
+
+/* Error */
+"error_name_too_long" = "O nome é longo demais.";
+/* Error */
+"error_contact_request_already_sent" = "Solicitação de contato já enviada";
+/* Settings screen menu */
+"settings_notifications_message_preview" = "Prévia da notificação";
+/* Source of photo to take */
+"photo_from_photo_library" = "Biblioteca de fotos";
+/* Chat button */
+"chat_send_button" = "Enviar";
+/* Item present in the menu on long press on message */
+"chat_more_menu_item" = "Mais";
+/* Settings menu / screen name */
+"settings_faq" = "FAQ";
+/* About screen menu */
+"settings_acknowledgements" = "Agradecimentos";
+/* Settings screen menu */
+"settings_notifications_description" = "Quando a aplicação fica em plano de fundo, você ainda recebe notificações em até 10 minutos.";
+/* Settings screen menu */
+"settings_udp_enabled" = "Ativar UDP";
+/* Settings screen menu */
+"settings_restore_default" = "Restaurar configurações padrão";
+/* Settings screen autodownload images option */
+"settings_using_wifi" = "Usando Wi-Fi";
+/* Settings screen autodownload images option */
+"settings_always" = "Sempre";
+
+/* Alert text when sending file to contacts */
+"file_send_to_contact" = "Enviar ao contato";
+/* Chat call information */
+"chat_call_message" = "Chamada, ";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "está digitando...";
+/* Chat notification toast */
+"chat_new_messages" = "↓ Novas mensagens";
+/* Chat call information */
+"chat_missed_call_message" = "Chamada perdida";
+/* Notification text */
+"notification_incoming_file" = "Recebendo arquivo";
+/* Settings menu / screen name */
+"settings_advanced_settings" = "Configurações avançadas";
+/* About screen menu */
+"settings_antidote_version" = "Versão do Antidote";
+/* About screen menu */
+"settings_antidote_build" = "Compilação do Antidote";
+/* Notification text */
+"notification_incoming_contact_request" = "Recebendo solicitação de contato";
+/* Notification text */
+"notification_is_calling" = "está em chamada";
+/* Settings screen menu */
+"settings_autodownload_images" = "Baixar imagens automaticamente";
+
+/* Profile settings menu */
+"change_password" = "Trocar senha";
+/* Change password error */
+"wrong_old_password" = "Senha incorreta";
+
+/* Source of photo to take */
+"photo_from_camera" = "Câmera";
+/* Error while converting avatar image */
+"change_avatar_error_convert_image" = "Impossível converter imagem";
+/* Delete profile confirmation */
+"delete_profile_confirmation_message" = "Esta operação não pode ser desfeita";
+
+/* Settings menu / screen name */
+"settings_about" = "Sobre";
+/* About screen menu */
+"settings_toxcore_version" = "Versão do Toxcore";
+/* Settings screen menu */
+"settings_autodownload_images_description" = "Baixar automaticamente as imagens recebidas.";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_2" = "Você tem certeza?";
+/* Change password error */
+"password_is_empty_error" = "A senha não deve ser vazia";
+/* Settings screen autodownload images option */
+"settings_never" = "Nunca";
+/* Profile settings menu */
+"delete_password" = "Deletar senha";
+/* Change password text */
+"new_password" = "Nova senha";
+/* Change password text */
+"repeat_password" = "Repita a senha";
+/* Settings screen autodownload images option */
+"settings_wifi" = "Wi-Fi";
+/* Profile settings menu */
+"old_password" = "Senha antiga";
+/* Change password button */
+"change_password_done" = "Concluído";
+/* Change password error */
+"passwords_do_not_match" = "As senhas não coincidem";
+
+/* Profile menu item */
+"export_profile" = "Exportar perfil";
+/* Profile menu item */
+"delete_profile" = "Deletar perfil";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_1" = "Deletar este perfil?";
+
+/* File message text */
+"chat_file_cancelled" = "Cancelado";
+/* File message text */
+"chat_waiting" = "Aguardando...";
+/* File message text */
+"chat_paused" = "Pausado";
+/* Call screen text */
+"call_reaching" = "Contatando...";
+
+/* Call screen text */
+"call_incoming" = "Recebendo chamada";
+/* Call screen text */
+"call_ended" = "Chamada finalizada";
+/* Deleting contat confirmation */
+"delete_contact_title" = "Deletar este contato?\nO histórico de mensagens será perdido.";
+/* Error */
+"error_too_many_files" = "Há transferências de arquivos ativas demais";
+/* Error */
+"error_wrong_password_title" = "Senha incorreta";
+
+/* Deleting chat confirmation */
+"delete_chat_title" = "Deletar esta conversa e o histórico de mensagens?";
+/* Deleting contat request confirmation */
+"delete_contact_request_title" = "Deletar esta solicitação de contato?";
+/* Deleting single message in chat */
+"delete_single_message" = "Deletar mensagem";
+/* Deleting multiple messages in chat. */
+"delete_multiple_messages" = "Deletar mensagens";
+/* Delete button */
+"alert_cancel" = "Cancelar";
+/* General error button */
+"error_ok_button" = "OK";
+/* Error */
+"error_wrong_password_message" = "A senha contém símbolos incorretos.";
+/* Deleting all messages in chat. */
+"delete_all_messages" = "Deletar tudo";
+/* Delete button */
+"alert_delete" = "Deletar";
+/* Error while creating new profile */
+"login_profile_already_exists" = "Um perfil com este nome já existe";
+
+/* General error title */
+"error_title" = "Erro";
+
+/* Error while creating new profile */
+"login_enter_username_and_profile" = "Por favor insira o nome de usuário e o nome de perfil.";
+/* General error button */
+"error_retry_button" = "Tentar novamente";
+/* Error */
+"error_contact_not_connected" = "O contato não está online";
+/* Error */
+"error_decrypt_empty_data_message" = "Alguns dados de entrada estavam vazios.";
+/* Error */
+"error_decrypt_wrong_password_message" = "A senha está incorreta ou o arquivo está corrompido.";
+/* Error */
+"error_general_unknown_message" = "Ocorreu um erro desconhecido.";
+/* Error */
+"error_general_no_memory_message" = "Não há memória o suficiente.";
+/* Error */
+"error_general_profile_encrypted_message" = "O perfil está criptografado.";
+/* Error */
+"error_import_not_exist_title" = "Arquivo de salvamento do Tox não pôde ser importado";
+/* Error */
+"error_import_not_exist_message" = "O arquivo não existe.";
+/* Error */
+"error_decrypt_bad_format_message" = "O arquivo tem o formato errado ou está corrompido.";
+
+/* Error */
+"error_contact_request_too_long" = "A mensagem é longa demais";
+/* Error */
+"error_contact_request_no_message" = "Nenhuma mensagem especificada";
+/* Error */
+"error_decrypt_title" = "O arquivo de salvamento do Tox não pode ser descriptografado";
+/* Error */
+"error_general_bad_format_message" = "O arquivo tem o formato errado ou está corrompido.";
+/* Error */
+"error_proxy_title" = "Erro de proxy";
+/* Error */
+"error_proxy_invalid_address_message" = "Endereço de proxy tem um formato inválido.";
+/* Error */
+"error_contact_request_bad_checksum" = "Checksum incorreto, por favor cheque o ID do Tox inserido";
+/* Error */
+"error_status_message_too_long" = "A mensagem de status é longa demais";
+/* Error */
+"error_contact_request_own_key" = "Não é possível adicionar si mesmo à lista de contatos";
