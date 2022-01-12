@@ -38,7 +38,7 @@
 /* PIN screen text */
 "pin_confirm" = "Confirmar PIN";
 /* PIN screen error */
-"pin_do_not_match" = "PINs não conferem. Tente novamente.";
+"pin_do_not_match" = "PINs não conferem. Tente novamente";
 /* PIN screen error */
 "pin_incorrect" = "PIN incorreto";
 /* PIN screen screen */
@@ -87,7 +87,7 @@
 /* Add contat button */
 "add_contact_use_qr" = "Usar código QR";
 /* Add contat error */
-"add_contact_wrong_qr" = "Código QR inválido. Ele deve conter um ID do Tox.";
+"add_contact_wrong_qr" = "Código QR inválido. Ele deve conter um ID do Tox";
 /* User Tox ID text */
 "my_tox_id" = "Meu ID do Tox";
 /* User public key text */
@@ -363,3 +363,42 @@
 "error_status_message_too_long" = "A mensagem de status é longa demais";
 /* Error */
 "error_contact_request_own_key" = "Não é possível adicionar si mesmo à lista de contatos";
+/* Error */
+"error_contact_request_new_nospam" = "Valor incorreto de nospam, por favor cheque o ID do Tox inserido";
+/* Call error */
+"call_error_contact_is_offline" = "O contato está offline";
+/* Call error */
+"call_error_no_active_call" = "Não há nenhuma chamada ativa";
+/* Avatar button hint in settings */
+"accessibility_avatar_button_hint" = "Define ou remove o avatar.";
+/* Chat button label in contact screen */
+"accessibility_chat_button_label" = "Conversa";
+/* Chat button hint in contact screen */
+"accessibility_chat_button_hint" = "Abre a caixa de diálogo do chat.";
+/* Tap to edit value hint */
+"accessibility_edit_value_hint" = "Edita o valor.";
+
+/* Call error */
+"call_error_already_in_call" = "Já em chamada";
+
+/* Error while using color theme */
+"theme_error_cannot_open" = "O tema não pôde ser aberto, o formato está incorreto";
+/* Tap to copy hint */
+"accessibility_show_copy_hint" = "Exibe o menu de cópia.";
+
+/* Tab chats badge ending */
+"accessibility_chats_ending" = "conversas não lidas";
+/* Avatar button label in settings */
+"accessibility_avatar_button_label" = "Avatar";
+/* Video button label in contact screen */
+"accessibility_video_button_label" = "Chamada de vídeo";
+/* Video button hint in contact screen */
+"accessibility_video_button_hint" = "Faz uma chamada de vídeo.";
+/* Incoming message label */
+"accessibility_incoming_message_label" = "Mensagem";
+/* Call button label in contact screen */
+"accessibility_call_button_label" = "Chamada de áudio";
+/* Call button hint in contact screen */
+"accessibility_call_button_hint" = "Faz uma chamada de áudio.";
+/* Outgoing message label */
+"accessibility_outgoing_message_label" = "Sua mensagem";
