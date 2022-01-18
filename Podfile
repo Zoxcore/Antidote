@@ -6,7 +6,7 @@ platform :ios, '11.0'
 inhibit_all_warnings!
 
 def common_pods
-    pod 'objcTox', :git => 'https://github.com/Zoxcore/objcTox.git', :commit => '9a6ac41301b76d25f9dcdd956a065cc1342d417c'
+    pod 'objcTox', :git => 'https://github.com/Zoxcore/objcTox.git', :commit => 'ba8c2fdedfac71c5032d28a936e34cef7ea966bd'
     pod 'UITextView+Placeholder', '~> 1.1.0'
     pod 'SDCAlertView', '~> 2.5.4'
     pod 'LNNotificationsUI', :git => 'https://github.com/LeoNatan/LNNotificationsUI.git', :commit => '3f75043fc6e77b4180b76cb6cfff4faa506ab9fc'
