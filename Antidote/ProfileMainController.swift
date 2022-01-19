@@ -26,6 +26,7 @@ class ProfileMainController: StaticTableController {
     fileprivate let statusMessageModel = StaticTableDefaultCellModel()
     // fileprivate let userStatusModel = StaticTableDefaultCellModel()
     fileprivate let toxIdModel = StaticTableDefaultCellModel()
+    fileprivate let pushurlModel = StaticTableDefaultCellModel()
     fileprivate let profileDetailsModel = StaticTableDefaultCellModel()
     fileprivate let logoutModel = StaticTableButtonCellModel()
 
@@ -47,6 +48,9 @@ class ProfileMainController: StaticTableController {
             //],
             [
                 toxIdModel,
+            ],
+            [
+                pushurlModel,
             ],
             [
                 profileDetailsModel,
@@ -152,20 +156,23 @@ private extension ProfileMainController {
         statusMessageModel.didSelectHandler = changeStatusMessage
 
         toxIdModel.title = String(localized: "my_tox_id")
-
-        let pushtoken = Messaging.messaging().fcmToken ?? ""
-        if (pushtoken.count > 0) {
-            toxIdModel.value = submanagerUser.userAddress + "\n\nmy Push URL:\nhttps://tox.zoff.xyz/toxfcm/fcm.php?id=" + pushtoken + "&type=1"
-        } else {
-            toxIdModel.value = submanagerUser.userAddress
-        }
-        // for debugging print own ToxID ----------------
-        // print("TOXID: \(submanagerUser.userAddress)")
-        // for debugging print own ToxID ----------------
+        toxIdModel.value = submanagerUser.userAddress
         toxIdModel.rightButton = String(localized: "show_qr")
         toxIdModel.rightButtonHandler = showToxIdQR
         toxIdModel.userInteractionEnabled = false
         toxIdModel.canCopyValue = true
+        // for debugging print own ToxID ----------------
+        // print("TOXID: \(submanagerUser.userAddress)")
+        // for debugging print own ToxID ----------------
+
+        pushurlModel.title = "Push URL"
+        let pushtoken = Messaging.messaging().fcmToken ?? ""
+        if (pushtoken.count > 0) {
+            pushurlModel.value = "https://tox.zoff.xyz/toxfcm/fcm.php?id=" + pushtoken + "&type=1"
+        } else {
+            pushurlModel.value = ""
+        }
+        pushurlModel.userInteractionEnabled = false
 
         profileDetailsModel.value = String(localized: "profile_details")
         profileDetailsModel.didSelectHandler = showProfileDetails

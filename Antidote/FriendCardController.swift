@@ -27,6 +27,7 @@ class FriendCardController: StaticTableController {
     fileprivate let nameModel: StaticTableDefaultCellModel
     fileprivate let statusMessageModel: StaticTableDefaultCellModel
     fileprivate let publicKeyModel: StaticTableDefaultCellModel
+    fileprivate let pushurlModel: StaticTableDefaultCellModel
 
     init(theme: Theme, friend: OCTFriend, submanagerObjects: OCTSubmanagerObjects) {
         self.submanagerObjects = submanagerObjects
@@ -40,6 +41,7 @@ class FriendCardController: StaticTableController {
         nameModel = StaticTableDefaultCellModel()
         statusMessageModel = StaticTableDefaultCellModel()
         publicKeyModel = StaticTableDefaultCellModel()
+        pushurlModel = StaticTableDefaultCellModel()
 
         super.init(theme: theme, style: .plain, model: [
             [
@@ -53,6 +55,9 @@ class FriendCardController: StaticTableController {
             ],
             [
                 publicKeyModel,
+            ],
+            [
+                pushurlModel,
             ],
         ])
 
@@ -129,12 +134,17 @@ private extension FriendCardController {
         statusMessageModel.userInteractionEnabled = false
 
         publicKeyModel.title = String(localized: "public_key")
+        publicKeyModel.value = friend.publicKey
+        publicKeyModel.userInteractionEnabled = false
+        publicKeyModel.canCopyValue = true
+
+        pushurlModel.title = "Push URL"
         let pushtoken = friend.pushToken ?? ""
         if (pushtoken.count > 0) {
-            publicKeyModel.value = friend.publicKey + "\n\n" + pushtoken
+            pushurlModel.value = pushtoken
         } else {
-            publicKeyModel.value = friend.publicKey
+            pushurlModel.value = ""
         }
-        publicKeyModel.userInteractionEnabled = false
+        pushurlModel.userInteractionEnabled = false
     }
 }
