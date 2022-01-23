@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ Nuevos mensajes";
 /* Chat call information */
-"chat_call_message" = "Llamada,";
+"chat_call_message" = "Llamada, ";
 /* Chat call information */
 "chat_missed_call_message" = "Llamada perdida";
 /* Item present in the menu on long press on message */
