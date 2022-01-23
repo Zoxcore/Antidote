@@ -1,1 +1,404 @@
 
+
+/* Contact request button */
+"contact_request_accept" = "Acceptar";
+/* Login screen text */
+"login_or_label" = "o";
+/* Login button */
+"log_in" = "Iniciar sessió";
+/* Login screen text */
+"create_account" = "Crear compte";
+/* Password field */
+"password" = "Contrasenya";
+/* Login screen text */
+"create_profile" = "Crear perfil";
+/* Login screen text */
+"create_account_username_title" = "Com et veuran els contactes?";
+/* Login screen text */
+"create_account_username_placeholder" = "Nom d'usuari";
+/* Login screen text */
+"create_account_profile_placeholder" = "Nom del perfil";
+/* Login screen text */
+"import_profile" = "Importar perfil";
+/* Login screen text */
+"import_to_antidote" = "Importar a Antidote";
+/* Login screen text */
+"create_account_profile_hint" = "per exemple: Casa, iPhone";
+/* Login screen text */
+"set_password_title" = "Establir contrasenya";
+/* PIN screen error */
+"pin_do_not_match" = "Els PIN no coincideixen. Torna-ho a provar";
+/* PIN screen error */
+"pin_incorrect" = "PIN incorrecte";
+/* PIN screen error details */
+"pin_failed_attempts" = "Intents fallits: %@";
+/* PIN screen screen */
+"pin_lock_immediately" = "Immediatament";
+/* PIN screen screen */
+"pin_lock_30_seconds" = "30 segons";
+/* Login button */
+"create_account_go_button" = "Anar";
+/* PIN screen text */
+"pin_set" = "Establir el PIN";
+/* PIN screen text */
+"pin_confirm" = "Confirmar el PIN";
+/* PIN screen screen */
+"pin_enabled" = "Activar el PIN";
+/* PIN screen screen */
+"pin_description" = "Evitar l'accés no autoritzat a Antidote amb un PIN.";
+/* PIN screen screen */
+"pin_touch_id_description" = "Utilitzar l'empremta com a alternativa al PIN.";
+/* PIN screen screen */
+"pin_touch_id_enabled" = "Activar Touch ID";
+/* PIN screen screen */
+"pin_lock_timeout" = "Temps d'autobloqueig";
+/* PIN screen screen */
+"pin_lock_5_minutes" = "5 minuts";
+
+/* Tab name and screen name */
+"contacts_title" = "Contactes";
+/* Tab name and screen name */
+"chats_title" = "Xats";
+/* Tab name and screen name */
+"settings_title" = "Configuració";
+/* Tab name and screen name */
+"profile_title" = "Perfil";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "Sense contactes";
+/* Contact request section title */
+"contact_requests_section" = "Sol·licituds de contacte";
+/* Contact last seen status */
+"contact_last_seen" = "Última visualització: %@";
+/* Contact request button */
+"contact_request_decline" = "Rebutjar";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "Afegir un contacte\no\n";
+/* PIN screen screen */
+"pin_lock_2_minutes" = "2 minuts";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "compartir el teu Tox ID";
+/* Text shown when contact was deleted */
+"contact_deleted" = "Contacte eliminat";
+
+/* Share Tox ID text */
+"show_qr_code" = "Mostrar el codi QR";
+/* Share Tox ID text */
+"copy" = "Copiar";
+
+/* Add contat screen name */
+"add_contact_title" = "Afegir contacte";
+/* Add contat button */
+"add_contact_send" = "Enviar";
+/* Add contat placeholder text */
+"add_contact_or_label" = "o";
+/* Add contat placeholder text */
+"add_contact_default_message_title" = "Missatge";
+/* Add contat default text sended to contact */
+"add_contact_default_message_text" = "Hola! Vols afegir-me?";
+/* Add contat error */
+"add_contact_wrong_qr" = "Codi QR erroni. Ha de contenir el Tox ID";
+
+/* User name text */
+"name" = "Nom";
+/* User nickname text */
+"nickname" = "Sobrenom";
+/* User status message text */
+"status_message" = "Missatge d'estat";
+/* User status text */
+"status_title" = "Estat";
+/* User public key text */
+"public_key" = "Clau pública";
+/* Profile menu item / screen name */
+"profile_details" = "Detalls del perfil";
+/* Profile button */
+"logout_button" = "Sortir";
+
+/* QR code screen button */
+"qr_close_button" = "Tancar";
+
+/* Chat screen placeholder */
+"chat_no_chats" = "Sense xats";
+/* Chats screen message text */
+"chat_outgoing_file" = "Fitxer sortint:";
+/* Chats screen message text */
+"chat_incoming_file" = "Fitxer entrant:";
+/* Chat button */
+"chat_send_button" = "Enviar";
+/* Chat notification toast */
+"chat_new_messages" = "↓ Missatges nous";
+/* Chat call information */
+"chat_call_message" = "Trucada, ";
+/* Chat call information */
+"chat_missed_call_message" = "Trucada perduda";
+/* Item present in the menu on long press on message */
+"chat_more_menu_item" = "Més";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "està escrivint...";
+/* Status message */
+"status_online" = "Connectat";
+
+/* Status message */
+"status_offline" = "No connectat";
+/* Status message */
+"status_away" = "Lluny";
+/* Status message */
+"status_busy" = "Ocupat";
+
+/* Notification text */
+"notification_new_message" = "Missatge nou";
+/* Add contat placeholder text */
+"add_contact_tox_id_placeholder" = "Introduïr el Tox ID";
+/* Add contat button */
+"add_contact_use_qr" = "Utilitzar el codi QR";
+/* Share Tox ID text */
+"show_qr" = "Mostrar el QR";
+/* Chats screen message text */
+"chat_unanwered_call" = "Trucada sense resposta";
+/* Notification text */
+"notification_is_calling" = "està trucant";
+/* Notification text */
+"notification_incoming_file" = "Fitxer entrant";
+
+/* Settings menu / screen name */
+"settings_about" = "Quant a";
+/* Settings menu / screen name */
+"settings_faq" = "Preguntes freqüents";
+/* About screen menu */
+"settings_antidote_version" = "Versió d'Antidote";
+/* About screen menu */
+"settings_antidote_build" = "Compilació d'Antidote";
+/* About screen menu */
+"settings_toxcore_version" = "Versió de Toxcore";
+/* Settings screen menu */
+"settings_autodownload_images" = "Descàrrega automàtica d'imatges";
+/* Settings screen menu */
+"settings_notifications_message_preview" = "Previsualitzar les notificacions";
+/* Settings screen menu */
+"settings_notifications_description" = "Quan l'aplicació passa a segon pla, rebràs notificacions durant 10 minuts.";
+/* Settings screen menu */
+"settings_udp_enabled" = "Activar UDP";
+/* Settings screen menu */
+"settings_restore_default" = "Restaurar la configuració predeterminada";
+/* Settings screen autodownload images option */
+"settings_never" = "Mai";
+/* Settings screen autodownload images option */
+"settings_wifi" = "Wi-Fi";
+/* Settings screen autodownload images option */
+"settings_using_wifi" = "Utilitzant Wi-Fi";
+/* Profile settings menu */
+"delete_password" = "Eliminar contrasenya";
+
+/* Profile settings menu */
+"change_password" = "Canviar contrasenya";
+/* Profile settings menu */
+"old_password" = "Contrasenya antiga";
+/* Change password text */
+"new_password" = "Contrasenya nova";
+/* Change password text */
+"repeat_password" = "Repetir contrasenya";
+/* Change password button */
+"change_password_done" = "Fet";
+/* Change password error */
+"password_is_empty_error" = "La contrasenya no pot de ser buida";
+/* Change password error */
+"wrong_old_password" = "Contrasenya incorrecta";
+/* Change password error */
+"passwords_do_not_match" = "Les contrasenyes no coincideixen";
+
+/* Source of photo to take */
+"photo_from_camera" = "Càmera";
+/* Source of photo to take */
+"photo_from_photo_library" = "Fototeca";
+/* Error while converting avatar image */
+"change_avatar_error_convert_image" = "No es pot convertir la imatge";
+
+/* Alert text when sending file to contacts */
+"file_send_to_contact" = "Enviar a un contacte";
+
+/* Profile menu item */
+"export_profile" = "Exportar perfil";
+/* Profile menu item */
+"delete_profile" = "Eliminar perfil";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_2" = "Estàs segur?";
+/* Delete profile confirmation */
+"delete_profile_confirmation_message" = "Aquesta operació no es pot desfer";
+
+/* Call screen text */
+"call_incoming" = "Trucada entrant";
+/* Call screen text */
+"call_ended" = "Trucada finalitzada";
+/* About screen menu */
+"settings_acknowledgements" = "Agraïments";
+
+/* File message text */
+"chat_file_cancelled" = "Cancel·lat";
+/* File message text */
+"chat_waiting" = "En espera...";
+/* File message text */
+"chat_paused" = "En pausa";
+/* Deleting multiple messages in chat. */
+"delete_multiple_messages" = "Eliminar missatges";
+/* Delete button */
+"alert_delete" = "Eliminar";
+/* Delete button */
+"alert_cancel" = "Cancel·lar";
+
+/* Error while creating new profile */
+"login_enter_username_and_profile" = "Introduir el nom d'usuari i el nom del perfil.";
+/* Error while creating new profile */
+"login_profile_already_exists" = "Ja existeix un perfil amb aquest nom";
+
+/* General error title */
+"error_title" = "Error";
+/* General error button */
+"error_ok_button" = "OK";
+/* Error */
+"error_contact_not_connected" = "El contacte no està connectat";
+/* Error */
+"error_too_many_files" = "Massa transferències de fitxers actives";
+/* Error */
+"error_internal_message" = "Error intern";
+/* Error */
+"error_wrong_password_title" = "Contrasenya incorrecta";
+
+/* Deleting chat confirmation */
+"delete_chat_title" = "Eliminar aquest xat i els missatges?";
+/* Deleting contat request confirmation */
+"delete_contact_request_title" = "Eliminar aquesta sol·licitud de contacte?";
+/* Error */
+"error_import_not_exist_message" = "El fitxer no existeix.";
+/* Error */
+"error_decrypt_empty_data_message" = "Algunes dades d'entrada estaven buides.";
+/* Error */
+"error_decrypt_bad_format_message" = "El fitxer té un format incorrecte o està corrupte.";
+/* Error */
+"error_decrypt_wrong_password_message" = "La contrasenya és incorrecta o el fitxer està corrupte.";
+/* Error */
+"error_general_unknown_message" = "Error desconegut.";
+/* Error */
+"error_general_no_memory_message" = "Memòria insuficient.";
+/* Error */
+"error_general_bind_port_message" = "Error en la connexió al port.";
+/* Error */
+"error_general_profile_encrypted_message" = "El perfil està xifrat.";
+/* Error */
+"error_proxy_title" = "Error de proxy";
+/* Error */
+"error_proxy_invalid_address_message" = "L'adreça de proxy té un format no vàlid.";
+/* Error */
+"error_proxy_invalid_port_message" = "El port del proxy no és vàlid.";
+/* Error */
+"error_proxy_host_not_resolved_message" = "No s'ha pogut resoldre el proxy.";
+
+/* Error */
+"error_name_too_long" = "El nom és massa llarg.";
+/* Error */
+"error_status_message_too_long" = "El missatge d'estat és massa llarg";
+
+/* Error */
+"error_contact_request_too_long" = "Missatge massa llarg";
+/* Error */
+"error_contact_request_no_message" = "No s'ha especificat cap missatge";
+/* Error */
+"error_contact_request_own_key" = "No em puc afegir a la llista de contactes";
+/* Error */
+"error_contact_request_already_sent" = "La sol·licitud de contacte ja s'ha enviat";
+/* Error */
+"error_contact_request_new_nospam" = "Valor de no spam incorrecte, comprova el Tox ID introduït";
+/* Call error */
+"call_error_contact_is_offline" = "El contacte està desconnectat";
+/* Call error */
+"call_error_no_active_call" = "No hi ha cap trucada activa";
+
+/* Error while using color theme */
+"theme_error_cannot_open" = "No es pot obrir el tema, format incorrecte";
+
+/* Tab chats badge ending */
+"accessibility_chats_ending" = "xats no llegits";
+/* Avatar button label in settings */
+"accessibility_avatar_button_label" = "Avatar";
+/* Avatar button hint in settings */
+"accessibility_avatar_button_hint" = "Establir o eliminar l'avatar.";
+/* Chat button label in contact screen */
+"accessibility_chat_button_label" = "Xat";
+/* Chat button hint in contact screen */
+"accessibility_chat_button_hint" = "Obrir el diàleg de xat.";
+/* Call button label in contact screen */
+"accessibility_call_button_label" = "Trucada d'àudio";
+/* Video button label in contact screen */
+"accessibility_video_button_label" = "Trucada de vídeo";
+/* Tap to copy hint */
+"accessibility_show_copy_hint" = "Mostrar el menú de còpia.";
+/* Tap to edit value hint */
+"accessibility_edit_value_hint" = "Modificar el valor.";
+/* Outgoing message label */
+"accessibility_outgoing_message_label" = "El teu missatge";
+/* Video button hint in contact screen */
+"accessibility_video_button_hint" = "Fer una trucada de vídeo.";
+/* Error */
+"error_general_bad_format_message" = "El fitxer té un format incorrecte o està corrupte.";
+/* Error */
+"error_contact_request_bad_checksum" = "Suma de comprovació incorrecta, comprova el Tox ID introduït";
+/* Login screen text */
+"create_account_profile_title" = "Nom d'aquest perfil?";
+/* Login screen text */
+"set_password_hint" = "La contrasenya és necessària per a protegir les teves dades. Guarda-la bé: un cop perduda, no es pot recuperar.";
+/* Default status message */
+"default_user_status_message" = "Toxing a Antidote";
+/* Login button */
+"create_account_next_button" = "Següent";
+/* PIN screen message shown on log out */
+"pin_logout_message" = "Massa intents fallits. La sessió s'ha tancat.";
+/* PIN screen screen */
+"pin_lock_1_minute" = "1 minut";
+
+/* Label shown when connecting to Tox network */
+"connecting_label" = "Connectant...";
+/* Screen name */
+"contact_request" = "Sol·licitud de contacte";
+
+/* PIN screen text */
+"pin_enter_to_unlock" = "Introduïr el PIN per a desbloquejar";
+/* User Tox ID text */
+"my_tox_id" = "El meu Tox ID";
+/* Contact request confirmation */
+"contact_request_delete_title" = "Eliminar la sol·licitud de contacte?";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Els missatges no lliurats s'enviaran quan el teu amic i tu estigueu connectats.";
+/* Chats screen message text */
+"chat_call_finished" = "Trucada finalitzada";
+/* Notification text */
+"notification_incoming_contact_request" = "Sol·licitud de contacte entrant";
+/* Settings menu / screen name */
+"settings_advanced_settings" = "Configuració avançada";
+/* Settings screen menu */
+"settings_autodownload_images_description" = "Descàrregar automàticament les imatges entrants.";
+/* Settings screen autodownload images option */
+"settings_always" = "Sempre";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_1" = "Eliminar aquest perfil?";
+/* Deleting contat confirmation */
+"delete_contact_title" = "Eliminar aquest contacte?\nEs perdrà l'historial de xat.";
+/* Call screen text */
+"call_reaching" = "Contactant...";
+/* Deleting all messages in chat. */
+"delete_all_messages" = "Eliminar-ho tot";
+/* Error */
+"error_wrong_password_message" = "La contrasenya conté símbols no permesos.";
+/* Error */
+"error_decrypt_title" = "No s'ha pogut desxifrar el fitxer tox";
+/* General error button */
+"error_retry_button" = "Reintentar";
+
+/* Call error */
+"call_error_already_in_call" = "Ja en una trucada";
+/* Incoming message label */
+"accessibility_incoming_message_label" = "Missatge";
+/* Call button hint in contact screen */
+"accessibility_call_button_hint" = "Fer una trucada d'àudio.";
+/* Deleting single message in chat */
+"delete_single_message" = "Eliminar missatge";
+/* Error */
+"error_import_not_exist_title" = "No s'ha pogut importar el fitxer tox";
