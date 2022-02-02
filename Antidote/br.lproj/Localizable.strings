@@ -30,7 +30,7 @@
 /* Login screen text */
 "create_account_username_placeholder" = "Anv-Implijer";
 /* Login screen text */
-"create_account_profile_title" = "Penaos pellgomz d'ar profil-mañ ,";
+"create_account_profile_title" = "Penaos pellgomz d'ar profil-mañ ?";
 /* Login screen text */
 "create_account_profile_placeholder" = "Anv ar profil";
 /* Login screen text */
@@ -53,11 +53,11 @@
 /* PIN screen text */
 "pin_confirm" = "Kadarnaat ar PIN";
 /* PIN screen error */
-"pin_do_not_match" = "Ne glot ket ar PINoù. Klaskit adarre.";
+"pin_do_not_match" = "Ne glot ket ar PINoù. Klaskit adarre";
 /* PIN screen error */
 "pin_incorrect" = "PIN Direizh";
 /* PIN screen error details */
-"pin_failed_attempts" = "C'hwitet ez eus bet gant ar glaskadenn: %@";
+"pin_failed_attempts" = "C'hwitet ez eus bet gant ar glaskadenn : %@";
 /* PIN screen message shown on log out */
 "pin_logout_message" = "C'hwitet ez eus bet war re a glaskadennoù. Digevreet oc'h bet.";
 /* PIN screen screen */
@@ -102,7 +102,7 @@
 /* Contact request section title */
 "contact_requests_section" = "Goulennoù darempred";
 /* Contact last seen status */
-"contact_last_seen" = "Gwelet da: %@";
+"contact_last_seen" = "Gwelet da : %@";
 /* Screen name */
 "contact_request" = "Goulenn darempred";
 /* Contact request button */
@@ -112,7 +112,7 @@
 /* Contact request confirmation */
 "contact_request_delete_title" = "Lemmel ar goulenn darempred kuit ?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Lemel an darempred kuit.";
+"contact_deleted" = "Lemel an darempred kuit";
 
 /* Share Tox ID text */
 "show_qr_code" = "Diskouez ar c'hod QR";
@@ -126,7 +126,7 @@
 /* Add contat placeholder text */
 "add_contact_tox_id_placeholder" = "Ebarzhiañ identelezh Tox";
 /* Add contat placeholder text */
-"add_contact_or_label" = "Pe";
+"add_contact_or_label" = "pe";
 /* Add contat button */
 "add_contact_use_qr" = "Implijout ar c'hod QR";
 /* Add contat placeholder text */
@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ Kemennadennoù nevez";
 /* Chat call information */
-"chat_call_message" = "Pellgomz,";
+"chat_call_message" = "Pellgomz, ";
 /* Chat call information */
 "chat_missed_call_message" = "Pellgomzadennoù c'hwitet";
 /* Item present in the menu on long press on message */
@@ -184,7 +184,7 @@
 /* Status message */
 "status_online" = "Enlinenn";
 /* Status message */
-"status_away" = "Ezvezant ";
+"status_away" = "Ezvezant";
 /* Status message */
 "status_busy" = "Ac'hubet";
 
@@ -270,7 +270,7 @@
 /* Delete profile confirmation */
 "delete_profile_confirmation_title_2" = "Ha sur oc'h ?";
 /* Delete profile confirmation */
-"delete_profile_confirmation_message" = "Ne c'hellec'h ket distreiñ war an oberiadenn-mañ ";
+"delete_profile_confirmation_message" = "Ne c'hellec'h ket distreiñ war an oberiadenn-mañ";
 
 /* Call screen text */
 "call_incoming" = "Pellgomzadenn o tont-tre";
@@ -304,9 +304,9 @@
 "alert_cancel" = "Nulañ";
 
 /* Error while creating new profile */
-"login_enter_username_and_profile" = "Ebarzhit un anv implijer hag un anv profil. ";
+"login_enter_username_and_profile" = "Ebarzhit un anv implijer hag un anv profil.";
 /* Error while creating new profile */
-"login_profile_already_exists" = "Graet e vez gant an anv profil-mañ dija.";
+"login_profile_already_exists" = "Graet e vez gant an anv profil-mañ dija";
 
 /* General error title */
 "error_title" = "Fazi";
@@ -315,9 +315,9 @@
 /* General error button */
 "error_retry_button" = "Adklask";
 /* Error */
-"error_contact_not_connected" = "N'emañ ket maez-linenn an darempred ";
+"error_contact_not_connected" = "N'emañ ket maez-linenn an darempred";
 /* Error */
-"error_too_many_files" = "Re a dreuskasoù restr gweredekaet.";
+"error_too_many_files" = "Re a dreuskasoù restr gweredekaet";
 /* Error */
 "error_internal_message" = "Fazi Diabarzh";
 /* Error */
@@ -327,15 +327,15 @@
 /* Error */
 "error_import_not_exist_title" = "Dibosupl da embarzhañ ar restr tox enrollet";
 /* Error */
-"error_import_not_exist_message" = "N'eus ket eus ar restr !";
+"error_import_not_exist_message" = "N'eus ket eus ar restr.";
 /* Error */
-"error_decrypt_title" = "Dibosupl da zirinegañ ar restr tox enrollet ";
+"error_decrypt_title" = "Dibosupl da zirinegañ ar restr tox enrollet";
 /* Error */
 "error_decrypt_empty_data_message" = "Lod eus ar maeziennoù stlenn a oa goullo.";
 /* Error */
-"error_decrypt_bad_format_message" = "Ar restr a zo er stumm fall pe trefoet. ";
+"error_decrypt_bad_format_message" = "Ar restr a zo er stumm fall pe trefoet.";
 /* Error */
-"error_decrypt_wrong_password_message" = "Fall eo ar ger-kuzh pe  trefoet  eo ar restr.";
+"error_decrypt_wrong_password_message" = "Fall eo ar ger-kuzh pe trefoet eo ar restr.";
 /* Error */
 "error_general_unknown_message" = "C'hoarvezet ez eus ur fazi dianavezet.";
 /* Error */
@@ -353,35 +353,35 @@
 /* Error */
 "error_proxy_invalid_port_message" = "Porzh Proxy a zo direizh.";
 /* Error */
-"error_proxy_host_not_resolved_message" = "N'en deus ket gallet bezañ digoublet hostiz Proxy. ";
+"error_proxy_host_not_resolved_message" = "N'en deus ket gallet bezañ digoublet hostiz Proxy.";
 
 /* Error */
-"error_name_too_long" = "An anv a zo re hir !";
+"error_name_too_long" = "An anv a zo re hir.";
 /* Error */
-"error_status_message_too_long" = "Statud ar gemennadenn a zo re hir !";
+"error_status_message_too_long" = "Statud ar gemennadenn a zo re hir";
 
 /* Error */
-"error_contact_request_too_long" = "Ar gemennadenn a zo re hir !";
+"error_contact_request_too_long" = "Ar gemennadenn a zo re hir";
 /* Error */
 "error_contact_request_no_message" = "Kemennadenn ebet spisaet";
 /* Error */
-"error_contact_request_own_key" = "Ne c'hallan ket ma ouzhpennañ d'am listenn darempredoù.";
+"error_contact_request_own_key" = "Ne c'hallan ket ma ouzhpennañ d'am listenn darempredoù";
 /* Error */
 "error_contact_request_already_sent" = "Goulenn mignoniezh kaset dija";
 /* Error */
-"error_contact_request_bad_checksum" = "Checksum fall, gwiriekait mar-plij ho ped ebarzhet an identelezh Tox mat.";
+"error_contact_request_bad_checksum" = "Checksum fall, gwiriekait mar-plij ho ped ebarzhet an identelezh Tox mat";
 /* Error */
-"error_contact_request_new_nospam" = "Nospam fall, gwiriekait mar-plij ho ped ebarzhet an identelezh Tox mat.";
+"error_contact_request_new_nospam" = "Nospam fall, gwiriekait mar-plij ho ped ebarzhet an identelezh Tox mat";
 
 /* Call error */
 "call_error_already_in_call" = "Oc'h ober ur bellgomzadenn dija";
 /* Call error */
-"call_error_contact_is_offline" = "E maez-linenn emañ an darempred.";
+"call_error_contact_is_offline" = "E maez-linenn emañ an darempred";
 /* Call error */
-"call_error_no_active_call" = "N'eus pellgomzadenn gweredakaet ebet.";
+"call_error_no_active_call" = "N'eus pellgomzadenn gweredakaet ebet";
 
 /* Error while using color theme */
-"theme_error_cannot_open" = "Dibosupl eo da zigeriñ an theme, stumm fall.";
+"theme_error_cannot_open" = "Dibosupl eo da zigeriñ an tem, stumm fall";
 
 /* Tab chats badge ending */
 "accessibility_chats_ending" = "flapoù amlennet";
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Kemennadenn";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Ho kemennadenn";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "'zo o skrivañ...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Kemennadoù nan-dasparzhet a vo kaset pa e vi kevreet kenkoulz hag ho vignon.";
