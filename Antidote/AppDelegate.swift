@@ -4,6 +4,7 @@
 
 import UIKit
 import Firebase
+import os
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,33 +55,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // HINT: try to go online every 47 minutes
         let bgfetchInterval: TimeInterval = 47 * 60
         application.setMinimumBackgroundFetchInterval(bgfetchInterval);
+        os_log("AppDelegate:didFinishLaunchingWithOptions")
 
         return true
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         print("WillTerminate")
+        os_log("AppDelegate:applicationWillTerminate")
     }
 
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         print("DidReceiveMemoryWarning")
+        os_log("AppDelegate:applicationDidReceiveMemoryWarning")
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("DidEnterBackground")
+        os_log("AppDelegate:applicationDidEnterBackground:start")
         backgroundTask = UIApplication.shared.beginBackgroundTask (expirationHandler: { [unowned self] in
             UIApplication.shared.endBackgroundTask(self.backgroundTask)
             self.backgroundTask = UIBackgroundTaskInvalid
+            os_log("AppDelegate:applicationDidEnterBackground:end")
         })
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
         print("performFetchWithCompletionHandler:start")
+        os_log("AppDelegate:performFetchWithCompletionHandler:start")
         // HINT: we have 30 seconds here. use 25 of those 30 seconds to be on the safe side
         DispatchQueue.main.asyncAfter(deadline: .now() + 25) { [weak self] in
             completionHandler(UIBackgroundFetchResult.newData)
             print("performFetchWithCompletionHandler:end")
+            os_log("AppDelegate:performFetchWithCompletionHandler:end")
         }
     }
 
@@ -120,9 +128,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("Message ID: \(messageID)")
     }
 
+    os_log("AppDelegate:didReceiveRemoteNotification:start")
     // HINT: we have 30 seconds here. use 25 of those 30 seconds to be on the safe side
     DispatchQueue.main.asyncAfter(deadline: .now() + 25) { [weak self] in
         completionHandler(UIBackgroundFetchResult.newData)
+        os_log("AppDelegate:didReceiveRemoteNotification:start")
     }
   }
 
@@ -136,6 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     print("APNs token retrieved: \(deviceToken)")
+    os_log("AppDelegate:didRegisterForRemoteNotificationsWithDeviceToken")
   }
 }
 
