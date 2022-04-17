@@ -7,7 +7,7 @@ import SnapKit
 
 class UserStatusView: StaticBackgroundView {
     struct Constants {
-        static let DefaultSize = 12.0
+        static let DefaultSize = 14.0
     }
 
     fileprivate var roundView: StaticBackgroundView?
@@ -67,14 +67,15 @@ private extension UserStatusView {
 
         roundView!.snp.makeConstraints {
             $0.center.equalTo(self)
-            $0.size.equalTo(self).offset(-2.0)
+            $0.size.equalTo(self).offset(-4.0)
         }
     }
 
     func userStatusWasUpdated() {
+        
+        //var gradient_colors = [UIColor(red: 255.0/255.0, green: 200.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor, UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 200.0/255.0, alpha: 1.0).cgColor];
         if let theme = theme {
-
-        // TODO: show userstatus aswell as connectionstatus
+        // show userstatus aswell as connectionstatus
         //       for now rather show connectionstatus
 /*
             switch userStatus {
@@ -88,23 +89,68 @@ private extension UserStatusView {
                     roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
             }
 */
+            
+            var background = showExternalCircle ? theme.colorForType(.StatusBackground) : .clear
+            
             switch connectionStatus {
                 case .tcp:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                    background = theme.colorForType(.LoginToxLogo)
+                    switch userStatus {
+                        case .online:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                            //gradient_colors = [theme.colorForType(.OnlineStatus).cgColor, theme.colorForType(.LockGradientTop).cgColor]
+                        case .away:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                            //gradient_colors = [theme.colorForType(.AwayStatus).cgColor, theme.colorForType(.LockGradientTop).cgColor]
+                        case .busy:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
+                            //gradient_colors = [theme.colorForType(.BusyStatus).cgColor, theme.colorForType(.LockGradientTop).cgColor]
+                        case .offline:
+                            fallthrough
+                        default:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                            //gradient_colors = [theme.colorForType(.OfflineStatus).cgColor, theme.colorForType(.LockGradientTop).cgColor]
+                    }
                 case .udp:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                    switch userStatus {
+                        case .online:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                            //gradient_colors = [theme.colorForType(.OnlineStatus).cgColor, theme.colorForType(.OnlineStatus).cgColor]
+                        case .away:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                            //gradient_colors = [theme.colorForType(.AwayStatus).cgColor, theme.colorForType(.AwayStatus).cgColor]
+                        case .busy:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
+                            //gradient_colors = [theme.colorForType(.BusyStatus).cgColor, theme.colorForType(.BusyStatus).cgColor]
+                        case .offline:
+                            fallthrough
+                        default:
+                            roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                            //gradient_colors = [theme.colorForType(.OfflineStatus).cgColor, theme.colorForType(.OfflineStatus).cgColor]
+                    }
                 case .none:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                    fallthrough
                 default:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                //gradient_colors = [theme.colorForType(.OfflineStatus).cgColor, theme.colorForType(.OfflineStatus).cgColor]
             }
-
-            let background = showExternalCircle ? theme.colorForType(.StatusBackground) : .clear
+            
+            //TODO(Tha14): Fix this, when applied status is always red
+/*
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = roundView!.bounds
+            gradientLayer.colors = gradient_colors
+            gradientLayer.locations = [0.3, 1.0]
+            roundView?.layer.insertSublayer(gradientLayer, at:0)
+*/
+            
+            
             setStaticBackgroundColor(background)
         }
 
         layer.cornerRadius = frame.size.width / 2
 
         roundView?.layer.cornerRadius = roundView!.frame.size.width / 2
+
     }
 }
