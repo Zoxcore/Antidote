@@ -7,6 +7,7 @@
 * [Can I send message to offline contacts?](#can-i-send-messages-to-offline-contacts)
 * [How to enable PIN and Touch ID?](#how-to-enable-pin-and-touch-id)
 * [Does Antidote connect to any third party servers?](#does-antidote-connect-to-any-third-party-servers)
+* [How do I see TCP/UDP connection status?](#how-do-i-see-tcp-udp-connection-status)
 * [More Questions?](#more-questions)
 * [Translations](#translations)
 
@@ -63,6 +64,9 @@ To do so:
 
 Antidote(exlcuding toxcore) uses the Google Firebase service and a third party server to deliver push notifications to other tox mobile users when they are offline. This makes it possible for Mobile devices to go into sleep mode and save battery and network bandwidth when there is no activity. Rest assured that the push notification does not contain any data, the request that comes from Antidote includes only the FCM token of your contact(s). No ToxID, name or message data is transfered in the process.
 
+## How do I see TCP/UDP connection status?
+
+Connection status between yourself and your friends is displayed as an outter ring on the status indicator. When the ring is white the connections are being made using UDP. When it's blue the connections are made through a relay. Your connection to the tox network is displayed in the same way on the bottom right.
 
 ## More Questions?
 
