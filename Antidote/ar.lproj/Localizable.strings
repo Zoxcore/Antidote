@@ -57,9 +57,9 @@
 /* PIN screen error */
 "pin_incorrect" = "PIN غير صحيح";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "المحاولات الفاشلة: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "الكثير من المحاولات الفاشلة. لقد تم تسجيل خروجك.";
 /* PIN screen screen */
 "pin_enabled" = "تفعيل PIN";
 /* PIN screen screen */
@@ -112,7 +112,7 @@
 /* Contact request confirmation */
 "contact_request_delete_title" = "إزالة طلب الإضافة؟";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "جهة اتصال محذوفة";
 
 /* Share Tox ID text */
 "show_qr_code" = "عرض رمز الاستجابة السريع او الباركود";
@@ -161,9 +161,9 @@
 /* Chat screen placeholder */
 "chat_no_chats" = "لا توجد محادثات";
 /* Chats screen message text */
-"chat_outgoing_file" = "الملفات المرسلة";
+"chat_outgoing_file" = "الملف الصادر:";
 /* Chats screen message text */
-"chat_incoming_file" = "الملفات الوارده";
+"chat_incoming_file" = "الملف الوارد:";
 /* Chats screen message text */
 "chat_call_finished" = "انتهت المكالمة";
 /* Chats screen message text */
@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "رسائل جديدة";
 /* Chat call information */
-"chat_call_message" = "مكالمة،";
+"chat_call_message" = "اتصل، ";
 /* Chat call information */
 "chat_missed_call_message" = "مكالمة لم يرد عليها";
 /* Item present in the menu on long press on message */
@@ -369,9 +369,9 @@
 /* Error */
 "error_contact_request_already_sent" = "طلب الإضافة قد تم ارسالها مسبقاً";
 /* Error */
-"error_contact_request_bad_checksum" = "مجموع التدقيق او Checksum رديء، يرجى التحقق من حساب التوكس المدخل.";
+"error_contact_request_bad_checksum" = "مجموع التدقيق Checksum رديء، يرجى التحقق من حساب التوكس Tox ID المدخل.";
 /* Error */
-"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج او nospam رديئة، يرجى التحقق من حساب التوكس المدخل.";
+"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج او nospam رديئة، يرجى التحقق من حساب التوكس Tox ID المدخل.";
 
 /* Call error */
 "call_error_already_in_call" = "حالياً في مكالمة";
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "رسالة";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "رسالتك";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "سيتم إرسال الرسائل التي لم يتم تسليمها عندما تكون أنت وصديقك متصلين بالإنترنت.";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "يكتب...";
