@@ -515,13 +515,37 @@ extension ChatPrivateController {
             print("Call_ERROR:no friend?")
         }
     }
+    
+    @objc func displayalert() {
+        let alert = UIAlertController(title: "Location Sharing", message: "Would you like to enable location sharing with this contact?\nYou can disable this feature by clicking on the location icon after it has been enabled.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction((UIAlertAction(title: "Enable", style: .default, handler: { [self] (action) -> Void in
+            self.locationButton.tintColor = .systemGreen
+            alert.dismiss(animated: true, completion: nil)
+
+        })))
+        
+        alert.addAction(
+            UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+                
+                alert.dismiss(animated: true, completion: nil)
+
+            }))
+
+        self.present(alert, animated: true, completion: nil)
+
+      }
+
+    
+    
 
     @objc func videoCallButtonPressed() {
         delegate?.chatPrivateControllerCallToChat(self, enableVideo: true)
     }
 
     @objc func locationButtonPressed() {
-        location_manager.requestLocation()
+        //TODO: If location sharing is not enabled then show the alert to enable it, otherwise change the icon color to blue
+        displayalert()
+        //location_manager.requestLocation()
     }
 
     @objc func editMessagesDeleteButtonPressed(_ barButtonItem: UIBarButtonItem) {
@@ -1416,11 +1440,12 @@ private extension ChatPrivateController {
         else {
             let audioImage = UIImage(named: "start-call-medium")!
             let videoImage = UIImage(named: "video-call-medium")!
-            let locationImage = UIImage(named: "location-call-medium")!
-
+            let locationImage = UIImage(named: "location-call-medium")!.withRenderingMode(.alwaysTemplate)
+            
             audioButton = UIBarButtonItem(image: audioImage, style: .plain, target: self, action: #selector(ChatPrivateController.audioCallButtonPressed))
             videoButton = UIBarButtonItem(image: videoImage, style: .plain, target: self, action: #selector(ChatPrivateController.videoCallButtonPressed))
             locationButton = UIBarButtonItem(image: locationImage, style: .plain, target: self, action: #selector(ChatPrivateController.locationButtonPressed))
+            
             navigationItem.leftBarButtonItems = nil
             navigationItem.rightBarButtonItems = [
                 videoButton,
