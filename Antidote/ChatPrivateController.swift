@@ -1465,7 +1465,6 @@ private extension ChatPrivateController {
             let audioImage = UIImage(named: "start-call-medium")!
             let videoImage = UIImage(named: "video-call-medium")!
             let locationImage = UIImage(named: "location-call-medium")!.withRenderingMode(.alwaysTemplate)
-            
             audioButton = UIBarButtonItem(image: audioImage, style: .plain, target: self, action: #selector(ChatPrivateController.audioCallButtonPressed))
             videoButton = UIBarButtonItem(image: videoImage, style: .plain, target: self, action: #selector(ChatPrivateController.videoCallButtonPressed))
             locationButton = UIBarButtonItem(image: locationImage, style: .plain, target: self, action: #selector(ChatPrivateController.locationButtonPressed))
