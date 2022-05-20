@@ -184,7 +184,11 @@ class ChatPrivateController: KeyboardNotificationController, CLLocationManagerDe
             // let location_url = "https://www.openstreetmap.org/search?query=" + lat_str + "%2C%20" + lon_str + "#map=" + zoom_level + "/" + lat_str + "/" + lon_str
             let location_url = "https://www.openstreetmap.org/?mlat=" + lat_str + "&mlon=" + lon_str + "#map=" + zoom_level + "/" + lat_str + "/" + lon_str
 
-            chatInputView.text = "my Location: " + location_string + "\n" + location_url
+            // chatInputView.text = "my Location: " + location_string + "\n" + location_url
+
+            //DispatchQueue.main.async {
+                self.submanagerChats.sendMessage(to: self.chat, text:  "my Location: " + location_string + "\n" + location_url, type: .normal, successBlock: nil, failureBlock: nil)
+            //}
         }
     }
 
@@ -517,35 +521,55 @@ extension ChatPrivateController {
     }
     
     @objc func displayalert() {
-        let alert = UIAlertController(title: "Location Sharing", message: "Would you like to enable location sharing with this contact?\nYou can disable this feature by clicking on the location icon after it has been enabled.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction((UIAlertAction(title: "Enable", style: .default, handler: { [self] (action) -> Void in
-            self.locationButton.tintColor = .systemGreen
-            alert.dismiss(animated: true, completion: nil)
+        var alert = UIAlertController(title: "Location Sharing", message: "Would you like to enable location sharing with this contact?\nYou can disable this feature by clicking on the location icon after it has been enabled.", preferredStyle: UIAlertControllerStyle.alert)
+        var action_title = "Enable"
 
+        if (AppDelegate.location_sharing_contact_pubkey != "-1")
+        {
+            alert = UIAlertController(title: "Location Sharing", message: "Disable sharing with this contact " + AppDelegate.location_sharing_contact_pubkey + " ?" , preferredStyle: UIAlertControllerStyle.alert)
+            action_title = "Disable"
+        }
+
+        alert.addAction((UIAlertAction(title: action_title, style: .default, handler: { [self] (action) -> Void in
+            if (action_title == "Disable")
+            {
+                AppDelegate.location_sharing_contact_pubkey = "-1"
+            }
+            else
+            {
+                AppDelegate.location_sharing_contact_pubkey = self.friend?.publicKey ?? "-1"
+
+                DispatchQueue.global(qos: .userInitiated).async {
+
+                    print("ll:location_sharing")
+                    if self.friend != nil {
+
+                        while AppDelegate.location_sharing_contact_pubkey != "-1" {
+                            location_manager.requestLocation()
+                            // HINT: sleep for 30 seconds
+                            sleep(30)
+                        }
+                        print("ll:while_loop_end")
+                    }
+                }
+            }
+            alert.dismiss(animated: true, completion: nil)
         })))
-        
+
         alert.addAction(
             UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
-                
                 alert.dismiss(animated: true, completion: nil)
-
             }))
 
         self.present(alert, animated: true, completion: nil)
-
-      }
-
-    
-    
+    }
 
     @objc func videoCallButtonPressed() {
         delegate?.chatPrivateControllerCallToChat(self, enableVideo: true)
     }
 
     @objc func locationButtonPressed() {
-        //TODO: If location sharing is not enabled then show the alert to enable it, otherwise change the icon color to blue
         displayalert()
-        //location_manager.requestLocation()
     }
 
     @objc func editMessagesDeleteButtonPressed(_ barButtonItem: UIBarButtonItem) {

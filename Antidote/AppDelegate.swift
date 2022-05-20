@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     var gps_was_stopped_by_forground: Bool = false
     static var lastStartGpsTS: Int64 = 0
+    static var location_sharing_contact_pubkey: String = "-1"
 
     class var shared: AppDelegate {
       return UIApplication.shared.delegate as! AppDelegate
