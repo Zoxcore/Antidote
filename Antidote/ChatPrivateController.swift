@@ -534,10 +534,14 @@ extension ChatPrivateController {
             if (action_title == "Disable")
             {
                 AppDelegate.location_sharing_contact_pubkey = "-1"
+                let locationImage = UIImage(named: "location-call-medium")!.withRenderingMode(.alwaysOriginal)
+                locationButton.setBackgroundImage(locationImage, for: .normal, barMetrics: .default)
             }
             else
             {
                 AppDelegate.location_sharing_contact_pubkey = self.friend?.publicKey ?? "-1"
+                let locationImage = UIImage(named: "location-call-activated-medium")!.withRenderingMode(.alwaysOriginal)
+                locationButton.setBackgroundImage(locationImage, for: .normal, barMetrics: .default)
 
                 DispatchQueue.global(qos: .userInitiated).async {
 
@@ -1464,11 +1468,16 @@ private extension ChatPrivateController {
         else {
             let audioImage = UIImage(named: "start-call-medium")!
             let videoImage = UIImage(named: "video-call-medium")!
-            let locationImage = UIImage(named: "location-call-medium")!.withRenderingMode(.alwaysTemplate)
+            let locationImage = UIImage(named: "location-call-medium")!.withRenderingMode(.alwaysOriginal)
             audioButton = UIBarButtonItem(image: audioImage, style: .plain, target: self, action: #selector(ChatPrivateController.audioCallButtonPressed))
             videoButton = UIBarButtonItem(image: videoImage, style: .plain, target: self, action: #selector(ChatPrivateController.videoCallButtonPressed))
             locationButton = UIBarButtonItem(image: locationImage, style: .plain, target: self, action: #selector(ChatPrivateController.locationButtonPressed))
-            
+
+            if (AppDelegate.location_sharing_contact_pubkey != "-1") {
+                let locationImage = UIImage(named: "location-call-activated-medium")!.withRenderingMode(.alwaysOriginal)
+                locationButton.setBackgroundImage(locationImage, for: .normal, barMetrics: .default)
+            }
+
             navigationItem.leftBarButtonItems = nil
             navigationItem.rightBarButtonItems = [
                 videoButton,
