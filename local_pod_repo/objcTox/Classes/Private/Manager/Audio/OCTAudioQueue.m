@@ -14,7 +14,7 @@ const int kBufferLength = 384000;
 const int kNumberOfChannels = 1;
 const int kDefaultSampleRate = 48000;
 const int kSampleCount_incoming_audio = 1920;
-const int kSampleCount_outgoing_audio = 1920;
+const int kSampleCount_outgoing_audio = (1920 / 2);
 const int kBitsPerByte = 8;
 const int kFramesPerPacket = 1;
 // if you make this too small, the output queue will silently not play,
