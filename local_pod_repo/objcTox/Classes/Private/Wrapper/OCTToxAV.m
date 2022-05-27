@@ -203,6 +203,7 @@ bool (*_toxav_video_send_frame)(ToxAV *toxAV, uint32_t friend_number, uint16_t w
               channels:(OCTToxAVChannels)channels sampleRate:(OCTToxAVSampleRate)sampleRate
               toFriend:(OCTToxFriendNumber)friendNumber error:(NSError **)error
 {
+    // TOXAUDIO: -outgoing-audio-
     TOXAV_ERR_SEND_FRAME cError;
 
     BOOL status = _toxav_audio_send_frame(self.toxAV, friendNumber,
@@ -620,6 +621,7 @@ void receiveAudioFrameCallback(ToxAV *cToxAV,
 {
     OCTToxAV *toxAV = (__bridge OCTToxAV *)userData;
 
+    // TOXAUDIO: -incoming-audio-
     if ([toxAV.delegate respondsToSelector:@selector(toxAV:receiveAudio:sampleCount:channels:sampleRate:friendNumber:)]) {
         [toxAV.delegate toxAV:toxAV receiveAudio:pcm sampleCount:sampleCount channels:channels sampleRate:sampleRate friendNumber:friendNumber];
     }

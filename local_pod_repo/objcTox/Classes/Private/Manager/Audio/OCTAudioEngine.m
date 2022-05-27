@@ -112,6 +112,7 @@
         OCTAudioEngine *aoi = welf;
 
         if (aoi.enableMicrophone) {
+            // TOXAUDIO: -outgoing-audio-
             [aoi.toxav sendAudioFrame:data
                           sampleCount:samples
                              channels:channelCount
@@ -120,6 +121,8 @@
                                 error:nil];
         }
     };
+
+    // TOXAUDIO: -incoming-audio-
     [self.outputQueue updateSampleRate:self.outputSampleRate numberOfChannels:self.outputNumberOfChannels error:nil];
 
     if (! [self.inputQueue begin:error] || ! [self.outputQueue begin:error]) {
@@ -149,6 +152,7 @@
 
 - (void)provideAudioFrames:(OCTToxAVPCMData *)pcm sampleCount:(OCTToxAVSampleCount)sampleCount channels:(OCTToxAVChannels)channels sampleRate:(OCTToxAVSampleRate)sampleRate fromFriend:(OCTToxFriendNumber)friendNumber
 {
+    // TOXAUDIO: -incoming-audio-
     int32_t len = (int32_t)(channels * sampleCount * sizeof(OCTToxAVPCMData));
     TPCircularBuffer *buf = [self.outputQueue getBufferPointer];
     if (buf) {
@@ -174,7 +178,9 @@
     // Note: OCTAudioQueue handles the case where the device ids are nil - in that case
     // we don't set the device explicitly, and the default is used.
 #if TARGET_OS_IPHONE
+    // TOXAUDIO: -incoming-audio-
     self.outputQueue = [[OCTAudioQueue alloc] initWithOutputDeviceID:nil error:error];
+    // TOXAUDIO: -outgoing-audio-
     self.inputQueue = [[OCTAudioQueue alloc] initWithInputDeviceID:nil error:error];
 #else
     self.outputQueue = [[OCTAudioQueue alloc] initWithOutputDeviceID:self.outputDeviceID error:error];

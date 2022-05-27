@@ -10,7 +10,8 @@
 extern int kBufferLength;
 extern int kNumberOfChannels;
 extern int kDefaultSampleRate;
-extern int kSampleCount;
+extern int kSampleCount_incoming_audio;
+extern int kSampleCount_outgoing_audio;
 extern int kBitsPerByte;
 extern int kFramesPerPacket;
 extern int kBytesPerSample;

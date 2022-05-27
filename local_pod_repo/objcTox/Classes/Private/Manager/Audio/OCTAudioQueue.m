@@ -13,12 +13,14 @@
 const int kBufferLength = 384000;
 const int kNumberOfChannels = 1;
 const int kDefaultSampleRate = 48000;
-const int kSampleCount = 1920;
+const int kSampleCount_incoming_audio = 1920;
+const int kSampleCount_outgoing_audio = 1920;
 const int kBitsPerByte = 8;
 const int kFramesPerPacket = 1;
 // if you make this too small, the output queue will silently not play,
 // but you will still get fill callbacks; it's really weird
-const int kFramesPerOutputBuffer = kSampleCount / 4;
+const int kFramesPerOutputBuffer_incoming_audio = kSampleCount_incoming_audio / 4;
+const int kFramesPerOutputBuffer_outgoing_audio = kSampleCount_outgoing_audio / 4;
 const int kBytesPerSample = sizeof(SInt16);
 const int kNumberOfAudioQueueBuffers = 8;
 
@@ -157,11 +159,13 @@ static NSString *OCTGetSystemAudioDevice(AudioObjectPropertySelector sel, NSErro
 
 - (instancetype)initWithInputDeviceID:(NSString *)devID error:(NSError **)error
 {
+    // TOXAUDIO: -outgoing-audio-
     return [self initWithDeviceID:devID isOutput:NO error:error];
 }
 
 - (instancetype)initWithOutputDeviceID:(NSString *)devID error:(NSError **)error
 {
+    // TOXAUDIO: -incoming-audio-
     return [self initWithDeviceID:devID isOutput:YES error:error];
 }
 
@@ -182,9 +186,11 @@ static NSString *OCTGetSystemAudioDevice(AudioObjectPropertySelector sel, NSErro
 {
     OSStatus err;
     if (self.isOutput) {
+        // TOXAUDIO: -incoming-audio-
         err = _AudioQueueNewOutput(&_streamFmt, (void *)&FillOutputBuffer, (__bridge void *)self, NULL, kCFRunLoopCommonModes, 0, &_audioQueue);
     }
     else {
+        // TOXAUDIO: -outgoing-audio-
         err = _AudioQueueNewInput(&_streamFmt, (void *)&InputAvailable, (__bridge void *)self, NULL, kCFRunLoopCommonModes, 0, &_audioQueue);
     }
 
@@ -215,9 +221,16 @@ static NSString *OCTGetSystemAudioDevice(AudioObjectPropertySelector sel, NSErro
     }
 
     for (int i = 0; i < kNumberOfAudioQueueBuffers; ++i) {
-        _AudioQueueAllocateBuffer(self.audioQueue, kBytesPerSample * kNumberOfChannels * kFramesPerOutputBuffer, &(_AQBuffers[i]));
+        if (self.isOutput) {
+            // TOXAUDIO: -incoming-audio-
+            _AudioQueueAllocateBuffer(self.audioQueue, kBytesPerSample * kNumberOfChannels * kFramesPerOutputBuffer_incoming_audio, &(_AQBuffers[i]));
+        } else {
+            // TOXAUDIO: -outgoing-audio-
+            _AudioQueueAllocateBuffer(self.audioQueue, kBytesPerSample * kNumberOfChannels * kFramesPerOutputBuffer_outgoing_audio, &(_AQBuffers[i]));
+        }
         _AudioQueueEnqueueBuffer(self.audioQueue, _AQBuffers[i], 0, NULL);
         if (self.isOutput) {
+            // TOXAUDIO: -outgoing-audio-
             // For some reason we have to fill it with zero or the callback never gets called.
             FillOutputBuffer(self, self.audioQueue, _AQBuffers[i]);
         }
@@ -354,11 +367,25 @@ static void InputAvailable(OCTAudioQueue *__unsafe_unretained context,
 
     int32_t availableBytesToConsume;
     void *tail = TPCircularBufferTail(&context->_buffer, &availableBytesToConsume);
-    int32_t minimalBytesToConsume = kSampleCount * kNumberOfChannels * sizeof(SInt16);
+
+    // TOXAUDIO: -outgoing-audio-
+    int32_t minimalBytesToConsume = kSampleCount_outgoing_audio * kNumberOfChannels * sizeof(SInt16);
+
+    if (self.isOutput) {
+        // TOXAUDIO: -incoming-audio-
+        minimalBytesToConsume = kSampleCount_incoming_audio * kNumberOfChannels * sizeof(SInt16);
+    }
+
     int32_t cyclesToConsume = availableBytesToConsume / minimalBytesToConsume;
 
     for (int32_t i = 0; i < cyclesToConsume; i++) {
-        context.sendDataBlock(tail, kSampleCount, context.streamFmt.mSampleRate, kNumberOfChannels);
+        if (self.isOutput) {
+            // TOXAUDIO: -incoming-audio-
+            context.sendDataBlock(tail, kSampleCount_incoming_audio, context.streamFmt.mSampleRate, kNumberOfChannels);
+        } else {
+            // TOXAUDIO: -outgoing-audio-
+            context.sendDataBlock(tail, kSampleCount_outgoing_audio, context.streamFmt.mSampleRate, kNumberOfChannels);
+        }
         TPCircularBufferConsume(&context->_buffer, minimalBytesToConsume);
         tail = TPCircularBufferTail(&context->_buffer, &availableBytesToConsume);
     }
