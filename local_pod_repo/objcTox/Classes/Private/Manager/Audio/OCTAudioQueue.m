@@ -371,7 +371,7 @@ static void InputAvailable(OCTAudioQueue *__unsafe_unretained context,
     // TOXAUDIO: -outgoing-audio-
     int32_t minimalBytesToConsume = kSampleCount_outgoing_audio * kNumberOfChannels * sizeof(SInt16);
 
-    if (self.isOutput) {
+    if (context.isOutput) {
         // TOXAUDIO: -incoming-audio-
         minimalBytesToConsume = kSampleCount_incoming_audio * kNumberOfChannels * sizeof(SInt16);
     }
@@ -379,7 +379,7 @@ static void InputAvailable(OCTAudioQueue *__unsafe_unretained context,
     int32_t cyclesToConsume = availableBytesToConsume / minimalBytesToConsume;
 
     for (int32_t i = 0; i < cyclesToConsume; i++) {
-        if (self.isOutput) {
+        if (context.isOutput) {
             // TOXAUDIO: -incoming-audio-
             context.sendDataBlock(tail, kSampleCount_incoming_audio, context.streamFmt.mSampleRate, kNumberOfChannels);
         } else {
