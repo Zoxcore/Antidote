@@ -11,17 +11,23 @@
 
 #include "logger.h"
 #include "onion.h"
+#include "timed_auth.h"
 
 #define ONION_ANNOUNCE_MAX_ENTRIES 160
 #define ONION_ANNOUNCE_TIMEOUT 300
-#define ONION_PING_ID_SIZE CRYPTO_SHA256_SIZE
+#define ONION_PING_ID_SIZE TIMED_AUTH_SIZE
+#define ONION_MAX_EXTRA_DATA_SIZE 136
 
 #define ONION_ANNOUNCE_SENDBACK_DATA_LENGTH (sizeof(uint64_t))
 
-#define ONION_ANNOUNCE_REQUEST_SIZE (1 + CRYPTO_NONCE_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_PING_ID_SIZE + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_ANNOUNCE_SENDBACK_DATA_LENGTH + CRYPTO_MAC_SIZE)
+#define ONION_ANNOUNCE_REQUEST_MIN_SIZE (1 + CRYPTO_NONCE_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_PING_ID_SIZE + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_ANNOUNCE_SENDBACK_DATA_LENGTH + CRYPTO_MAC_SIZE)
+#define ONION_ANNOUNCE_REQUEST_MAX_SIZE (ONION_ANNOUNCE_REQUEST_MIN_SIZE + ONION_MAX_EXTRA_DATA_SIZE)
 
-#define ONION_ANNOUNCE_RESPONSE_MIN_SIZE (1 + ONION_ANNOUNCE_SENDBACK_DATA_LENGTH + CRYPTO_NONCE_SIZE + 1 + ONION_PING_ID_SIZE + CRYPTO_MAC_SIZE)
-#define ONION_ANNOUNCE_RESPONSE_MAX_SIZE (ONION_ANNOUNCE_RESPONSE_MIN_SIZE + sizeof(Node_format)*MAX_SENT_NODES)
+#define ONION_ANNOUNCE_RESPONSE_MIN_SIZE (2 + ONION_ANNOUNCE_SENDBACK_DATA_LENGTH + CRYPTO_NONCE_SIZE + ONION_PING_ID_SIZE + CRYPTO_MAC_SIZE)
+#define ONION_ANNOUNCE_RESPONSE_MAX_SIZE (ONION_ANNOUNCE_RESPONSE_MIN_SIZE + ONION_MAX_EXTRA_DATA_SIZE * MAX_SENT_NODES)
+
+/* TODO: DEPRECATE */
+#define ONION_ANNOUNCE_REQUEST_SIZE (1 + CRYPTO_NONCE_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_PING_ID_SIZE + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_PUBLIC_KEY_SIZE + ONION_ANNOUNCE_SENDBACK_DATA_LENGTH + CRYPTO_MAC_SIZE)
 
 #define ONION_DATA_RESPONSE_MIN_SIZE (1 + CRYPTO_NONCE_SIZE + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_MAC_SIZE)
 
@@ -38,7 +44,7 @@ void onion_announce_entry_set_time(Onion_Announce *onion_a, uint32_t entry, uint
 
 /** @brief Create an onion announce request packet in packet of max_packet_length.
  *
- * Recommended value for max_packet_length is ONION_ANNOUNCE_REQUEST_SIZE.
+ * Recommended value for max_packet_length is ONION_ANNOUNCE_REQUEST_MIN_SIZE.
  *
  * dest_client_id is the public key of the node the packet will be sent to.
  * public_key and secret_key is the kepair which will be used to encrypt the request.
@@ -52,7 +58,7 @@ void onion_announce_entry_set_time(Onion_Announce *onion_a, uint32_t entry, uint
  * return packet length on success.
  */
 non_null()
-int create_announce_request(uint8_t *packet, uint16_t max_packet_length, const uint8_t *dest_client_id,
+int create_announce_request(const Random *rng, uint8_t *packet, uint16_t max_packet_length, const uint8_t *dest_client_id,
                             const uint8_t *public_key, const uint8_t *secret_key, const uint8_t *ping_id, const uint8_t *client_id,
                             const uint8_t *data_public_key, uint64_t sendback_data);
 
@@ -69,7 +75,7 @@ int create_announce_request(uint8_t *packet, uint16_t max_packet_length, const u
  * return 0 on success.
  */
 non_null()
-int create_data_request(uint8_t *packet, uint16_t max_packet_length, const uint8_t *public_key,
+int create_data_request(const Random *rng, uint8_t *packet, uint16_t max_packet_length, const uint8_t *public_key,
                         const uint8_t *encrypt_public_key, const uint8_t *nonce, const uint8_t *data, uint16_t length);
 
 /** @brief Create and send an onion announce request packet.
@@ -87,10 +93,11 @@ int create_data_request(uint8_t *packet, uint16_t max_packet_length, const uint8
  * return 0 on success.
  */
 non_null()
-int send_announce_request(const Networking_Core *net, const Onion_Path *path, const Node_format *dest,
+int send_announce_request(const Networking_Core *net, const Random *rng,
+                          const Onion_Path *path, const Node_format *dest,
                           const uint8_t *public_key, const uint8_t *secret_key,
                           const uint8_t *ping_id, const uint8_t *client_id,
-                          const uint8_t *data_public_key,  uint64_t sendback_data);
+                          const uint8_t *data_public_key, uint64_t sendback_data);
 
 /** @brief Create and send an onion data request packet.
  *
@@ -109,16 +116,23 @@ int send_announce_request(const Networking_Core *net, const Onion_Path *path, co
  * return 0 on success.
  */
 non_null()
-int send_data_request(const Networking_Core *net, const Onion_Path *path, const IP_Port *dest,
-                      const uint8_t *public_key,
-                      const uint8_t *encrypt_public_key, const uint8_t *nonce, const uint8_t *data, uint16_t length);
+int send_data_request(const Networking_Core *net, const Random *rng, const Onion_Path *path, const IP_Port *dest,
+                      const uint8_t *public_key, const uint8_t *encrypt_public_key, const uint8_t *nonce,
+                      const uint8_t *data, uint16_t length);
 
+
+typedef int pack_extra_data_cb(void *object, const Logger *logger, const Mono_Time *mono_time,
+                               uint8_t num_nodes, uint8_t *plain, uint16_t plain_size,
+                               uint8_t *response, uint16_t response_size, uint16_t offset);
+
+non_null(1) nullable(3, 4)
+void onion_announce_extra_data_callback(Onion_Announce *onion_a, uint16_t extra_data_max_size,
+                                        pack_extra_data_cb *extra_data_callback, void *extra_data_object);
 
 non_null()
-Onion_Announce *new_onion_announce(const Logger *log, Mono_Time *mono_time, DHT *dht);
+Onion_Announce *new_onion_announce(const Logger *log, const Random *rng, const Mono_Time *mono_time, DHT *dht);
 
-non_null()
+nullable(1)
 void kill_onion_announce(Onion_Announce *onion_a);
-
 
 #endif

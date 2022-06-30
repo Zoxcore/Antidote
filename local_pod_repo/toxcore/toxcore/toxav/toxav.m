@@ -17,6 +17,7 @@
 #include "../toxcore/ccompat.h"
 #include "../toxcore/logger.h"
 #include "../toxcore/mono_time.h"
+#include "../toxcore/tox_struct.h"
 #include "../toxcore/util.h"
 
 // TODO(zoff99): don't hardcode this, let the application choose it
@@ -157,9 +158,7 @@ ToxAV *toxav_new(Tox *tox, Toxav_Err_New *error)
 
     // TODO(iphydf): Don't rely on toxcore internals.
     Messenger *m;
-    //!TOKSTYLE-
-    m = *(Messenger **)tox;
-    //!TOKSTYLE+
+    m = tox->m;
 
     if (m->msi_packet != nullptr) {
         rc = TOXAV_ERR_NEW_MULTIPLE;
@@ -182,7 +181,7 @@ ToxAV *toxav_new(Tox *tox, Toxav_Err_New *error)
 
     av->tox = tox;
     av->m = m;
-    av->toxav_mono_time = mono_time_new();
+    av->toxav_mono_time = mono_time_new(nullptr, nullptr);
     av->msi = msi_new(av->m);
 
     if (av->msi == nullptr) {
@@ -1066,7 +1065,7 @@ static void callback_bwc(BWController *bwc, uint32_t friend_number, float loss, 
     LOGGER_DEBUG(call->av->m->log, "Reported loss of %f%%", (double)loss * 100);
 
     /* if less than 10% data loss we do nothing! */
-    if (loss < 0.1f) {
+    if (loss < 0.1F) {
         return;
     }
 

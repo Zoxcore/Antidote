@@ -58,7 +58,10 @@ typedef struct TCP_Secure_Connection {
 
 struct TCP_Server {
     const Logger *logger;
+    const Random *rng;
+    const Network *ns;
     Onion *onion;
+    Forwarding *forwarding;
 
 #ifdef TCP_SERVER_USE_EPOLL
     int efd;
@@ -261,7 +264,7 @@ static int del_accepted(TCP_Server *tcp_server, int index)
 non_null()
 static void kill_TCP_secure_connection(TCP_Secure_Connection *con)
 {
-    kill_sock(con->con.sock);
+    kill_sock(con->con.ns, con->con.sock);
     wipe_secure_connection(con);
 }
 
@@ -289,7 +292,7 @@ static int kill_accepted(TCP_Server *tcp_server, int index)
         return -1;
     }
 
-    kill_sock(sock);
+    kill_sock(tcp_server->ns, sock);
     return 0;
 }
 
@@ -326,13 +329,13 @@ static int handle_TCP_handshake(const Logger *logger, TCP_Secure_Connection *con
     memcpy(con->public_key, data, CRYPTO_PUBLIC_KEY_SIZE);
     uint8_t temp_secret_key[CRYPTO_SECRET_KEY_SIZE];
     uint8_t resp_plain[TCP_HANDSHAKE_PLAIN_SIZE];
-    crypto_new_keypair(resp_plain, temp_secret_key);
-    random_nonce(con->con.sent_nonce);
+    crypto_new_keypair(con->con.rng, resp_plain, temp_secret_key);
+    random_nonce(con->con.rng, con->con.sent_nonce);
     memcpy(resp_plain + CRYPTO_PUBLIC_KEY_SIZE, con->con.sent_nonce, CRYPTO_NONCE_SIZE);
     memcpy(con->recv_nonce, plain + CRYPTO_PUBLIC_KEY_SIZE, CRYPTO_NONCE_SIZE);
 
     uint8_t response[TCP_SERVER_HANDSHAKE_SIZE];
-    random_nonce(response);
+    random_nonce(con->con.rng, response);
 
     len = encrypt_data_symmetric(shared_key, response, resp_plain, TCP_HANDSHAKE_PLAIN_SIZE,
                                  response + CRYPTO_NONCE_SIZE);
@@ -344,7 +347,7 @@ static int handle_TCP_handshake(const Logger *logger, TCP_Secure_Connection *con
 
     IP_Port ipp = {{{0}}};
 
-    if (TCP_SERVER_HANDSHAKE_SIZE != net_send(logger, con->con.sock, response, TCP_SERVER_HANDSHAKE_SIZE, &ipp)) {
+    if (TCP_SERVER_HANDSHAKE_SIZE != net_send(con->con.ns, logger, con->con.sock, response, TCP_SERVER_HANDSHAKE_SIZE, &ipp)) {
         crypto_memzero(shared_key, sizeof(shared_key));
         return -1;
     }
@@ -366,7 +369,7 @@ non_null()
 static int read_connection_handshake(const Logger *logger, TCP_Secure_Connection *con, const uint8_t *self_secret_key)
 {
     uint8_t data[TCP_CLIENT_HANDSHAKE_SIZE];
-    const int len = read_TCP_packet(logger, con->con.sock, data, TCP_CLIENT_HANDSHAKE_SIZE, &con->con.ip_port);
+    const int len = read_TCP_packet(logger, con->con.ns, con->con.sock, data, TCP_CLIENT_HANDSHAKE_SIZE, &con->con.ip_port);
 
     if (len == -1) {
         LOGGER_TRACE(logger, "connection handshake is not ready yet");
@@ -564,21 +567,46 @@ static int rm_connection_index(TCP_Server *tcp_server, TCP_Secure_Connection *co
     return -1;
 }
 
+/** @brief Encode con_id and identifier as a custom IP_Port.
+ *
+ * @return ip_port.
+ */
+static IP_Port con_id_to_ip_port(uint32_t con_id, uint64_t identifier)
+{
+    IP_Port ip_port = {{{0}}};
+    ip_port.ip.family = net_family_tcp_client();
+    ip_port.ip.ip.v6.uint32[0] = con_id;
+    ip_port.ip.ip.v6.uint64[1] = identifier;
+    return ip_port;
+
+}
+
+/** @brief Decode ip_port created by con_id_to_ip_port to con_id.
+ *
+ * @retval true on success.
+ * @retval false if ip_port is invalid.
+ */
+non_null()
+static bool ip_port_to_con_id(const TCP_Server *tcp_server, const IP_Port *ip_port, uint32_t *con_id)
+{
+    *con_id = ip_port->ip.ip.v6.uint32[0];
+
+    return net_family_is_tcp_client(ip_port->ip.family) &&
+           *con_id < tcp_server->size_accepted_connections &&
+           tcp_server->accepted_connection_array[*con_id].identifier == ip_port->ip.ip.v6.uint64[1];
+}
+
 non_null()
 static int handle_onion_recv_1(void *object, const IP_Port *dest, const uint8_t *data, uint16_t length)
 {
     TCP_Server *tcp_server = (TCP_Server *)object;
-    const uint32_t index = dest->ip.ip.v6.uint32[0];
+    uint32_t index;
 
-    if (index >= tcp_server->size_accepted_connections) {
+    if (!ip_port_to_con_id(tcp_server, dest, &index)) {
         return 1;
     }
 
     TCP_Secure_Connection *con = &tcp_server->accepted_connection_array[index];
-
-    if (con->identifier != dest->ip.ip.v6.uint64[1]) {
-        return 1;
-    }
 
     VLA(uint8_t, packet, 1 + length);
     memcpy(packet + 1, data, length);
@@ -589,6 +617,42 @@ static int handle_onion_recv_1(void *object, const IP_Port *dest, const uint8_t 
     }
 
     return 0;
+}
+
+non_null()
+static bool handle_forward_reply_tcp(void *object, const uint8_t *sendback_data, uint16_t sendback_data_len,
+                                     const uint8_t *data, uint16_t length)
+{
+    TCP_Server *tcp_server = (TCP_Server *)object;
+
+    if (sendback_data_len != 1 + sizeof(uint32_t) + sizeof(uint64_t)) {
+        return false;
+    }
+
+    if (*sendback_data != SENDBACK_TCP) {
+        return false;
+    }
+
+    uint32_t con_id;
+    uint64_t identifier;
+    net_unpack_u32(sendback_data + 1, &con_id);
+    net_unpack_u64(sendback_data + 1 + sizeof(uint32_t), &identifier);
+
+    if (con_id >= tcp_server->size_accepted_connections) {
+        return false;
+    }
+
+    TCP_Secure_Connection *con = &tcp_server->accepted_connection_array[con_id];
+
+    if (con->identifier != identifier) {
+        return false;
+    }
+
+    VLA(uint8_t, packet, 1 + length);
+    memcpy(packet + 1, data, length);
+    packet[0] = TCP_PACKET_FORWARDING;
+
+    return write_packet_TCP_secure_connection(tcp_server->logger, &con->con, packet, SIZEOF_VLA(packet), false) == 1;
 }
 
 /**
@@ -686,12 +750,7 @@ static int handle_TCP_packet(TCP_Server *tcp_server, uint32_t con_id, const uint
                     return -1;
                 }
 
-                IP_Port source;
-                source.port = 0;  // dummy initialise
-                source.ip.family = net_family_tcp_onion;
-                source.ip.ip.v6.uint32[0] = con_id;
-                source.ip.ip.v6.uint32[1] = 0;
-                source.ip.ip.v6.uint64[1] = con->identifier;
+                IP_Port source = con_id_to_ip_port(con_id, con->identifier);
                 onion_send_1(tcp_server->onion, data + 1 + CRYPTO_NONCE_SIZE, length - (1 + CRYPTO_NONCE_SIZE), &source,
                              data + 1);
             }
@@ -701,6 +760,39 @@ static int handle_TCP_packet(TCP_Server *tcp_server, uint32_t con_id, const uint
 
         case TCP_PACKET_ONION_RESPONSE: {
             LOGGER_TRACE(tcp_server->logger, "handling onion response for %d", con_id);
+            return -1;
+        }
+
+        case TCP_PACKET_FORWARD_REQUEST: {
+            if (tcp_server->forwarding == nullptr) {
+                return -1;
+            }
+
+            const uint16_t sendback_data_len = 1 + sizeof(uint32_t) + sizeof(uint64_t);
+            uint8_t sendback_data[1 + sizeof(uint32_t) + sizeof(uint64_t)];
+            sendback_data[0] = SENDBACK_TCP;
+            net_pack_u32(sendback_data + 1, con_id);
+            net_pack_u64(sendback_data + 1 + sizeof(uint32_t), con->identifier);
+
+            IP_Port dest;
+            const int ipport_length = unpack_ip_port(&dest, data + 1, length - 1, false);
+
+            if (ipport_length == -1) {
+                return -1;
+            }
+
+            const uint8_t *const forward_data = data + (1 + ipport_length);
+            const uint16_t forward_data_len = length - (1 + ipport_length);
+
+            if (forward_data_len > MAX_FORWARD_DATA_SIZE) {
+                return -1;
+            }
+
+            send_forwarding(tcp_server->forwarding, &dest, sendback_data, sendback_data_len, forward_data, forward_data_len);
+            return 0;
+        }
+
+        case TCP_PACKET_FORWARDING: {
             return -1;
         }
 
@@ -779,13 +871,13 @@ static int accept_connection(TCP_Server *tcp_server, Socket sock)
         return -1;
     }
 
-    if (!set_socket_nonblock(sock)) {
-        kill_sock(sock);
+    if (!set_socket_nonblock(tcp_server->ns, sock)) {
+        kill_sock(tcp_server->ns, sock);
         return -1;
     }
 
-    if (!set_socket_nosigpipe(sock)) {
-        kill_sock(sock);
+    if (!set_socket_nosigpipe(tcp_server->ns, sock)) {
+        kill_sock(tcp_server->ns, sock);
         return -1;
     }
 
@@ -799,6 +891,8 @@ static int accept_connection(TCP_Server *tcp_server, Socket sock)
     }
 
     conn->status = TCP_STATUS_CONNECTED;
+    conn->con.ns = tcp_server->ns;
+    conn->con.rng = tcp_server->rng;
     conn->con.sock = sock;
     conn->next_packet_length = 0;
 
@@ -807,33 +901,33 @@ static int accept_connection(TCP_Server *tcp_server, Socket sock)
 }
 
 non_null()
-static Socket new_listening_TCP_socket(const Logger *logger, Family family, uint16_t port)
+static Socket new_listening_TCP_socket(const Logger *logger, const Network *ns, Family family, uint16_t port)
 {
-    const Socket sock = net_socket(family, TOX_SOCK_STREAM, TOX_PROTO_TCP);
+    const Socket sock = net_socket(ns, family, TOX_SOCK_STREAM, TOX_PROTO_TCP);
 
     if (!sock_valid(sock)) {
         LOGGER_ERROR(logger, "TCP socket creation failed (family = %d)", family.value);
         return net_invalid_socket;
     }
 
-    bool ok = set_socket_nonblock(sock);
+    bool ok = set_socket_nonblock(ns, sock);
 
     if (ok && net_family_is_ipv6(family)) {
-        ok = set_socket_dualstack(sock);
+        ok = set_socket_dualstack(ns, sock);
     }
 
     if (ok) {
-        ok = set_socket_reuseaddr(sock);
+        ok = set_socket_reuseaddr(ns, sock);
     }
 
-    ok = ok && bind_to_port(sock, family, port) && (net_listen(sock, TCP_MAX_BACKLOG) == 0);
+    ok = ok && bind_to_port(ns, sock, family, port) && (net_listen(ns, sock, TCP_MAX_BACKLOG) == 0);
 
     if (!ok) {
         char *const error = net_new_strerror(net_error());
-        LOGGER_ERROR(logger, "could not bind to TCP port %d (family = %d): %s",
-                     port, family.value, error != nullptr ? error : "(null)");
+        LOGGER_WARNING(logger, "could not bind to TCP port %d (family = %d): %s",
+                       port, family.value, error != nullptr ? error : "(null)");
         net_kill_strerror(error);
-        kill_sock(sock);
+        kill_sock(ns, sock);
         return net_invalid_socket;
     }
 
@@ -841,16 +935,17 @@ static Socket new_listening_TCP_socket(const Logger *logger, Family family, uint
     return sock;
 }
 
-TCP_Server *new_TCP_server(const Logger *logger, bool ipv6_enabled, uint16_t num_sockets, const uint16_t *ports,
-                           const uint8_t *secret_key, Onion *onion)
+TCP_Server *new_TCP_server(const Logger *logger, const Random *rng, const Network *ns,
+                           bool ipv6_enabled, uint16_t num_sockets,
+                           const uint16_t *ports, const uint8_t *secret_key, Onion *onion, Forwarding *forwarding)
 {
     if (num_sockets == 0 || ports == nullptr) {
         LOGGER_ERROR(logger, "no sockets");
         return nullptr;
     }
 
-    if (networking_at_startup() != 0) {
-        LOGGER_ERROR(logger, "network initialisation failed");
+    if (ns == nullptr) {
+        LOGGER_ERROR(logger, "NULL network");
         return nullptr;
     }
 
@@ -862,6 +957,8 @@ TCP_Server *new_TCP_server(const Logger *logger, bool ipv6_enabled, uint16_t num
     }
 
     temp->logger = logger;
+    temp->ns = ns;
+    temp->rng = rng;
 
     temp->socks_listening = (Socket *)calloc(num_sockets, sizeof(Socket));
 
@@ -883,10 +980,10 @@ TCP_Server *new_TCP_server(const Logger *logger, bool ipv6_enabled, uint16_t num
 
 #endif
 
-    const Family family = ipv6_enabled ? net_family_ipv6 : net_family_ipv4;
+    const Family family = ipv6_enabled ? net_family_ipv6() : net_family_ipv4();
 
     for (uint32_t i = 0; i < num_sockets; ++i) {
-        const Socket sock = new_listening_TCP_socket(logger, family, ports[i]);
+        const Socket sock = new_listening_TCP_socket(logger, ns, family, ports[i]);
 
         if (!sock_valid(sock)) {
             continue;
@@ -919,6 +1016,11 @@ TCP_Server *new_TCP_server(const Logger *logger, bool ipv6_enabled, uint16_t num
         set_callback_handle_recv_1(onion, &handle_onion_recv_1, temp);
     }
 
+    if (forwarding != nullptr) {
+        temp->forwarding = forwarding;
+        set_callback_forward_reply(forwarding, &handle_forward_reply_tcp, temp);
+    }
+
     memcpy(temp->secret_key, secret_key, CRYPTO_SECRET_KEY_SIZE);
     crypto_derive_public_key(temp->public_key, temp->secret_key);
 
@@ -935,7 +1037,7 @@ static void do_TCP_accept_new(TCP_Server *tcp_server)
         Socket sock;
 
         do {
-            sock = net_accept(tcp_server->socks_listening[i]);
+            sock = net_accept(tcp_server->ns, tcp_server->socks_listening[i]);
         } while (accept_connection(tcp_server, sock) != -1);
     }
 }
@@ -991,8 +1093,7 @@ static int do_unconfirmed(TCP_Server *tcp_server, const Mono_Time *mono_time, ui
     LOGGER_TRACE(tcp_server->logger, "handling unconfirmed TCP connection %d", i);
 
     uint8_t packet[MAX_PACKET_SIZE];
-    const int len = read_packet_TCP_secure_connection(tcp_server->logger, conn->con.sock, &conn->next_packet_length,
-                    conn->con.shared_key, conn->recv_nonce, packet, sizeof(packet), &conn->con.ip_port);
+    const int len = read_packet_TCP_secure_connection(tcp_server->logger, conn->con.ns, conn->con.sock, &conn->next_packet_length, conn->con.shared_key, conn->recv_nonce, packet, sizeof(packet), &conn->con.ip_port);
 
     if (len == 0) {
         return -1;
@@ -1012,8 +1113,7 @@ static bool tcp_process_secure_packet(TCP_Server *tcp_server, uint32_t i)
     TCP_Secure_Connection *const conn = &tcp_server->accepted_connection_array[i];
 
     uint8_t packet[MAX_PACKET_SIZE];
-    const int len = read_packet_TCP_secure_connection(tcp_server->logger, conn->con.sock, &conn->next_packet_length,
-                    conn->con.shared_key, conn->recv_nonce, packet, sizeof(packet), &conn->con.ip_port);
+    const int len = read_packet_TCP_secure_connection(tcp_server->logger, conn->con.ns, conn->con.sock, &conn->next_packet_length, conn->con.shared_key, conn->recv_nonce, packet, sizeof(packet), &conn->con.ip_port);
     LOGGER_TRACE(tcp_server->logger, "processing packet for %d: %d", i, len);
 
     if (len == 0) {
@@ -1083,7 +1183,7 @@ static void do_TCP_confirmed(TCP_Server *tcp_server, const Mono_Time *mono_time)
         if (mono_time_is_timeout(mono_time, conn->last_pinged, TCP_PING_FREQUENCY)) {
             uint8_t ping[1 + sizeof(uint64_t)];
             ping[0] = TCP_PACKET_PING;
-            uint64_t ping_id = random_u64();
+            uint64_t ping_id = random_u64(conn->con.rng);
 
             if (ping_id == 0) {
                 ++ping_id;
@@ -1171,7 +1271,7 @@ static bool tcp_epoll_process(TCP_Server *tcp_server, const Mono_Time *mono_time
             case TCP_SOCKET_LISTENING: {
                 // socket is from socks_listening, accept connection
                 while (true) {
-                    const Socket sock_new = net_accept(sock);
+                    const Socket sock_new = net_accept(tcp_server->ns, sock);
 
                     if (!sock_valid(sock_new)) {
                         break;
@@ -1272,12 +1372,20 @@ void do_TCP_server(TCP_Server *tcp_server, const Mono_Time *mono_time)
 
 void kill_TCP_server(TCP_Server *tcp_server)
 {
+    if (tcp_server == nullptr) {
+        return;
+    }
+
     for (uint32_t i = 0; i < tcp_server->num_listening_socks; ++i) {
-        kill_sock(tcp_server->socks_listening[i]);
+        kill_sock(tcp_server->ns, tcp_server->socks_listening[i]);
     }
 
     if (tcp_server->onion != nullptr) {
         set_callback_handle_recv_1(tcp_server->onion, nullptr, nullptr);
+    }
+
+    if (tcp_server->forwarding != nullptr) {
+        set_callback_forward_reply(tcp_server->forwarding, nullptr, nullptr);
     }
 
     bs_list_free(&tcp_server->accepted_key_list);

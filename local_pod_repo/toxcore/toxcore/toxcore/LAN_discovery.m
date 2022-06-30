@@ -53,7 +53,8 @@ struct Broadcast_Info {
 
 #if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
 
-static Broadcast_Info *fetch_broadcast_info(void)
+non_null()
+static Broadcast_Info *fetch_broadcast_info(const Network *ns)
 {
     Broadcast_Info *broadcast = (Broadcast_Info *)calloc(1, sizeof(Broadcast_Info));
 
@@ -92,7 +93,7 @@ static Broadcast_Info *fetch_broadcast_info(void)
                     && addr_parse_ip(pAdapter->GatewayList.IpAddress.String, &gateway)) {
                 if (net_family_is_ipv4(gateway.family) && net_family_is_ipv4(subnet_mask.family)) {
                     IP *ip = &broadcast->ips[broadcast->count];
-                    ip->family = net_family_ipv4;
+                    ip->family = net_family_ipv4();
                     const uint32_t gateway_ip = net_ntohl(gateway.ip.v4.uint32);
                     const uint32_t subnet_ip = net_ntohl(subnet_mask.ip.v4.uint32);
                     const uint32_t broadcast_ip = gateway_ip + ~subnet_ip - 1;
@@ -118,7 +119,8 @@ static Broadcast_Info *fetch_broadcast_info(void)
 
 #elif !defined(FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION) && (defined(__linux__) || defined(__FreeBSD__) || defined(__DragonFly__))
 
-static Broadcast_Info *fetch_broadcast_info(void)
+non_null()
+static Broadcast_Info *fetch_broadcast_info(const Network *ns)
 {
     Broadcast_Info *broadcast = (Broadcast_Info *)calloc(1, sizeof(Broadcast_Info));
 
@@ -130,7 +132,7 @@ static Broadcast_Info *fetch_broadcast_info(void)
      * so it's wrapped in `__linux__` for now.
      * Definitely won't work like this on Windows...
      */
-    const Socket sock = net_socket(net_family_ipv4, TOX_SOCK_STREAM, 0);
+    const Socket sock = net_socket(ns, net_family_ipv4(), TOX_SOCK_STREAM, 0);
 
     if (!sock_valid(sock)) {
         free(broadcast);
@@ -146,7 +148,7 @@ static Broadcast_Info *fetch_broadcast_info(void)
     ifc.ifc_len = sizeof(i_faces);
 
     if (ioctl(sock.sock, SIOCGIFCONF, &ifc) < 0) {
-        kill_sock(sock);
+        kill_sock(ns, sock);
         free(broadcast);
         return nullptr;
     }
@@ -176,7 +178,7 @@ static Broadcast_Info *fetch_broadcast_info(void)
         }
 
         IP *ip = &broadcast->ips[broadcast->count];
-        ip->family = net_family_ipv4;
+        ip->family = net_family_ipv4();
         ip->ip.v4.uint32 = sock4->sin_addr.s_addr;
 
         if (ip->ip.v4.uint32 == 0) {
@@ -186,14 +188,15 @@ static Broadcast_Info *fetch_broadcast_info(void)
         ++broadcast->count;
     }
 
-    kill_sock(sock);
+    kill_sock(ns, sock);
 
     return broadcast;
 }
 
 #else // TODO(irungentoo): Other platforms?
 
-static Broadcast_Info *fetch_broadcast_info(void)
+non_null()
+static Broadcast_Info *fetch_broadcast_info(const Network *ns)
 {
     return (Broadcast_Info *)calloc(1, sizeof(Broadcast_Info));
 }
@@ -231,7 +234,7 @@ static IP broadcast_ip(Family family_socket, Family family_broadcast)
 
     if (net_family_is_ipv6(family_socket)) {
         if (net_family_is_ipv6(family_broadcast)) {
-            ip.family = net_family_ipv6;
+            ip.family = net_family_ipv6();
             /* `FF02::1` is - according to RFC 4291 - multicast all-nodes link-local */
             /* `FE80::*:` MUST be exact, for that we would need to look over all
              * interfaces and check in which status they are */
@@ -239,11 +242,11 @@ static IP broadcast_ip(Family family_socket, Family family_broadcast)
             ip.ip.v6.uint8[ 1] = 0x02;
             ip.ip.v6.uint8[15] = 0x01;
         } else if (net_family_is_ipv4(family_broadcast)) {
-            ip.family = net_family_ipv6;
+            ip.family = net_family_ipv6();
             ip.ip.v6 = ip6_broadcast;
         }
     } else if (net_family_is_ipv4(family_socket) && net_family_is_ipv4(family_broadcast)) {
-        ip.family = net_family_ipv4;
+        ip.family = net_family_ipv4();
         ip.ip.v4 = ip4_broadcast;
     }
 
@@ -354,7 +357,7 @@ bool lan_discovery_send(const Networking_Core *net, const Broadcast_Info *broadc
 
     /* IPv6 multicast */
     if (net_family_is_ipv6(net_family(net))) {
-        ip_port.ip = broadcast_ip(net_family_ipv6, net_family_ipv6);
+        ip_port.ip = broadcast_ip(net_family_ipv6(), net_family_ipv6());
 
         if (ip_isset(&ip_port.ip) && sendpacket(net, &ip_port, data, 1 + CRYPTO_PUBLIC_KEY_SIZE) > 0) {
             res = true;
@@ -362,7 +365,7 @@ bool lan_discovery_send(const Networking_Core *net, const Broadcast_Info *broadc
     }
 
     /* IPv4 broadcast (has to be IPv4-in-IPv6 mapping if socket is IPv6 */
-    ip_port.ip = broadcast_ip(net_family(net), net_family_ipv4);
+    ip_port.ip = broadcast_ip(net_family(net), net_family_ipv4());
 
     if (ip_isset(&ip_port.ip) && sendpacket(net, &ip_port, data, 1 + CRYPTO_PUBLIC_KEY_SIZE) > 0) {
         res = true;
@@ -372,9 +375,9 @@ bool lan_discovery_send(const Networking_Core *net, const Broadcast_Info *broadc
 }
 
 
-Broadcast_Info *lan_discovery_init(void)
+Broadcast_Info *lan_discovery_init(const Network *ns)
 {
-    return fetch_broadcast_info();
+    return fetch_broadcast_info(ns);
 }
 
 void lan_discovery_kill(Broadcast_Info *broadcast)

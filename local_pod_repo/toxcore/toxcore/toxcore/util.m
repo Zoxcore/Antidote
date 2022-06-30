@@ -17,18 +17,39 @@
 #include <string.h>
 #include <time.h>
 
-#include "crypto_core.h" /* for CRYPTO_PUBLIC_KEY_SIZE */
+#include "ccompat.h"
 
-
-/** id functions */
-bool pk_equal(const uint8_t *dest, const uint8_t *src)
+bool is_power_of_2(uint64_t x)
 {
-    return public_key_eq(dest, src);
+    return x != 0 && (x & (~x + 1)) == x;
 }
 
-void pk_copy(uint8_t *dest, const uint8_t *src)
+void free_uint8_t_pointer_array(uint8_t **ary, size_t n_items)
 {
-    memcpy(dest, src, CRYPTO_PUBLIC_KEY_SIZE);
+    if (ary == nullptr) {
+        return;
+    }
+
+    for (size_t i = 0; i < n_items; ++i) {
+        if (ary[i] != nullptr) {
+            free(ary[i]);
+        }
+    }
+
+    free(ary);
+}
+
+uint16_t data_checksum(const uint8_t *data, uint32_t length)
+{
+    uint8_t checksum[2] = {0};
+    uint16_t check;
+
+    for (uint32_t i = 0; i < length; ++i) {
+        checksum[i % 2] ^= data[i];
+    }
+
+    memcpy(&check, checksum, sizeof(check));
+    return check;
 }
 
 int create_recursive_mutex(pthread_mutex_t *mutex)
@@ -110,4 +131,20 @@ uint32_t min_u32(uint32_t a, uint32_t b)
 uint64_t min_u64(uint64_t a, uint64_t b)
 {
     return a < b ? a : b;
+}
+
+uint32_t jenkins_one_at_a_time_hash(const uint8_t *key, size_t len)
+{
+    uint32_t hash = 0;
+
+    for (uint32_t i = 0; i < len; ++i) {
+        hash += key[i];
+        hash += hash << 10;
+        hash ^= hash >> 6;
+    }
+
+    hash += hash << 3;
+    hash ^= hash >> 11;
+    hash += hash << 15;
+    return hash;
 }

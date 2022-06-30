@@ -26,7 +26,7 @@ rm -Rf $GIT_PATH/
 git clone https://github.com/TokTok/c-toxcore $GIT_PATH/
 
 cd $GIT_PATH/
-git checkout "v0.2.17"
+git checkout "v0.2.18"
 
 echo "Applying msgv3_addon.patch"
 git apply --reject --whitespace=fix ../msgv3_addon.patch

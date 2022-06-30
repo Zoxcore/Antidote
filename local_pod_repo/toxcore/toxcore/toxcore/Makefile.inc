@@ -5,7 +5,9 @@ libtoxcore_la_include_HEADERS = \
 
 libtoxcore_la_includedir = $(includedir)/tox
 
-libtoxcore_la_SOURCES = ../toxcore/attributes.h \
+libtoxcore_la_SOURCES = ../third_party/cmp/cmp.c \
+                        ../third_party/cmp/cmp.h \
+                        ../toxcore/attributes.h \
                         ../toxcore/bin_pack.c \
                         ../toxcore/bin_pack.h \
                         ../toxcore/bin_unpack.c \
@@ -43,6 +45,8 @@ libtoxcore_la_SOURCES = ../toxcore/attributes.h \
                         ../toxcore/network.c \
                         ../toxcore/crypto_core.h \
                         ../toxcore/crypto_core.c \
+                        ../toxcore/timed_auth.h \
+                        ../toxcore/timed_auth.c \
                         ../toxcore/ping_array.h \
                         ../toxcore/ping_array.c \
                         ../toxcore/net_crypto.h \
@@ -67,7 +71,9 @@ libtoxcore_la_SOURCES = ../toxcore/attributes.h \
                         ../toxcore/tox_events.c \
                         ../toxcore/tox_unpack.h \
                         ../toxcore/tox_unpack.c \
+                        ../toxcore/tox_private.c \
                         ../toxcore/tox_private.h \
+                        ../toxcore/tox_struct.h \
                         ../toxcore/tox_api.c \
                         ../toxcore/util.h \
                         ../toxcore/util.c \
@@ -81,6 +87,10 @@ libtoxcore_la_SOURCES = ../toxcore/attributes.h \
                         ../toxcore/onion_announce.c \
                         ../toxcore/onion_client.h \
                         ../toxcore/onion_client.c \
+                        ../toxcore/announce.h \
+                        ../toxcore/announce.c \
+                        ../toxcore/forwarding.h \
+                        ../toxcore/forwarding.c \
                         ../toxcore/TCP_client.h \
                         ../toxcore/TCP_client.c \
                         ../toxcore/TCP_common.h \
@@ -97,7 +107,8 @@ libtoxcore_la_CFLAGS =  -I$(top_srcdir) \
                         $(LIBSODIUM_CFLAGS) \
                         $(NACL_CFLAGS) \
                         $(MSGPACK_CFLAGS) \
-                        $(PTHREAD_CFLAGS)
+                        $(PTHREAD_CFLAGS) \
+                        -DCMP_NO_FLOAT=1
 
 libtoxcore_la_LDFLAGS = $(LT_LDFLAGS) \
                         $(EXTRA_LT_LDFLAGS) \

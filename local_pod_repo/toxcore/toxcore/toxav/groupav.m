@@ -10,6 +10,7 @@
 #include "../toxcore/ccompat.h"
 #include "../toxcore/logger.h"
 #include "../toxcore/mono_time.h"
+#include "../toxcore/tox_struct.h"
 #include "../toxcore/util.h"
 
 #define GROUP_JBUF_SIZE 6
@@ -263,7 +264,7 @@ static void group_av_peer_new(void *object, uint32_t groupnumber, uint32_t frien
         return;
     }
 
-    peer_av->mono_time = group_av->g_c->mono_time;
+    peer_av->mono_time = g_mono_time(group_av->g_c);
     peer_av->buffer = create_queue(GROUP_JBUF_SIZE);
 
     if (group_peer_set_object(group_av->g_c, groupnumber, friendgroupnumber, peer_av) == -1) {
@@ -535,7 +536,7 @@ bool groupchat_av_enabled(const Group_Chats *g_c, uint32_t groupnumber)
  */
 int add_av_groupchat(const Logger *log, Tox *tox, Group_Chats *g_c, audio_data_cb *audio_callback, void *userdata)
 {
-    const int groupnumber = add_groupchat(g_c, GROUPCHAT_TYPE_AV);
+    const int groupnumber = add_groupchat(g_c, &tox->rng, GROUPCHAT_TYPE_AV);
 
     if (groupnumber == -1) {
         return -1;

@@ -68,6 +68,9 @@ struct DHT_Friend {
     unsigned int num_to_bootstrap;
 };
 
+static const DHT_Friend empty_dht_friend = {{0}};
+const Node_format empty_node_format = {{0}};
+
 typedef struct Cryptopacket_Handler {
     cryptopacket_handler_cb *function;
     void *object;
@@ -75,7 +78,9 @@ typedef struct Cryptopacket_Handler {
 
 struct DHT {
     const Logger *log;
+    const Network *ns;
     Mono_Time *mono_time;
+    const Random *rng;
     Networking_Core *net;
 
     bool hole_punching_enabled;
@@ -188,7 +193,7 @@ static IP_Port ip_port_normalize(const IP_Port *ip_port)
     IP_Port res = *ip_port;
 
     if (net_family_is_ipv6(res.ip.family) && ipv6_ipv4_in_v6(&res.ip.ip.v6)) {
-        res.ip.family = net_family_ipv4;
+        res.ip.family = net_family_ipv4();
         res.ip.ip.v4.uint32 = res.ip.ip.v6.uint32[3];
     }
 
@@ -219,9 +224,8 @@ int id_closest(const uint8_t *pk, const uint8_t *pk1, const uint8_t *pk2)
     return 0;
 }
 
-/** Return index of first unequal bit number. */
-non_null()
-static unsigned int bit_by_bit_cmp(const uint8_t *pk1, const uint8_t *pk2)
+/** Return index of first unequal bit number between public keys pk1 and pk2. */
+unsigned int bit_by_bit_cmp(const uint8_t *pk1, const uint8_t *pk2)
 {
     unsigned int i;
     unsigned int j = 0;
@@ -338,8 +342,9 @@ void dht_get_shared_key_sent(DHT *dht, uint8_t *shared_key, const uint8_t *publi
  * @retval -1 on failure.
  * @return the length of the created packet on success.
  */
-int create_request(const uint8_t *send_public_key, const uint8_t *send_secret_key, uint8_t *packet,
-                   const uint8_t *recv_public_key, const uint8_t *data, uint32_t data_length, uint8_t request_id)
+int create_request(const Random *rng, const uint8_t *send_public_key, const uint8_t *send_secret_key,
+                   uint8_t *packet, const uint8_t *recv_public_key,
+                   const uint8_t *data, uint32_t data_length, uint8_t request_id)
 {
     if (send_public_key == nullptr || packet == nullptr || recv_public_key == nullptr || data == nullptr) {
         return -1;
@@ -350,10 +355,10 @@ int create_request(const uint8_t *send_public_key, const uint8_t *send_secret_ke
     }
 
     uint8_t *const nonce = packet + 1 + CRYPTO_PUBLIC_KEY_SIZE * 2;
-    random_nonce(nonce);
-    uint8_t temp[MAX_CRYPTO_REQUEST_SIZE];
-    memcpy(temp + 1, data, data_length);
+    random_nonce(rng, nonce);
+    uint8_t temp[MAX_CRYPTO_REQUEST_SIZE] = {0};
     temp[0] = request_id;
+    memcpy(temp + 1, data, data_length);
     const int len = encrypt_data(recv_public_key, send_secret_key, nonce, temp, data_length + 1,
                                  packet + CRYPTO_SIZE);
 
@@ -411,24 +416,24 @@ int handle_request(const uint8_t *self_public_key, const uint8_t *self_secret_ke
     memcpy(public_key, packet + 1 + CRYPTO_PUBLIC_KEY_SIZE, CRYPTO_PUBLIC_KEY_SIZE);
     const uint8_t *const nonce = packet + 1 + CRYPTO_PUBLIC_KEY_SIZE * 2;
     uint8_t temp[MAX_CRYPTO_REQUEST_SIZE];
-    int len1 = decrypt_data(public_key, self_secret_key, nonce,
-                            packet + CRYPTO_SIZE, packet_length - CRYPTO_SIZE, temp);
+    int32_t len1 = decrypt_data(public_key, self_secret_key, nonce,
+                                packet + CRYPTO_SIZE, packet_length - CRYPTO_SIZE, temp);
 
     if (len1 == -1 || len1 == 0) {
         crypto_memzero(temp, MAX_CRYPTO_REQUEST_SIZE);
         return -1;
     }
 
-    assert(len1 > 0);
+    assert(len1 == packet_length - CRYPTO_SIZE - CRYPTO_MAC_SIZE);
+    // Because coverity can't figure out this equation:
+    assert(len1 <= MAX_CRYPTO_REQUEST_SIZE - CRYPTO_SIZE - CRYPTO_MAC_SIZE);
+
     request_id[0] = temp[0];
     --len1;
     memcpy(data, temp + 1, len1);
     crypto_memzero(temp, MAX_CRYPTO_REQUEST_SIZE);
     return len1;
 }
-
-#define PACKED_NODE_SIZE_IP4 (1 + SIZE_IP4 + sizeof(uint16_t) + CRYPTO_PUBLIC_KEY_SIZE)
-#define PACKED_NODE_SIZE_IP6 (1 + SIZE_IP6 + sizeof(uint16_t) + CRYPTO_PUBLIC_KEY_SIZE)
 
 /** @return packet size of packed node with ip_family on success.
  * @retval -1 on failure.
@@ -447,11 +452,11 @@ int packed_node_size(Family ip_family)
 }
 
 
-/** @brief Packs an IP_Port structure into data of max size length.
+/** @brief Pack an IP_Port structure into data of max size length.
  *
  * Packed_length is the offset of data currently packed.
  *
- * @return size of packed IP_Port data on success
+ * @return size of packed IP_Port data on success.
  * @retval -1 on failure.
  */
 int pack_ip_port(const Logger *logger, uint8_t *data, uint16_t length, const IP_Port *ip_port)
@@ -461,26 +466,26 @@ int pack_ip_port(const Logger *logger, uint8_t *data, uint16_t length, const IP_
     }
 
     bool is_ipv4;
-    uint8_t net_family;
+    uint8_t family;
 
     if (net_family_is_ipv4(ip_port->ip.family)) {
         // TODO(irungentoo): use functions to convert endianness
         is_ipv4 = true;
-        net_family = TOX_AF_INET;
+        family = TOX_AF_INET;
     } else if (net_family_is_tcp_ipv4(ip_port->ip.family)) {
         is_ipv4 = true;
-        net_family = TOX_TCP_INET;
+        family = TOX_TCP_INET;
     } else if (net_family_is_ipv6(ip_port->ip.family)) {
         is_ipv4 = false;
-        net_family = TOX_AF_INET6;
+        family = TOX_AF_INET6;
     } else if (net_family_is_tcp_ipv6(ip_port->ip.family)) {
         is_ipv4 = false;
-        net_family = TOX_TCP_INET6;
+        family = TOX_TCP_INET6;
     } else {
-        char ip_str[IP_NTOA_LEN];
+        Ip_Ntoa ip_str;
         // TODO(iphydf): Find out why we're trying to pack invalid IPs, stop
         // doing that, and turn this into an error.
-        LOGGER_TRACE(logger, "cannot pack invalid IP: %s", ip_ntoa(&ip_port->ip, ip_str, sizeof(ip_str)));
+        LOGGER_TRACE(logger, "cannot pack invalid IP: %s", net_ip_ntoa(&ip_port->ip, &ip_str));
         return -1;
     }
 
@@ -491,7 +496,7 @@ int pack_ip_port(const Logger *logger, uint8_t *data, uint16_t length, const IP_
             return -1;
         }
 
-        data[0] = net_family;
+        data[0] = family;
         memcpy(data + 1, &ip_port->ip.ip.v4, SIZE_IP4);
         memcpy(data + 1 + SIZE_IP4, &ip_port->port, sizeof(uint16_t));
         return size;
@@ -502,17 +507,22 @@ int pack_ip_port(const Logger *logger, uint8_t *data, uint16_t length, const IP_
             return -1;
         }
 
-        data[0] = net_family;
+        data[0] = family;
         memcpy(data + 1, &ip_port->ip.ip.v6, SIZE_IP6);
         memcpy(data + 1 + SIZE_IP6, &ip_port->port, sizeof(uint16_t));
         return size;
     }
 }
 
-non_null()
-static int dht_create_packet(const uint8_t public_key[CRYPTO_PUBLIC_KEY_SIZE],
-                             const uint8_t *shared_key, const uint8_t type,
-                             const uint8_t *plain, size_t plain_length, uint8_t *packet)
+/** @brief Encrypt plain and write resulting DHT packet into packet with max size length.
+ *
+ * @return size of packet on success.
+ * @retval -1 on failure.
+ */
+int dht_create_packet(const Random *rng, const uint8_t public_key[CRYPTO_PUBLIC_KEY_SIZE],
+                      const uint8_t *shared_key, const uint8_t type,
+                      const uint8_t *plain, size_t plain_length,
+                      uint8_t *packet, size_t length)
 {
     uint8_t *encrypted = (uint8_t *)malloc(plain_length + CRYPTO_MAC_SIZE);
     uint8_t nonce[CRYPTO_NONCE_SIZE];
@@ -521,11 +531,16 @@ static int dht_create_packet(const uint8_t public_key[CRYPTO_PUBLIC_KEY_SIZE],
         return -1;
     }
 
-    random_nonce(nonce);
+    random_nonce(rng, nonce);
 
     const int encrypted_length = encrypt_data_symmetric(shared_key, nonce, plain, plain_length, encrypted);
 
     if (encrypted_length == -1) {
+        free(encrypted);
+        return -1;
+    }
+
+    if (length < 1 + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_NONCE_SIZE + encrypted_length) {
         free(encrypted);
         return -1;
     }
@@ -557,29 +572,28 @@ int unpack_ip_port(IP_Port *ip_port, const uint8_t *data, uint16_t length, bool 
 
     if (data[0] == TOX_AF_INET) {
         is_ipv4 = true;
-        host_family = net_family_ipv4;
+        host_family = net_family_ipv4();
     } else if (data[0] == TOX_TCP_INET) {
         if (!tcp_enabled) {
             return -1;
         }
 
         is_ipv4 = true;
-        host_family = net_family_tcp_ipv4;
+        host_family = net_family_tcp_ipv4();
     } else if (data[0] == TOX_AF_INET6) {
         is_ipv4 = false;
-        host_family = net_family_ipv6;
+        host_family = net_family_ipv6();
     } else if (data[0] == TOX_TCP_INET6) {
         if (!tcp_enabled) {
             return -1;
         }
 
         is_ipv4 = false;
-        host_family = net_family_tcp_ipv6;
+        host_family = net_family_tcp_ipv6();
     } else {
         return -1;
     }
 
-    const IP_Port empty_ip_port = {{{0}}};
     *ip_port = empty_ip_port;
 
     if (is_ipv4) {
@@ -768,12 +782,13 @@ static void update_client(const Logger *log, const Mono_Time *mono_time, int ind
     }
 
     if (!ipport_equal(&assoc->ip_port, ip_port)) {
-        char ip_str[IP_NTOA_LEN];
+        Ip_Ntoa ip_str_from;
+        Ip_Ntoa ip_str_to;
         LOGGER_TRACE(log, "coipil[%u]: switching ipv%d from %s:%u to %s:%u",
                      index, ip_version,
-                     ip_ntoa(&assoc->ip_port.ip, ip_str, sizeof(ip_str)),
+                     net_ip_ntoa(&assoc->ip_port.ip, &ip_str_from),
                      net_ntohs(assoc->ip_port.port),
-                     ip_ntoa(&ip_port->ip, ip_str, sizeof(ip_str)),
+                     net_ip_ntoa(&ip_port->ip, &ip_str_to),
                      net_ntohs(ip_port->port));
     }
 
@@ -866,7 +881,8 @@ bool add_to_list(Node_format *nodes_list, uint32_t length, const uint8_t *pk, co
 non_null()
 static void get_close_nodes_inner(uint64_t cur_time, const uint8_t *public_key, Node_format *nodes_list,
                                   Family sa_family, const Client_data *client_list, uint32_t client_list_length,
-                                  uint32_t *num_nodes_ptr, bool is_LAN)
+                                  uint32_t *num_nodes_ptr, bool is_LAN,
+                                  bool want_announce)
 {
     if (!net_family_is_ipv4(sa_family) && !net_family_is_ipv6(sa_family) && !net_family_is_unspec(sa_family)) {
         return;
@@ -904,11 +920,21 @@ static void get_close_nodes_inner(uint64_t cur_time, const uint8_t *public_key, 
             continue;
         }
 
+#ifdef CHECK_ANNOUNCE_NODE
+
+        if (want_announce && !client->announce_node) {
+            continue;
+        }
+
+#endif
+
         if (num_nodes < MAX_SENT_NODES) {
             memcpy(nodes_list[num_nodes].public_key, client->public_key, CRYPTO_PUBLIC_KEY_SIZE);
             nodes_list[num_nodes].ip_port = ipptp->ip_port;
             ++num_nodes;
         } else {
+            // TODO(zugz): this could be made significantly more efficient by
+            // using a version of add_to_list which works with a sorted list.
             add_to_list(nodes_list, MAX_SENT_NODES, client->public_key, &ipptp->ip_port, public_key);
         }
     }
@@ -920,30 +946,31 @@ static void get_close_nodes_inner(uint64_t cur_time, const uint8_t *public_key, 
  * Find MAX_SENT_NODES nodes closest to the public_key for the send nodes request:
  * put them in the nodes_list and return how many were found.
  *
- * TODO(irungentoo): make this function cleaner and much more efficient.
+ * want_announce: return only nodes which implement the dht announcements protocol.
  */
 non_null()
 static int get_somewhat_close_nodes(const DHT *dht, const uint8_t *public_key, Node_format *nodes_list,
-                                    Family sa_family, bool is_LAN)
+                                    Family sa_family, bool is_LAN, bool want_announce)
 {
     uint32_t num_nodes = 0;
     get_close_nodes_inner(dht->cur_time, public_key, nodes_list, sa_family,
-                          dht->close_clientlist, LCLIENT_LIST, &num_nodes, is_LAN);
+                          dht->close_clientlist, LCLIENT_LIST, &num_nodes, is_LAN, want_announce);
 
     for (uint32_t i = 0; i < dht->num_friends; ++i) {
         get_close_nodes_inner(dht->cur_time, public_key, nodes_list, sa_family,
                               dht->friends_list[i].client_list, MAX_FRIEND_CLIENTS,
-                              &num_nodes, is_LAN);
+                              &num_nodes, is_LAN, want_announce);
     }
 
     return num_nodes;
 }
 
 int get_close_nodes(const DHT *dht, const uint8_t *public_key, Node_format *nodes_list, Family sa_family,
-                    bool is_LAN)
+                    bool is_LAN, bool want_announce)
 {
     memset(nodes_list, 0, MAX_SENT_NODES * sizeof(Node_format));
-    return get_somewhat_close_nodes(dht, public_key, nodes_list, sa_family, is_LAN);
+    return get_somewhat_close_nodes(dht, public_key, nodes_list, sa_family,
+                                    is_LAN, want_announce);
 }
 
 typedef struct DHT_Cmp_Data {
@@ -988,6 +1015,109 @@ static int dht_cmp_entry(const void *a, const void *b)
 
     return 0;
 }
+
+#ifdef CHECK_ANNOUNCE_NODE
+non_null()
+static void set_announce_node_in_list(Client_data *list, uint32_t list_len, const uint8_t *public_key)
+{
+    const uint32_t index = index_of_client_pk(list, list_len, public_key);
+
+    if (index != UINT32_MAX) {
+        list[index].announce_node = true;
+    }
+}
+
+void set_announce_node(DHT *dht, const uint8_t *public_key)
+{
+    unsigned int index = bit_by_bit_cmp(public_key, dht->self_public_key);
+
+    if (index >= LCLIENT_LENGTH) {
+        index = LCLIENT_LENGTH - 1;
+    }
+
+    set_announce_node_in_list(dht->close_clientlist + index * LCLIENT_NODES, LCLIENT_NODES, public_key);
+
+    for (int32_t i = 0; i < dht->num_friends; ++i) {
+        set_announce_node_in_list(dht->friends_list[i].client_list, MAX_FRIEND_CLIENTS, public_key);
+    }
+}
+
+/** @brief Send data search request, searching for a random key. */
+non_null()
+static bool send_announce_ping(DHT *dht, const uint8_t *public_key, const IP_Port *ip_port)
+{
+    uint8_t plain[CRYPTO_PUBLIC_KEY_SIZE + sizeof(uint64_t)];
+
+    uint8_t unused_secret_key[CRYPTO_SECRET_KEY_SIZE];
+    crypto_new_keypair(dht->rng, plain, unused_secret_key);
+
+    const uint64_t ping_id = ping_array_add(dht->dht_ping_array,
+                                            dht->mono_time,
+                                            dht->rng,
+                                            public_key, CRYPTO_PUBLIC_KEY_SIZE);
+    memcpy(plain + CRYPTO_PUBLIC_KEY_SIZE, &ping_id, sizeof(ping_id));
+
+    uint8_t shared_key[CRYPTO_SHARED_KEY_SIZE];
+    dht_get_shared_key_sent(dht, shared_key, public_key);
+
+    uint8_t request[1 + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_NONCE_SIZE + sizeof(plain) + CRYPTO_MAC_SIZE];
+
+    if (dht_create_packet(dht->rng, dht->self_public_key, shared_key, NET_PACKET_DATA_SEARCH_REQUEST,
+                          plain, sizeof(plain), request, sizeof(request)) != sizeof(request)) {
+        return false;
+    }
+
+    return sendpacket(dht->net, ip_port, request, sizeof(request)) == sizeof(request);
+}
+
+/** @brief If the response is valid, set the sender as an announce node. */
+non_null(1, 2, 3) nullable(5)
+static int handle_data_search_response(void *object, const IP_Port *source,
+                                       const uint8_t *packet, uint16_t length,
+                                       void *userdata)
+{
+    DHT *dht = (DHT *) object;
+
+    const int32_t plain_len = (int32_t)length - (1 + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_NONCE_SIZE + CRYPTO_MAC_SIZE);
+
+    if (plain_len < (int32_t)(CRYPTO_PUBLIC_KEY_SIZE + sizeof(uint64_t))) {
+        return 1;
+    }
+
+    VLA(uint8_t, plain, plain_len);
+    const uint8_t *public_key = packet + 1;
+    uint8_t shared_key[CRYPTO_SHARED_KEY_SIZE];
+    dht_get_shared_key_recv(dht, shared_key, public_key);
+
+    if (decrypt_data_symmetric(shared_key,
+                               packet + 1 + CRYPTO_PUBLIC_KEY_SIZE,
+                               packet + 1 + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_NONCE_SIZE,
+                               plain_len + CRYPTO_MAC_SIZE,
+                               plain) != plain_len) {
+        return 1;
+    }
+
+    uint64_t ping_id;
+    memcpy(&ping_id, plain + (plain_len - sizeof(uint64_t)), sizeof(ping_id));
+
+    uint8_t ping_data[CRYPTO_PUBLIC_KEY_SIZE];
+
+    if (ping_array_check(dht->dht_ping_array,
+                         dht->mono_time, ping_data,
+                         sizeof(ping_data), ping_id) != sizeof(ping_data)) {
+        return 1;
+    }
+
+    if (!pk_equal(ping_data, public_key)) {
+        return 1;
+    }
+
+    set_announce_node(dht, public_key);
+
+    return 0;
+
+}
+#endif
 
 /** @brief Is it ok to store node with public_key in client.
  *
@@ -1129,6 +1259,10 @@ static bool add_to_close(DHT *dht, const uint8_t *public_key, const IP_Port *ip_
 
         pk_copy(client->public_key, public_key);
         update_client_with_reset(dht->mono_time, client, ip_port);
+#ifdef CHECK_ANNOUNCE_NODE
+        client->announce_node = false;
+        send_announce_ping(dht, public_key, ip_port);
+#endif
         return true;
     }
 
@@ -1368,7 +1502,7 @@ bool dht_getnodes(DHT *dht, const IP_Port *ip_port, const uint8_t *public_key, c
 
     uint64_t ping_id = 0;
 
-    ping_id = ping_array_add(dht->dht_ping_array, dht->mono_time, plain_message, sizeof(receiver));
+    ping_id = ping_array_add(dht->dht_ping_array, dht->mono_time, dht->rng, plain_message, sizeof(receiver));
 
     if (ping_id == 0) {
         LOGGER_ERROR(dht->log, "adding ping id failed");
@@ -1384,8 +1518,9 @@ bool dht_getnodes(DHT *dht, const IP_Port *ip_port, const uint8_t *public_key, c
     uint8_t shared_key[CRYPTO_SHARED_KEY_SIZE];
     dht_get_shared_key_sent(dht, shared_key, public_key);
 
-    const int len = dht_create_packet(dht->self_public_key, shared_key, NET_PACKET_GET_NODES,
-                                      plain, sizeof(plain), data);
+    const int len = dht_create_packet(dht->rng,
+                                      dht->self_public_key, shared_key, NET_PACKET_GET_NODES,
+                                      plain, sizeof(plain), data, sizeof(data));
 
     crypto_memzero(shared_key, sizeof(shared_key));
 
@@ -1415,7 +1550,7 @@ static int sendnodes_ipv6(const DHT *dht, const IP_Port *ip_port, const uint8_t 
 
     Node_format nodes_list[MAX_SENT_NODES];
     const uint32_t num_nodes =
-        get_close_nodes(dht, client_id, nodes_list, net_family_unspec, ip_is_lan(&ip_port->ip));
+        get_close_nodes(dht, client_id, nodes_list, net_family_unspec(), ip_is_lan(&ip_port->ip), false);
 
     VLA(uint8_t, plain, 1 + node_format_size * MAX_SENT_NODES + length);
 
@@ -1435,8 +1570,9 @@ static int sendnodes_ipv6(const DHT *dht, const IP_Port *ip_port, const uint8_t 
     const uint32_t crypto_size = 1 + CRYPTO_PUBLIC_KEY_SIZE + CRYPTO_NONCE_SIZE + CRYPTO_MAC_SIZE;
     VLA(uint8_t, data, 1 + nodes_length + length + crypto_size);
 
-    const int len = dht_create_packet(dht->self_public_key, shared_encryption_key, NET_PACKET_SEND_NODES_IPV6,
-                                      plain, 1 + nodes_length + length, data);
+    const int len = dht_create_packet(dht->rng,
+                                      dht->self_public_key, shared_encryption_key, NET_PACKET_SEND_NODES_IPV6,
+                                      plain, 1 + nodes_length + length, data, SIZEOF_VLA(data));
 
     if (len != SIZEOF_VLA(data)) {
         return -1;
@@ -1649,16 +1785,16 @@ int dht_addfriend(DHT *dht, const uint8_t *public_key, dht_ip_cb *ip_callback,
 
     dht->friends_list = temp;
     DHT_Friend *const dht_friend = &dht->friends_list[dht->num_friends];
-    memset(dht_friend, 0, sizeof(DHT_Friend));
+    *dht_friend = empty_dht_friend;
     memcpy(dht_friend->public_key, public_key, CRYPTO_PUBLIC_KEY_SIZE);
 
-    dht_friend->nat.nat_ping_id = random_u64();
+    dht_friend->nat.nat_ping_id = random_u64(dht->rng);
     ++dht->num_friends;
 
     dht_friend_lock(dht_friend, ip_callback, data, number, lock_count);
 
-    dht_friend->num_to_bootstrap = get_close_nodes(dht, dht_friend->public_key, dht_friend->to_bootstrap, net_family_unspec,
-                                   true);
+    dht_friend->num_to_bootstrap = get_close_nodes(dht, dht_friend->public_key, dht_friend->to_bootstrap, net_family_unspec(),
+                                   true, false);
 
     return 0;
 }
@@ -1798,11 +1934,11 @@ static uint8_t do_ping_and_sendnode_requests(DHT *dht, uint64_t *lastgetnode, co
     }
 
     if (num_nodes > 0 && (mono_time_is_timeout(dht->mono_time, *lastgetnode, GET_NODE_INTERVAL)
-                             || *bootstrap_times < MAX_BOOTSTRAP_TIMES)) {
-        uint32_t rand_node = random_range_u32(num_nodes);
+                          || *bootstrap_times < MAX_BOOTSTRAP_TIMES)) {
+        uint32_t rand_node = random_range_u32(dht->rng, num_nodes);
 
         if ((num_nodes - 1) != rand_node) {
-            rand_node += random_range_u32(num_nodes - (rand_node + 1));
+            rand_node += random_range_u32(dht->rng, num_nodes - (rand_node + 1));
         }
 
         dht_getnodes(dht, &assoc_list[rand_node]->ip_port, client_list[rand_node]->public_key, public_key);
@@ -1853,8 +1989,8 @@ static void do_Close(DHT *dht)
     dht->num_to_bootstrap = 0;
 
     const uint8_t not_killed = do_ping_and_sendnode_requests(
-                             dht, &dht->close_lastgetnodes, dht->self_public_key, dht->close_clientlist, LCLIENT_LIST, &dht->close_bootstrap_times,
-                             false);
+                                   dht, &dht->close_lastgetnodes, dht->self_public_key, dht->close_clientlist, LCLIENT_LIST, &dht->close_bootstrap_times,
+                                   false);
 
     if (not_killed != 0) {
         return;
@@ -1903,12 +2039,12 @@ int dht_bootstrap_from_address(DHT *dht, const char *address, bool ipv6enabled,
 
     if (ipv6enabled) {
         /* setup for getting BOTH: an IPv6 AND an IPv4 address */
-        ip_port_v64.ip.family = net_family_unspec;
+        ip_port_v64.ip.family = net_family_unspec();
         ip_reset(&ip_port_v4.ip);
         ip_extra = &ip_port_v4.ip;
     }
 
-    if (addr_resolve_or_parse_ip(address, &ip_port_v64.ip, ip_extra)) {
+    if (addr_resolve_or_parse_ip(dht->ns, address, &ip_port_v64.ip, ip_extra)) {
         ip_port_v64.port = port;
         dht_bootstrap(dht, &ip_port_v64, public_key);
 
@@ -1925,6 +2061,7 @@ int dht_bootstrap_from_address(DHT *dht, const char *address, bool ipv6enabled,
 
 /** @brief Send the given packet to node with public_key.
  *
+ * @return number of bytes sent.
  * @retval -1 if failure.
  */
 int route_packet(const DHT *dht, const uint8_t *public_key, const uint8_t *packet, uint16_t length)
@@ -2159,7 +2296,7 @@ static uint32_t routeone_to_friend(const DHT *dht, const uint8_t *friend_id, con
         return 0;
     }
 
-    const uint32_t rand_idx = random_range_u32(n);
+    const uint32_t rand_idx = random_range_u32(dht->rng, n);
     const int retval = send_packet(dht->net, &ip_list[rand_idx], *packet);
 
     if ((unsigned int)retval == packet->length) {
@@ -2182,8 +2319,8 @@ static int send_NATping(const DHT *dht, const uint8_t *public_key, uint64_t ping
     memcpy(data + 1, &ping_id, sizeof(uint64_t));
     /* 254 is NAT ping request packet id */
     const int len = create_request(
-                        dht->self_public_key, dht->self_secret_key, packet_data, public_key, data,
-                        sizeof(uint64_t) + 1, CRYPTO_PACKET_NAT_PING);
+                        dht->rng, dht->self_public_key, dht->self_secret_key, packet_data, public_key,
+                        data, sizeof(uint64_t) + 1, CRYPTO_PACKET_NAT_PING);
 
     if (len == -1) {
         return -1;
@@ -2236,7 +2373,7 @@ static int handle_NATping(void *object, const IP_Port *source, const uint8_t *so
 
     if (packet[0] == NAT_PING_RESPONSE) {
         if (dht_friend->nat.nat_ping_id == ping_id) {
-            dht_friend->nat.nat_ping_id = random_u64();
+            dht_friend->nat.nat_ping_id = random_u64(dht->rng);
             dht_friend->nat.hole_punching = true;
             return 0;
         }
@@ -2311,20 +2448,21 @@ static void punch_holes(DHT *dht, const IP *ip, const uint16_t *port_list, uint1
     }
 
     const uint16_t first_port = port_list[0];
-    uint32_t i;
+    uint16_t port_candidate;
 
-    for (i = 0; i < numports; ++i) {
-        if (first_port != port_list[i]) {
+    for (port_candidate = 0; port_candidate < numports; ++port_candidate) {
+        if (first_port != port_list[port_candidate]) {
             break;
         }
     }
 
-    if (i == numports) { /* If all ports are the same, only try that one port. */
+    if (port_candidate == numports) { /* If all ports are the same, only try that one port. */
         IP_Port pinging;
         ip_copy(&pinging.ip, ip);
         pinging.port = net_htons(first_port);
         ping_send_request(dht->ping, &pinging, dht->friends_list[friend_num].public_key);
     } else {
+        uint16_t i;
         for (i = 0; i < MAX_PUNCHING_PORTS; ++i) {
             /* TODO(irungentoo): Improve port guessing algorithm. */
             const uint32_t it = i + dht->friends_list[friend_num].nat.punching_index;
@@ -2342,12 +2480,13 @@ static void punch_holes(DHT *dht, const IP *ip, const uint16_t *port_list, uint1
     }
 
     if (dht->friends_list[friend_num].nat.tries > MAX_NORMAL_PUNCHING_TRIES) {
-        const uint16_t port = 1024;
         IP_Port pinging;
         ip_copy(&pinging.ip, ip);
 
+        uint16_t i;
         for (i = 0; i < MAX_PUNCHING_PORTS; ++i) {
             uint32_t it = i + dht->friends_list[friend_num].nat.punching_index2;
+            const uint16_t port = 1024;
             pinging.port = net_htons(port + it);
             ping_send_request(dht->ping, &pinging, dht->friends_list[friend_num].public_key);
         }
@@ -2411,8 +2550,8 @@ static void do_NAT(DHT *dht)
  * @return the number of nodes.
  */
 non_null()
-static uint16_t list_nodes(const Client_data *list, size_t length, uint64_t cur_time,
-                           Node_format *nodes, uint16_t max_num)
+static uint16_t list_nodes(const Random *rng, const Client_data *list, size_t length,
+                           uint64_t cur_time, Node_format *nodes, uint16_t max_num)
 {
     if (max_num == 0) {
         return 0;
@@ -2430,7 +2569,7 @@ static uint16_t list_nodes(const Client_data *list, size_t length, uint64_t cur_
         if (!assoc_timeout(cur_time, &list[i - 1].assoc6)) {
             if (assoc == nullptr) {
                 assoc = &list[i - 1].assoc6;
-            } else if ((random_u08() % 2) != 0) {
+            } else if ((random_u08(rng) % 2) != 0) {
                 assoc = &list[i - 1].assoc6;
             }
         }
@@ -2451,6 +2590,9 @@ static uint16_t list_nodes(const Client_data *list, size_t length, uint64_t cur_
 
 /** @brief Put up to max_num nodes in nodes from the random friends.
  *
+ * Important: this function relies on the first two DHT friends *not* being real
+ * friends to avoid leaking information about real friends into the onion paths.
+ *
  * @return the number of nodes.
  */
 uint16_t randfriends_nodes(const DHT *dht, Node_format *nodes, uint16_t max_num)
@@ -2460,10 +2602,14 @@ uint16_t randfriends_nodes(const DHT *dht, Node_format *nodes, uint16_t max_num)
     }
 
     uint16_t count = 0;
-    const uint32_t r = random_u32();
+    const uint32_t r = random_u32(dht->rng);
 
-    for (size_t i = 0; i < DHT_FAKE_FRIEND_NUMBER; ++i) {
-        count += list_nodes(dht->friends_list[(i + r) % DHT_FAKE_FRIEND_NUMBER].client_list, MAX_FRIEND_CLIENTS, dht->cur_time,
+    assert(DHT_FAKE_FRIEND_NUMBER <= dht->num_friends);
+
+    // Only gather nodes from the initial 2 fake friends.
+    for (uint32_t i = 0; i < DHT_FAKE_FRIEND_NUMBER; ++i) {
+        count += list_nodes(dht->rng, dht->friends_list[(i + r) % DHT_FAKE_FRIEND_NUMBER].client_list,
+                            MAX_FRIEND_CLIENTS, dht->cur_time,
                             nodes + count, max_num - count);
 
         if (count >= max_num) {
@@ -2480,7 +2626,7 @@ uint16_t randfriends_nodes(const DHT *dht, Node_format *nodes, uint16_t max_num)
  */
 uint16_t closelist_nodes(const DHT *dht, Node_format *nodes, uint16_t max_num)
 {
-    return list_nodes(dht->close_clientlist, LCLIENT_LIST, dht->cur_time, nodes, max_num);
+    return list_nodes(dht->rng, dht->close_clientlist, LCLIENT_LIST, dht->cur_time, nodes, max_num);
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -2564,7 +2710,8 @@ static int handle_LANdiscovery(void *object, const IP_Port *source, const uint8_
 
 /*----------------------------------------------------------------------------------*/
 
-DHT *new_dht(const Logger *log, Mono_Time *mono_time, Networking_Core *net, bool hole_punching_enabled, bool lan_discovery_enabled)
+DHT *new_dht(const Logger *log, const Random *rng, const Network *ns, Mono_Time *mono_time, Networking_Core *net,
+             bool hole_punching_enabled, bool lan_discovery_enabled)
 {
     if (net == nullptr) {
         return nullptr;
@@ -2576,15 +2723,17 @@ DHT *new_dht(const Logger *log, Mono_Time *mono_time, Networking_Core *net, bool
         return nullptr;
     }
 
+    dht->ns = ns;
     dht->mono_time = mono_time;
     dht->cur_time = mono_time_get(mono_time);
     dht->log = log;
     dht->net = net;
+    dht->rng = rng;
 
     dht->hole_punching_enabled = hole_punching_enabled;
     dht->lan_discovery_enabled = lan_discovery_enabled;
 
-    dht->ping = ping_new(mono_time, dht);
+    dht->ping = ping_new(mono_time, rng, dht);
 
     if (dht->ping == nullptr) {
         kill_dht(dht);
@@ -2597,7 +2746,11 @@ DHT *new_dht(const Logger *log, Mono_Time *mono_time, Networking_Core *net, bool
     networking_registerhandler(dht->net, NET_PACKET_LAN_DISCOVERY, &handle_LANdiscovery, dht);
     cryptopacket_registerhandler(dht, CRYPTO_PACKET_NAT_PING, &handle_NATping, dht);
 
-    crypto_new_keypair(dht->self_public_key, dht->self_secret_key);
+#ifdef CHECK_ANNOUNCE_NODE
+    networking_registerhandler(dht->net, NET_PACKET_DATA_SEARCH_RESPONSE, &handle_data_search_response, dht);
+#endif
+
+    crypto_new_keypair(rng, dht->self_public_key, dht->self_secret_key);
 
     dht->dht_ping_array = ping_array_new(DHT_PING_ARRAY_SIZE, PING_TIMEOUT);
 
@@ -2610,12 +2763,18 @@ DHT *new_dht(const Logger *log, Mono_Time *mono_time, Networking_Core *net, bool
         uint8_t random_public_key_bytes[CRYPTO_PUBLIC_KEY_SIZE];
         uint8_t random_secret_key_bytes[CRYPTO_SECRET_KEY_SIZE];
 
-        crypto_new_keypair(random_public_key_bytes, random_secret_key_bytes);
+        crypto_new_keypair(rng, random_public_key_bytes, random_secret_key_bytes);
 
         if (dht_addfriend(dht, random_public_key_bytes, nullptr, nullptr, 0, nullptr) != 0) {
             kill_dht(dht);
             return nullptr;
         }
+    }
+
+    if (dht->num_friends != DHT_FAKE_FRIEND_NUMBER) {
+        LOGGER_ERROR(log, "the RNG provided seems to be broken: it generated the same keypair twice");
+        kill_dht(dht);
+        return nullptr;
     }
 
     return dht;
@@ -2644,6 +2803,10 @@ void do_dht(DHT *dht)
 
 void kill_dht(DHT *dht)
 {
+    if (dht == nullptr) {
+        return;
+    }
+
     networking_registerhandler(dht->net, NET_PACKET_GET_NODES, nullptr, nullptr);
     networking_registerhandler(dht->net, NET_PACKET_SEND_NODES_IPV6, nullptr, nullptr);
     networking_registerhandler(dht->net, NET_PACKET_CRYPTO, nullptr, nullptr);
@@ -2697,7 +2860,7 @@ uint32_t dht_size(const DHT *dht)
     const uint32_t size32 = sizeof(uint32_t);
     const uint32_t sizesubhead = size32 * 2;
 
-    return size32 + sizesubhead + packed_node_size(net_family_ipv4) * numv4 + packed_node_size(net_family_ipv6) * numv6;
+    return size32 + sizesubhead + packed_node_size(net_family_ipv4()) * numv4 + packed_node_size(net_family_ipv6()) * numv6;
 }
 
 /** Save the DHT in data where data is an array of size `dht_size()`. */
@@ -2757,7 +2920,8 @@ void dht_save(const DHT *dht, uint8_t *data)
         }
     }
 
-    state_write_section_header(old_data, DHT_STATE_COOKIE_TYPE, pack_nodes(dht->log, data, sizeof(Node_format) * num, clients, num), DHT_STATE_TYPE_NODES);
+    state_write_section_header(old_data, DHT_STATE_COOKIE_TYPE, pack_nodes(dht->log, data, sizeof(Node_format) * num,
+                               clients, num), DHT_STATE_TYPE_NODES);
 
     free(clients);
 }

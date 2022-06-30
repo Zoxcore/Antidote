@@ -64,8 +64,16 @@ Net_Crypto *onion_get_net_crypto(const Onion_Client *onion_c);
 
 /** @brief Add a node to the path_nodes bootstrap array.
  *
- * return false on failure
- * return true on success
+ * If a node with the given public key was already in the bootstrap array, this function has no
+ * effect and returns successfully. There is currently no way to update the IP/port for a bootstrap
+ * node, so if it changes, the Onion_Client must be recreated.
+ *
+ * @param onion_c The onion client object.
+ * @param ip_port IP/port for the bootstrap node.
+ * @param public_key DHT public key for the bootstrap node.
+ *
+ * @retval false on failure
+ * @retval true on success
  */
 non_null()
 bool onion_add_bs_path_node(Onion_Client *onion_c, const IP_Port *ip_port, const uint8_t *public_key);
@@ -102,7 +110,9 @@ non_null()
 int onion_delfriend(Onion_Client *onion_c, int friend_num);
 
 /** @brief Set if friend is online or not.
- * NOTE: This function is there and should be used so that we don't send useless packets to the friend if he is online.
+ *
+ * NOTE: This function is there and should be used so that we don't send
+ * useless packets to the friend if they are online.
  *
  * return -1 on failure.
  * return 0 on success.
@@ -114,7 +124,7 @@ int onion_set_friend_online(Onion_Client *onion_c, int friend_num, bool is_onlin
  *
  * @retval -1 if public_key does NOT refer to a friend
  * @retval  0 if public_key refers to a friend and we failed to find the friend (yet)
- * @retval  1 if public_key refers to a friend and we found him
+ * @retval  1 if public_key refers to a friend and we found them
  */
 non_null()
 int onion_getfriendip(const Onion_Client *onion_c, int friend_num, IP_Port *ip_port);
@@ -122,7 +132,7 @@ int onion_getfriendip(const Onion_Client *onion_c, int friend_num, IP_Port *ip_p
 typedef int recv_tcp_relay_cb(void *object, uint32_t number, const IP_Port *ip_port, const uint8_t *public_key);
 
 /** @brief Set the function for this friend that will be callbacked with object and number
- * when that friends gives us one of the TCP relays he is connected to.
+ * when that friend gives us one of the TCP relays they are connected to.
  *
  * object and number will be passed as argument to this function.
  *
@@ -136,7 +146,7 @@ int recv_tcp_relay_handler(Onion_Client *onion_c, int friend_num,
 typedef void onion_dht_pk_cb(void *data, int32_t number, const uint8_t *dht_public_key, void *userdata);
 
 /** @brief Set the function for this friend that will be callbacked with object and number
- * when that friend gives us his DHT temporary public key.
+ * when that friend gives us their DHT temporary public key.
  *
  * object and number will be passed as argument to this function.
  *
@@ -189,9 +199,9 @@ non_null()
 void do_onion_client(Onion_Client *onion_c);
 
 non_null()
-Onion_Client *new_onion_client(const Logger *logger, Mono_Time *mono_time, Net_Crypto *c);
+Onion_Client *new_onion_client(const Logger *logger, const Random *rng, const Mono_Time *mono_time, Net_Crypto *c);
 
-non_null()
+nullable(1)
 void kill_onion_client(Onion_Client *onion_c);
 
 
