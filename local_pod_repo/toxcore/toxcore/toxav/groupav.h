@@ -6,7 +6,7 @@
 #define C_TOXCORE_TOXAV_GROUPAV_H
 
 // Audio encoding/decoding
-#include <opus.h>
+#include "opus.h"
 
 #include "../toxcore/group.h"
 #include "../toxcore/tox.h"

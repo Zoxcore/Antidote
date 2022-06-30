@@ -89,7 +89,7 @@
 
 #ifndef VANILLA_NACL
 // Used for sodium_init()
-#include <sodium.h>
+#include "sodium.h"
 #endif
 
 #include "ccompat.h"

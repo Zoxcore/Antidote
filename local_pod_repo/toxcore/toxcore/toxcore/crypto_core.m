@@ -16,7 +16,7 @@
 
 #ifndef VANILLA_NACL
 // We use libsodium by default.
-#include <sodium.h>
+#include "sodium.h"
 #else
 #include <crypto_auth.h>
 #include <crypto_box.h>

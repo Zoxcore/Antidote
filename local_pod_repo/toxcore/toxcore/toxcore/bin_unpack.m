@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../third_party/cmp/cmp.h"
+#include "cmp.h"
 #include "ccompat.h"
 
 struct Bin_Unpack {

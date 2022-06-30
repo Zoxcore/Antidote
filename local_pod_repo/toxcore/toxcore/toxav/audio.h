@@ -5,7 +5,7 @@
 #ifndef C_TOXCORE_TOXAV_AUDIO_H
 #define C_TOXCORE_TOXAV_AUDIO_H
 
-#include <opus.h>
+#include "opus.h"
 #include <pthread.h>
 
 #include "toxav.h"
