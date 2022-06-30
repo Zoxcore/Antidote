@@ -997,7 +997,7 @@ bool tox_messagev3_get_new_message_id(uint8_t *msg_id)
     }
 
     /* Tox keys are 32 bytes like TOX_MSGV3_MSGID_LENGTH. */
-    new_symmetric_key(msg_id);
+    new_symmetric_key_implicit_random(msg_id);
     return true;
 }
 

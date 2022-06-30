@@ -410,6 +410,15 @@ void increment_nonce_number(uint8_t *nonce, uint32_t increment);
 
 /**
  * @brief Fill a key @ref CRYPTO_SYMMETRIC_KEY_SIZE big with random bytes.
+ *
+ * This does the same as `new_symmetric_key` but without giving the Random object implicitly.
+ * It is as safe as `new_symmetric_key`.
+ */
+non_null()
+void new_symmetric_key_implicit_random(uint8_t *key);
+
+/**
+ * @brief Fill a key @ref CRYPTO_SYMMETRIC_KEY_SIZE big with random bytes.
  */
 non_null()
 void new_symmetric_key(const Random *rng, uint8_t *key);

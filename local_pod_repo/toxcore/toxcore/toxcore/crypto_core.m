@@ -462,6 +462,11 @@ void random_nonce(const Random *rng, uint8_t *nonce)
     random_bytes(rng, nonce, crypto_box_NONCEBYTES);
 }
 
+void new_symmetric_key_implicit_random(uint8_t *key)
+{
+    randombytes(key, CRYPTO_SYMMETRIC_KEY_SIZE);
+}
+
 void new_symmetric_key(const Random *rng, uint8_t *key)
 {
     random_bytes(rng, key, CRYPTO_SYMMETRIC_KEY_SIZE);
