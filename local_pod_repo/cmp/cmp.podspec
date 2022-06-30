@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "cmp"
-  s.version          = "v20"
+  s.version          = "20.0.0"
   s.summary          = "Cocoapods wrapper for cmp"
   s.homepage         = "https://github.com/camgunz/cmp"
   s.license          = 'MIT'
