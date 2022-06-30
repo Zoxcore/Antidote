@@ -37,6 +37,42 @@ index b1395e62..6d15b9a6 100644
  } Message_Type;
  
  typedef struct Messenger Messenger;
+diff --git a/toxcore/crypto_core.c b/toxcore/crypto_core.c
+index f52282d02..4be4d8c69 100644
+--- a/toxcore/crypto_core.c
++++ b/toxcore/crypto_core.c
+@@ -462,6 +462,11 @@ void random_nonce(const Random *rng, uint8_t *nonce)
+     random_bytes(rng, nonce, crypto_box_NONCEBYTES);
+ }
+ 
++void new_symmetric_key_implicit_random(uint8_t *key)
++{
++    randombytes(key, CRYPTO_SYMMETRIC_KEY_SIZE);
++}
++
+ void new_symmetric_key(const Random *rng, uint8_t *key)
+ {
+     random_bytes(rng, key, CRYPTO_SYMMETRIC_KEY_SIZE);
+diff --git a/toxcore/crypto_core.h b/toxcore/crypto_core.h
+index 0aaadeacf..5f525c747 100644
+--- a/toxcore/crypto_core.h
++++ b/toxcore/crypto_core.h
+@@ -408,6 +408,15 @@ void increment_nonce(uint8_t *nonce);
+ non_null()
+ void increment_nonce_number(uint8_t *nonce, uint32_t increment);
+ 
++/**
++ * @brief Fill a key @ref CRYPTO_SYMMETRIC_KEY_SIZE big with random bytes.
++ *
++ * This does the same as `new_symmetric_key` but without giving the Random object implicitly.
++ * It is as safe as `new_symmetric_key`.
++ */
++non_null()
++void new_symmetric_key_implicit_random(uint8_t *key);
++
+ /**
+  * @brief Fill a key @ref CRYPTO_SYMMETRIC_KEY_SIZE big with random bytes.
+  */
 diff --git a/toxcore/net_crypto.h b/toxcore/net_crypto.h
 index dd4dfcc5..1ec62f0d 100644
 --- a/toxcore/net_crypto.h
@@ -64,7 +100,7 @@ index 7d24aa1b..1df6c4fd 100644
 +    }
 +
 +    /* Tox keys are 32 bytes like TOX_MSGV3_MSGID_LENGTH. */
-+    new_symmetric_key(msg_id);
++    new_symmetric_key_implicit_random(msg_id);
 +    return true;
 +}
 +
