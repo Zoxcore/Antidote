@@ -64,6 +64,8 @@ remove_files_matching "toxcore/**/*_test.cpp"
 remove_files_matching "toxcore/**/*_test.cc"
 remove_files_matching "toxcore/**/*.api.h"
 
-echo "Applying install-tox.patch"
-git apply install-tox_new.patch
+echo "patching toxcore includes ..."
+grep -rl '#include <sodium.h>' | xargs -L1 sed -i -e 's_#include <sodium.h>_#include "sodium.h"_'
+grep -rl '#include <opus.h>' | xargs -L1 sed -i -e 's_#include <sodium.h>_#include "opus.h"_'
+grep -rl '#include <cmp.h>' | xargs -L1 sed -i -e 's_#include <sodium.h>_#include "cmp.h"_'
 
