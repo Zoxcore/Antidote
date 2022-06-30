@@ -7,7 +7,7 @@ inhibit_all_warnings!
 
 def common_pods
     pod 'objcTox', :path => 'local_pod_repo/objcTox/'
-    pod "msgpack-c", :path => 'local_pod_repo/msgpack-c'
+    pod "cmp", :path => 'local_pod_repo/cmp'
     pod "toxcore", :path => 'local_pod_repo/toxcore'
     pod 'UITextView+Placeholder', '~> 1.1.0'
     pod 'SDCAlertView', '~> 2.5.4'
