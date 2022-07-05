@@ -119,7 +119,7 @@ static bool send_online_packet(Messenger *m, int32_t friendnumber)
 
     if (write_cryptpacket(m->net_crypto, friend_connection_crypt_connection_id(m->fr_c,
                           m->friendlist[friendnumber].friendcon_id), buf, (TOX_CAPABILITIES_SIZE + 1), false) == -1) {
-        return -1;
+        return false;
     }
 
     uint8_t packet = PACKET_ID_ONLINE;
