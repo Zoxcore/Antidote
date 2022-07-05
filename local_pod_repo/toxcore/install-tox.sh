@@ -31,6 +31,9 @@ git checkout "v0.2.18"
 echo "Applying msgv3_addon.patch"
 git apply --reject --whitespace=fix ../msgv3_addon.patch
 
+echo "Applying 0002_zoff_tc___capabilites.diff"
+git apply --reject --whitespace=fix ../0002_zoff_tc___capabilites.diff
+
 cd ..
 
 for dir in ${DIRS[@]}; do
