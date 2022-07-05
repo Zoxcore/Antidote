@@ -1136,8 +1136,11 @@ void tox_self_get_public_key(const Tox *tox, uint8_t *public_key);
  */
 void tox_self_get_secret_key(const Tox *tox, uint8_t *secret_key);
 
+/**
+ * Return the capabilities flags for this tox instance.
+ */
+uint64_t tox_self_get_capabilities(void);
 /** @} */
-
 
 /** @{
  * @name User-visible client information (nickname/status)
@@ -1534,6 +1537,11 @@ typedef enum Tox_Err_Friend_Query {
 
 } Tox_Err_Friend_Query;
 
+/**
+ * Return the capabilities flags for a friend. If the friend number is invalid, the
+ * return value is unspecified.
+ */
+uint64_t tox_friend_get_capabilities(const Tox *tox, uint32_t friend_number);
 
 /**
  * @brief Return the length of the friend's name.

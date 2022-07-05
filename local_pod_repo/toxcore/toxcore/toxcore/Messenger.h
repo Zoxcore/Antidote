@@ -73,6 +73,34 @@ typedef struct Messenger_Options {
     uint8_t state_plugins_length;
 } Messenger_Options;
 
+/* this means no special capabilities, in other words clients that are older
+ * and did not implement this feature yet
+ */
+#define TOX_CAPABILITY_BASIC 0
+/* ATTENTION: if you are adding new flags in your fork or toxcore,
+ * or in c-toxcore master,
+ * please coordinate with us first!
+ * thank you, the Tox Devs.
+ */
+#define TOX_CAPABILITY_CAPABILITIES ((uint64_t)1) << 0
+#define TOX_CAPABILITY_MSGV2 ((uint64_t)1) << 1
+#define TOX_CAPABILITY_TOXAV_H264 ((uint64_t)1) << 2
+#define TOX_CAPABILITY_MSGV3 ((uint64_t)1) << 3
+/* add new flags/bits here */
+/* if the TOX_CAPABILITY_NEXT_IMPLEMENTATION flag is set it means
+ * we are using a different system for indicating capabilities now,
+ * and TOX_CAPABILITIES_* should be ignored and just the new (not yet known)
+ * system should be used
+ */
+#define TOX_CAPABILITY_NEXT_IMPLEMENTATION ((uint64_t)1) << 63
+/* hardcoded capabilities of this version/branch of toxcore */
+#ifdef TOX_CAPABILITIES_ACTIVE
+#define TOX_CAPABILITIES_CURRENT (uint64_t)(TOX_CAPABILITY_CAPABILITIES)
+#else
+#define TOX_CAPABILITIES_CURRENT (uint64_t)(TOX_CAPABILITY_CAPABILITIES)
+#endif
+/* size of the FLAGS in bytes */
+#define TOX_CAPABILITIES_SIZE sizeof(uint64_t)
 
 struct Receipts {
     uint32_t packet_num;
@@ -233,6 +261,7 @@ typedef struct Friend {
 
     struct Receipts *receipts_start;
     struct Receipts *receipts_end;
+    uint64_t toxcore_capabilities;
 } Friend;
 
 struct Messenger {
@@ -506,6 +535,10 @@ non_null() int m_copy_self_statusmessage(const Messenger *m, uint8_t *buf);
 non_null() uint8_t m_get_userstatus(const Messenger *m, int32_t friendnumber);
 non_null() uint8_t m_get_self_userstatus(const Messenger *m);
 
+/* get capabilities of friend's toxcore
+ * return TOX_CAPABILITY_BASIC on any error
+ */
+uint64_t m_get_friend_toxcore_capabilities(const Messenger *m, int32_t friendnumber);
 
 /** @brief returns timestamp of last time friendnumber was seen online or 0 if never seen.
  * if friendnumber is invalid this function will return UINT64_MAX.

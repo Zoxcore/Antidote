@@ -1261,6 +1261,20 @@ uint64_t tox_friend_get_last_online(const Tox *tox, uint32_t friend_number, Tox_
     return timestamp;
 }
 
+uint64_t tox_friend_get_capabilities(const Tox *tox, uint32_t friend_number)
+{
+    tox_lock(tox);
+    const uint64_t capabilities = m_get_friend_toxcore_capabilities(tox->m, friend_number);
+    tox_unlock(tox);
+
+    return capabilities;
+}
+
+uint64_t tox_self_get_capabilities(void)
+{
+    return (TOX_CAPABILITIES_CURRENT);
+}
+
 size_t tox_self_get_friend_list_size(const Tox *tox)
 {
     assert(tox != nullptr);
