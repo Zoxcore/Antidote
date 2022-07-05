@@ -94,11 +94,7 @@ typedef struct Messenger_Options {
  */
 #define TOX_CAPABILITY_NEXT_IMPLEMENTATION ((uint64_t)1) << 63
 /* hardcoded capabilities of this version/branch of toxcore */
-#ifdef TOX_CAPABILITIES_ACTIVE
-#define TOX_CAPABILITIES_CURRENT (uint64_t)(TOX_CAPABILITY_CAPABILITIES)
-#else
-#define TOX_CAPABILITIES_CURRENT (uint64_t)(TOX_CAPABILITY_CAPABILITIES)
-#endif
+#define TOX_CAPABILITIES_CURRENT (uint64_t)(TOX_CAPABILITY_CAPABILITIES | TOX_CAPABILITY_MSGV3)
 /* size of the FLAGS in bytes */
 #define TOX_CAPABILITIES_SIZE sizeof(uint64_t)
 
