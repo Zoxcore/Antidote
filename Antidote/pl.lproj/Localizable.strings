@@ -26,7 +26,7 @@
 /* Login screen text */
 "import_to_antidote" = "Importuj do Antidote";
 /* Login screen text */
-"create_account_username_title" = "Które kontakty chcesz widzieć";
+"create_account_username_title" = "Jak kontakty będą Cie widzieć?";
 /* Login screen text */
 "create_account_username_placeholder" = "Użytkownik";
 /* Login screen text */
@@ -53,13 +53,13 @@
 /* PIN screen text */
 "pin_confirm" = "Potwierdź PIN";
 /* PIN screen error */
-"pin_do_not_match" = "Kod PIN jest rozbieżny. Sprobuj ponownie.";
+"pin_do_not_match" = "PINy są różne. Spróbuj ponownie";
 /* PIN screen error */
 "pin_incorrect" = "Nieprawidłowy PIN";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "Nieudane próby: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "Zbyt wiele nieudanych prób. Nastąpiło wylogowanie.";
 /* PIN screen screen */
 "pin_enabled" = "Włącz PIN";
 /* PIN screen screen */
@@ -112,7 +112,7 @@
 /* Contact request confirmation */
 "contact_request_delete_title" = "Skasować zadanie, prośbę kontaktu?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "Usunięto kontakt";
 
 /* Share Tox ID text */
 "show_qr_code" = "Pokaż QR-Kod";
@@ -134,7 +134,7 @@
 /* Add contat default text sended to contact */
 "add_contact_default_message_text" = "Cześć, witaj! Czy możesz dodać mnie do listy twoich kontaktów?";
 /* Add contat error */
-"add_contact_wrong_qr" = "Niepoprawny kod QR. Ta wartość powinna zawierać Tox ID.";
+"add_contact_wrong_qr" = "Niepoprawny kod QR. Powinien on zawierać Tox ID";
 
 /* User name text */
 "name" = "Nazwisko";
@@ -214,7 +214,7 @@
 /* Settings screen menu */
 "settings_autodownload_images" = "Automatycznie pobieranie obrazków lub fotografii";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automatycznie pobierz obrazki, fotografie";
+"settings_autodownload_images_description" = "Automatycznie pobieraj przychodzące obrazy.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Przegląd powiadomień";
 /* Settings screen menu */
@@ -226,7 +226,7 @@
 /* Settings screen autodownload images option */
 "settings_never" = "Nigdy";
 /* Settings screen autodownload images option */
-"settings_wifi" = "Internet bezprzewodowy Wi-Fi.";
+"settings_wifi" = "Wi-Fi";
 /* Settings screen autodownload images option */
 "settings_using_wifi" = "Użyj do połączeń internetu bezprzewodowego Wi-Fi";
 /* Settings screen autodownload images option */
@@ -235,11 +235,11 @@
 /* Profile settings menu */
 "change_password" = "Zmień hasło";
 /* Profile settings menu */
-"delete_password" = "Skasuj hasło ";
+"delete_password" = "Usuń Hasło";
 /* Profile settings menu */
-"old_password" = "Poprzednie hasło ";
+"old_password" = "Stare Hasło";
 /* Change password text */
-"new_password" = "Nowe hasło ";
+"new_password" = "Nowe Hasło";
 /* Change password text */
 "repeat_password" = "Powtórz hasło";
 /* Change password button */
@@ -384,28 +384,32 @@
 "theme_error_cannot_open" = "Niniejszy temat graficzny do programu czyli tzw. skórka ma niepoprawny format";
 
 /* Tab chats badge ending */
-"accessibility_chats_ending" = "unread chats";
+"accessibility_chats_ending" = "nieodczytane czaty";
 /* Avatar button label in settings */
 "accessibility_avatar_button_label" = "Avatar";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "Sets or removes avatar.";
+"accessibility_avatar_button_hint" = "Ustawia lub usuwa awatar.";
 /* Chat button label in contact screen */
 "accessibility_chat_button_label" = "Chat";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "Opens chat dialog.";
+"accessibility_chat_button_hint" = "Otwiera okno dialogowe czatu.";
 /* Call button label in contact screen */
-"accessibility_call_button_label" = "Audio call";
+"accessibility_call_button_label" = "Połączenie głosowe";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Makes audio call.";
+"accessibility_call_button_hint" = "Rozpoczyna połączenie głosowe.";
 /* Video button label in contact screen */
-"accessibility_video_button_label" = "Video call";
+"accessibility_video_button_label" = "Połączenie wideo";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "Makes video call.";
+"accessibility_video_button_hint" = "Rozpoczyna połączenie wideo.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "Shows copy menu.";
+"accessibility_show_copy_hint" = "Pokazuje menu kopiowania.";
 /* Tap to edit value hint */
-"accessibility_edit_value_hint" = "Edits value.";
+"accessibility_edit_value_hint" = "Edytuje wartość.";
 /* Incoming message label */
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
-"accessibility_outgoing_message_label" = "Your message";
+"accessibility_outgoing_message_label" = "Twoja wiadomość";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "pisze...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Niedostarczone wiadomości będą wysyłane, gdy zarówno Ty, jak i znajomy będziecie online.";
