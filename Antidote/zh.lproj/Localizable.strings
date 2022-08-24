@@ -177,7 +177,7 @@
 /* Chat call information */
 "chat_missed_call_message" = "错过的语音通话";
 /* Item present in the menu on long press on message */
-"chat_more_menu_item" = "More";
+"chat_more_menu_item" = "更多";
 
 /* Status message */
 "status_offline" = "离线";
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Your message";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "当您和朋友都在线时，将发送未送达的消息。";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "正在打字...";
