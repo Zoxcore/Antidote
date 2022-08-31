@@ -51,7 +51,7 @@
 /* Error */
 "error_import_not_exist_message" = "파일이 없습니다.";
 /* Default status message */
-"default_user_status_message" = "해독제 중독";
+"default_user_status_message" = "Antidote 중독";
 
 /* PIN screen text */
 "pin_enter_to_unlock" = "잠금을 해제하려면 PIN 입력";
@@ -348,3 +348,57 @@
 "accessibility_avatar_button_hint" = "아바타를 설정하거나 제거합니다.";
 /* Chat button hint in contact screen */
 "accessibility_chat_button_hint" = "채팅 대화 상자를 엽니다.";
+/* Login screen text */
+"create_account_username_placeholder" = "사용자이름";
+/* Login screen text */
+"create_account_profile_title" = "이 프로필을 어떻게 불러옵니까?";
+/* Login screen text */
+"create_account_profile_placeholder" = "프로필 이름";
+/* Login screen text */
+"create_account_profile_hint" = "예를 들어 홈, 아이폰";
+/* Login screen text */
+"set_password_title" = "비밀번호 설정";
+/* Login screen text */
+"set_password_hint" = "데이터를 보호하기 위해 비밀번호가 필요합니다. 안전하게 보관하세요. 한 번 잃어버리면 복원할 수 없습니다.";
+
+/* Tab name and screen name */
+"contacts_title" = "연락처";
+/* Tab name and screen name */
+"chats_title" = "채팅";
+/* Tab name and screen name */
+"settings_title" = "설정";
+/* Tab name and screen name */
+"profile_title" = "프로필";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "연락처 없음";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "연락처 추가\n또는\n";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "Tox ID 공유";
+/* Contact request section title */
+"contact_requests_section" = "연락처 요청";
+/* Contact last seen status */
+"contact_last_seen" = "마지막으로 본 것: %@";
+/* Screen name */
+"contact_request" = "연락처 요청";
+/* Contact request button */
+"contact_request_decline" = "감소";
+/* Contact request button */
+"contact_request_accept" = "수락";
+/* Contact request confirmation */
+"contact_request_delete_title" = "연락처 요청을 삭제하겠습니까?";
+/* Text shown when contact was deleted */
+"contact_deleted" = "삭제된 연락처";
+
+/* Share Tox ID text */
+"show_qr_code" = "QR 코드 표시";
+/* Notification text */
+"notification_is_calling" = "통화 중";
+/* Call screen text */
+"call_reaching" = "닿는 중...";
+
+/* File message text */
+"chat_file_cancelled" = "취소 된";
+/* File message text */
+"chat_waiting" = "대기 중...";
