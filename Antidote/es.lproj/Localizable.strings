@@ -26,7 +26,7 @@
 /* Login screen text */
 "import_to_antidote" = "Importar a Antidote";
 /* Login screen text */
-"create_account_username_title" = "Nombre para mostrar a los contactos";
+"create_account_username_title" = "¿Cómo te verán los contactos?";
 /* Login screen text */
 "create_account_username_placeholder" = "Nombre de usuario";
 /* Login screen text */
@@ -57,17 +57,17 @@
 /* PIN screen error */
 "pin_incorrect" = "PIN incorrecto";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "Intentos fallidos: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "Demasiados intentos fallidos. Has sido desconectado.";
 /* PIN screen screen */
-"pin_enabled" = "Enable PIN";
+"pin_enabled" = "Habilitar PIN";
 /* PIN screen screen */
-"pin_touch_id_enabled" = "Enable Touch ID";
+"pin_touch_id_enabled" = "Habilitar Touch ID";
 /* PIN screen screen */
-"pin_description" = "Proteger a Antidote de accesos sin autorización con un PIN";
+"pin_description" = "Evite el acceso no autorizado a Antidote con un PIN.";
 /* PIN screen screen */
-"pin_touch_id_description" = "Utilizar la huella digital como alternativa a utilizar el PIN";
+"pin_touch_id_description" = "Use su huella digital como alternativa a ingresar un PIN.";
 /* PIN screen screen */
 "pin_lock_timeout" = "Tiempo de autobloqueo";
 /* PIN screen screen */
@@ -112,7 +112,7 @@
 /* Contact request confirmation */
 "contact_request_delete_title" = "¿Eliminar solicitud de contacto?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "Contacto eliminado";
 
 /* Share Tox ID text */
 "show_qr_code" = "Mostrar código QR";
@@ -220,7 +220,7 @@
 /* Settings screen menu */
 "settings_notifications_description" = "Cuando la aplicación pasa a segundo plano, se seguirán recibiendo notificaciones hasta 10 minutos después.";
 /* Settings screen menu */
-"settings_udp_enabled" = "Enable UDP";
+"settings_udp_enabled" = "Habilitar UDP";
 /* Settings screen menu */
 "settings_restore_default" = "Restaurar ajustes por defecto";
 /* Settings screen autodownload images option */
@@ -331,11 +331,11 @@
 /* Error */
 "error_decrypt_title" = "No se ha podido descifrar el archivo de tox";
 /* Error */
-"error_decrypt_empty_data_message" = "Algunos datos de entrada están vacíos";
+"error_decrypt_empty_data_message" = "Algunos datos de entrada estaban vacíos.";
 /* Error */
-"error_decrypt_bad_format_message" = "El archivo está mal formateado o está corrupto";
+"error_decrypt_bad_format_message" = "El archivo tiene un formato incorrecto o está dañado.";
 /* Error */
-"error_decrypt_wrong_password_message" = "La contraseña es incorrecta o el archivo está corrupto";
+"error_decrypt_wrong_password_message" = "La contraseña es incorrecta o el archivo está corrupto.";
 /* Error */
 "error_general_unknown_message" = "Error desconocido.";
 /* Error */
@@ -356,7 +356,7 @@
 "error_proxy_host_not_resolved_message" = "No se pudo resolver el proxy.";
 
 /* Error */
-"error_name_too_long" = "El nombre es demasiado largo";
+"error_name_too_long" = "El nombre es demasiado largo.";
 /* Error */
 "error_status_message_too_long" = "El mensaje de estado es demasiado largo";
 
@@ -384,31 +384,31 @@
 "theme_error_cannot_open" = "No se puede abrir el tema, formato incorrecto";
 
 /* Tab chats badge ending */
-"accessibility_chats_ending" = "unread chats";
+"accessibility_chats_ending" = "chats sin leer";
 /* Avatar button label in settings */
 "accessibility_avatar_button_label" = "Avatar";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "Sets or removes avatar.";
+"accessibility_avatar_button_hint" = "Establece o elimina el avatar.";
 /* Chat button label in contact screen */
 "accessibility_chat_button_label" = "Chat";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "Opens chat dialog.";
+"accessibility_chat_button_hint" = "Abre un chat.";
 /* Call button label in contact screen */
-"accessibility_call_button_label" = "Audio call";
+"accessibility_call_button_label" = "Llamada de audio";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Makes audio call.";
+"accessibility_call_button_hint" = "Hace una llamada de audio.";
 /* Video button label in contact screen */
-"accessibility_video_button_label" = "Video call";
+"accessibility_video_button_label" = "Videollamada";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "Makes video call.";
+"accessibility_video_button_hint" = "Realiza una videollamada.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "Shows copy menu.";
+"accessibility_show_copy_hint" = "Muestra el menú de copia.";
 /* Tap to edit value hint */
-"accessibility_edit_value_hint" = "Edits value.";
+"accessibility_edit_value_hint" = "Edita el valor.";
 /* Incoming message label */
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
-"accessibility_outgoing_message_label" = "Your message";
+"accessibility_outgoing_message_label" = "Tu mensaje";
 /* Message shown on chat list when contact is typing */
 "chat_is_typing_text" = "está escribiendo…";
 /* Text shown in chat when there are undelivered faux offline messages */
