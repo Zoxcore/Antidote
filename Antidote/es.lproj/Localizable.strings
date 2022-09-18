@@ -396,7 +396,7 @@
 /* Call button label in contact screen */
 "accessibility_call_button_label" = "Llamada de audio";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Hace una llamada de audio.";
+"accessibility_call_button_hint" = "Hacer una llamada.";
 /* Video button label in contact screen */
 "accessibility_video_button_label" = "Videollamada";
 /* Video button hint in contact screen */
