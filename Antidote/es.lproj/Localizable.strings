@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Reconocimientos";
 /* Settings screen menu */
-"settings_autodownload_images" = "Autodescarga de imágenes";
+"settings_autodownload_images" = "Descarga automática de archivos";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Descarga automática de imágenes recibidas.";
+"settings_autodownload_images_description" = "Descarga automáticamente los archivos entrantes.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Previsualización de notificaciones";
 /* Settings screen menu */
@@ -394,7 +394,7 @@
 /* Chat button hint in contact screen */
 "accessibility_chat_button_hint" = "Abre un chat.";
 /* Call button label in contact screen */
-"accessibility_call_button_label" = "Llamada de audio";
+"accessibility_call_button_label" = "Llamada de voz";
 /* Call button hint in contact screen */
 "accessibility_call_button_hint" = "Hacer una llamada.";
 /* Video button label in contact screen */
