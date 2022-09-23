@@ -171,7 +171,7 @@
 /* About screen menu */
 "settings_toxcore_version" = "Versió de Toxcore";
 /* Settings screen menu */
-"settings_autodownload_images" = "Descàrrega automàtica d'imatges";
+"settings_autodownload_images" = "Descàrrega automàtica de fitxers";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Previsualitzar les notificacions";
 /* Settings screen menu */
@@ -374,7 +374,7 @@
 /* Settings menu / screen name */
 "settings_advanced_settings" = "Configuració avançada";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Descàrregar automàticament les imatges entrants.";
+"settings_autodownload_images_description" = "Descàrregar automàticament fitxers entrants.";
 /* Settings screen autodownload images option */
 "settings_always" = "Sempre";
 /* Delete profile confirmation */
