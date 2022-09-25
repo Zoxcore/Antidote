@@ -74,7 +74,7 @@ class UserDefaultsManager {
 
     var autodownloadImages: AutodownloadImages {
         get {
-            let defaultValue = AutodownloadImages.Always
+            let defaultValue = AutodownloadImages.Never //Easy enough to reach option for users. Reverting change since there is an extremely high risk of people getting in trouble since an attacked can get you in prison by sending you cp.
 
             guard let string = stringForKey(Keys.AutodownloadImages) else {
                 return defaultValue
