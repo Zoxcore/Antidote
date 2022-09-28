@@ -230,7 +230,7 @@
 /* Notification text */
 "notification_is_calling" = "está em chamada";
 /* Settings screen menu */
-"settings_autodownload_images" = "Baixar imagens automaticamente";
+"settings_autodownload_images" = "Baixar arquivos automaticamente";
 
 /* Profile settings menu */
 "change_password" = "Trocar senha";
@@ -249,7 +249,7 @@
 /* About screen menu */
 "settings_toxcore_version" = "Versão do Toxcore";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Baixar automaticamente as imagens recebidas.";
+"settings_autodownload_images_description" = "Baixar automaticamente os arquivos recebidos.";
 /* Delete profile confirmation */
 "delete_profile_confirmation_title_2" = "Você tem certeza?";
 /* Change password error */
