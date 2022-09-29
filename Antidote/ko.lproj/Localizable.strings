@@ -153,9 +153,9 @@
 /* About screen menu */
 "settings_toxcore_version" = "톡스코어 버전";
 /* Settings screen menu */
-"settings_autodownload_images" = "이미지 자동 다운로드";
+"settings_autodownload_images" = "파일 자동 다운로드";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "들어오는 이미지를 자동으로 다운로드합니다.";
+"settings_autodownload_images_description" = "들어오는 파일을 자동으로 다운로드합니다.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "알림 미리보기";
 /* Settings screen menu */
