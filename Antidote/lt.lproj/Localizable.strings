@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Padėkos";
 /* Settings screen menu */
-"settings_autodownload_images" = "Automatinis paveikslų atsiuntimas";
+"settings_autodownload_images" = "Automatinis failų atsiuntimas";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automatiškai atsisiųsti gaunamus paveikslus.";
+"settings_autodownload_images_description" = "Automatiškai atsisiųsti gaunamus failus.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Pranešimo peržiūra";
 /* Settings screen menu */
@@ -347,7 +347,7 @@
 /* Error */
 "error_general_bad_format_message" = "Failas yra netinkamo formato arba yra pažeistas.";
 /* Error */
-"error_proxy_title" = "Įgaliotojo serverio klaida.";
+"error_proxy_title" = "Įgaliotojo serverio klaida";
 /* Error */
 "error_proxy_invalid_address_message" = "Neteisingas įgaliotojo serverio adreso formatas.";
 /* Error */
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Žinutė";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Jūsų žinutė";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "rašo...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Nepristatytos žinutės bus išsiųstos kai jūs ir jūsų draugas būsite prisijungę.";
