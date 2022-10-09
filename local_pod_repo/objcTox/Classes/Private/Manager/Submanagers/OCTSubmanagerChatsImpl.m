@@ -135,6 +135,8 @@ triggerPush(NSString *used_pushToken,
             ([used_pushToken hasPrefix:@"https://tox.zoff.xyz/toxfcm/fcm.php?id="])
             ||
             ([used_pushToken hasPrefix:@"https://gotify1.unifiedpush.org/UP?token="])
+            ||
+            ([used_pushToken hasPrefix:@"https://ntfy.sh/"])
         ) {
 
             NSString *strong_pushToken = used_pushToken;
@@ -287,6 +289,8 @@ triggerPush(NSString *used_pushToken,
                     ([friend.pushToken hasPrefix:@"https://tox.zoff.xyz/toxfcm/fcm.php?id="])
                     ||
                     ([friend.pushToken hasPrefix:@"https://gotify1.unifiedpush.org/UP?token="])
+                    ||
+                    ([friend.pushToken hasPrefix:@"https://ntfy.sh/"])
                 ) {
                     sent_push = YES;
                 }
