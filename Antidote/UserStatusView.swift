@@ -7,7 +7,7 @@ import SnapKit
 
 class UserStatusView: StaticBackgroundView {
     struct Constants {
-        static let DefaultSize = 12.0
+        static let DefaultSize = 14.0
     }
 
     fileprivate var roundView: StaticBackgroundView?
@@ -67,38 +67,42 @@ private extension UserStatusView {
 
         roundView!.snp.makeConstraints {
             $0.center.equalTo(self)
-            $0.size.equalTo(self).offset(-2.0)
+            $0.size.equalTo(self).offset(-4.0)
         }
     }
 
     func userStatusWasUpdated() {
         if let theme = theme {
 
-        // TODO: show userstatus aswell as connectionstatus
-        //       for now rather show connectionstatus
-/*
-            switch userStatus {
-                case .offline:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
-                case .online:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
-                case .away:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
-                case .busy:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
-            }
-*/
-            switch connectionStatus {
-                case .tcp:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
-                case .udp:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
-                case .none:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
-                default:
-                    roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
-            }
+        // TODO: show userstatus as well as connectionstatus
+        // Currently showing the userstatus when debug mode is off, otherwise the connection status
 
+            if (UserDefaultsManager().DebugMode == false) {
+                //Default user status indicator
+                switch userStatus {
+                    case .offline:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                    case .online:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                    case .away:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                    case .busy:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.BusyStatus))
+                }
+            } else {
+                //Debug connection status indicator
+                switch connectionStatus {
+                    case .tcp:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.AwayStatus))
+                    case .udp:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.OnlineStatus))
+                    case .none:
+                    fallthrough
+                    default:
+                        roundView?.setStaticBackgroundColor(theme.colorForType(.OfflineStatus))
+                }
+            }
+            
             let background = showExternalCircle ? theme.colorForType(.StatusBackground) : .clear
             setStaticBackgroundColor(background)
         }
