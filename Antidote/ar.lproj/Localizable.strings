@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "شكر وتنويه";
 /* Settings screen menu */
-"settings_autodownload_images" = "الصور المحملة تلقائياً";
+"settings_autodownload_images" = "ملفات التنزيل التلقائي";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "تحميل الصور الوارده تلقائياً.";
+"settings_autodownload_images_description" = "تنزيل الملفات الواردة تلقائيا.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "عرض الإشعارات";
 /* Settings screen menu */
@@ -369,9 +369,9 @@
 /* Error */
 "error_contact_request_already_sent" = "طلب الإضافة قد تم ارسالها مسبقاً";
 /* Error */
-"error_contact_request_bad_checksum" = "مجموع التدقيق Checksum رديء، يرجى التحقق من حساب التوكس Tox ID المدخل.";
+"error_contact_request_bad_checksum" = "المجموع الاختباري باطل، يرجى التحقق من هوية Tox المدخلة";
 /* Error */
-"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج او nospam رديئة، يرجى التحقق من حساب التوكس Tox ID المدخل.";
+"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج nospam باطلة، يرجى التحقق من هوية Tox المدخلة.";
 
 /* Call error */
 "call_error_already_in_call" = "حالياً في مكالمة";
