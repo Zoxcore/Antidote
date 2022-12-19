@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Лицензии";
 /* Settings screen menu */
-"settings_autodownload_images" = "Загрузка изображений";
+"settings_autodownload_images" = "Загрузка вложений";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Автоматически загружать входящий изображения.";
+"settings_autodownload_images_description" = "Автоматически загружать входящие вложения.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Превью уведомлений";
 /* Settings screen menu */
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Сообщение";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Ваше сообщение";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "пишет...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Сообщения будут отправлены, когда вы и ваш друг оба будете онлайн.";
