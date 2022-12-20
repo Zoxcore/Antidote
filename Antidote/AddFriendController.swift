@@ -138,6 +138,7 @@ extension AddFriendController {
 extension AddFriendController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
+            updateSendButton()
             textView.resignFirstResponder()
             return false
         }
@@ -147,9 +148,11 @@ extension AddFriendController: UITextViewDelegate {
 
         if resultText.lengthOfBytes(using: String.Encoding.utf8) > maxLength {
             textView.text = resultText.substringToByteLength(maxLength, encoding: String.Encoding.utf8)
+            updateSendButton()
             return false
         }
 
+        updateSendButton()
         return true
     }
 
