@@ -208,9 +208,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Danksagungen";
 /* Settings screen menu */
-"settings_autodownload_images" = "Bilder automatisch herunterladen";
+"settings_autodownload_images" = "Dateien automatisch herunterladen";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Eingehende Bilder automatisch herunterladen.";
+"settings_autodownload_images_description" = "Eingehende Dateien automatisch herunterladen.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Mitteilungsvorschau";
 /* Settings screen menu */
