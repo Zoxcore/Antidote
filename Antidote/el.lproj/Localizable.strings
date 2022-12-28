@@ -1,1 +1,404 @@
 
+
+/* Notification text */
+"notification_incoming_contact_request" = "Εισερχόμενο αίτημα επικοινωνίας";
+/* Notification text */
+"notification_is_calling" = "καλεί";
+/* Settings menu / screen name */
+"settings_faq" = "Συχνές ερωτήσεις";
+/* Settings menu / screen name */
+"settings_advanced_settings" = "Ρυθμίσεις για προχωρημένους";
+/* About screen menu */
+"settings_antidote_version" = "Έκδοση Antidote";
+/* About screen menu */
+"settings_toxcore_version" = "Έκδοση Toxcore";
+/* About screen menu */
+"settings_acknowledgements" = "Ευχαριστίες";
+/* Settings screen menu */
+"settings_autodownload_images_description" = "Αυτόματη λήψη εισερχομένων αρχείων.";
+/* Settings screen menu */
+"settings_notifications_description" = "Όταν η εφαρμογή πηγαίνει στο παρασκήνιο, θα εξακολουθείτε να λαμβάνετε ειδοποιήσεις για έως και 10 λεπτά.";
+/* Settings screen autodownload images option */
+"settings_never" = "Ποτέ";
+/* Settings screen autodownload images option */
+"settings_always" = "Πάντα";
+/* Call screen text */
+"call_ended" = "Η κλήση τερματίστηκε";
+/* Settings screen menu */
+"settings_autodownload_images" = "Αυτόματη λήψη αρχείων";
+/* Error */
+"error_wrong_password_message" = "Ο κωδικός πρόσβασης περιέχει λάθος σύμβολα.";
+/* Settings screen menu */
+"settings_notifications_message_preview" = "Προεπισκόπηση ειδοποιήσεων";
+/* Settings screen autodownload images option */
+"settings_wifi" = "Wi-Fi";
+/* Change password text */
+"repeat_password" = "Επαναλάβετε τον κωδικό πρόσβασης";
+/* Settings screen autodownload images option */
+"settings_using_wifi" = "Μόνο μέσω Wi-Fi";
+
+/* Profile settings menu */
+"change_password" = "Αλλαγή κωδικού πρόσβασης";
+/* Profile settings menu */
+"delete_password" = "Διαγραφή κωδικού πρόσβασης";
+/* Change password text */
+"new_password" = "Νέος κωδικός πρόσβασης";
+/* Change password error */
+"password_is_empty_error" = "Ο κωδικός πρόσβασης δεν πρέπει να είναι κενός";
+/* Change password error */
+"wrong_old_password" = "Λάθος κωδικός";
+/* Change password error */
+"passwords_do_not_match" = "Οι κωδικοί πρόσβασης δεν ταιριάζουν";
+
+/* Source of photo to take */
+"photo_from_camera" = "Κάμερα";
+/* Profile settings menu */
+"old_password" = "Παλιός κωδικός πρόσβασης";
+/* Change password button */
+"change_password_done" = "Ολοκλήρωση";
+
+/* Alert text when sending file to contacts */
+"file_send_to_contact" = "Αποστολή σε επαφή";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_1" = "Να γίνει διαγραφή αυτού του προφίλ;";
+
+/* Call screen text */
+"call_incoming" = "Εισερχόμενη κλήση";
+/* Delete profile confirmation */
+"delete_profile_confirmation_message" = "Αυτή η λειτουργία δεν μπορεί να αναιρεθεί";
+
+/* File message text */
+"chat_file_cancelled" = "Ακυρώθηκε";
+
+/* Deleting chat confirmation */
+"delete_chat_title" = "Να διαγραφεί αυτό το ιστορικό συνομιλιών και μηνυμάτων;";
+/* Error while creating new profile */
+"login_profile_already_exists" = "Το προφίλ με το συγκεκριμένο όνομα υπάρχει ήδη";
+
+/* General error title */
+"error_title" = "Σφάλμα";
+/* General error button */
+"error_ok_button" = "Εντάξει";
+/* Error */
+"error_too_many_files" = "Πάρα πολλές ενεργές μεταφορές αρχείων";
+/* Error */
+"error_import_not_exist_message" = "Το αρχείο δεν υπάρχει.";
+/* Error */
+"error_decrypt_bad_format_message" = "Το αρχείο έχει κακή μορφή ή είναι κατεστραμμένο.";
+/* Error */
+"error_decrypt_wrong_password_message" = "Ο κωδικός πρόσβασης είναι λάθος ή το αρχείο είναι κατεστραμμένο.";
+
+/* Error */
+"error_name_too_long" = "Το όνομα είναι πολύ μεγάλο.";
+/* Source of photo to take */
+"photo_from_photo_library" = "Βιβλιοθήκη φωτογραφιών";
+/* Error while converting avatar image */
+"change_avatar_error_convert_image" = "Δεν είναι δυνατή η μετατροπή της εικόνας";
+
+/* Profile menu item */
+"export_profile" = "Εξαγωγή προφίλ";
+/* Profile menu item */
+"delete_profile" = "Διαγραφή προφίλ";
+/* Deleting single message in chat */
+"delete_single_message" = "Διαγραφή μηνύματος";
+/* Deleting multiple messages in chat. */
+"delete_multiple_messages" = "Διαγραφή μηνυμάτων";
+/* Delete button */
+"alert_cancel" = "Ακύρωση";
+
+/* Error while creating new profile */
+"login_enter_username_and_profile" = "Εισαγάγετε όνομα χρήστη και όνομα προφίλ.";
+/* General error button */
+"error_retry_button" = "Επανάληψη";
+/* Error */
+"error_contact_not_connected" = "Η επαφή δεν είναι συνδεδεμένη";
+/* Error */
+"error_internal_message" = "Εσωτερικό σφάλμα";
+/* Error */
+"error_wrong_password_title" = "Λάθος κωδικός";
+/* Error */
+"error_import_not_exist_title" = "Δεν είναι δυνατή η εισαγωγή αρχείου αποθήκευσης tox";
+/* Error */
+"error_status_message_too_long" = "Το μήνυμα κατάστασης είναι πολύ μεγάλο";
+
+/* Error */
+"error_contact_request_too_long" = "Το μήνυμα είναι πολύ μεγάλο";
+/* Error */
+"error_contact_request_no_message" = "Δεν έχει καθοριστεί μήνυμα";
+/* Error */
+"error_contact_request_bad_checksum" = "Εσφαλμένο άθροισμα ελέγχου, ελέγξτε το εισαγόμενο Tox ID";
+/* File message text */
+"chat_waiting" = "Αναμονή...";
+/* Deleting contat confirmation */
+"delete_contact_title" = "Διαγραφή αυτής της επαφής;\nΤο ιστορικό συνομιλιών σας θα χαθεί.";
+/* Delete button */
+"alert_delete" = "Διαγραφή";
+/* Error */
+"error_decrypt_title" = "Δεν είναι δυνατή η αποκρυπτογράφηση του αρχείου αποθήκευσης tox";
+/* Error */
+"error_decrypt_empty_data_message" = "Ορισμένα δεδομένα εισόδου ήταν άδεια.";
+/* Error */
+"error_contact_request_already_sent" = "Το αίτημα επικοινωνίας έχει ήδη σταλεί";
+/* Call error */
+"call_error_contact_is_offline" = "Η επαφή είναι εκτός σύνδεσης";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_2" = "Είστε σίγουροι;";
+/* Call screen text */
+"call_reaching" = "Καλεί...";
+/* File message text */
+"chat_paused" = "Σε παύση";
+/* Deleting contat request confirmation */
+"delete_contact_request_title" = "Διαγραφή αυτού του αιτήματος επικοινωνίας;";
+/* Deleting all messages in chat. */
+"delete_all_messages" = "Διαγραφή όλων";
+/* Error */
+"error_contact_request_own_key" = "Δεν μπορώ να προσθέσω τον εαυτό μου στη λίστα επαφών";
+
+/* Tab chats badge ending */
+"accessibility_chats_ending" = "αδιάβαστες συζητήσεις";
+/* Chat button hint in contact screen */
+"accessibility_chat_button_hint" = "Ανοίγει το παράθυρο διαλόγου συνομιλίας.";
+/* Call button hint in contact screen */
+"accessibility_call_button_hint" = "Πραγματοποιεί ηχητική κλήση.";
+/* Error */
+"error_contact_request_new_nospam" = "Εσφαλμένη τιμή nospam, ελέγξτε το καταχωρισμένο Tox ID";
+
+/* Call error */
+"call_error_already_in_call" = "Ήδη σε κλήση";
+/* Call error */
+"call_error_no_active_call" = "Δεν υπάρχει ενεργή κλήση";
+
+/* Error while using color theme */
+"theme_error_cannot_open" = "Δεν είναι δυνατό το άνοιγμα του θέματος, λάθος μορφή";
+/* Avatar button label in settings */
+"accessibility_avatar_button_label" = "Εικόνα χρήστη";
+/* Avatar button hint in settings */
+"accessibility_avatar_button_hint" = "Ορίζει ή αφαιρεί την εικόνα χρήστη.";
+/* Chat button label in contact screen */
+"accessibility_chat_button_label" = "Συζήτηση";
+/* Video button label in contact screen */
+"accessibility_video_button_label" = "Βιντεοκλήση";
+/* Video button hint in contact screen */
+"accessibility_video_button_hint" = "Πραγματοποιεί βιντεοκλήση.";
+/* Call button label in contact screen */
+"accessibility_call_button_label" = "Ηχητική κλήση";
+/* Login screen text */
+"login_or_label" = "ή";
+/* Login screen text */
+"create_account" = "Δημιουργία λογαριασμού";
+/* Login screen text */
+"import_profile" = "Εισαγωγή προφίλ";
+/* Password field */
+"password" = "Κωδικός πρόσβασης";
+/* Login button */
+"log_in" = "Σύνδεση";
+/* Login screen text */
+"create_profile" = "Δημιουργία προφίλ";
+/* Login screen text */
+"import_to_antidote" = "Εισαγωγή στο Antidote";
+/* Login screen text */
+"create_account_username_title" = "Πώς θα σας βλέπουν οι επαφές;";
+/* Login screen text */
+"create_account_username_placeholder" = "Όνομα χρήστη";
+/* Login screen text */
+"create_account_profile_title" = "Πώς ονομάζεται αυτό το προφίλ;";
+/* Login screen text */
+"create_account_profile_hint" = "π.χ. Σπίτι, iPhone";
+/* Login button */
+"create_account_next_button" = "Επόμενο";
+
+/* PIN screen text */
+"pin_enter_to_unlock" = "Εισαγάγετε το PIN σας για ξεκλείδωμα";
+/* PIN screen text */
+"pin_set" = "Ορισμός PIN";
+/* PIN screen text */
+"pin_confirm" = "Επιβεβαίωση PIN";
+/* PIN screen error */
+"pin_do_not_match" = "Τα PIN δεν ταιριάζουν. Προσπάθησε ξανά";
+/* PIN screen error */
+"pin_incorrect" = "Λανθασμένο PIN";
+/* PIN screen error details */
+"pin_failed_attempts" = "Αποτυχημένες προσπάθειες: %@";
+/* PIN screen screen */
+"pin_enabled" = "Ενεργοποίηση PIN";
+/* PIN screen screen */
+"pin_touch_id_enabled" = "Ενεργοποίηση Touch ID";
+/* PIN screen screen */
+"pin_description" = "Αποτρέψτε τη μη εξουσιοδοτημένη πρόσβαση στο Antidote με ένα PIN.";
+/* PIN screen screen */
+"pin_lock_timeout" = "Λήξη χρονικού ορίου κλειδώματος";
+/* PIN screen screen */
+"pin_lock_immediately" = "Άμεσα";
+/* PIN screen screen */
+"pin_lock_30_seconds" = "30 δευτερόλεπτα";
+/* PIN screen screen */
+"pin_lock_1_minute" = "1 λεπτό";
+/* PIN screen screen */
+"pin_lock_2_minutes" = "2 λεπτά";
+/* PIN screen screen */
+"pin_lock_5_minutes" = "5 λεπτά";
+
+/* Label shown when connecting to Tox network */
+"connecting_label" = "Γίνεται σύνδεση...";
+
+/* Tab name and screen name */
+"contacts_title" = "Επαφές";
+/* Tab name and screen name */
+"chats_title" = "Συνομιλίες";
+/* Tab name and screen name */
+"settings_title" = "Ρυθμίσεις";
+/* Tab name and screen name */
+"profile_title" = "Προφίλ";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "Δεν υπάρχουν επαφές";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "μοιραστείτε το Tox ID σας";
+/* Contact request section title */
+"contact_requests_section" = "Αιτήματα Επικοινωνίας";
+/* Contact last seen status */
+"contact_last_seen" = "Εθεάθη τελευταία: %@";
+/* Screen name */
+"contact_request" = "Αίτημα επικοινωνίας";
+/* Contact request button */
+"contact_request_decline" = "Παρακμή";
+/* Contact request button */
+"contact_request_accept" = "Αποδοχή";
+/* Text shown when contact was deleted */
+"contact_deleted" = "Διαγραμμένη επαφή";
+/* Share Tox ID text */
+"copy" = "Αντιγραφή";
+
+/* Add contat screen name */
+"add_contact_title" = "Προσθήκη επαφής";
+/* Login button */
+"create_account_go_button" = "Είσοδος";
+/* Default status message */
+"default_user_status_message" = "Toxing στο Antidote";
+/* Add contat placeholder text */
+"add_contact_default_message_title" = "Μήνυμα";
+/* Add contat error */
+"add_contact_wrong_qr" = "Λάθος κωδικός QR. Θα πρέπει να περιέχει Tox ID";
+
+/* User name text */
+"name" = "Όνομα";
+/* About screen menu */
+"settings_antidote_build" = "Έκδοση Antidote";
+/* Settings screen menu */
+"settings_udp_enabled" = "Ενεργοποίηση UDP";
+/* Settings screen menu */
+"settings_restore_default" = "Επαναφορά αρχικών ρυθμίσεων";
+/* Error */
+"error_general_unknown_message" = "Παρουσιάστηκε άγνωστο σφάλμα.";
+/* Error */
+"error_general_no_memory_message" = "Ανεπαρκής μνήμη.";
+/* Error */
+"error_general_bind_port_message" = "Δεν ήταν δυνατή η δέσμευση σε μια θύρα.";
+/* Error */
+"error_general_profile_encrypted_message" = "Το προφίλ είναι κρυπτογραφημένο.";
+/* Error */
+"error_general_bad_format_message" = "Το αρχείο έχει κακή μορφή ή είναι κατεστραμμένο.";
+/* Error */
+"error_proxy_title" = "Σφάλμα διακομιστή μεσολάβησης";
+/* Error */
+"error_proxy_invalid_address_message" = "Η διεύθυνση διακομιστή μεσολάβησης έχει μη έγκυρη μορφή.";
+/* Error */
+"error_proxy_invalid_port_message" = "Η θύρα διακομιστή μεσολάβησης δεν είναι έγκυρη.";
+/* Error */
+"error_proxy_host_not_resolved_message" = "Δεν ήταν δυνατή η επίλυση του διακομιστή μεσολάβησης.";
+/* Login screen text */
+"set_password_title" = "Ορίστε τον κωδικό πρόσβασης";
+/* Tap to copy hint */
+"accessibility_show_copy_hint" = "Εμφανίζει το μενού αντιγραφής.";
+/* Tap to edit value hint */
+"accessibility_edit_value_hint" = "Επεξεργάζεται την τιμή.";
+/* Incoming message label */
+"accessibility_incoming_message_label" = "Μήνυμα";
+/* Outgoing message label */
+"accessibility_outgoing_message_label" = "Το μήνυμά σας";
+/* Login screen text */
+"create_account_profile_placeholder" = "Όνομα προφίλ";
+/* Login screen text */
+"set_password_hint" = "Απαιτείται κωδικός πρόσβασης για την προστασία των δεδομένων σας. Διατηρήστε το ασφαλές - μόλις χαθεί δεν μπορεί να αποκατασταθεί ο λογαριασμός σας.";
+/* PIN screen message shown on log out */
+"pin_logout_message" = "Πάρα πολλές αποτυχημένες προσπάθειες. Έχετε αποσυνδεθεί.";
+/* PIN screen screen */
+"pin_touch_id_description" = "Χρησιμοποιήστε το δακτυλικό σας αποτύπωμα ως εναλλακτική για την εισαγωγή ενός PIN.";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "Πρόσθεσε μια επαφή\nή\n";
+/* Contact request confirmation */
+"contact_request_delete_title" = "Διαγραφή αιτήματος επικοινωνίας;";
+
+/* Share Tox ID text */
+"show_qr_code" = "Εμφάνιση κωδικού QR";
+/* Add contat placeholder text */
+"add_contact_tox_id_placeholder" = "Εισαγάγετε Tox ID";
+/* Add contat button */
+"add_contact_send" = "Αποστολή";
+/* Add contat placeholder text */
+"add_contact_or_label" = "ή";
+/* Add contat button */
+"add_contact_use_qr" = "Χρήση κωδικού QR";
+/* Status message */
+"status_away" = "Απών";
+/* Add contat default text sended to contact */
+"add_contact_default_message_text" = "Γειά σας! Θα μπορούσατε παρακαλώ να με προσθέσετε στη λίστα επαφών σας;";
+/* Share Tox ID text */
+"show_qr" = "Εμφάνιση QR";
+/* Chat notification toast */
+"chat_new_messages" = "↓ Νέα μηνύματα";
+/* User nickname text */
+"nickname" = "Ψευδώνυμο";
+/* User status message text */
+"status_message" = "Μήνυμα κατάστασης";
+/* User status text */
+"status_title" = "Κατάσταση";
+/* User public key text */
+"public_key" = "Δημόσιο Κλειδί";
+/* User Tox ID text */
+"my_tox_id" = "Το Tox ID μου";
+
+/* QR code screen button */
+"qr_close_button" = "Κλείσιμο";
+
+/* Chat screen placeholder */
+"chat_no_chats" = "Δεν υπάρχουν συνομιλίες";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Τα μηνύματα που δεν έχουν παραδοθεί θα σταλούν όταν τόσο εσείς όσο και ο φίλος σας είστε συνδεδεμένοι.";
+/* Profile menu item / screen name */
+"profile_details" = "Λεπτομέρειες Προφίλ";
+/* Item present in the menu on long press on message */
+"chat_more_menu_item" = "Περισσότερα";
+/* Profile button */
+"logout_button" = "Αποσύνδεση";
+/* Chats screen message text */
+"chat_outgoing_file" = "Εξερχόμενο αρχείο:";
+/* Chats screen message text */
+"chat_incoming_file" = "Εισερχόμενο αρχείο:";
+/* Chats screen message text */
+"chat_call_finished" = "Η κλήση ολοκληρώθηκε";
+/* Chats screen message text */
+"chat_unanwered_call" = "Αναπάντητη κλήση";
+/* Chat button */
+"chat_send_button" = "Αποστολή";
+/* Chat call information */
+"chat_call_message" = "Κλήση, ";
+/* Chat call information */
+"chat_missed_call_message" = "Αναπάντητη κλήση";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "πληκτρολογεί...";
+
+/* Status message */
+"status_offline" = "Εκτός σύνδεσης";
+/* Notification text */
+"notification_incoming_file" = "Εισερχόμενο αρχείο";
+
+/* Notification text */
+"notification_new_message" = "Νέο μήνυμα";
+
+/* Settings menu / screen name */
+"settings_about" = "Σχετικά με";
+/* Status message */
+"status_online" = "Συνδεμένος/η";
+/* Status message */
+"status_busy" = "Απασχολημένος/η";
