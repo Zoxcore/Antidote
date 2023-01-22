@@ -38,7 +38,7 @@
 "default_user_status_message" = "ⵜⵜⵎⵢⴰⵡⴰⴹⵖ ⵙ Antidote";
 
 /* PIN screen text */
-"pin_enter_to_unlock" = "ⵙⵙⵉⴷⴼ  PIN ⵏⵏⴽ ⵉ ⵓⵕⵥⴰⵎ";
+"pin_enter_to_unlock" = "ⵙⵙⵉⴷⴼ PIN ⵏⵏⴽ ⵉ ⵓⵕⵥⴰⵎ";
 /* PIN screen text */
 "pin_set" = "ⵙⵔⵙ PIN";
 /* PIN screen text */
@@ -50,7 +50,7 @@
 /* PIN screen error details */
 "pin_failed_attempts" = "ⵉⵔⵉⵎⵏ ⵉⵏⴳⵓⴼⵏ: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "ⴽⵉⴳⴰⵏ ⵏ ⵉⵔⵉⵎⵏ ⵉⵏⴳⵓⴼⵏ, ⵉⵜⵜⵡⴰⵣⵎⵎⴻⵎ ⵡⵓⴼⵓⵖ ⵏⵏⴽ";
+"pin_logout_message" = "ⴽⵉⴳⴰⵏ ⵏ ⵉⵔⵉⵎⵏ ⵉⵏⴳⵓⴼⵏ. ⵉⵜⵜⵡⴰⵣⵎⵎⴻⵎ ⵡⵓⴼⵓⵖ ⵏⵏⴽ.";
 /* PIN screen screen */
 "pin_enabled" = "ⴰⵙⵎⵀⵍ ⵏ PIN";
 /* PIN screen screen */
@@ -73,7 +73,7 @@
 "pin_lock_5_minutes" = "5 ⵏ ⵜⵓⵙⴷⵉⴷⵉⵏ";
 
 /* Label shown when connecting to Tox network */
-"connecting_label" = "ⴳ ⵉⴼⵉⵍⵉ";
+"connecting_label" = "ⴳ ⵉⴼⵉⵍⵉ...";
 
 /* Tab name and screen name */
 "contacts_title" = "ⵉⵎⴰⵡⴰⴹⵏ";
@@ -152,9 +152,9 @@
 /* Chat screen placeholder */
 "chat_no_chats" = "ⵓⵔ ⵉⵍⵍⵉ ⴽⵔⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ";
 /* Chats screen message text */
-"chat_outgoing_file" = "ⴰⴼⴰⵢⵍⵓ ⵉⴼⴼⵖⵏ";
+"chat_outgoing_file" = "ⴰⴼⴰⵢⵍⵓ ⵉⴼⴼⵖⵏ:";
 /* Chats screen message text */
-"chat_incoming_file" = "ⴰⴼⴰⵢⵍⵓ ⵓⴽⵛⵉⵎ";
+"chat_incoming_file" = "ⴰⴼⴰⵢⵍⵓ ⵓⴽⵛⵉⵎ:";
 /* Chats screen message text */
 "chat_call_finished" = "ⵜⵙⵎⴷ ⵜⵖⵓⵔⵉ";
 /* Chats screen message text */
@@ -172,7 +172,7 @@
 /* Message shown on chat list when contact is typing */
 "chat_is_typing_text" = "ⵉⵜⵜⴰⵔⵉ...";
 /* Text shown in chat when there are undelivered faux offline messages */
-"chat_pending_faux_offline_messages" = "سيتم إرسال الرسائل التي لم يتم تسليمها عندما تكون أنت وصديقك متصلين بالإنترنت.";
+"chat_pending_faux_offline_messages" = "ⵔⴰⴷ ⵜⵜⵡⴰⵣⵏⵏⵜ ⵜⴱⵔⴰⵜⵉⵏ ⵏⵏⴰ ⵓⵔ ⵉⵜⵜⵡⴰⵎⵥⵏ ⴰⴷⴷⴰⵢ ⵜⵉⵍⵉⴷ ⴰⴽⴷ ⵓⵎⴷⴷⴰⴽⴽⵯⵍ ⵏⵏⴽ ⴳ ⵉⴼⵉⵍⵉ.";
 
 /* Status message */
 "status_offline" = "ⵓⵔ ⵉⵍⵍⵉ ⴳ ⵉⴼⵉⵍⵉ";
@@ -209,7 +209,7 @@
 /* Settings screen menu */
 "settings_autodownload_images" = "ⵉⴼⴰⵢⵍⵓⵜⵏ ⵏ ⵡⴰⴳⴰⵎ ⴰⵡⵓⵔⵎⴰⵏ";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "ⴰⴳⴰⵎ ⴰⵡⵓⵔⵎⴰⵏ ⵏ ⵉⴼⴰⵢⵍⵓⵜⵏ ⵓⴽⵛⵉⵎⵏ";
+"settings_autodownload_images_description" = "ⴰⴳⴰⵎ ⴰⵡⵓⵔⵎⴰⵏ ⵏ ⵉⴼⴰⵢⵍⵓⵜⵏ ⵓⴽⵛⵉⵎⵏ.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "ⴰⴼⵙⴰⵔ ⵏ ⵉⵏⵖⵎⵉⵙⵏ";
 /* Settings screen menu */
@@ -259,7 +259,7 @@
 /* Profile menu item */
 "export_profile" = "ⵃⴹⵓ ⴰⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ";
 /* Profile menu item */
-"delete_profile" = "ⴽⴽⵙ ⴰⵎⵉⴹⴰⵏ ⴰⵎⴰⵢⵏⵓ";
+"delete_profile" = "ⴽⴽⵙ ⴰⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ";
 /* Delete profile confirmation */
 "delete_profile_confirmation_title_1" = "ⵉⵙ ⵜⵔⵉⴷ ⴰⴷ ⵜⴽⴽⵙⴷ ⴰⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ?";
 /* Delete profile confirmation */
@@ -280,122 +280,122 @@
 "chat_paused" = "ⴱⴷⴷ ⵉⵎⵉⴽ";
 
 /* Deleting chat confirmation */
-"delete_chat_title" = "ⴽⴽⵙ ⴰⵎⵙⴰⵡⴰⵍ ⴰⴷ ⴷ ⵜⴱⵔⴰⵜⵉⵏ ⵏⵏⴰ ⴷⵉⴳⵙ ⵉⵜⵜⵓⵃⴹⵓⵏ";
+"delete_chat_title" = "ⴽⴽⵙ ⴰⵎⵙⴰⵡⴰⵍ ⴰⴷ ⴷ ⵜⴱⵔⴰⵜⵉⵏ ⵏⵏⴰ ⴷⵉⴳⵙ ⵉⵜⵜⵓⵃⴹⵓⵏ?";
 /* Deleting contat confirmation */
-"delete_contact_title" = "إزالة هذا الحساب؟\nسيتم فقدان سجل المحادثة.";
+"delete_contact_title" = "ⴽⴽⵙ ⴰⵎⴰⵡⴰⴹ ⴰⴷ?\nⵔⴰⴷ ⵉⵜⵜⵓⴽⴽⵙ ⵡⴰⵔⵔⴰ ⵏ ⵜⵊⵎⵎⴰⵄⵜ.";
 /* Deleting contat request confirmation */
-"delete_contact_request_title" = "إزالة الدعوة لهذا الحساب؟";
+"delete_contact_request_title" = "ⵉⵙ ⵜⵔⵉⴷ ⴰⴷ ⵜⴽⴽⵙⴷ ⴰⵙⵉⴳⵔ ⵏ ⵓⵎⵉⴹⴰⵏ ⴰⴷ?";
 /* Deleting single message in chat */
-"delete_single_message" = "حذف الرسالة";
+"delete_single_message" = "ⴽⴽⵙ ⵜⴰⴱⵔⴰⵜ";
 /* Deleting multiple messages in chat. */
-"delete_multiple_messages" = "حذف الرسائل";
+"delete_multiple_messages" = "ⴽⴽⵙ ⵜⵉⴱⵔⴰⵜⵉⵏ";
 /* Deleting all messages in chat. */
-"delete_all_messages" = "حذف الكل";
+"delete_all_messages" = "ⴽⴽⵙ ⴰⴽⴽⵯ";
 /* Delete button */
-"alert_delete" = "إزالة";
+"alert_delete" = "ⴽⴽⵙ";
 /* Delete button */
-"alert_cancel" = "إلغاء الامر";
+"alert_cancel" = "ⵙⵙⵔ";
 
 /* Error while creating new profile */
-"login_enter_username_and_profile" = "الرجاء إدخال كل من اسم المستخدم واسم الحساب.";
+"login_enter_username_and_profile" = "ⵙⵙⵉⴷⴼ ⵉⵙⵎ ⵏ ⵓⵏⵙⵙⵎⵔⵙ ⴷ ⵢⵉⵙⵎ ⵏ ⵓⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ.";
 /* Error while creating new profile */
-"login_profile_already_exists" = "إسم الحساب موجود مسبقاً";
+"login_profile_already_exists" = "ⵉⵍⵍⴰ ⵢⵉⵙⵎ ⴰⴷ ⵏ ⵓⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ";
 
 /* General error title */
-"error_title" = "خطأ";
+"error_title" = "ⵜⴰⵣⴳⵍⵜ";
 /* General error button */
-"error_ok_button" = "موافق";
+"error_ok_button" = "ⵡⴰⵅⵅⴰ";
 /* General error button */
-"error_retry_button" = "إعادة المحاولة";
+"error_retry_button" = "ⴰⵍⵙ ⴷⴰⵖ";
 /* Error */
-"error_contact_not_connected" = "الحساب غير متصل";
+"error_contact_not_connected" = "ⵓⵔ ⵉⵍⵍⵉ ⵓⵎⴰⵡⴰⴹ ⴳ ⵉⴼⵉⵍⵉ";
 /* Error */
-"error_too_many_files" = "هناك عدد كبير من الملفات المفعلة على قيد النقل";
+"error_too_many_files" = "ⴽⵉⴳⴰⵏ ⵏ ⵜⵎⵀⴰⵍ ⵏ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⴼⴰⵢⵍⵓⵜⵏ ⵉⵜⵜⵓⵙⵎⵀⵍⵏ";
 /* Error */
-"error_internal_message" = "حدث خطأ داخلي";
+"error_internal_message" = "ⵜⴰⵣⴳⵍⵜ ⵜⴰⴳⵯⵏⵙⴰⵏⵜ";
 /* Error */
-"error_wrong_password_title" = "كلمة المرور خطأ";
+"error_wrong_password_title" = "ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ ⴷ ⴰⵔⵎⵉⴷⵉ";
 /* Error */
-"error_wrong_password_message" = "كلمة المرور تحتوي على رموز خاطئة.";
+"error_wrong_password_message" = "ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ ⴷⵉⴳⵙ ⵜⵉⵎⵉⵜⴰⵔ ⵜⵉⵔⵎⵉⴷⵉⵜⵉⵏ.";
 /* Error */
-"error_import_not_exist_title" = "لا يمكن نقل ملف التوكس المحفوظ";
+"error_import_not_exist_title" = "ⵓⵔ ⵉⵣⵔⵉ ⴰⴷ ⵉⵜⵜⵓⵙⵏⴼⵍ ⵓⴼⴰⵢⵍⵓ ⵏ tox";
 /* Error */
-"error_import_not_exist_message" = "الملف غير موجود.";
+"error_import_not_exist_message" = "ⵓⵔ ⵉⵍⵍⵉ ⵓⴼⴰⵢⵍⵓ.";
 /* Error */
-"error_decrypt_title" = "لا يمكن فك تشفير ملف التوكس المحفوظ";
+"error_decrypt_title" = "ⵓⵔ ⵉⵣⵔⵉ ⵓⵔⴰⵏⵜⴰⵍ ⵏ ⵓⴼⴰⵢⵍⵓ ⵏ tox ⵉⵜⵜⵓⵃⴹⵓⵏ";
 /* Error */
-"error_decrypt_empty_data_message" = "بعض بيانات الإدخال كانت فارغة.";
+"error_decrypt_empty_data_message" = "ⴽⵔⴰ ⵏ ⵜⵎⵓⵛⴰ ⵏ ⵓⴽⵊⵊⵓⵎ ⵅⵡⴰⵏⵜ.";
 /* Error */
-"error_decrypt_bad_format_message" = "الملف يحتوي على تنسيق سيء أو تالف.";
+"error_decrypt_bad_format_message" = "ⴰⴼⴰⵢⵍⵓ ⴷⵉⴳⵙ ⴰⵣⴷⴷⵓⵢ ⴷ ⴰⵎⵛⵓⵎ ⵏⵉⵖ ⴰⵎⴰⴽⵓⵍ.";
 /* Error */
-"error_decrypt_wrong_password_message" = "كلمة السر غير صحيحة أو قد يكون الملف تالف.";
+"error_decrypt_wrong_password_message" = "ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ ⴷ ⴰⵔⵎⵉⴷⵉ ⵏⵉⵖ ⴰⴼⴰⵢⵍⵓ ⴷ ⴰⵎⴰⴽⵓⵍ.";
 /* Error */
-"error_general_unknown_message" = "حدث خطأ مجهول.";
+"error_general_unknown_message" = "ⵜⴰⵣⴳⵍⵜ ⵜⴰⵔ ⵉⵙⵎ.";
 /* Error */
-"error_general_no_memory_message" = "الذاكرة لا تكفي.";
+"error_general_no_memory_message" = "ⵜⵉⵎⴽⵜⵉⵜ ⴷ ⵜⴰⵎⴽⵜⵓⵔⵜ.";
 /* Error */
-"error_general_bind_port_message" = "لم يتمكن لربط المنفذ.";
+"error_general_bind_port_message" = "ⵓⵔ ⵉⵣⵎⵉⵔ ⴰⴷ ⵉⵣⴷⵉ ⴷ ⵓⴼⵜⴰⵙ.";
 /* Error */
-"error_general_profile_encrypted_message" = "تم تشفير الحساب.";
+"error_general_profile_encrypted_message" = "ⵉⵜⵜⵡⴰⴳⴳ ⵓⵙⵏⵜⵍ ⵉ ⵓⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ.";
 /* Error */
-"error_general_bad_format_message" = "الملف يحتوي على تنسيق سيء أو تالف.";
+"error_general_bad_format_message" = "ⴰⴼⴰⵢⵍⵓ ⴷⵉⴳⵙ ⴰⵣⴷⴷⵓⵢ ⴷ ⴰⵎⵛⵓⵎ ⵏⵉⵖ ⴰⵎⴰⴽⵓⵍ.";
 /* Error */
-"error_proxy_title" = "خطأ في الخادم الوكيل او البروكسي";
+"error_proxy_title" = "ⵜⴰⵣⴳⵍⵜ ⴳ Proxy";
 /* Error */
-"error_proxy_invalid_address_message" = "عنوان الوكيل او البروكسي غير صالح.";
+"error_proxy_invalid_address_message" = "ⴰⵏⵙⴰ ⵏ Proxy ⵖⵔⵙ ⵜⴰⵍⵖⴰ ⵜⴰⵔⵎⵉⴷⵉⵜ.";
 /* Error */
-"error_proxy_invalid_port_message" = "منفذ الوكيل او البروكسي غير صالح.";
+"error_proxy_invalid_port_message" = "ⴰⴼⵜⴰⵙ ⵏ Proxy ⴷ ⴰⵔⵎⵉⴷⵉ.";
 /* Error */
-"error_proxy_host_not_resolved_message" = "لا يمكن حل استضافة الوكيل او البروكسي.";
+"error_proxy_host_not_resolved_message" = "ⵓⵔ ⵉⵣⵔⵉ ⵓⵕⵥⵥⵓⵎ ⵏ Proxy.";
 
 /* Error */
 "error_name_too_long" = "ⵉⵖⵣⵣⵉⴼ ⵢⵉⵙⵎ ⴽⵉⴳⴰⵏ.";
 /* Error */
-"error_status_message_too_long" = "الرسالة في الحالة طويلة جداً";
+"error_status_message_too_long" = "ⵜⵖⵣⵣⵉⴼ ⴽⵉⴳⴰⵏ ⵜⴱⵔⴰⵜ ⵏ ⵡⴰⴷⴷⴰⴷ";
 
 /* Error */
 "error_contact_request_too_long" = "ⵜⵖⵣⵣⵉⴼ ⵜⴱⵔⴰⵜ ⴽⵉⴳⴰⵏ";
 /* Error */
-"error_contact_request_no_message" = "لا يوجد رسائل محددة";
+"error_contact_request_no_message" = "ⵓⵔ ⵍⵍⵉⵏⵜ ⴽⵔⴰ ⵏ ⵜⴱⵔⴰⵜⵉⵏ";
 /* Error */
-"error_contact_request_own_key" = "لا يمكن إضافة نفس حسابي في قائمة الاتصال الخاصة بي";
+"error_contact_request_own_key" = "ⵓⵔ ⵜⵣⵔⵉ ⵜⵎⵔⵏⵉⵡⵜ ⵏ ⵢⵉⵅⴼ ⵉⵏⵓ ⴳ ⵜⵍⴳⴰⵎⵜ ⵏ ⵉⵎⴰⵡⴰⴹⵏ";
 /* Error */
-"error_contact_request_already_sent" = "طلب الإضافة قد تم ارسالها مسبقاً";
+"error_contact_request_already_sent" = "ⵉⵜⵜⵡⴰⵣⵏ ⵏⵏⵉⵜ ⵓⵙⵉⴳⵔ";
 /* Error */
-"error_contact_request_bad_checksum" = "المجموع الاختباري باطل، يرجى التحقق من هوية Tox المدخلة";
+"error_contact_request_bad_checksum" = "ⵜⴰⵎⵓⵜⵜⵔⵜ ⵏ ⵉⵔⵉⵎⵏ ⴷ ⵜⴰⵎⵓⵛⵎⵜ, ⵙⵙⵉⴷⴷⴻⴷ Tox ID ⵢⵓⴷⴼⵏ";
 /* Error */
-"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج nospam باطلة، يرجى التحقق من هوية Tox المدخلة.";
+"error_contact_request_new_nospam" = "ⴰⵜⵉⴳ ⵏ nospam ⴷ ⴰⵎⵛⵓⵎ, ⵙⵙⵉⴷⴷⴻⴷ Tox ID";
 
 /* Call error */
 "call_error_already_in_call" = "ⵉⵙⵙⴰⵡⴰⵍ";
 /* Call error */
 "call_error_contact_is_offline" = "ⵉⵇⵇⵏ ⵓⵎⵉⴹⴰⵏ";
 /* Call error */
-"call_error_no_active_call" = "ليس هناك مكالمة أخرى";
+"call_error_no_active_call" = "ⵓⵔ ⵜⵍⵍⵉ ⴽⵔⴰ ⵏ ⵜⵖⵓⵔⵉ ⵢⴰⴹⵏⵉⵏ";
 
 /* Error while using color theme */
-"theme_error_cannot_open" = "لا يمكن فتح السمة، التنسيق خاطئ";
+"theme_error_cannot_open" = "ⵓⵔ ⵉⵣⵔⵉ ⵓⴽⵛⴰⵎ ⵙ ⵜⴼⵔⵙⵜ, ⵜⴰⵍⵖⴰ ⴷ ⵜⴰⵔⵎⵉⴷⵉⵜ";
 
 /* Tab chats badge ending */
-"accessibility_chats_ending" = "المحادثات الغير مقروء";
+"accessibility_chats_ending" = "ⵉⵎⵙⴰⵡⴰⵍⵏ ⵓⵔ ⵉⵜⵜⵡⴰⵖⵔⵉⵏ";
 /* Avatar button label in settings */
-"accessibility_avatar_button_label" = "الصورة الرمزية";
+"accessibility_avatar_button_label" = "ⵜⴰⵡⵍⴰⴼⵜ";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "تحديد أو إزالة الصورة الرمزية.";
+"accessibility_avatar_button_hint" = "ⵙⴽⵔ ⵏⵉⵖ ⴽⴽⵙ ⵜⴰⵡⵍⴰⴼⵜ.";
 /* Chat button label in contact screen */
 "accessibility_chat_button_label" = "ⴰⵎⵙⴰⵡⴰⵍ";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "يفتح حوار المحادثة.";
+"accessibility_chat_button_hint" = "ⴷⴰ ⵜⵕⵥⵥⵎ ⵜⵏⴽⵍⵓⵜ ⵏ ⵓⵎⵙⴰⵡⴰⵍ.";
 /* Call button label in contact screen */
 "accessibility_call_button_label" = "ⴰⵎⵢⴰⵡⴰⴹ ⴰⴳⵕⴹⴰⵏ";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "لطلب مكالمة صوتية.";
+"accessibility_call_button_hint" = "ⵙⴽⵔ ⴰⵎⵢⴰⵡⴰⴹ ⴰⴳⵕⴹⴰⵏ.";
 /* Video button label in contact screen */
 "accessibility_video_button_label" = "ⴰⵎⵢⴰⵡⴰⴹ ⴰⵎⵡⴰⵍⴰⵏ";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "لطلب مكالمة مرئية.";
+"accessibility_video_button_hint" = "ⵙⴽⵔ ⴰⵎⵢⴰⵡⴰⴹ ⴰⵎⵡⴰⵍⴰⵏ.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "يظهر نسخة القائمة.";
+"accessibility_show_copy_hint" = "ⵜⴰⵙⵎⵎⴰⵍⵜⵏ ⵜⵍⴳⴰⵎⵜ ⵏ ⵜⵓⵏⵖⵉⵍⵜ.";
 /* Incoming message label */
 "accessibility_incoming_message_label" = "ⵜⴰⴱⵔⴰⵜ";
 /* Outgoing message label */
