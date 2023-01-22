@@ -1,1 +1,404 @@
 
+
+/* Call screen text */
+"call_reaching" = "ⵉⵇⵇⴰⵔ...";
+/* Login screen text */
+"login_or_label" = "ⵏⵉⵖ";
+/* Login screen text */
+"create_account" = "ⵙⴽⵔ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Login screen text */
+"import_profile" = "ⵙⵙⴽⵛⵎ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Password field */
+"password" = "ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Login button */
+"log_in" = "ⴽⵛⵎ";
+/* Login screen text */
+"create_profile" = "ⵙⴽⵔ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Login screen text */
+"import_to_antidote" = "ⴷⴷⵓ ⵖⵔ antidote";
+/* Login screen text */
+"create_account_username_title" = "ⵎⴰⵎⴽ ⴰ ⵔⴰⴷ ⴽ ⵥⵕⵏ ⵉⵎⴰⵡⴰⴹⵏ ⵏⵏⴽ?";
+/* Login screen text */
+"create_account_username_placeholder" = "ⵉⵙⵎ ⵏ ⵓⵏⵙⵙⵎⵔⵙ";
+/* Login screen text */
+"create_account_profile_title" = "ⵎⴰⵎⴽ ⴰ ⵔⴰⴷ ⵜⵖⵔⴷ ⵉ ⵓⵎⵉⴹⴰⵏ ⴰⴷ?";
+/* Login screen text */
+"create_account_profile_placeholder" = "ⵉⵙⵎ ⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Login screen text */
+"create_account_profile_hint" = "ⵙ ⵓⵎⴷⵢⴰ ⵜⴰⴷⴷⴰⵔⵜ, ⴰⵢⴼⵓⵏ";
+/* Login screen text */
+"set_password_title" = "ⵙⵔⵙ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Login screen text */
+"set_password_hint" = "ⵉⵡⴰⵜⵜⵙ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ ⴰⴼⵔⴰⴳ ⵏ ⵜⵎⵓⵛⴰ ⵏⵏⴽ ⵜⵉⵏⵉⵎⴰⵏⵉⵏ. ⵃⴹⵓ ⵜⵏⵜ - ⵎⵛ ⴰⴽ ⴷⴷⴰⵏⵜ ⵓⵔ ⵜⵣⵎⵎⴰⵔⴷ ⴰⴷ ⵜⵔⴰⵔⴷ ⴰⵎⵉⴹⴰⵏ.";
+/* Login button */
+"create_account_next_button" = "ⵢⴰⴹⵏ";
+/* Login button */
+"create_account_go_button" = "ⵙⵙⵏⵜ";
+/* Default status message */
+"default_user_status_message" = "ⵜⵜⵎⵢⴰⵡⴰⴹⵖ ⵙ Antidote";
+
+/* PIN screen text */
+"pin_enter_to_unlock" = "ⵙⵙⵉⴷⴼ  PIN ⵏⵏⴽ ⵉ ⵓⵕⵥⴰⵎ";
+/* PIN screen text */
+"pin_set" = "ⵙⵔⵙ PIN";
+/* PIN screen text */
+"pin_confirm" = "ⵙⴷⴷⵉⴷ PIN";
+/* PIN screen error */
+"pin_do_not_match" = "ⵓⵔ ⵎⵙⴰⵙⴰⵏ ⵡⵓⵟⵟⵓⵏⵏ, ⴰⵍⵙ ⴷⴰⵖ";
+/* PIN screen error */
+"pin_incorrect" = "PIN ⴷ ⴰⵔⵎⵉⴷⵉ";
+/* PIN screen error details */
+"pin_failed_attempts" = "ⵉⵔⵉⵎⵏ ⵉⵏⴳⵓⴼⵏ: %@";
+/* PIN screen message shown on log out */
+"pin_logout_message" = "ⴽⵉⴳⴰⵏ ⵏ ⵉⵔⵉⵎⵏ ⵉⵏⴳⵓⴼⵏ, ⵉⵜⵜⵡⴰⵣⵎⵎⴻⵎ ⵡⵓⴼⵓⵖ ⵏⵏⴽ";
+/* PIN screen screen */
+"pin_enabled" = "ⴰⵙⵎⵀⵍ ⵏ PIN";
+/* PIN screen screen */
+"pin_touch_id_enabled" = "ⴰⵙⵎⵀⵍ ⵏ ⵜⵎⴰⴳⵉⵜ ⵙ ⵓⵙⵍⴰⵢ";
+/* PIN screen screen */
+"pin_description" = "ⵏⵀⵕ ⴰⵡⴰⴹ ⵏⵏⴰ ⵓⵔ ⵉⵜⵜⵓⵙⵙⵓⴳⵔⵏ ⵖⵔ Antidote ⵙ ⵓⵙⵎⵔⵙ ⵏ PIN.";
+/* PIN screen screen */
+"pin_touch_id_description" = "ⵙⵎⵔⵙ ⵜⵉⵡⴳⴳⴹⵜ ⴰⵎ ⵜⵉⵎⴽⴽⵉⵙⵉⵜ ⵏ ⵓⵙⵉⴷⴼ ⵏ PIN.";
+/* PIN screen screen */
+"pin_lock_timeout" = "ⴰⵣⵎⵣ ⵏ ⵓⵔⴳⴰⵍ";
+/* PIN screen screen */
+"pin_lock_immediately" = "ⴷⵖⵉ";
+/* PIN screen screen */
+"pin_lock_30_seconds" = "30 ⵏ ⵜⵙⵉⵏⵜ";
+/* PIN screen screen */
+"pin_lock_1_minute" = "1 ⵏ ⵜⵓⵙⴷⵉⴷⵜ";
+/* PIN screen screen */
+"pin_lock_2_minutes" = "2 ⵏ ⵜⵓⵙⴷⵉⴷⵉⵏ";
+/* PIN screen screen */
+"pin_lock_5_minutes" = "5 ⵏ ⵜⵓⵙⴷⵉⴷⵉⵏ";
+
+/* Label shown when connecting to Tox network */
+"connecting_label" = "ⴳ ⵉⴼⵉⵍⵉ";
+
+/* Tab name and screen name */
+"contacts_title" = "ⵉⵎⴰⵡⴰⴹⵏ";
+/* Tab name and screen name */
+"chats_title" = "ⵉⵎⵙⴰⵡⴰⵍⵏ";
+/* Tab name and screen name */
+"settings_title" = "ⵜⵉⵙⵖⴰⵍ";
+/* Tab name and screen name */
+"profile_title" = "ⴰⵎⵉⴹⴰⵏ";
+
+/* No contacts placeholder text */
+"contact_no_contacts" = "ⵓⵔ ⵍⵍⵉⵏ ⵉⵎⴰⵡⴰⴹⵏ";
+/* No contacts placeholder text */
+"contact_no_contacts_add_contact" = "ⵔⵏⵓ ⴽⵔⴰ ⵏ ⵓⵎⴰⵡⴰⴹ\nⵏⵉⵖ\n";
+/* No contacts placeholder text */
+"contact_no_contacts_share_tox_id" = "ⴷⵔⵓ ⴰⵎⵉⴹⴰⵏ ⵏⵏⴽ ⵏ ⵜⵓⴽⵙ";
+/* Contact request section title */
+"contact_requests_section" = "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵜⵎⵔⵏⵉⵡⵜ";
+/* Contact last seen status */
+"contact_last_seen" = "ⵜⵉⴳⵉⵔⴰ ⵏⵏⵙ: %@";
+/* Screen name */
+"contact_request" = "ⴰⵙⵉⴳⵔ";
+/* Contact request button */
+"contact_request_decline" = "ⵜⴰⴳⵯⵉⵜ";
+/* Contact request button */
+"contact_request_accept" = "ⵜⴰⵢⵢⵉⵀⵜ";
+/* Contact request confirmation */
+"contact_request_delete_title" = "ⴽⴽⵙ ⴰⵙⵉⴳⵔ?";
+/* Text shown when contact was deleted */
+"contact_deleted" = "ⵉⵜⵜⵡⴰⴽⴽⵙ ⵓⵎⴰⵡⴰⴹ ⴰⴷ";
+
+/* Share Tox ID text */
+"show_qr_code" = "ⴼⵙⵔ ⵉⵏⵉⴳⵍ ⵏ QR";
+/* Share Tox ID text */
+"copy" = "ⵙⵙⵏⵖⵍ";
+
+/* Add contat screen name */
+"add_contact_title" = "ⵔⵏⵓ ⴽⵔⴰ ⵏ ⵓⵎⴰⵡⴰⴹ";
+/* Add contat button */
+"add_contact_send" = "ⴰⵣⵏ";
+/* Add contat placeholder text */
+"add_contact_tox_id_placeholder" = "ⵙⵙⵉⴷⴼ Tox ID";
+/* Add contat placeholder text */
+"add_contact_or_label" = "ⵏⵉⵖ";
+/* Add contat button */
+"add_contact_use_qr" = "ⵙⵎⵔⵙ ⵉⵏⵉⴳⵍ ⵏ QR";
+/* Add contat placeholder text */
+"add_contact_default_message_title" = "ⵜⴰⴱⵔⴰⵜ";
+/* Add contat default text sended to contact */
+"add_contact_default_message_text" = "ⴰⵣⵓⵍ! ⵉⵙ ⵜⵣⵎⵔⴷ ⴰⴷ ⵢⵉ ⵜⵔⵏⵓⴷ ⴳ ⵜⵍⴳⴰⵎⵜ ⵏ ⵡⴰⵡⴰⴹ ⵏⵏⴽ?";
+/* Add contat error */
+"add_contact_wrong_qr" = "ⵉⵏⵉⴳ ⵏ QR ⴷ ⴰⵔⵎⵉⴷⵉ. ⵉⵅⵚⵚⴰ ⴰⴷ ⴷⵉⴳⵙ ⵢⵉⵍⵉ Tox ID";
+
+/* User name text */
+"name" = "ⵉⵙⵎ";
+/* User nickname text */
+"nickname" = "ⵉⵙⵎ ⵏ ⵜⵡⴰⵛⵓⵏⵜ";
+/* User status message text */
+"status_message" = "ⵜⴰⴱⵔⴰⵜ ⵏ ⵡⴰⴷⴷⴰⴷ";
+/* User status text */
+"status_title" = "ⴰⴷⴷⴰⴷ";
+/* User Tox ID text */
+"my_tox_id" = "Tox ID ⵉⵏⵓ";
+/* User public key text */
+"public_key" = "ⵜⴰⵙⴰⵔⵓⵜ ⵜⴰⴳⴷⵓⴷⴰⵏⵜ";
+/* Share Tox ID text */
+"show_qr" = "ⵎⵍ ⵉⵏⵉⴳⵍ ⵏ QR";
+/* Profile menu item / screen name */
+"profile_details" = "ⵉⴼⵔⵓⵔⵉⵜⵏ ⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Profile button */
+"logout_button" = "ⴼⴼⵖ";
+
+/* QR code screen button */
+"qr_close_button" = "ⵇⵇⵏ";
+
+/* Chat screen placeholder */
+"chat_no_chats" = "ⵓⵔ ⵉⵍⵍⵉ ⴽⵔⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ";
+/* Chats screen message text */
+"chat_outgoing_file" = "ⴰⴼⴰⵢⵍⵓ ⵉⴼⴼⵖⵏ";
+/* Chats screen message text */
+"chat_incoming_file" = "ⴰⴼⴰⵢⵍⵓ ⵓⴽⵛⵉⵎ";
+/* Chats screen message text */
+"chat_call_finished" = "ⵜⵙⵎⴷ ⵜⵖⵓⵔⵉ";
+/* Chats screen message text */
+"chat_unanwered_call" = "ⵓⵔ ⵉⵍⵍⵉ ⵓⵙⴰⴷⵎⵔ ⵅⴼ ⵜⵖⵓⵔⵉ ⴰⴷ";
+/* Chat button */
+"chat_send_button" = "ⴰⵣⵏ";
+/* Chat notification toast */
+"chat_new_messages" = "ⵜⵉⴱⵔⴰⵜⵉⵏ ⵜⵉⵎⴰⵢⵏⵓⵜⵉⵏ";
+/* Chat call information */
+"chat_call_message" = "ⵖⵔ، ";
+/* Chat call information */
+"chat_missed_call_message" = "ⵓⵔ ⵉⵍⵍⵉ ⵓⵙⴰⴷⵎⵔ ⵅⴼ ⵜⵖⵓⵔⵉ ⴰⴷ";
+/* Item present in the menu on long press on message */
+"chat_more_menu_item" = "ⵓⴳⴰⵔ";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "ⵉⵜⵜⴰⵔⵉ...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "سيتم إرسال الرسائل التي لم يتم تسليمها عندما تكون أنت وصديقك متصلين بالإنترنت.";
+
+/* Status message */
+"status_offline" = "ⵓⵔ ⵉⵍⵍⵉ ⴳ ⵉⴼⵉⵍⵉ";
+/* Status message */
+"status_online" = "ⴳ ⵉⴼⵉⵍⵉ";
+/* Status message */
+"status_away" = "ⴳ ⴱⵕⵕⴰ";
+/* Status message */
+"status_busy" = "ⴳ ⵜⵡⵓⵔⵉ";
+
+/* Notification text */
+"notification_new_message" = "ⵜⴰⴱⵔⴰⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ";
+/* Notification text */
+"notification_incoming_contact_request" = "ⴰⵙⵓⵜⵔ ⵏ ⵜⵖⵓⵔⵉ";
+/* Notification text */
+"notification_is_calling" = "ⵉⵇⵇⴰⵔ";
+/* Notification text */
+"notification_incoming_file" = "ⵢⵓⴷⴼ ⴷ ⵓⴼⴰⵢⵍⵓ";
+
+/* Settings menu / screen name */
+"settings_about" = "ⵅⴼ";
+/* Settings menu / screen name */
+"settings_faq" = "ⵜⵉⵖⵍⴰⴼ";
+/* Settings menu / screen name */
+"settings_advanced_settings" = "ⵜⵉⵙⵖⴰⵍ ⵉⵣⵡⴰⵔⵏ";
+/* About screen menu */
+"settings_antidote_version" = "ⵜⵓⵏⵖⵉⵍⵜ ⵏ Antidote";
+/* About screen menu */
+"settings_antidote_build" = "ⵜⵓⵚⴰ ⵏ Antidote";
+/* About screen menu */
+"settings_toxcore_version" = "ⵜⵓⵏⵖⵉⵍⵜ ⵏ Toxcore";
+/* About screen menu */
+"settings_acknowledgements" = "ⴰⵙⵏⵉⵎⵎⵔ";
+/* Settings screen menu */
+"settings_autodownload_images" = "ⵉⴼⴰⵢⵍⵓⵜⵏ ⵏ ⵡⴰⴳⴰⵎ ⴰⵡⵓⵔⵎⴰⵏ";
+/* Settings screen menu */
+"settings_autodownload_images_description" = "ⴰⴳⴰⵎ ⴰⵡⵓⵔⵎⴰⵏ ⵏ ⵉⴼⴰⵢⵍⵓⵜⵏ ⵓⴽⵛⵉⵎⵏ";
+/* Settings screen menu */
+"settings_notifications_message_preview" = "ⴰⴼⵙⴰⵔ ⵏ ⵉⵏⵖⵎⵉⵙⵏ";
+/* Settings screen menu */
+"settings_notifications_description" = "ⴰⴷⴷⴰⵢ ⵜⴽⵛⵎ ⵜⵙⵏⵙⵉ ⴳ ⵓⵡⵔⵏ, ⵔⴰⴷ ⵢⵉⵍⵉ ⵓⴼⵙⴰⵔ ⵏ ⵉⵏⵖⵎⵉⵙⵏ ⴰⵔ 10 ⵏ ⵜⵓⵙⴷⵉⴷⵉⵏ.";
+/* Settings screen menu */
+"settings_udp_enabled" = "ⴰⵙⵎⵀⵍ ⵏ UDP";
+/* Settings screen menu */
+"settings_restore_default" = "ⵉⵔⵉⵔ ⵏ ⵜⵙⵖⴰⵍ ⵜⵉⵎⵔⴷⴰ";
+/* Settings screen autodownload images option */
+"settings_never" = "ⵓⵀⵓ";
+/* Settings screen autodownload images option */
+"settings_wifi" = "ⴰⵙⵎⵔⵙ ⵏ ⵡⵉⴼⵉ";
+/* Settings screen autodownload images option */
+"settings_using_wifi" = "ⵡⵉⴼⵉ";
+/* Settings screen autodownload images option */
+"settings_always" = "ⴰⴱⴷⴰ";
+
+/* Profile settings menu */
+"change_password" = "ⵙⵏⴼⵍ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Profile settings menu */
+"delete_password" = "ⴽⴽⵙ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Profile settings menu */
+"old_password" = "ⵉⵏⵉⴳⵍ ⴰⵇⴱⵓⵔ ⵏ ⵡⴰⴷⴰⴼ";
+/* Change password text */
+"new_password" = "ⵉⵏⵉⴳⵍ ⴰⵎⴰⵢⵏⵓ ⵏ ⵡⴰⴷⴰⴼ";
+/* Change password text */
+"repeat_password" = "ⴰⵍⵙ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Change password button */
+"change_password_done" = "ⵙⵎⴷ";
+/* Change password error */
+"password_is_empty_error" = "ⵉⵅⵚⵚⴰ ⵓⵔ ⵉⵜⵜⵉⵍⵉ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ ⵉⵅⵡⴰ";
+/* Change password error */
+"wrong_old_password" = "ⴰⵔⵎⵉⴷⵉ ⴳ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+/* Change password error */
+"passwords_do_not_match" = "ⵓⵔ ⵉⵎⵙⴰⵙⴰ ⵉⵏⵉⴳⵍ ⵏ ⵡⴰⴷⴰⴼ";
+
+/* Source of photo to take */
+"photo_from_camera" = "ⴰⵙⵓⵍⴼ";
+/* Source of photo to take */
+"photo_from_photo_library" = "ⵜⴰⵙⵓⵍⴰⴼⵜ";
+/* Error while converting avatar image */
+"change_avatar_error_convert_image" = "ⵓⵔ ⵜⵣⵎⵉⵔ ⵜⵡⵍⴰⴼⵜ ⴰⴷ ⵜⴻⵜⵜⵓⵙⵏⴼⵍ";
+
+/* Alert text when sending file to contacts */
+"file_send_to_contact" = "ⴰⵣⵏ ⵉ ⴽⵔⴰ ⵏ ⵓⵎⴰⵡⴰⴹ";
+
+/* Profile menu item */
+"export_profile" = "ⵃⴹⵓ ⴰⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ";
+/* Profile menu item */
+"delete_profile" = "ⴽⴽⵙ ⴰⵎⵉⴹⴰⵏ ⴰⵎⴰⵢⵏⵓ";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_1" = "ⵉⵙ ⵜⵔⵉⴷ ⴰⴷ ⵜⴽⴽⵙⴷ ⴰⵎⵉⴹⴰⵏ ⴰⵏⵉⵎⴰⵏ?";
+/* Delete profile confirmation */
+"delete_profile_confirmation_title_2" = "ⵉⵙ ⵜⵃⵇⵇⵉⴷ?";
+/* Delete profile confirmation */
+"delete_profile_confirmation_message" = "ⵜⴰⵎⵀⵍⵜ ⴰⴷ ⵓⵔ ⴷⵉⴳⵙ ⴰⴱⵕⵕⴰⵎ";
+
+/* Call screen text */
+"call_incoming" = "ⵜⴰⵖⵓⵔⵉ ⵜⵓⴽⵛⵉⵎⵜ";
+/* Call screen text */
+"call_ended" = "ⵜⵙⵎⴷ ⵜⵖⵓⵔⵉ";
+
+/* File message text */
+"chat_file_cancelled" = "ⵉⵜⵜⵓⵙⵙⵔ";
+/* File message text */
+"chat_waiting" = "ⴰⴳⴰⵏⵉ...";
+/* File message text */
+"chat_paused" = "ⴱⴷⴷ ⵉⵎⵉⴽ";
+
+/* Deleting chat confirmation */
+"delete_chat_title" = "ⴽⴽⵙ ⴰⵎⵙⴰⵡⴰⵍ ⴰⴷ ⴷ ⵜⴱⵔⴰⵜⵉⵏ ⵏⵏⴰ ⴷⵉⴳⵙ ⵉⵜⵜⵓⵃⴹⵓⵏ";
+/* Deleting contat confirmation */
+"delete_contact_title" = "إزالة هذا الحساب؟\nسيتم فقدان سجل المحادثة.";
+/* Deleting contat request confirmation */
+"delete_contact_request_title" = "إزالة الدعوة لهذا الحساب؟";
+/* Deleting single message in chat */
+"delete_single_message" = "حذف الرسالة";
+/* Deleting multiple messages in chat. */
+"delete_multiple_messages" = "حذف الرسائل";
+/* Deleting all messages in chat. */
+"delete_all_messages" = "حذف الكل";
+/* Delete button */
+"alert_delete" = "إزالة";
+/* Delete button */
+"alert_cancel" = "إلغاء الامر";
+
+/* Error while creating new profile */
+"login_enter_username_and_profile" = "الرجاء إدخال كل من اسم المستخدم واسم الحساب.";
+/* Error while creating new profile */
+"login_profile_already_exists" = "إسم الحساب موجود مسبقاً";
+
+/* General error title */
+"error_title" = "خطأ";
+/* General error button */
+"error_ok_button" = "موافق";
+/* General error button */
+"error_retry_button" = "إعادة المحاولة";
+/* Error */
+"error_contact_not_connected" = "الحساب غير متصل";
+/* Error */
+"error_too_many_files" = "هناك عدد كبير من الملفات المفعلة على قيد النقل";
+/* Error */
+"error_internal_message" = "حدث خطأ داخلي";
+/* Error */
+"error_wrong_password_title" = "كلمة المرور خطأ";
+/* Error */
+"error_wrong_password_message" = "كلمة المرور تحتوي على رموز خاطئة.";
+/* Error */
+"error_import_not_exist_title" = "لا يمكن نقل ملف التوكس المحفوظ";
+/* Error */
+"error_import_not_exist_message" = "الملف غير موجود.";
+/* Error */
+"error_decrypt_title" = "لا يمكن فك تشفير ملف التوكس المحفوظ";
+/* Error */
+"error_decrypt_empty_data_message" = "بعض بيانات الإدخال كانت فارغة.";
+/* Error */
+"error_decrypt_bad_format_message" = "الملف يحتوي على تنسيق سيء أو تالف.";
+/* Error */
+"error_decrypt_wrong_password_message" = "كلمة السر غير صحيحة أو قد يكون الملف تالف.";
+/* Error */
+"error_general_unknown_message" = "حدث خطأ مجهول.";
+/* Error */
+"error_general_no_memory_message" = "الذاكرة لا تكفي.";
+/* Error */
+"error_general_bind_port_message" = "لم يتمكن لربط المنفذ.";
+/* Error */
+"error_general_profile_encrypted_message" = "تم تشفير الحساب.";
+/* Error */
+"error_general_bad_format_message" = "الملف يحتوي على تنسيق سيء أو تالف.";
+/* Error */
+"error_proxy_title" = "خطأ في الخادم الوكيل او البروكسي";
+/* Error */
+"error_proxy_invalid_address_message" = "عنوان الوكيل او البروكسي غير صالح.";
+/* Error */
+"error_proxy_invalid_port_message" = "منفذ الوكيل او البروكسي غير صالح.";
+/* Error */
+"error_proxy_host_not_resolved_message" = "لا يمكن حل استضافة الوكيل او البروكسي.";
+
+/* Error */
+"error_name_too_long" = "ⵉⵖⵣⵣⵉⴼ ⵢⵉⵙⵎ ⴽⵉⴳⴰⵏ.";
+/* Error */
+"error_status_message_too_long" = "الرسالة في الحالة طويلة جداً";
+
+/* Error */
+"error_contact_request_too_long" = "ⵜⵖⵣⵣⵉⴼ ⵜⴱⵔⴰⵜ ⴽⵉⴳⴰⵏ";
+/* Error */
+"error_contact_request_no_message" = "لا يوجد رسائل محددة";
+/* Error */
+"error_contact_request_own_key" = "لا يمكن إضافة نفس حسابي في قائمة الاتصال الخاصة بي";
+/* Error */
+"error_contact_request_already_sent" = "طلب الإضافة قد تم ارسالها مسبقاً";
+/* Error */
+"error_contact_request_bad_checksum" = "المجموع الاختباري باطل، يرجى التحقق من هوية Tox المدخلة";
+/* Error */
+"error_contact_request_new_nospam" = "قيمة تعطيل الإزعاج nospam باطلة، يرجى التحقق من هوية Tox المدخلة.";
+
+/* Call error */
+"call_error_already_in_call" = "ⵉⵙⵙⴰⵡⴰⵍ";
+/* Call error */
+"call_error_contact_is_offline" = "ⵉⵇⵇⵏ ⵓⵎⵉⴹⴰⵏ";
+/* Call error */
+"call_error_no_active_call" = "ليس هناك مكالمة أخرى";
+
+/* Error while using color theme */
+"theme_error_cannot_open" = "لا يمكن فتح السمة، التنسيق خاطئ";
+
+/* Tab chats badge ending */
+"accessibility_chats_ending" = "المحادثات الغير مقروء";
+/* Avatar button label in settings */
+"accessibility_avatar_button_label" = "الصورة الرمزية";
+/* Avatar button hint in settings */
+"accessibility_avatar_button_hint" = "تحديد أو إزالة الصورة الرمزية.";
+/* Chat button label in contact screen */
+"accessibility_chat_button_label" = "ⴰⵎⵙⴰⵡⴰⵍ";
+/* Chat button hint in contact screen */
+"accessibility_chat_button_hint" = "يفتح حوار المحادثة.";
+/* Call button label in contact screen */
+"accessibility_call_button_label" = "ⴰⵎⵢⴰⵡⴰⴹ ⴰⴳⵕⴹⴰⵏ";
+/* Call button hint in contact screen */
+"accessibility_call_button_hint" = "لطلب مكالمة صوتية.";
+/* Video button label in contact screen */
+"accessibility_video_button_label" = "ⴰⵎⵢⴰⵡⴰⴹ ⴰⵎⵡⴰⵍⴰⵏ";
+/* Video button hint in contact screen */
+"accessibility_video_button_hint" = "لطلب مكالمة مرئية.";
+/* Tap to copy hint */
+"accessibility_show_copy_hint" = "يظهر نسخة القائمة.";
+/* Incoming message label */
+"accessibility_incoming_message_label" = "ⵜⴰⴱⵔⴰⵜ";
+/* Outgoing message label */
+"accessibility_outgoing_message_label" = "ⵜⴰⴱⵔⴰⵜ ⵏⵏⴽ";
+/* Tap to edit value hint */
+"accessibility_edit_value_hint" = "ⵉⵙⴳⴳⴷⵏ ⵏ ⵡⴰⵜⵉⴳ.";
