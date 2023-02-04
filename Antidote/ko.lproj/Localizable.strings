@@ -7,404 +7,404 @@
 */
 
 /* Login screen text */
-"login_or_label" = "or";
+"login_or_label" = "또는";
 /* Login screen text */
-"create_account" = "Create Account";
+"create_account" = "계정 생성";
 /* Login screen text */
-"import_profile" = "Import Profile";
+"import_profile" = "프로파일 가져오기";
 /* Password field */
-"password" = "Password";
+"password" = "비밀번호";
 /* Login button */
-"log_in" = "Log In";
+"log_in" = "로그인";
 /* Login screen text */
-"create_profile" = "Create profile";
+"create_profile" = "프로파일 생성";
 /* Login screen text */
-"import_to_antidote" = "Import to Antidote";
+"import_to_antidote" = "Antidote로 가져오기";
 /* Login screen text */
-"create_account_username_title" = "How contacts will see you?";
+"create_account_username_title" = "상대방이 나를 어떻게 보나요?";
 /* Login screen text */
-"create_account_username_placeholder" = "Username";
+"create_account_username_placeholder" = "사용자명";
 /* Login screen text */
-"create_account_profile_title" = "How to call this profile?";
+"create_account_profile_title" = "이 프로파일을 연락하는 방법은 무엇인가요?";
 /* Login screen text */
-"create_account_profile_placeholder" = "Profile name";
+"create_account_profile_placeholder" = "프로파일 이름";
 /* Login screen text */
-"create_account_profile_hint" = "e.g. Home, iPhone";
+"create_account_profile_hint" = "예: 홈, 아이폰";
 /* Login screen text */
-"set_password_title" = "Set Password";
+"set_password_title" = "비밀번호 설정";
 /* Login screen text */
-"set_password_hint" = "Password is required to protect your data. Keep it safe - once lost it cannot be restored.";
+"set_password_hint" = "데이터를 보호하려면 암호가 필요합니다. 안전하게 보관하세요. 분실하면 복구할 수 없습니다.";
 /* Login button */
-"create_account_next_button" = "Next";
+"create_account_next_button" = "다음";
 /* Login button */
 "create_account_go_button" = "Go";
 /* Default status message */
-"default_user_status_message" = "Toxing on Antidote";
+"default_user_status_message" = "Antidote의 Toxing";
 
 /* PIN screen text */
-"pin_enter_to_unlock" = "Enter your PIN to unlock";
+"pin_enter_to_unlock" = "잠금 해제하려면 PIN 입력";
 /* PIN screen text */
-"pin_set" = "Set PIN";
+"pin_set" = "PIN 설정";
 /* PIN screen text */
-"pin_confirm" = "Confirm PIN";
+"pin_confirm" = "PIN 확인";
 /* PIN screen error */
-"pin_do_not_match" = "PINs did not match. Try again";
+"pin_do_not_match" = "PIN이 일치하지 않습니다. 다시 시도";
 /* PIN screen error */
-"pin_incorrect" = "Incorrect PIN";
+"pin_incorrect" = "잘못된 PIN";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "실패한 시도: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "너무 많은 시도를 실패했습니다. 로그아웃되었습니다.";
 /* PIN screen screen */
-"pin_enabled" = "Enable PIN";
+"pin_enabled" = "PIN 입력";
 /* PIN screen screen */
-"pin_touch_id_enabled" = "Enable Touch ID";
+"pin_touch_id_enabled" = "터치 ID 활성화";
 /* PIN screen screen */
-"pin_description" = "Prevent unauthorized access to Antidote with a PIN.";
+"pin_description" = "PIN을 사용하여 Antidote에 대한 무단 접속을 방지합니다.";
 /* PIN screen screen */
-"pin_touch_id_description" = "Use your fingerprint as an alternative to entering a PIN.";
+"pin_touch_id_description" = "PIN을 입력하는 대신 지문을 사용하세요.";
 /* PIN screen screen */
-"pin_lock_timeout" = "Lock Timeout";
+"pin_lock_timeout" = "잠금 시간초과";
 /* PIN screen screen */
-"pin_lock_immediately" = "Immediately";
+"pin_lock_immediately" = "즉시";
 /* PIN screen screen */
-"pin_lock_30_seconds" = "30 Seconds";
+"pin_lock_30_seconds" = "30 초";
 /* PIN screen screen */
-"pin_lock_1_minute" = "1 Minute";
+"pin_lock_1_minute" = "1 분";
 /* PIN screen screen */
-"pin_lock_2_minutes" = "2 Minutes";
+"pin_lock_2_minutes" = "2 분";
 /* PIN screen screen */
-"pin_lock_5_minutes" = "5 Minutes";
+"pin_lock_5_minutes" = "5 분";
 
 /* Label shown when connecting to Tox network */
-"connecting_label" = "Connecting...";
+"connecting_label" = "연결 중...";
 
 /* Tab name and screen name */
-"contacts_title" = "Contacts";
+"contacts_title" = "연락처";
 /* Tab name and screen name */
-"chats_title" = "Chats";
+"chats_title" = "채팅";
 /* Tab name and screen name */
-"settings_title" = "Settings";
+"settings_title" = "설정";
 /* Tab name and screen name */
-"profile_title" = "Profile";
+"profile_title" = "프로파일";
 
 /* No contacts placeholder text */
-"contact_no_contacts" = "No contacts";
+"contact_no_contacts" = "연락처 없음";
 /* No contacts placeholder text */
-"contact_no_contacts_add_contact" = "Add a contact\nor\n";
+"contact_no_contacts_add_contact" = "연락처 추가\n또는\n";
 /* No contacts placeholder text */
-"contact_no_contacts_share_tox_id" = "share your Tox ID";
+"contact_no_contacts_share_tox_id" = "Tox ID 공유";
 /* Contact request section title */
-"contact_requests_section" = "Contact Requests";
+"contact_requests_section" = "연락처 요청";
 /* Contact last seen status */
-"contact_last_seen" = "Last seen: %@";
+"contact_last_seen" = "마지막으로 봄: %@";
 /* Screen name */
-"contact_request" = "Contact Request";
+"contact_request" = "연락처 요청";
 /* Contact request button */
-"contact_request_decline" = "Decline";
+"contact_request_decline" = "거절";
 /* Contact request button */
-"contact_request_accept" = "Accept";
+"contact_request_accept" = "수락";
 /* Contact request confirmation */
-"contact_request_delete_title" = "Delete contact request?";
+"contact_request_delete_title" = "연락처 요청을 삭제할까요?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "삭제된 연락처";
 
 /* Share Tox ID text */
-"show_qr_code" = "Show QR Code";
+"show_qr_code" = "QR 코드 표시";
 /* Share Tox ID text */
-"copy" = "Copy";
+"copy" = "복사";
 
 /* Add contat screen name */
-"add_contact_title" = "Add Contact";
+"add_contact_title" = "연락처 추가";
 /* Add contat button */
-"add_contact_send" = "Send";
+"add_contact_send" = "보내기";
 /* Add contat placeholder text */
-"add_contact_tox_id_placeholder" = "Enter Tox ID";
+"add_contact_tox_id_placeholder" = "Tox ID 입력";
 /* Add contat placeholder text */
-"add_contact_or_label" = "or";
+"add_contact_or_label" = "또는";
 /* Add contat button */
-"add_contact_use_qr" = "Use QR code";
+"add_contact_use_qr" = "QR 코드 사용";
 /* Add contat placeholder text */
-"add_contact_default_message_title" = "Message";
+"add_contact_default_message_title" = "메세지";
 /* Add contat default text sended to contact */
-"add_contact_default_message_text" = "Hello! Could you please add me to your contact list?";
+"add_contact_default_message_text" = "안녕하세요! 연락처 목록에 추가해 주겠어요?";
 /* Add contat error */
-"add_contact_wrong_qr" = "Wrong QR code. It should contain Tox ID";
+"add_contact_wrong_qr" = "잘못된 QR 코드입니다. Tox ID를 포함해야 함";
 
 /* User name text */
-"name" = "Name";
+"name" = "이름";
 /* User nickname text */
-"nickname" = "Nickname";
+"nickname" = "별명";
 /* User status message text */
-"status_message" = "Status Message";
+"status_message" = "상태 메시지";
 /* User status text */
-"status_title" = "Status";
+"status_title" = "상태";
 /* User Tox ID text */
-"my_tox_id" = "My Tox ID";
+"my_tox_id" = "내 Tox ID";
 /* User public key text */
-"public_key" = "Public Key";
+"public_key" = "공개 키";
 /* Share Tox ID text */
-"show_qr" = "Show QR";
+"show_qr" = "QR 표시";
 /* Profile menu item / screen name */
-"profile_details" = "Profile Details";
+"profile_details" = "프로파일 세부정보";
 /* Profile button */
-"logout_button" = "Log Out";
+"logout_button" = "로그 아웃";
 
 /* QR code screen button */
-"qr_close_button" = "Close";
+"qr_close_button" = "닫기";
 
 /* Chat screen placeholder */
-"chat_no_chats" = "No chats";
+"chat_no_chats" = "채팅 없음";
 /* Chats screen message text */
-"chat_outgoing_file" = "Outgoing file:";
+"chat_outgoing_file" = "발신 파일:";
 /* Chats screen message text */
-"chat_incoming_file" = "Incoming file:";
+"chat_incoming_file" = "수신 파일:";
 /* Chats screen message text */
-"chat_call_finished" = "Call finished";
+"chat_call_finished" = "통화 완료";
 /* Chats screen message text */
-"chat_unanwered_call" = "Unanswered call";
+"chat_unanwered_call" = "응답하지 않은 전화";
 /* Chat button */
-"chat_send_button" = "Send";
+"chat_send_button" = "보내기";
 /* Chat notification toast */
-"chat_new_messages" = "↓ New messages";
+"chat_new_messages" = "↓ 새로운 메시지";
 /* Chat call information */
-"chat_call_message" = "Call, ";
+"chat_call_message" = "전화, ";
 /* Chat call information */
-"chat_missed_call_message" = "Missed call";
+"chat_missed_call_message" = "부재중 전화";
 /* Item present in the menu on long press on message */
-"chat_more_menu_item" = "More";
+"chat_more_menu_item" = "더";
 /* Message shown on chat list when contact is typing */
-"chat_is_typing_text" = "is typing...";
+"chat_is_typing_text" = "타이핑 중...";
 /* Text shown in chat when there are undelivered faux offline messages */
-"chat_pending_faux_offline_messages" = "Undelivered messages will be send when both you and friend are online.";
+"chat_pending_faux_offline_messages" = "전달되지 않은 메시지는 본인과 친구가 모두 온라인 상태일 때 전송됩니다.";
 
 /* Status message */
-"status_offline" = "Offline";
+"status_offline" = "오프라인";
 /* Status message */
-"status_online" = "Online";
+"status_online" = "온라인";
 /* Status message */
-"status_away" = "Away";
+"status_away" = "자리 비움";
 /* Status message */
-"status_busy" = "Busy";
+"status_busy" = "바쁨";
 
 /* Notification text */
-"notification_new_message" = "New message";
+"notification_new_message" = "새로운 메세지";
 /* Notification text */
-"notification_incoming_contact_request" = "Incoming contact request";
+"notification_incoming_contact_request" = "수신 연락 요청";
 /* Notification text */
-"notification_is_calling" = "is calling";
+"notification_is_calling" = "전화 중";
 /* Notification text */
-"notification_incoming_file" = "Incoming file";
+"notification_incoming_file" = "수신 파일";
 
 /* Settings menu / screen name */
-"settings_about" = "About";
+"settings_about" = "정보";
 /* Settings menu / screen name */
-"settings_faq" = "FAQ";
+"settings_faq" = "자주 묻는 질문들";
 /* Settings menu / screen name */
-"settings_advanced_settings" = "Advanced Settings";
+"settings_advanced_settings" = "고급 설정";
 /* About screen menu */
-"settings_antidote_version" = "Antidote Version";
+"settings_antidote_version" = "Antidote 버전";
 /* About screen menu */
-"settings_antidote_build" = "Antidote Build";
+"settings_antidote_build" = "Antidote 빌드";
 /* About screen menu */
-"settings_toxcore_version" = "Toxcore Version";
+"settings_toxcore_version" = "Toxcore 버전";
 /* About screen menu */
-"settings_acknowledgements" = "Acknowledgements";
+"settings_acknowledgements" = "감사의 말";
 /* Settings screen menu */
-"settings_autodownload_images" = "Autodownload files";
+"settings_autodownload_images" = "파일 자동 다운로드";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automatically download incoming files.";
+"settings_autodownload_images_description" = "수신 파일을 자동으로 다운로드합니다.";
 /* Settings screen menu */
-"settings_notifications_message_preview" = "Notification Preview";
+"settings_notifications_message_preview" = "알림 미리보기";
 /* Settings screen menu */
-"settings_notifications_description" = "When application goes to background, you will still receive notifications up to 10 minutes.";
+"settings_notifications_description" = "응용 프로그램이 배경으로 전환되어도 최대 10분 동안 알림을 받게 됩니다.";
 /* Settings screen menu */
-"settings_udp_enabled" = "Enable UDP";
+"settings_udp_enabled" = "UDP 활성화";
 /* Settings screen menu */
-"settings_restore_default" = "Restore Default Settings";
+"settings_restore_default" = "기본 설정 복원";
 /* Settings screen autodownload images option */
-"settings_never" = "Never";
+"settings_never" = "절대 안 함";
 /* Settings screen autodownload images option */
 "settings_wifi" = "Wi-Fi";
 /* Settings screen autodownload images option */
-"settings_using_wifi" = "Using Wi-Fi";
+"settings_using_wifi" = "Wi-Fi 사용";
 /* Settings screen autodownload images option */
-"settings_always" = "Always";
+"settings_always" = "항상";
 
 /* Profile settings menu */
-"change_password" = "Change Password";
+"change_password" = "비밀번호 변경";
 /* Profile settings menu */
-"delete_password" = "Delete Password";
+"delete_password" = "비밀번호 삭제";
 /* Profile settings menu */
-"old_password" = "Old Password";
+"old_password" = "오래된 비밀번호";
 /* Change password text */
-"new_password" = "New Password";
+"new_password" = "새로운 비밀번호";
 /* Change password text */
-"repeat_password" = "Repeat Password";
+"repeat_password" = "비밀번호 반복";
 /* Change password button */
-"change_password_done" = "Done";
+"change_password_done" = "완료";
 /* Change password error */
-"password_is_empty_error" = "Password should be non-empty";
+"password_is_empty_error" = "비밀번호는 비어 있지 않아야 함";
 /* Change password error */
-"wrong_old_password" = "Wrong password";
+"wrong_old_password" = "잘못된 비밀번호";
 /* Change password error */
-"passwords_do_not_match" = "Passwords do not match";
+"passwords_do_not_match" = "비밀번호가 일치하지 않음";
 
 /* Source of photo to take */
-"photo_from_camera" = "Camera";
+"photo_from_camera" = "카메라";
 /* Source of photo to take */
-"photo_from_photo_library" = "Photo Library";
+"photo_from_photo_library" = "사진 라이브러리";
 /* Error while converting avatar image */
-"change_avatar_error_convert_image" = "Cannot convert image";
+"change_avatar_error_convert_image" = "이미지를 변환할 수 없음";
 
 /* Alert text when sending file to contacts */
-"file_send_to_contact" = "Send to contact";
+"file_send_to_contact" = "연락처로 보내기";
 
 /* Profile menu item */
-"export_profile" = "Export Profile";
+"export_profile" = "프로파일 내보내기";
 /* Profile menu item */
-"delete_profile" = "Delete Profile";
+"delete_profile" = "프로파일 삭제";
 /* Delete profile confirmation */
-"delete_profile_confirmation_title_1" = "Delete this profile?";
+"delete_profile_confirmation_title_1" = "이 프로파일을 삭제할까요?";
 /* Delete profile confirmation */
-"delete_profile_confirmation_title_2" = "Are you sure?";
+"delete_profile_confirmation_title_2" = "확실하나요?";
 /* Delete profile confirmation */
-"delete_profile_confirmation_message" = "This operation cannot be undone";
+"delete_profile_confirmation_message" = "이 작업은 취소할 수 없음";
 
 /* Call screen text */
-"call_incoming" = "Incoming call";
+"call_incoming" = "수신 전화";
 /* Call screen text */
-"call_ended" = "Call ended";
+"call_ended" = "통화 종료";
 /* Call screen text */
-"call_reaching" = "Reaching...";
+"call_reaching" = "연결 중...";
 
 /* File message text */
-"chat_file_cancelled" = "Cancelled";
+"chat_file_cancelled" = "취소됨";
 /* File message text */
-"chat_waiting" = "Waiting...";
+"chat_waiting" = "대기 중...";
 /* File message text */
-"chat_paused" = "Paused";
+"chat_paused" = "일시 중지됨";
 
 /* Deleting chat confirmation */
-"delete_chat_title" = "Delete this chat and message history?";
+"delete_chat_title" = "이 채팅 및 메시지 기록을 삭제할까요?";
 /* Deleting contat confirmation */
-"delete_contact_title" = "Delete this contact?\nYour chat history will be lost.";
+"delete_contact_title" = "이 연락처를 삭제할까요?\n채팅 기록이 손실됩니다.";
 /* Deleting contat request confirmation */
-"delete_contact_request_title" = "Delete this contact request?";
+"delete_contact_request_title" = "이 연락처 요청을 삭제할까요?";
 /* Deleting single message in chat */
-"delete_single_message" = "Delete Message";
+"delete_single_message" = "메세지 삭제";
 /* Deleting multiple messages in chat. */
-"delete_multiple_messages" = "Delete Messages";
+"delete_multiple_messages" = "메세지 삭제";
 /* Deleting all messages in chat. */
-"delete_all_messages" = "Delete All";
+"delete_all_messages" = "모두 삭제";
 /* Delete button */
-"alert_delete" = "Delete";
+"alert_delete" = "삭제";
 /* Delete button */
-"alert_cancel" = "Cancel";
+"alert_cancel" = "취소";
 
 /* Error while creating new profile */
-"login_enter_username_and_profile" = "Please enter both username and profile name.";
+"login_enter_username_and_profile" = "사용자 이름과 프로파일 이름을 모두 입력하세요.";
 /* Error while creating new profile */
-"login_profile_already_exists" = "Profile with given name already exists";
+"login_profile_already_exists" = "해당 이름의 프로파일이 이미 존재";
 
 /* General error title */
-"error_title" = "Error";
+"error_title" = "오류";
 /* General error button */
-"error_ok_button" = "OK";
+"error_ok_button" = "확인";
 /* General error button */
-"error_retry_button" = "Retry";
+"error_retry_button" = "재시도";
 /* Error */
-"error_contact_not_connected" = "Contact isn't online";
+"error_contact_not_connected" = "연락처가 온라인 상태가 아님";
 /* Error */
-"error_too_many_files" = "Too many active file transfers";
+"error_too_many_files" = "너무 많은 활성 파일 전송";
 /* Error */
-"error_internal_message" = "Internal error";
+"error_internal_message" = "내부 오류";
 /* Error */
-"error_wrong_password_title" = "Wrong password";
+"error_wrong_password_title" = "잘못된 비밀번호";
 /* Error */
-"error_wrong_password_message" = "Password contains wrong symbols.";
+"error_wrong_password_message" = "암호에 잘못된 기호가 포함되어 있습니다.";
 /* Error */
-"error_import_not_exist_title" = "Cannot import tox save file";
+"error_import_not_exist_title" = "tox 저장 파일을 가져올 수 없음";
 /* Error */
-"error_import_not_exist_message" = "File does not exist.";
+"error_import_not_exist_message" = "파일이 없습니다.";
 /* Error */
-"error_decrypt_title" = "Cannot decrypt tox save file";
+"error_decrypt_title" = "tox 저장 파일을 복호할 수 없음";
 /* Error */
-"error_decrypt_empty_data_message" = "Some input data was empty.";
+"error_decrypt_empty_data_message" = "일부 입력 데이터가 비어 있습니다.";
 /* Error */
-"error_decrypt_bad_format_message" = "File has bad format or is corrupted.";
+"error_decrypt_bad_format_message" = "파일 형식이 잘못되었거나 손상되었습니다.";
 /* Error */
-"error_decrypt_wrong_password_message" = "Password is wrong or file is corrupted.";
+"error_decrypt_wrong_password_message" = "암호가 잘못되었거나 파일이 손상되었습니다.";
 /* Error */
-"error_general_unknown_message" = "Unknown error occurred.";
+"error_general_unknown_message" = "알 수 없는 오류가 발생했습니다.";
 /* Error */
-"error_general_no_memory_message" = "Not enough memory.";
+"error_general_no_memory_message" = "메모리가 부족합니다.";
 /* Error */
-"error_general_bind_port_message" = "Was unable to bind to a port.";
+"error_general_bind_port_message" = "포트에 바인딩할 수 없습니다.";
 /* Error */
-"error_general_profile_encrypted_message" = "Profile is encrypted.";
+"error_general_profile_encrypted_message" = "프로파일이 암호화되었습니다.";
 /* Error */
-"error_general_bad_format_message" = "File has bad format or is corrupted.";
+"error_general_bad_format_message" = "파일 형식이 잘못되었거나 손상되었습니다.";
 /* Error */
-"error_proxy_title" = "Proxy error";
+"error_proxy_title" = "프록시 오류";
 /* Error */
-"error_proxy_invalid_address_message" = "Proxy address has invalid format.";
+"error_proxy_invalid_address_message" = "프록시 주소의 형식이 잘못되었습니다.";
 /* Error */
-"error_proxy_invalid_port_message" = "Proxy port is invalid.";
+"error_proxy_invalid_port_message" = "프록시 포트가 잘못되었습니다.";
 /* Error */
-"error_proxy_host_not_resolved_message" = "Proxy host could not be resolved.";
+"error_proxy_host_not_resolved_message" = "프록시 호스트를 확인할 수 없습니다.";
 
 /* Error */
-"error_name_too_long" = "Name is too long.";
+"error_name_too_long" = "이름이 너무 깁니다.";
 /* Error */
-"error_status_message_too_long" = "Status message is too long";
+"error_status_message_too_long" = "상태 메시지가 너무 김";
 
 /* Error */
-"error_contact_request_too_long" = "Message is too long";
+"error_contact_request_too_long" = "메시지가 너무 김";
 /* Error */
-"error_contact_request_no_message" = "No message specified";
+"error_contact_request_no_message" = "지정된 메시지 없음";
 /* Error */
-"error_contact_request_own_key" = "Cannot add myself to contact list";
+"error_contact_request_own_key" = "연락처 목록에 본인을 추가할 수 없음";
 /* Error */
-"error_contact_request_already_sent" = "Contact request was already sent";
+"error_contact_request_already_sent" = "연락 요청이 이미 전송됨";
 /* Error */
-"error_contact_request_bad_checksum" = "Bad checksum, please check entered Tox ID";
+"error_contact_request_bad_checksum" = "체크섬이 잘못됨, 입력한 Tox ID를 확인";
 /* Error */
-"error_contact_request_new_nospam" = "Bad nospam value, please check entered Tox ID";
+"error_contact_request_new_nospam" = "nospam 값이 잘못됨, 입력한 Tox ID를 확인";
 
 /* Call error */
-"call_error_already_in_call" = "Already in a call";
+"call_error_already_in_call" = "이미 통화 중";
 /* Call error */
-"call_error_contact_is_offline" = "Contact is offline";
+"call_error_contact_is_offline" = "연락처가 오프라인 상태";
 /* Call error */
-"call_error_no_active_call" = "There is no active call";
+"call_error_no_active_call" = "활성 통화가 없음";
 
 /* Error while using color theme */
-"theme_error_cannot_open" = "Cannot open theme, wrong format";
+"theme_error_cannot_open" = "테마를 열 수 없고, 형식이 잘못됨";
 
 /* Tab chats badge ending */
-"accessibility_chats_ending" = "unread chats";
+"accessibility_chats_ending" = "읽지 않은 채팅";
 /* Avatar button label in settings */
-"accessibility_avatar_button_label" = "Avatar";
+"accessibility_avatar_button_label" = "아바타";
 /* Avatar button hint in settings */
-"accessibility_avatar_button_hint" = "Sets or removes avatar.";
+"accessibility_avatar_button_hint" = "아바타를 설정하거나 제거합니다.";
 /* Chat button label in contact screen */
-"accessibility_chat_button_label" = "Chat";
+"accessibility_chat_button_label" = "채팅";
 /* Chat button hint in contact screen */
-"accessibility_chat_button_hint" = "Opens chat dialog.";
+"accessibility_chat_button_hint" = "채팅 대화 상자를 엽니다.";
 /* Call button label in contact screen */
-"accessibility_call_button_label" = "Audio call";
+"accessibility_call_button_label" = "음성 통화";
 /* Call button hint in contact screen */
-"accessibility_call_button_hint" = "Makes audio call.";
+"accessibility_call_button_hint" = "음성 통화를 합니다.";
 /* Video button label in contact screen */
-"accessibility_video_button_label" = "Video call";
+"accessibility_video_button_label" = "영상 통화";
 /* Video button hint in contact screen */
-"accessibility_video_button_hint" = "Makes video call.";
+"accessibility_video_button_hint" = "영상 통화를 합니다.";
 /* Tap to copy hint */
-"accessibility_show_copy_hint" = "Shows copy menu.";
+"accessibility_show_copy_hint" = "복사 메뉴를 표시합니다.";
 /* Tap to edit value hint */
-"accessibility_edit_value_hint" = "Edits value.";
+"accessibility_edit_value_hint" = "값을 편집합니다.";
 /* Incoming message label */
-"accessibility_incoming_message_label" = "Message";
+"accessibility_incoming_message_label" = "메세지";
 /* Outgoing message label */
-"accessibility_outgoing_message_label" = "Your message";
+"accessibility_outgoing_message_label" = "본인 메세지";
