@@ -174,8 +174,6 @@ static const NSUInteger kNodesPerIteration = 10;
         // HINT: do not do this async on a thread. since "node" will loose its value
         // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-            OCTLogInfo(@"trying to bootstrap from %s %d %s", node.ipv4Host, (int)node.udpPort, node.publicKey);
-
             [self safeBootstrapFromHost:node.ipv4Host port:node.udpPort publicKey:node.publicKey];
             [self safeBootstrapFromHost:node.ipv6Host port:node.udpPort publicKey:node.publicKey];
 
