@@ -9,9 +9,9 @@
 #import "OCTRealmManager.h"
 #import "OCTSettingsStorageObject.h"
 
-static const NSTimeInterval kDidConnectDelay = 10.0;
-static const NSTimeInterval kIterationTime = 5.0;
-static const NSUInteger kNodesPerIteration = 4;
+static const NSTimeInterval kDidConnectDelay = 2.0; // in seconds
+static const NSTimeInterval kIterationTime = 5.0; // in seconds
+static const NSUInteger kNodesPerIteration = 10;
 
 @interface OCTSubmanagerBootstrapImpl ()
 
@@ -173,6 +173,9 @@ static const NSUInteger kNodesPerIteration = 4;
     for (OCTNode *node in selectedNodes) {
         // HINT: do not do this async on a thread. since "node" will loose its value
         // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+            OCTLogInfo(@"trying to bootstrap from %s %d %s", node.ipv4Host, (int)node.udpPort, node.publicKey);
+
             [self safeBootstrapFromHost:node.ipv4Host port:node.udpPort publicKey:node.publicKey];
             [self safeBootstrapFromHost:node.ipv6Host port:node.udpPort publicKey:node.publicKey];
 
