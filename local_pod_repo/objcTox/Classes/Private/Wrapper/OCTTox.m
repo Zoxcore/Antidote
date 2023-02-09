@@ -149,7 +149,7 @@ static long long TWO_MIN_IN_MILLIS = (2 * 60 * 1000); // 2 minutes in millisecon
                 if (cstatus == 0) {
                     OCTLogInfo(@"Tox offline for a long time, bootstrapping again ...");
 
-                    uint8_t *key_bin = hex_to_bin("B3E5FA80DC8EBD1149AD2AB35ED8B85BD546DEDE261CA593234C619249419506",
+                    uint8_t *key_bin = hex_to_bin("CD133B521159541FB1D326DE9850F5E56A6C724B5B8E5EB5CD8D950408E95707",
                                                  (TOX_PUBLIC_KEY_SIZE * 2));
 
                     if (key_bin != NULL) {
@@ -158,8 +158,12 @@ static long long TWO_MIN_IN_MILLIS = (2 * 60 * 1000); // 2 minutes in millisecon
                         //       add a hardcoded node to least make it come online
                         //       after a long period of being offline.
                         // -------------------------------------------------------------
-                        tox_add_tcp_relay(strongSelf.tox, "tox1.mf-net.eu", 33445, key_bin, NULL);
-                        tox_bootstrap(strongSelf.tox, "tox1.mf-net.eu", 33445, key_bin, NULL);
+                        tox_add_tcp_relay(strongSelf.tox, "46.101.197.175", 33445, key_bin, NULL);
+                        tox_bootstrap(strongSelf.tox, "46.101.197.175", 33445, key_bin, NULL);
+
+                        tox_add_tcp_relay(strongSelf.tox, "2a03:b0c0:3:d0::ac:5001", 33445, key_bin, NULL);
+                        tox_bootstrap(strongSelf.tox, "2a03:b0c0:3:d0::ac:5001", 33445, key_bin, NULL);
+
                         OCTLogInfo(@"Tox offline for a long time, bootstrapping DONE");
                         free(key_bin);
                     }
