@@ -11,7 +11,7 @@
 
 static const NSTimeInterval kDidConnectDelay = 2.0; // in seconds
 static const NSTimeInterval kIterationTime = 5.0; // in seconds
-static const NSUInteger kNodesPerIteration = 10;
+static const NSUInteger kNodesPerIteration = 20;
 
 @interface OCTSubmanagerBootstrapImpl ()
 
