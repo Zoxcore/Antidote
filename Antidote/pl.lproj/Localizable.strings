@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Podziękowania";
 /* Settings screen menu */
-"settings_autodownload_images" = "Automatycznie pobieranie obrazków lub fotografii";
+"settings_autodownload_images" = "Automatycznie pobieranie plików";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automatycznie pobieraj przychodzące obrazy.";
+"settings_autodownload_images_description" = "Automatycznie pobieraj przychodzące pliki.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Przegląd powiadomień";
 /* Settings screen menu */
