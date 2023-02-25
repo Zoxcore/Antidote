@@ -979,6 +979,7 @@
 		AF6AB24129156F1C00019362 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "pt-BR"; path = "pt-BR.lproj/import-profile.html"; sourceTree = "<group>"; };
 		AF6AB24229156F1E00019362 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AppStoreLocalizable.strings"; sourceTree = "<group>"; };
 		AF6AB23A29259F0000019362 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AF6AB24129156F1C00019362 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "el"; path = "el.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AFA023F3274C069100FBFCC0 /* ConnectionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		AFA024012753CC9000FBFCC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3C17AF8CE3B4AD1B68F2B5B /* Pods-Antidote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antidote.release.xcconfig"; path = "Pods/Target Support Files/Pods-Antidote/Pods-Antidote.release.xcconfig"; sourceTree = "<group>"; };
@@ -1674,6 +1675,7 @@
 				ko,
 				nb,
 				"pt-BR",
+				el,
 			);
 			mainGroup = 1164762619794D3300DB20B8;
 			productRefGroup = 1164763019794D3300DB20B8 /* Products */;
@@ -2613,6 +2615,7 @@
 				AF6AB23A29257F0000019362 /* ca */,
 				AF6AB23A29258F0000019362 /* nb */,
 				AF6AB23A29259F0000019362 /* pt-BR */,
+				AF6AB24129156F1C00019362 /* el */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
