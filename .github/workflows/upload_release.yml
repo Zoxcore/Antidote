@@ -16,9 +16,9 @@ defaults:
 
 jobs:
   macos-compile:
-    runs-on: macos-11
+    runs-on: macos-12
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Display the OS Version1
       run: sw_vers -productVersion
