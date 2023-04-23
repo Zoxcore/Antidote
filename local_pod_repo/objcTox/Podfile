@@ -6,7 +6,7 @@ inhibit_all_warnings!
 def common_pods
     pod "toxcore", :git => 'https://github.com/Zoxcore/toxcore.git', :commit => '5cf8c66a8fc3f2ab0708a15e3d77ba9e77f48a81'
     pod 'CocoaLumberjack', '~> 1.9.2'
-    pod 'Realm', '10.36.0'
+    pod 'Realm', '10.38.0'
     pod 'TPCircularBuffer', '~> 0.0.1'
 end
 
