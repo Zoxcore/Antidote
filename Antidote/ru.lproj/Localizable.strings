@@ -26,11 +26,11 @@
 /* Login screen text */
 "import_to_antidote" = "Импорт профиля";
 /* Login screen text */
-"create_account_username_title" = "Имя пользователя";
+"create_account_username_title" = "Как показывать контакты?";
 /* Login screen text */
 "create_account_username_placeholder" = "Имя";
 /* Login screen text */
-"create_account_profile_title" = "Название профиля";
+"create_account_profile_title" = "Название профиля?";
 /* Login screen text */
 "create_account_profile_placeholder" = "Профиль";
 /* Login screen text */
@@ -132,7 +132,7 @@
 /* Add contat placeholder text */
 "add_contact_default_message_title" = "Сообщение";
 /* Add contat default text sended to contact */
-"add_contact_default_message_text" = "Привет! Пожалуйста, добавьте меня в список своих контактов.";
+"add_contact_default_message_text" = "Привет! Пожалуйста, добавьте меня в список своих контактов?";
 /* Add contat error */
 "add_contact_wrong_qr" = "QR-код должен содержать Tox ID";
 
