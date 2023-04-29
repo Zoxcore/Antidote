@@ -1,1 +1,34 @@
 
+
+/* Login screen text */
+"import_profile" = "Importera profil";
+/* Login screen text */
+"set_password_title" = "Välj lösenordet";
+/* Login screen text */
+"login_or_label" = "eller";
+/* Login button */
+"log_in" = "Logga in";
+/* Login screen text */
+"create_profile" = "Skapa konto";
+/* Login screen text */
+"import_to_antidote" = "Importera till Antidote";
+/* Login screen text */
+"create_account_profile_title" = "Hur kallar man denna profil?";
+/* Login screen text */
+"create_account_profile_placeholder" = "Profilnamn";
+/* Login screen text */
+"create_account_profile_hint" = "T.ex. Hem, Iphone";
+/* Login screen text */
+"create_account" = "Skapa konto";
+/* Password field */
+"password" = "Lösenordet";
+/* Login screen text */
+"create_account_username_placeholder" = "Användarnamn";
+/* Login screen text */
+"create_account_username_title" = "Hur vill du se dina kontakter?";
+/* Login screen text */
+"set_password_hint" = "Lösenordet behövs för att skydda din data. Förvara det säkert - om du har förlorat det går det inte att återskapa det.";
+/* Login button */
+"create_account_next_button" = "Nästa";
+/* Login button */
+"create_account_go_button" = "Gå";
