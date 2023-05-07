@@ -47,7 +47,7 @@ jobs:
             sudo chmod a+r /home/runner/work/Antidote/Antidote/CHANGELOG.md
             ls -rattlh
 
-    - name: upload IPA file
+    - name: upload CHANGELOG file
       uses: actions/upload-artifact@v3
       with:
         name: Changelog
