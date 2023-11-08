@@ -30,7 +30,7 @@
 /* Login screen text */
 "create_account_username_placeholder" = "用户名";
 /* Login screen text */
-"create_account_profile_title" = "为此档案命名";
+"create_account_profile_title" = "如何为用户档案命名？";
 /* Login screen text */
 "create_account_profile_placeholder" = "档案名";
 /* Login screen text */
@@ -161,9 +161,9 @@
 /* Chat screen placeholder */
 "chat_no_chats" = "没有聊天";
 /* Chats screen message text */
-"chat_outgoing_file" = "发送的文件";
+"chat_outgoing_file" = "发送的文件：";
 /* Chats screen message text */
-"chat_incoming_file" = "接收的文件";
+"chat_incoming_file" = "接收的文件：";
 /* Chats screen message text */
 "chat_call_finished" = "完成的语音通话";
 /* Chats screen message text */
@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ 新的消息";
 /* Chat call information */
-"chat_call_message" = "呼叫，";
+"chat_call_message" = "呼叫， ";
 /* Chat call information */
 "chat_missed_call_message" = "错过的语音通话";
 /* Item present in the menu on long press on message */
@@ -212,13 +212,13 @@
 /* About screen menu */
 "settings_acknowledgements" = "Acknowledgements";
 /* Settings screen menu */
-"settings_autodownload_images" = "自动下载图片";
+"settings_autodownload_images" = "自动下载文件";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "自动下载收到的图片";
+"settings_autodownload_images_description" = "自动下载收到的文件。";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "通知预览";
 /* Settings screen menu */
-"settings_notifications_description" = "当应用不活跃时仍然接收最多 10 分钟的通知";
+"settings_notifications_description" = "当应用程序进入后台之后，您仍会接收到 10 分钟以内的通知。";
 /* Settings screen menu */
 "settings_udp_enabled" = "Enable UDP";
 /* Settings screen menu */
