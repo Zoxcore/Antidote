@@ -80,7 +80,8 @@ jobs:
     - name: Rename artifact for release upload
       if: contains(github.ref, 'refs/tags/v')
       run: |
-        echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}"
+        echo "RELEASE_VERSION1=${GITHUB_REF#refs/*/}"
+        echo "RELEASE_VERSION2=${{github.ref_name}}"
         cp -v /Users/runner/work/Antidote/Antidote/Antidote_unsigned.ipa Antidote_unsigned_${GITHUB_REF#refs/*/}.ipa
     - name: Upload to versioned release
       if: contains(github.ref, 'refs/tags/v')
