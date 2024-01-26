@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "Novas mensagens";
 /* Chat call information */
-"chat_call_message" = "Ligar,";
+"chat_call_message" = "Chamada, ";
 /* Chat call information */
 "chat_missed_call_message" = "Chamada perdida";
 /* Item present in the menu on long press on message */
@@ -214,7 +214,7 @@
 /* Settings screen menu */
 "settings_autodownload_images" = "Descarregar imagens automaticamente";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Descarregar imagens automaticamente";
+"settings_autodownload_images_description" = "Descarregar automaticamente os ficheiros recebidos.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Pre-visualização de notificações";
 /* Settings screen menu */
@@ -289,7 +289,7 @@
 /* Deleting chat confirmation */
 "delete_chat_title" = "Apagar esta conversa e o histórico de mensagens?";
 /* Deleting contat confirmation */
-"delete_contact_title" = "Apagar este contacto? \nO histórico de mensagens será apagado. ";
+"delete_contact_title" = "Apagar este contacto?\nO histórico de mensagens será apagado.";
 /* Deleting contat request confirmation */
 "delete_contact_request_title" = "Rejeitar pedido?";
 /* Deleting single message in chat */

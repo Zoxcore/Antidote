@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Met dank aan";
 /* Settings screen menu */
-"settings_autodownload_images" = "Autodownload afbeeldingen";
+"settings_autodownload_images" = "Download bestanden automatisch";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automatisch inkomende afbeeldingen downloaden.";
+"settings_autodownload_images_description" = "Automatisch inkomende bestanden downloaden.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Notificatie Voorbeeld";
 /* Settings screen menu */
@@ -409,3 +409,7 @@
 "accessibility_incoming_message_label" = "Message";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Your message";
+/* Message shown on chat list when contact is typing */
+"chat_is_typing_text" = "aan het typen...";
+/* Text shown in chat when there are undelivered faux offline messages */
+"chat_pending_faux_offline_messages" = "Niet-bezorgde berichten worden verstuurd zodra jij en je vriend online zijn.";

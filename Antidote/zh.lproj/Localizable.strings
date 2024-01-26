@@ -30,7 +30,7 @@
 /* Login screen text */
 "create_account_username_placeholder" = "用户名";
 /* Login screen text */
-"create_account_profile_title" = "为此档案命名";
+"create_account_profile_title" = "如何为用户档案命名？";
 /* Login screen text */
 "create_account_profile_placeholder" = "档案名";
 /* Login screen text */
@@ -161,9 +161,9 @@
 /* Chat screen placeholder */
 "chat_no_chats" = "没有聊天";
 /* Chats screen message text */
-"chat_outgoing_file" = "发送的文件";
+"chat_outgoing_file" = "发送的文件：";
 /* Chats screen message text */
-"chat_incoming_file" = "接收的文件";
+"chat_incoming_file" = "接收的文件：";
 /* Chats screen message text */
 "chat_call_finished" = "完成的语音通话";
 /* Chats screen message text */
@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ 新的消息";
 /* Chat call information */
-"chat_call_message" = "呼叫，";
+"chat_call_message" = "呼叫， ";
 /* Chat call information */
 "chat_missed_call_message" = "错过的语音通话";
 /* Item present in the menu on long press on message */
@@ -212,13 +212,13 @@
 /* About screen menu */
 "settings_acknowledgements" = "Acknowledgements";
 /* Settings screen menu */
-"settings_autodownload_images" = "自动下载图片";
+"settings_autodownload_images" = "自动下载文件";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "自动下载收到的图片";
+"settings_autodownload_images_description" = "自动下载收到的文件。";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "通知预览";
 /* Settings screen menu */
-"settings_notifications_description" = "当应用不活跃时仍然接收最多 10 分钟的通知";
+"settings_notifications_description" = "当应用程序进入后台之后，您仍会接收到 10 分钟以内的通知。";
 /* Settings screen menu */
 "settings_udp_enabled" = "Enable UDP";
 /* Settings screen menu */
@@ -289,7 +289,7 @@
 /* Deleting chat confirmation */
 "delete_chat_title" = "删除这个聊天及所有消息记录？";
 /* Deleting contat confirmation */
-"delete_contact_title" = "删除这个联系人？\n你们的所有聊天记录将被同时删除";
+"delete_contact_title" = "删除这个联系人？\n你们之间的聊天记录将同时被删除。";
 /* Deleting contat request confirmation */
 "delete_contact_request_title" = "删除这个联系人请求？";
 /* Deleting single message in chat */
@@ -304,7 +304,7 @@
 "alert_cancel" = "取消";
 
 /* Error while creating new profile */
-"login_enter_username_and_profile" = "请输入用户名与用户档案名";
+"login_enter_username_and_profile" = "请输入用户名与用户档案名。";
 /* Error while creating new profile */
 "login_profile_already_exists" = "档案名已存在";
 
@@ -323,40 +323,40 @@
 /* Error */
 "error_wrong_password_title" = "密码错误";
 /* Error */
-"error_wrong_password_message" = "密码包含不支持的符号";
+"error_wrong_password_message" = "密码包含不支持的符号。";
 /* Error */
 "error_import_not_exist_title" = "无法导入 Tox 保存的文件";
 /* Error */
-"error_import_not_exist_message" = "文件不存在";
+"error_import_not_exist_message" = "文件不存在。";
 /* Error */
 "error_decrypt_title" = "无法解密 Tox 保存的文件";
 /* Error */
-"error_decrypt_empty_data_message" = "部分输入内容为空";
+"error_decrypt_empty_data_message" = "部分输入内容为空。";
 /* Error */
-"error_decrypt_bad_format_message" = "文件已损坏";
+"error_decrypt_bad_format_message" = "文件已损坏。";
 /* Error */
-"error_decrypt_wrong_password_message" = "密码错误或文件已损坏";
+"error_decrypt_wrong_password_message" = "密码错误或文件已损坏。";
 /* Error */
-"error_general_unknown_message" = "发生未知错误";
+"error_general_unknown_message" = "发生未知错误。";
 /* Error */
-"error_general_no_memory_message" = "内存不足";
+"error_general_no_memory_message" = "内存不足。";
 /* Error */
-"error_general_bind_port_message" = "无法绑定端口";
+"error_general_bind_port_message" = "无法绑定端口。";
 /* Error */
-"error_general_profile_encrypted_message" = "档案已加密";
+"error_general_profile_encrypted_message" = "档案已加密。";
 /* Error */
-"error_general_bad_format_message" = "文件已损坏";
+"error_general_bad_format_message" = "文件已损坏。";
 /* Error */
 "error_proxy_title" = "代理服务器错误";
 /* Error */
-"error_proxy_invalid_address_message" = "代理服务器地址格式有误";
+"error_proxy_invalid_address_message" = "代理服务器地址格式有误。";
 /* Error */
-"error_proxy_invalid_port_message" = "代理服务器端口无效";
+"error_proxy_invalid_port_message" = "代理服务器端口无效。";
 /* Error */
-"error_proxy_host_not_resolved_message" = "无法连接到代理服务器";
+"error_proxy_host_not_resolved_message" = "无法连接到代理服务器。";
 
 /* Error */
-"error_name_too_long" = "名字过长";
+"error_name_too_long" = "名字过长。";
 /* Error */
 "error_status_message_too_long" = "状态信息过长";
 

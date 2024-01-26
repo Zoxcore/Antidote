@@ -115,7 +115,7 @@
 "contact_deleted" = "Contact supprimé";
 
 /* Share Tox ID text */
-"show_qr_code" = "Montrer le code QR";
+"show_qr_code" = "Afficher le code QR";
 /* Share Tox ID text */
 "copy" = "Copier";
 
@@ -149,7 +149,7 @@
 /* User public key text */
 "public_key" = "Clé publique";
 /* Share Tox ID text */
-"show_qr" = "Montrer le code QR";
+"show_qr" = "Afficher le QR";
 /* Profile menu item / screen name */
 "profile_details" = "Détails du Profil";
 /* Profile button */
@@ -277,12 +277,12 @@
 /* Call screen text */
 "call_ended" = "Appel terminé";
 /* Call screen text */
-"call_reaching" = "En attente...";
+"call_reaching" = "En attente…";
 
 /* File message text */
 "chat_file_cancelled" = "Annulé";
 /* File message text */
-"chat_waiting" = "En attente...";
+"chat_waiting" = "En attente…";
 /* File message text */
 "chat_paused" = "Pause";
 

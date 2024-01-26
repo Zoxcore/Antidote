@@ -1,0 +1,14 @@
+
+
+/* Login button */
+"log_in" = "giriş yap";
+/* Password field */
+"password" = "Şifre";
+/* Login screen text */
+"create_profile" = "Hesap oluştur";
+/* Login screen text */
+"create_account" = "Hesap oluştur";
+/* Login screen text */
+"import_profile" = "Dosyayı dışarı çıkar";
+/* Login screen text */
+"login_or_label" = "ya da";
