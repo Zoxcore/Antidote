@@ -92,4 +92,4 @@ jobs:
         allowUpdates: true
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: "Antidote_unsigned_*.ipa"
+        artifacts: "Antidote_unsigned*.ipa"
