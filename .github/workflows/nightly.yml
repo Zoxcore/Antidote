@@ -20,7 +20,7 @@ jobs:
   macos-compile:
     runs-on: macos-12
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Display the OS Version1
       run: sw_vers -productVersion
@@ -71,7 +71,7 @@ jobs:
             file /Users/runner/Library/Developer/Xcode/DerivedData/Antidote-bhjjxfvewsypipfpuadvlmuxuzew/Build/Products/Debug-iphonesimulator/Antidote.app/Antidote
 
     - name: upload IPA file
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ipa
         path: |
