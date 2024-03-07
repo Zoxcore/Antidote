@@ -14,8 +14,6 @@
 [![Android CI](https://github.com/Zoxcore/Antidote/workflows/Nightly/badge.svg)](https://github.com/Zoxcore/Antidote/actions?query=workflow%3A%22Nightly%22)
 [![Android CI](https://github.com/Zoxcore/Antidote/workflows/PullRequest/badge.svg)](https://github.com/Zoxcore/Antidote/actions?query=workflow%3A%22PullRequest%22)
 
-<a href="https://apps.apple.com/app/antidote-tox-client/id1592895292"><img src="https://raw.githubusercontent.com/Zoxcore/Antidote/develop/docs/appstore-badge.png" width="200"></a>
-
 ## FAQ
 
 See [FAQ](FAQ/en.md).
@@ -32,9 +30,6 @@ https://hosted.weblate.org/engage/antidote/
 * <a href="https://matrix.to/#/#antidote:libera.chat">Join discussion on Matrix</a><br>
 
 ## Usage
-
-#### Install from the App Store
-* <a href="https://apps.apple.com/app/antidote-tox-client/id1592895292">Antidote - Tox Client</a><br>
 
 
 #### Manual Installation
