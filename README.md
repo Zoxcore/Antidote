@@ -1,3 +1,7 @@
+# Attention:
+<b>all Versions of Antidote 1.5 and above on the AppStore are NOT coming from this repository. the source is not know to us.</b>
+
+
 # Reboot of the Tox Messenger for the IPhone
 
 <img src="https://raw.githubusercontent.com/Zoxcore/Antidote/develop/Antidote/appstore.png" width=100>&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/Zoxcore/Antidote/develop/Antidote/old_antidote_logo_with_text.png" width=100>
