@@ -1,3 +1,9 @@
+# Attention:
+# all Versions of Antidote 1.5 and above on the AppStore are NOT coming from this repository. the source is not know to us.
+
+<br><br><br><br><br><br>
+
+
 Privacy Policy
 ==============
 
