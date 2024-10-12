@@ -1,5 +1,5 @@
 # Attention:
-## all Versions of Antidote 1.5 and above on the AppStore are NOT coming from this repository. the source is not know to us.</b>
+## all Versions of Antidote 1.5 and above on the AppStore are NOT coming from this repository. the source is not known to us.</b>
 <br><br><br>
 
 # Reboot of the Tox Messenger for the IPhone
