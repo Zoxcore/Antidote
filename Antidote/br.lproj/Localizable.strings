@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Trugarekadurioù";
 /* Settings screen menu */
-"settings_autodownload_images" = "Pellgargañ skeudennoù emgefreek";
+"settings_autodownload_images" = "Pellgargañ restroù emgefreek";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Pellgargañ en un doare emgefreek ar skeudennoù o tont e-barzh.";
+"settings_autodownload_images_description" = "Pellgargañ en un doare emgefreek ar restroù o tont e-barzh.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Diskouez ar C'hemennadennoù";
 /* Settings screen menu */
