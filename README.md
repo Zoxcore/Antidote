@@ -87,3 +87,9 @@ Antidote is available under Mozilla Public License Version 2.0. See the [LICENSE
 - new icon https://icons8.com/icon/jQvC2IpxYkR6/key
 
 
+<br>
+Any use of this project's code by GitHub Copilot, past or present, is done
+without our permission.  We do not consent to GitHub's use of this project's
+code in Copilot.
+<br>
+No part of this work may be used or reproduced in any manner for the purpose of training artificial intelligence technologies or systems.
