@@ -212,9 +212,9 @@
 /* About screen menu */
 "settings_acknowledgements" = "Poděkování";
 /* Settings screen menu */
-"settings_autodownload_images" = "Automaticky stahovat obrázky";
+"settings_autodownload_images" = "Automatické stahování souborů";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Automaticky stahovat příchozí obrázky";
+"settings_autodownload_images_description" = "Automatické stahování příchozích souborů.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Náhled notifikací";
 /* Settings screen menu */
@@ -409,3 +409,5 @@
 "accessibility_incoming_message_label" = "Zpráva";
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Vaše zpráva";
+"chat_is_typing_text" = "píše...";
+"chat_pending_faux_offline_messages" = "Nedoručené zprávy se odešlou, když jste vy i přítel online.";
