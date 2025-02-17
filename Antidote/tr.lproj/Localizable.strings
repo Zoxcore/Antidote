@@ -12,3 +12,5 @@
 "import_profile" = "Dosyayı dışarı çıkar";
 /* Login screen text */
 "login_or_label" = "ya da";
+"import_to_antidote" = "Antidote'a Aktar";
+"create_account_username_placeholder" = "Kullanıcı adı";
