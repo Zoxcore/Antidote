@@ -30,7 +30,7 @@
 /* Login screen text */
 "create_account_username_placeholder" = "Nome de Utilizador";
 /* Login screen text */
-"create_account_profile_title" = "Que nome deve ter este perfil";
+"create_account_profile_title" = "Que nome deve ter este perfil?";
 /* Login screen text */
 "create_account_profile_placeholder" = "Nome do perfil";
 /* Login screen text */
@@ -38,7 +38,7 @@
 /* Login screen text */
 "set_password_title" = "Set Password";
 /* Login screen text */
-"set_password_hint" = "Password is required to protect your data. Keep it safe - once lost it cannot be restored.";
+"set_password_hint" = "A palavra-passe é necessária para proteger os seus dados. Mantenha-a segura - uma vez perdida não será possível repor.";
 /* Login button */
 "create_account_next_button" = "Next";
 /* Login button */
@@ -47,42 +47,42 @@
 "default_user_status_message" = "Toxing com Antidote";
 
 /* PIN screen text */
-"pin_enter_to_unlock" = "Enter your PIN to unlock";
+"pin_enter_to_unlock" = "Insira o seu PIN para desbloquear";
 /* PIN screen text */
-"pin_set" = "Set PIN";
+"pin_set" = "Defina PIN";
 /* PIN screen text */
-"pin_confirm" = "Confirm PIN";
+"pin_confirm" = "Confirme PIN";
 /* PIN screen error */
-"pin_do_not_match" = "PINs did not match. Try again";
+"pin_do_not_match" = "PIN não coincide. Tente novamente";
 /* PIN screen error */
-"pin_incorrect" = "Incorrect PIN";
+"pin_incorrect" = "PIN incorrecto";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "Tentativas falhadas: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "Demasiadas tentativas falhadas. A sua sessão foi terminada.";
 /* PIN screen screen */
-"pin_enabled" = "Enable PIN";
+"pin_enabled" = "Ative PIN";
 /* PIN screen screen */
-"pin_touch_id_enabled" = "Enable Touch ID";
+"pin_touch_id_enabled" = "Ative Touch ID";
 /* PIN screen screen */
-"pin_description" = "Prevent unauthorized access to Antidote with a PIN.";
+"pin_description" = "Previna acesso não autorizado a Antidote com um código PIN.";
 /* PIN screen screen */
-"pin_touch_id_description" = "Use your fingerprint as an alternative to entering a PIN.";
+"pin_touch_id_description" = "Use a sua impressão digital como alternativa ao código PIN.";
 /* PIN screen screen */
-"pin_lock_timeout" = "Lock Timeout";
+"pin_lock_timeout" = "Tempo limite de bloqueamento";
 /* PIN screen screen */
-"pin_lock_immediately" = "Immediately";
+"pin_lock_immediately" = "Imediato";
 /* PIN screen screen */
-"pin_lock_30_seconds" = "30 Seconds";
+"pin_lock_30_seconds" = "30 Segundos";
 /* PIN screen screen */
-"pin_lock_1_minute" = "1 Minute";
+"pin_lock_1_minute" = "1 Minuto";
 /* PIN screen screen */
-"pin_lock_2_minutes" = "2 Minutes";
+"pin_lock_2_minutes" = "2 Minutos";
 /* PIN screen screen */
-"pin_lock_5_minutes" = "5 Minutes";
+"pin_lock_5_minutes" = "5 Minutos";
 
 /* Label shown when connecting to Tox network */
-"connecting_label" = "Ligando";
+"connecting_label" = "Ligando...";
 
 /* Tab name and screen name */
 "contacts_title" = "Contactos";
@@ -110,9 +110,9 @@
 /* Contact request button */
 "contact_request_accept" = "Aceitar";
 /* Contact request confirmation */
-"contact_request_delete_title" = "Rejeita o pedido";
+"contact_request_delete_title" = "Rejeita o pedido?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "Contacto apagado";
 
 /* Share Tox ID text */
 "show_qr_code" = "Mostra o código QR";
