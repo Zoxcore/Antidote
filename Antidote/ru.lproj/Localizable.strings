@@ -36,15 +36,15 @@
 /* Login screen text */
 "create_account_profile_hint" = "напр. Home, iPhone";
 /* Login screen text */
-"set_password_title" = "Пароль";
+"set_password_title" = "Установить пароль";
 /* Login screen text */
-"set_password_hint" = "Пароль необходим, чтобы защитить ваши данные. Храните его в безопастности, потому что пароль невозможно восстановить. ";
+"set_password_hint" = "Пароль необходим, чтобы защитить ваши данные. Храните его в безопасности, потому что пароль невозможно восстановить.";
 /* Login button */
 "create_account_next_button" = "Далее";
 /* Login button */
 "create_account_go_button" = "Создать";
 /* Default status message */
-"default_user_status_message" = "Toxing on Antidote";
+"default_user_status_message" = "Toxing на Андидоте";
 
 /* PIN screen text */
 "pin_enter_to_unlock" = "Введите PIN-код для разблокировки";
@@ -57,9 +57,9 @@
 /* PIN screen error */
 "pin_incorrect" = "Неправильный PIN";
 /* PIN screen error details */
-"pin_failed_attempts" = "Failed attempts: %@";
+"pin_failed_attempts" = "Неудачных попыток: %@";
 /* PIN screen message shown on log out */
-"pin_logout_message" = "Too many failed attempts. You have been logged out.";
+"pin_logout_message" = "Слишком много неудачных попыток. Вы вышли.";
 /* PIN screen screen */
 "pin_enabled" = "PIN-код включен";
 /* PIN screen screen */
@@ -69,7 +69,7 @@
 /* PIN screen screen */
 "pin_touch_id_description" = "Используйте ваш отпечаток пальца как альтернативу вводу PIN.";
 /* PIN screen screen */
-"pin_lock_timeout" = " Тайм-аут блокировки";
+"pin_lock_timeout" = "Тайм-аут блокировки";
 /* PIN screen screen */
 "pin_lock_immediately" = "Сразу";
 /* PIN screen screen */
@@ -112,7 +112,7 @@
 /* Contact request confirmation */
 "contact_request_delete_title" = "Удалить запрос?";
 /* Text shown when contact was deleted */
-"contact_deleted" = "Deleted contact";
+"contact_deleted" = "Удалённый контакт";
 
 /* Share Tox ID text */
 "show_qr_code" = "Показать QR-код";
@@ -173,7 +173,7 @@
 /* Chat notification toast */
 "chat_new_messages" = "↓ Новые сообщения";
 /* Chat call information */
-"chat_call_message" = "Звонок,";
+"chat_call_message" = "Звонок, ";
 /* Chat call information */
 "chat_missed_call_message" = "Пропущенный вызов";
 /* Item present in the menu on long press on message */
@@ -214,7 +214,7 @@
 /* Settings screen menu */
 "settings_autodownload_images" = "Загрузка вложений";
 /* Settings screen menu */
-"settings_autodownload_images_description" = "Автоматически загружать входящие вложения.";
+"settings_autodownload_images_description" = "Автоматически загружать входящие изображения.";
 /* Settings screen menu */
 "settings_notifications_message_preview" = "Превью уведомлений";
 /* Settings screen menu */
@@ -327,7 +327,7 @@
 /* Error */
 "error_import_not_exist_title" = "Невозможно импортировать файл";
 /* Error */
-"error_import_not_exist_message" = "Файл не существует";
+"error_import_not_exist_message" = "Файл не существует.";
 /* Error */
 "error_decrypt_title" = "Невозможно расшифровать файл";
 /* Error */
@@ -335,9 +335,9 @@
 /* Error */
 "error_decrypt_bad_format_message" = "Файл поврежден или имеет неверный формат.";
 /* Error */
-"error_decrypt_wrong_password_message" = "Неверный пароль";
+"error_decrypt_wrong_password_message" = "Неверный пароль или файл повреждён.";
 /* Error */
-"error_general_unknown_message" = "Неизвестная ошибка";
+"error_general_unknown_message" = "Неизвестная ошибка.";
 /* Error */
 "error_general_no_memory_message" = "Недостаточно памяти.";
 /* Error */
@@ -410,6 +410,6 @@
 /* Outgoing message label */
 "accessibility_outgoing_message_label" = "Ваше сообщение";
 /* Message shown on chat list when contact is typing */
-"chat_is_typing_text" = "пишет...";
+"chat_is_typing_text" = "печатает...";
 /* Text shown in chat when there are undelivered faux offline messages */
-"chat_pending_faux_offline_messages" = "Сообщения будут отправлены, когда вы и ваш друг оба будете онлайн.";
+"chat_pending_faux_offline_messages" = "Сообщения будут отправлены, когда вы и ваш друг оба будете в сети.";
