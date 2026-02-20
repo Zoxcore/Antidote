@@ -1,1 +1,16 @@
-
+"login_or_label" = "Atau";
+"create_account" = "Buat akun";
+"password" = "Kata sandi";
+"log_in" = "Masuk";
+"create_profile" = "Buat profil";
+"create_account_username_placeholder" = "Nama pengguna";
+"create_account_profile_placeholder" = "Nama profil";
+"set_password_hint" = "Kata sandi dibutuhkan untuk melindungi datamu. Jaga dengan baik - jika hilang tidak dapat di kembalikan.";
+"create_account_next_button" = "Selanjutnya";
+"create_account_go_button" = "Pergi";
+"pin_enter_to_unlock" = "Masukan pin anda untuk membuka";
+"pin_do_not_match" = "Pin tidak sama. Coba lagi";
+"pin_incorrect" = "Pin salah";
+"pin_failed_attempts" = "Percobaan gagal:%@";
+"pin_logout_message" = "Terlalu banyak percobaan gagal. Kamu telah keluar";
+"pin_touch_id_description" = "Gunakan fingerprint sebagai alternatif untuk memasukkan PIN.";
