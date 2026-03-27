@@ -5,23 +5,23 @@
 /* Login screen text */
 "login_or_label" = "o";
 /* Login screen text */
-"create_account" = "Crea un account";
+"create_account" = "Crea account";
 /* Login screen text */
-"import_profile" = "Importa un profilo";
+"import_profile" = "Importa profilo";
 /* Password field */
 "password" = "Password";
 /* Login screen text */
-"create_profile" = "Crea un profilo";
+"create_profile" = "Crea profilo";
 /* Login screen text */
 "create_account_username_placeholder" = "Nome utente";
 /* Login screen text */
-"create_account_profile_hint" = "ad esempio, Principale, iPhone";
+"create_account_profile_hint" = "esempio, Base, iPhone";
 /* Login screen text */
-"set_password_title" = "Imposta una password";
+"set_password_title" = "Imposta password";
 /* Login screen text */
 "set_password_hint" = "La password è necessaria per proteggere i tuoi dati. Tienila al sicuro – una volta persa non può essere ripristinata.";
 /* Login button */
-"create_account_next_button" = "Successivo";
+"create_account_next_button" = "Avanti";
 /* Login button */
 "create_account_go_button" = "Vai";
 /* Default status message */
@@ -71,14 +71,14 @@
 /* Contact request section title */
 "contact_requests_section" = "Richieste di contatto";
 /* Contact request button */
-"contact_request_accept" = "Accetta";
+"contact_request_accept" = "Accetto";
 /* Contact request confirmation */
 "contact_request_delete_title" = "Eliminare la richiesta di contatto?";
 /* Text shown when contact was deleted */
 "contact_deleted" = "Contatto eliminato";
 
 /* Add contat screen name */
-"add_contact_title" = "Aggiungi un contatto";
+"add_contact_title" = "Aggiungi contatto";
 /* Add contat button */
 "add_contact_send" = "Invia";
 /* Add contat placeholder text */
@@ -90,7 +90,7 @@
 /* Add contat default text sended to contact */
 "add_contact_default_message_text" = "Ciao! Potresti aggiungermi alla tua lista di contatti?";
 /* Contact request button */
-"contact_request_decline" = "Declino";
+"contact_request_decline" = "Rifiuto";
 /* Profile button */
 "logout_button" = "Esci";
 
@@ -293,7 +293,7 @@
 /* Login screen text */
 "create_account_username_title" = "Come ti vedranno i contatti?";
 /* PIN screen error */
-"pin_do_not_match" = "Il PIN non corrisponde. Provi di nuovo";
+"pin_do_not_match" = "Il PIN non corrisponde. Prova di nuovo";
 /* PIN screen message shown on log out */
 "pin_logout_message" = "Troppi tentativi falliti. Sei stato/a disconnesso/a.";
 /* Screen name */
@@ -307,7 +307,7 @@
 /* Login screen text */
 "create_account_profile_title" = "Come chiamare questo profilo?";
 /* PIN screen screen */
-"pin_enabled" = "Abilita il PIN";
+"pin_enabled" = "Abilita PIN";
 /* PIN screen screen */
 "pin_lock_2_minutes" = "2 minuti";
 
@@ -339,7 +339,7 @@
 /* Video button hint in contact screen */
 "accessibility_video_button_hint" = "Fa una videochiamata.";
 /* Login screen text */
-"create_account_profile_placeholder" = "Nome del profilo";
+"create_account_profile_placeholder" = "Nome profilo";
 /* PIN screen error details */
 "pin_failed_attempts" = "Tentativi falliti: %@";
 /* PIN screen screen */
