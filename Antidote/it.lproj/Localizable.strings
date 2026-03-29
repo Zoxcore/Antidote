@@ -301,7 +301,7 @@
 /* Share Tox ID text */
 "copy" = "Copia";
 /* Call screen text */
-"call_reaching" = "In attesa…";
+"call_reaching" = "Raggiungimento…";
 /* Add contat placeholder text */
 "add_contact_default_message_title" = "Messaggio";
 /* Login screen text */
@@ -360,7 +360,7 @@
 /* User public key text */
 "public_key" = "Chiave pubblica";
 /* Share Tox ID text */
-"show_qr" = "Mostra il codice QR";
+"show_qr" = "Mostra QR";
 /* Profile menu item / screen name */
 "profile_details" = "Dettagli del profilo";
 /* Chats screen message text */
