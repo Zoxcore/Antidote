@@ -275,7 +275,7 @@
 /* Call screen text */
 "call_incoming" = "Llamada entrante";
 /* Call screen text */
-"call_ended" = "Llamada finalizada";
+"call_ended" = "Llamada terminada";
 /* Call screen text */
 "call_reaching" = "Llamando...";
 
