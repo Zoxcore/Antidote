@@ -1,15 +1,15 @@
 
 
 /* Login button */
-"log_in" = "giriş yap";
+"log_in" = "Giriş Yap";
 /* Password field */
 "password" = "Şifre";
 /* Login screen text */
-"create_profile" = "Hesap oluştur";
+"create_profile" = "Profil oluştur";
 /* Login screen text */
-"create_account" = "Hesap oluştur";
+"create_account" = "Hesap Oluştur";
 /* Login screen text */
-"import_profile" = "Dosyayı dışarı çıkar";
+"import_profile" = "Profili İçe Aktar";
 /* Login screen text */
 "login_or_label" = "ya da";
 "import_to_antidote" = "Antidote'a Aktar";
@@ -18,7 +18,7 @@
 "create_account_profile_title" = "Bu profile ne ad verilsin?";
 "create_account_profile_placeholder" = "Profil adı";
 "create_account_profile_hint" = "örn. Ev, iPhone";
-"set_password_title" = "Parola Belirle";
+"set_password_title" = "Şifre Belirle";
 "set_password_hint" = "Verilerinizi korumak için şifre gereklidir. Güvenli tutun - kaybolursa geri getirilemez.";
 "create_account_next_button" = "Sonraki";
 "create_account_go_button" = "Git";
@@ -26,7 +26,25 @@
 "pin_set" = "PIN Belirle";
 "pin_confirm" = "PIN Onayla";
 "pin_do_not_match" = "PIN'ler uyuşmadı. Tekrar deneyin";
-"pin_incorrect" = "Geçersiz PIN";
-"pin_failed_attempts" = "Denemeler başarısız: %@";
+"pin_incorrect" = "Yanlış PIN";
+"pin_failed_attempts" = "Başarısız denemeler: %@";
 "pin_logout_message" = "Çok fazla başarısız deneme. Çıkış yapıldı.";
-"pin_enabled" = "PIN aktif et";
+"pin_enabled" = "PIN Etkinleştir";
+"pin_touch_id_enabled" = "Touch ID Etkinleştir";
+"pin_lock_immediately" = "Hemen";
+"pin_lock_30_seconds" = "30 Saniye";
+"pin_lock_1_minute" = "1 Dakika";
+"pin_lock_2_minutes" = "2 Dakika";
+"pin_lock_5_minutes" = "5 Dakika";
+"connecting_label" = "Bağlanıyor...";
+"contacts_title" = "Kişiler";
+"chats_title" = "Sohbetler";
+"settings_title" = "Ayarlar";
+"profile_title" = "Profil";
+"contact_no_contacts" = "Kişiler yok";
+"contact_no_contacts_add_contact" = "Bir kişi ekle\nya da\n";
+"contact_no_contacts_share_tox_id" = "Tox ID'ni paylaş";
+"contact_last_seen" = "Son görülme: %@";
+"contact_request_decline" = "Reddet";
+"contact_request_accept" = "Kabul Et";
+"pin_lock_timeout" = "Kilit Zaman Aşımı";
